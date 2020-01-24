@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Tag: Statistics | Sauron Lee‘blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="リ　ショウゼン 李笑然">
+<meta name="keywords" content="ML;FEND">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sauron Lee‘blog">
+<meta property="og:url" content="https://github.com/SauronLee/tags/Statistics/page/3/index.html">
+<meta property="og:site_name" content="Sauron Lee‘blog">
+<meta property="og:description" content="リ　ショウゼン 李笑然">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sauron Lee‘blog">
+<meta name="twitter:description" content="リ　ショウゼン 李笑然">
+  
+    <link rel="alternate" href="/atom.xml" title="Sauron Lee‘blog" type="application/atom+xml">
+  
+  
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/categories/news">News</a></li>
+        
+          <li><a class=""
+                 href="/categories/leetcode">LeetCode</a></li>
+        
+          <li><a class=""
+                 href="/categories/project">Project</a></li>
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+     
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">Sauron Lee‘blog</h1>
+  
+    <p class="lead blog-description">リ　ショウゼン</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/">Logistic Regression of R by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T18:18:54.000Z" itemprop="datePublished">September 13th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/35.png" alt="issue"><br><img src="/images/A-Z_ML/36.png" alt="issue"><br><img src="/images/A-Z_ML/37.png" alt="issue"><br><img src="/images/A-Z_ML/38.png" alt="issue"></p>
+<ul>
+<li>列<br><img src="/images/A-Z_ML/42.png" alt="issue"></li>
+</ul>
+<pre><code>
+# Logistic Regression
+
+# Importing the dataset
+dataset = read.csv(&#39;Social_Network_Ads.csv&#39;)
+dataset = dataset[3:5]
+
+# Splitting the dataset into the Training set and Test set
+# install.packages(&#39;caTools&#39;)
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+training_set[, 1:2] = scale(training_set[, 1:2])
+test_set[, 1:2] = scale(test_set[, 1:2])  
+
+# Fitting Logistic Regression to the Training set
+classifier = glm(formula = Purchased ~ .,
+                 family= binomial,
+                 data= training_set)
+
+# Predicting the Test set results
+prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
+y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
+
+# Making the Confusion Matrix
+cm = table(test_set[,3], y_pred)
+
+# Visualising the Training set results
+# install.packages(ElemStatLearn)
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.0075)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.0075)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
+prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
+y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
+plot(set[, -3],
+     main = &#39;Classifier (Training set)&#39;,
+     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
+
+# Visualising the Test set results
+# install.packages(ElemStatLearn)
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
+prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
+y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
+plot(set[, -3],
+     main = &#39;Classifier (Test set)&#39;,
+     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
+</code></pre><hr>
+<pre><code>
+
+ prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
+ prob_pred
+           2            4            5            9           12           18           19 
+0.0162395375 0.0117148379 0.0037846461 0.0024527456 0.0073339436 0.2061576580 0.2669935073 
+          20           22           29           32           34           35           38 
+0.3851475689 0.5448578778 0.0103005636 0.2994922143 0.0084168787 0.0494471952 0.0171641479 
+          45           46           48           52           66           69           74 
+0.0485051303 0.0008343060 0.0102561619 0.0007055347 0.0058448457 0.0044534947 0.3933468488 
+          75           82           84           85           86           87           89 
+0.0071065671 0.1068589185 0.2580084947 0.0303248927 0.3303649169 0.0051132916 0.0263861849 
+         103          104          107          108          109          117          124 
+0.1310148056 0.7649772313 0.0034367786 0.0473827096 0.0327965105 0.1626049288 0.0675494054 
+         126          127          131          134          139          148          154 
+0.2189658514 0.4142562486 0.0324337750 0.0043457839 0.0163538708 0.1030590600 0.0751093248 
+         156          159          162          163          170          175          176 
+0.0048556976 0.0027487256 0.0306647902 0.0463555716 0.0122981409 0.1169016711 0.0011936610 
+         193          199          200          208          213          224          226 
+0.0103005636 0.0252589417 0.0177353905 0.9870859806 0.9453359968 0.9969454446 0.1064430571 
+         228          229          230          234          236          237          239 
+0.9979393884 0.3705093415 0.5807527959 0.9117762840 0.7817273411 0.2310672929 0.8037996043 
+         241          255          264          265          266          273          274 
+0.9682706714 0.6686007827 0.1451169281 0.9060311409 0.8293112410 0.9568520348 0.6781064291 
+         281          286          292          299          302          305          307 
+0.9926955397 0.4170486388 0.9220096987 0.7363498859 0.8247736816 0.2558136823 0.9932007105 
+         310          316          324          326          332          339          341 
+0.1178058928 0.3442845494 0.3958138650 0.3059412440 0.9725035550 0.1431602303 0.9842795480 
+         343          347          353          363          364          367          368 
+0.2073273008 0.9371909698 0.6843940060 0.5559479117 0.5698028861 0.9440512240 0.8427877409 
+         369          372          373          380          383          389          392 
+0.2549836305 0.9928717092 0.3243409327 0.8519685008 0.9697473704 0.3793408625 0.2718336775 
+         395          400 
+0.2040229226 0.5236436275 
+
+
+y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
+y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   1   1   1   1   0   1   0   1   1 
+389 392 395 400 
+  0   0   0   1 
+
+cm = table(test_set[,3], y_pred)
+#对角线为正确率
+&gt; cm
+   y_pred
+     0  1
+  0 57  7
+  1 10 26
+</code></pre><p><img src="/images/A-Z_ML/43.png" alt="issue"><br><img src="/images/A-Z_ML/44.png" alt="issue"></p>
+<hr>
+<p>glm {stats}    R Documentation<br>Fitting Generalized Linear Models<br>Description<br>glm is used to fit generalized linear models, specified by giving a symbolic description of the linear predictor and a description of the error distribution.</p>
+<p>Usage<br>glm(formula, family = gaussian, data, weights, subset,<br>    na.action, start = NULL, etastart, mustart, offset,<br>    control = list(…), model = TRUE, method = “glm.fit”,<br>    x = FALSE, y = TRUE, singular.ok = TRUE, contrasts = NULL, …)</p>
+<p>glm.fit(x, y, weights = rep(1, nobs),<br>        start = NULL, etastart = NULL, mustart = NULL,<br>        offset = rep(0, nobs), family = gaussian(),<br>        control = list(), intercept = TRUE, singular.ok = TRUE)</p>
+<h1 id="S3-method-for-class-‘glm’"><a href="#S3-method-for-class-‘glm’" class="headerlink" title="S3 method for class ‘glm’"></a>S3 method for class ‘glm’</h1><p>weights(object, type = c(“prior”, “working”), …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
+<p>family<br>a description of the error distribution and link function to be used in the model. For glm this can be a character string naming a family function, a family function or the result of a call to a family function. For glm.fit only the third option is supported. (See family for details of family functions.)</p>
+<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which glm is called.</p>
+<p>weights<br>an optional vector of ‘prior weights’ to be used in the fitting process. Should be NULL or a numeric vector.</p>
+<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
+<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
+<p>start<br>starting values for the parameters in the linear predictor.</p>
+<p>etastart<br>starting values for the linear predictor.</p>
+<p>mustart<br>starting values for the vector of means.</p>
+<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector of length equal to the number of cases. One or more offset terms can be included in the formula instead or as well, and if more than one is specified their sum is used. See model.offset.</p>
+<p>control<br>a list of parameters for controlling the fitting process. For glm.fit this is passed to glm.control.</p>
+<p>model<br>a logical value indicating whether model frame should be included as a component of the returned value.</p>
+<p>method<br>the method to be used in fitting the model. The default method “glm.fit” uses iteratively reweighted least squares (IWLS): the alternative “model.frame” returns the model frame and does no fitting.</p>
+<p>User-supplied fitting functions can be supplied either as a function or a character string naming a function, with a function which takes the same arguments as glm.fit. If specified as a character string it is looked up from within the stats namespace.</p>
+<p>x, y<br>For glm: logical values indicating whether the response vector and model matrix used in the fitting process should be returned as components of the returned value.</p>
+<p>For glm.fit: x is a design matrix of dimension n * p, and y is a vector of observations of length n.</p>
+<p>singular.ok<br>logical; if FALSE a singular fit is an error.</p>
+<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
+<p>intercept<br>logical. Should an intercept be included in the null model?</p>
+<p>object<br>an object inheriting from class “glm”.</p>
+<p>type<br>character, partial matching allowed. Type of weights to extract from the fitted model object. Can be abbreviated.</p>
+<p>…<br>For glm: arguments to be used to form the default control argument if it is not supplied directly.</p>
+<p>For weights: further arguments passed to or from other methods.</p>
+<hr>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/">Logistic Regression of Python by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T15:40:39.000Z" itemprop="datePublished">September 13th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/35.png" alt><br><img src="/images/A-Z_ML/36.png" alt><br><img src="/images/A-Z_ML/37.png" alt><br><img src="/images/A-Z_ML/38.png" alt></p>
+<ul>
+<li>列<br><img src="/images/A-Z_ML/39.png" alt></li>
+</ul>
+<script src="https://gist.github.com/SauronLee/fdff6948bb436e04e91e1ba70ed7e3bb.js"></script>
+
+<ul>
+<li>运行confusion_matrix来测试精准度，正确率（65+24）%</li>
+</ul>
+<pre><code># Making the Confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+cm
+Out[3]: 
+array([[65,  3],
+       [ 8, 24]])
+</code></pre><p><img src="/images/A-Z_ML/40.png" alt><br><img src="/images/A-Z_ML/41.png" alt></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/">Evaluating Regression Models Performance by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T14:48:21.000Z" itemprop="datePublished">September 12th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>R平方 - 原理(决定系数)<br><img src="/images/A-Z_ML/30.png" alt><br><img src="/images/A-Z_ML/31.png" alt></li>
+<li>广义R平方 - 原理（Adjected R^2）</li>
+<li>因为最差时:b<em>3*x</em>=0<br><img src="/images/A-Z_ML/32.png" alt></li>
+<li>P有惩罚的作用，P(自变量)越多分母就会越大，分数就会升高<br><img src="/images/A-Z_ML/33.png" alt></li>
+<li>回归模型性能评价及选择</li>
+<li>加自变量会增加R^2，所以AdjR^2会更好<br><img src="/images/A-Z_ML/34.png" alt></li>
+</ul>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/12/Polynomial-Regression-of-R-by-A-Z/">Polynomial Regression of R by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/12/Polynomial-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T06:53:46.000Z" itemprop="datePublished">September 12th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt><br><img src="/images/A-Z_ML/25.png" alt></p>
+<pre><code># Polynomial Regression
+
+# Importing the dataset
+dataset = read.csv(&#39;Position_Salaries.csv&#39;)
+dataset = dataset[, 2:3]
+
+# Splitting the dataset into the Training set and Test set
+# install.packages(&#39;caTools&#39;)
+# library(caTools)
+# set.seed(123)
+# split = sample.split(dataset$Purchased, SplitRatio = 0.8)
+# training_set = subset(dataset, split == TRUE)
+# test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+# training_set[, 2:3] = scale(training_set[, 2:3])
+# test_set[, 2:3] = scale(test_set[, 2:3])
+
+# Fitting Linear Regression to the dataset
+lin_reg=lm(formula = Salary~.,
+           data=dataset)
+
+# Fitting Polynomial Regression to the dataset
+dataset$level2 = dataset$Level^2
+dataset$level3 = dataset$Level^3
+dataset$level4 = dataset$Level^4
+poly_reg = lm(formula = Salary~.,
+              data=dataset)
+
+#Visualising the Linear Regression results
+install.packages(&#39;ggplot2&#39;)
+library(ggplot2)
+ggplot() +
+  geom_point(aes(x=dataset$Level,y=dataset$Salary),
+             colour = &#39;red&#39;) +
+  geom_line (aes (x=dataset$Level, y = predict (lin_reg, newdata=dataset)),
+             colour = &#39;blue&#39;) +
+  xlab(&#39;Level&#39;) +
+  ylab(&#39;Salary&#39;)
+
+#Visualising the Polynomial Regression results
+ggplot() +
+  geom_point(aes(x=dataset$Level,y=dataset$Salary),
+             colour = &#39;red&#39;) +
+  geom_line (aes (x=dataset$Level, y = predict (poly_reg, newdata=dataset)),
+             colour = &#39;blue&#39;) +
+  xlab(&#39;Level&#39;) +
+  ylab(&#39;Salary&#39;)
+
+#Predicting a new result with Linear Regression
+y_pred=predict(lin_reg, data.frame(Level=6.5))
+
+#Predicting a new result with Polynomial Regression
+#因为我们的维度比较高那么R需要让我们告诉他每个维度的值
+y_pred=predict(poly_reg, data.frame(Level=6.5,
+                                    level2=6.5^2,
+                                    level3=6.5^3,
+                                    level4=6.5^4))
+</code></pre><hr>
+<p>summary(lin_reg)</p>
+<p>Call:<br>lm(formula = Salary ~ ., data = dataset)</p>
+<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-170818 -129720  -40379   65856  386545 </p>
+<p>Coefficients:<br>            Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)  -195333     124790  -1.565  0.15615   </p>
+<h2 id="Level-80879-20112-4-021-0-00383"><a href="#Level-80879-20112-4-021-0-00383" class="headerlink" title="Level          80879      20112   4.021  0.00383 **"></a>Level          80879      20112   4.021  0.00383 **</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Residual standard error: 182700 on 8 degrees of freedom<br>Multiple R-squared:  0.669,    Adjusted R-squared:  0.6277<br>F-statistic: 16.17 on 1 and 8 DF,  p-value: 0.003833</p>
+<hr>
+<ul>
+<li>增加次方项</li>
+</ul>
+<pre><code># Fitting Polynomial Regression to the dataset
+dataset$level2 = dataset$Level^2
+dataset$level3 = dataset$Level^3
+dataset$level4 = dataset$Level^4
+poly_reg = lm(formula = Salary~.,
+              data=dataset)
+</code></pre><hr>
+<p> summary(poly_reg)</p>
+<p>Call:<br>lm(formula = Salary ~ ., data = dataset)</p>
+<p>Residuals:<br>     1      2      3      4      5      6      7      8      9     10<br> -8357  18240   1358 -14633 -11725   6725  15997  10006 -28695  11084 </p>
+<p>Coefficients:<br>             Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)  184166.7    67768.0   2.718  0.04189 <em><br>Level       -211002.3    76382.2  -2.762  0.03972 </em><br>level2        94765.4    26454.2   3.582  0.01584 <em><br>level3       -15463.3     3535.0  -4.374  0.00719 *</em></p>
+<h2 id="level4-890-2-159-8-5-570-0-00257"><a href="#level4-890-2-159-8-5-570-0-00257" class="headerlink" title="level4          890.2      159.8   5.570  0.00257 **"></a>level4          890.2      159.8   5.570  0.00257 **</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Residual standard error: 20510 on 5 degrees of freedom<br>Multiple R-squared:  0.9974,    Adjusted R-squared:  0.9953<br>F-statistic: 478.1 on 4 and 5 DF,  p-value: 1.213e-06</p>
+<hr>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/">Polynomial Regression of Python by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T06:53:36.000Z" itemprop="datePublished">September 12th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt></p>
+<ul>
+<li>多应用在流行病学：疾病在时间和空间上的传播速度</li>
+</ul>
+<p><img src="/images/A-Z_ML/25.png" alt><br><img src="/images/A-Z_ML/26.png" alt></p>
+<script src="https://gist.github.com/SauronLee/deb2cca719850a2cf43b585503bc3be1.js"></script>
+
+<p>多项式回归就是利用：下面👇代码拟合出b_0和次方项然后全部进行线性回归</p>
+<pre><code>poly_reg = PolynomialFeatures(degree = 4)
+X_poly = poly_reg.fit_transform(X)
+</code></pre><p><img src="/images/A-Z_ML/27.png" alt="issue"><br><img src="/images/A-Z_ML/29.png" alt="issue"><br><img src="/images/A-Z_ML/28.png" alt="issue"></p>
+<ul>
+<li>如果要使线段变得平滑增加x的密度即可比如：<pre><code>X_grid=np.arange(min(X),max(X),0.1)
+X_grid=X_grid.reshape(len(X_grid),1)
+plt.plot(X_grid, lin_reg_2.predict(poly_reg.fit_transform(X_grid)), color = &#39;blue&#39;)
+</code></pre>如果一个新人他说他35岁工作了6年半工资16万是否诚实<pre><code>lin_reg.predict(6.5）
+lin_reg_2.predict(poly_reg.fit_transform(6.5))
+</code></pre></li>
+</ul>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/">Simple Linear Regression of R  by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:29.000Z" itemprop="datePublished">September 11th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
+<script src="https://gist.github.com/SauronLee/ea489f7e3335cbc820bf593f7de6cd62.js"></script>
+
+<p><img src="/images/A-Z_ML/06.png" alt></p>
+<ul>
+<li>lm {stats}    R Documentation<br>Fitting Linear Models<br>Description<br>lm is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).</li>
+</ul>
+<p>Usage<br>lm(formula, data, subset, weights, na.action,<br>   method = “qr”, model = TRUE, x = FALSE, y = FALSE, qr = TRUE,<br>   singular.ok = TRUE, contrasts = NULL, offset, …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
+<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.</p>
+<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
+<p>weights<br>an optional vector of weights to be used in the fitting process. Should be NULL or a numeric vector. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used. See also ‘Details’,</p>
+<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
+<p>method<br>the method to be used; for fitting, currently only method = “qr” is supported; method = “model.frame” returns the model frame (the same as with model = TRUE, see below).</p>
+<p>model, x, y, qr<br>logicals. If TRUE the corresponding components of the fit (the model frame, the model matrix, the response, the QR decomposition) are returned.</p>
+<p>singular.ok<br>logical. If FALSE (the default in S but not in R) a singular fit is an error.</p>
+<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
+<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector or matrix of extents matching those of the response. One or more offset terms can be included in the formula instead or as well, and if more than one are specified their sum is used. See model.offset.</p>
+<p>…<br>additional arguments to be passed to the low level regression fitting functions (see below).</p>
+<ul>
+<li>summary(regressor)</li>
+</ul>
+<p>Call:<br>lm(formula = Salary ~ YearsExperience, data = training_set)</p>
+<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-7325.1 -3814.4   427.7  3559.7  8884.6 </p>
+<p>Coefficients:<br>                Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)        25592       2646   9.672 1.49e-08 <em>*</em></p>
+<h2 id="YearsExperience-9365-421-22-245-1-52e-14"><a href="#YearsExperience-9365-421-22-245-1-52e-14" class="headerlink" title="YearsExperience     9365        421  22.245 1.52e-14 *"></a>YearsExperience     9365        421  22.245 1.52e-14 <em>*</em></h2><ul>
+<li><em>代表变量对模型的显著性（重要性）P值越小显著性越（强当p值小于0.05时显著性就很大了）R-squared:  0.9649（越接近1说明拟合效果越好）<br>Signif. codes:  0 ‘**</em>’ 0.001 ‘<em>*’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1</li>
+</ul>
+<p>Residual standard error: 5391 on 18 degrees of freedom<br>Multiple R-squared:  0.9649,    Adjusted R-squared:  0.963<br>F-statistic: 494.8 on 1 and 18 DF,  p-value: 1.524e-14</p>
+<ul>
+<li>command+enter<br>y_pred = predict(regressor, newdata = test_set)<blockquote>
+<p>y_pred</p>
+<pre><code>  2         4         5         8        11        16        20        21        24 
+</code></pre><p>37766.77  44322.33  46195.35  55560.43  62115.99  71481.07  81782.66  89274.72 102385.84 </p>
+<pre><code> 26 
+</code></pre><p>109877.90 </p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/">Simple Linear Regression of Python by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:04.000Z" itemprop="datePublished">September 11th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
+<script src="https://gist.github.com/SauronLee/bf7e3f954b445edc107ef4271b13642b.js"></script>
+
+<p><img src="/images/A-Z_ML/04.png" alt><br><img src="/images/A-Z_ML/05.png" alt></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/21/Statistics-by-Yebingcheng-of-Taiwan-University/">Statistics by Yebingcheng of Taiwan University</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/21/Statistics-by-Yebingcheng-of-Taiwan-University/" class="archive-article-date"><time datetime="2019-08-21T09:08:34.000Z" itemprop="datePublished">August 21st</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="几率的独立性（Independent）"><a href="#几率的独立性（Independent）" class="headerlink" title="几率的独立性（Independent）"></a>几率的独立性（Independent）</h1><p>若两个事件满足：<script type="math/tex">P(A\cap B)=P(A)\cdot P(B)</script> 则A，B两件事称为独立事件<br>两个事件没有交集，同时发生两件事的几率就是完全两个几率相乘没有扣除交集部分<br>我比较喜欢另一个版本的独立事件的定义：<script type="math/tex">P(A|B)=P(A)</script> 也就是说在B发生时A发生的概率等于A发生的概率（也就是说B发生对A没有影响）<br>两个公式是一样的：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P(A|B)&=P(A)\\
+\frac{P(A\cap B)}{P(B)}&=P(A)\\
+P(A\cap B)&=P(A)\cdot P(B)
+\end{align*}</script><p>如果是多事件也是一样的：如果有m个事件那么先Cm取2每个算一遍Cm取3每个算一遍，最后Cm取m每个算一遍，全部独立我们才能说是互相独立的</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P(A_{i1}\cap A_{i2}\cap A_{i3}...\cap A_{im})&=P(A_{i1})\cdot P(A_{i2})\cdot P(A_{i3})\cdot ...\cdot P(A_{im}) 
+\end{align*}</script><h1 id="排列（Permutation）"><a href="#排列（Permutation）" class="headerlink" title="排列（Permutation）"></a>排列（Permutation）</h1><p>判断事件是否是排列问题首先要看事件：<br>是否可区分=y，<br>有无放回=n，（无放回用阶乘）<br>顺序有无差异=y<br>比如：若有n个异物，从中依序取出k物有多少种结果</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P=\frac{n!}{n!-k!}
+\end{align*}</script><h1 id="重复选取（Chooes-with-Replacements）"><a href="#重复选取（Chooes-with-Replacements）" class="headerlink" title="重复选取（Chooes with Replacements）"></a>重复选取（Chooes with Replacements）</h1><p>判断：<br>是否可区分=y，<br>有无放回=y，<br>顺序有无差异=y<br>比如：若有n个异物，从中依序取出k物（但每取出一个异物便放回去）有多少种结果</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P=k^{n}
+\end{align*}</script><h1 id="组合（Combination）"><a href="#组合（Combination）" class="headerlink" title="组合（Combination）"></a>组合（Combination）</h1><p>判断：<br>是否可区分=y，<br>有无放回=n，（无放回用阶乘）<br>顺序有无差异=n，（无顺序用组合，因为一共会有k！个顺序所以除以多余k！）<br>比如：若有n异物，从中取出k物共有多少种结果？</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P=\frac{n!}{(n-k)!k!}
+\end{align*}</script><p>$<br>C<em>{n}^{k}:又称为二项式系数，根据二项式定理\<br>(x+y)^{n}=\sum</em>{n}^{k=0}C_{n}^{k}x^{k}y^{n-k}<br>$</p>
+<h1 id="多项组合（Multionomial）"><a href="#多项组合（Multionomial）" class="headerlink" title="多项组合（Multionomial）"></a>多项组合（Multionomial）</h1><p>其实就是几种组合的并集，也可以写成多项式的形式,直接记原始形式就行</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P&=C_{n1}^{n}\cdot C_{n2}^{n-n1}\cdot  C_{n3}^{n-n1-n2}...C_{n_{m}}^{n_{m}}\\
+&=\frac{n!}{n_{1}!n_{2}!n_{3}!...n_{m}!}
+\end{align*}</script><script type="math/tex; mode=display">
+\begin{align*}  
+(x_{1}+x_{2}+x_{3}+...+x_{m})^{n}
+=\sum_{n_{1}=0}^{n}\sum_{n_{2}=0}^{n}...\sum_{n_{m}=0}^{n}\frac{n!}{n_{1}!n_{2}!n_{3}!...n_{m}!}x_{n_{1}}^{1}x_{n_{2}}^{2}...x_{n_{m}}^{m}
+\end{align*}</script><h1 id="随机变数-（Random-variable）"><a href="#随机变数-（Random-variable）" class="headerlink" title="随机变数 （Random variable）"></a>随机变数 （Random variable）</h1><ul>
+<li>就是把实验结果数字化的表示方式，目的是使数学的推导更加简单明了，随机变数都是大写的字母</li>
+<li>随机变数是一个函数，喂给F()一个随机变数，得出一个相应的概率</li>
+</ul>
+<h1 id="分布函数-CDF"><a href="#分布函数-CDF" class="headerlink" title="分布函数 CDF"></a>分布函数 CDF</h1><p>对于任意一个随机变数X，我们定义其CDF为函数：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)= \overset{dif}{\rightarrow}P(X\leq x)
+\end{align*}</script><p>例1：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(0.5)= P(X\leq0.5)=\frac{1}{2}
+\end{align*}</script><p>例2：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P(3<X\leq 5)&=P(-\infty <X\leq 5)-P(-\infty <X\leq 3)\\
+&=P(X\leq 5)-P(X\leq 3)\\
+&=F_{X}(5)-F_{X}(3)
+\end{align*}</script><ul>
+<li>$x\leq 5^{-}=x&lt;5(CDF为离散变数时)，CDF在连续值时x&lt;5^{-}=x&lt;5$</li>
+</ul>
+<h1 id="密度函数-PMF"><a href="#密度函数-PMF" class="headerlink" title="密度函数 PMF"></a>密度函数 PMF</h1><p>又称质量函数，必须是离散函数</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)= \overset{dif}{\rightarrow}P(X = x)
+\end{align*}</script><p>PMF是非常直观的，直接就是x发生的几率<br>Ex：X为骰子点数</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(3)= P(X=3)=\frac{1}{6}
+\end{align*}</script><script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)=\sum_{n=-\infty }^{\left \lfloor x \right \rfloor}P_{X}(n)
+\end{align*}</script><h2 id="Bernoulli-伯努利几率分布"><a href="#Bernoulli-伯努利几率分布" class="headerlink" title="Bernoulli 伯努利几率分布"></a>Bernoulli 伯努利几率分布</h2><p>PMF：只做一次实验，或成功或失败，X表示成功的概率</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+X\sim Bernoulli (0.6)\\
+P_{X}(x)=\left\{\begin{matrix}
+0.6 & ,x=1\\ 
+0.4 & ,x=0\\ 
+0 & ,otherwise
+\end{matrix}\right.
+\end{align*}</script><h2 id="Binomial-二项式几率分布"><a href="#Binomial-二项式几率分布" class="headerlink" title="Binomial 二项式几率分布"></a>Binomial 二项式几率分布</h2><p>PMF：若实验成功率为0.6作10次实验，问8次成功的概率是多少？X表示成功次数<br>二项式定理就是说：每一种实验的组合都要乘上8次的成功几率，然后再乘上2次失败的几率</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P_{X}(x)&=X\sim BIN(10,0.6)\\
+P_{X}(8)&=P(x=8)\\
+&=C_{8}^{10}\cdot 0.6^{8}\cdot (1-0.6)^{10-8}
+\end{align*}</script><p>CDF：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
+&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}C_{m}^{10}\cdot 0.6^{m}\cdot (1-0.6)^{n-m}
+\end{align*}</script><h2 id="uniform-均匀几率分布"><a href="#uniform-均匀几率分布" class="headerlink" title="uniform 均匀几率分布"></a>uniform 均匀几率分布</h2><p>PMF:如果X等于3，4，5，…，7的几率均等</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P_{X}(x)&=X\sim UNIF(3,7)\\
+p_{X}=\left\{\begin{matrix}
+\frac{1}{7-3+1}=\frac{1}{5},&x=3,4,...,7\\ 
+0,&otherwise
+\end{matrix}\right.
+\end{align*}</script><p>CDF</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
+&=\left\{\begin{matrix}
+0 &,x<3 \\ 
+\frac{\left \lfloor x \right \rfloor-3+1}{6} &,3\leq x\leq 8 \\ 
+ 1& ,x\leq 8
+\end{matrix}\right.
+\end{align*}</script><h2 id="Geometric-几何几率分布"><a href="#Geometric-几何几率分布" class="headerlink" title="Geometric 几何几率分布"></a>Geometric 几何几率分布</h2><ul>
+<li>有失意性<br>六脉神剑：打出来的概率是0.1，那么在他第十次打出来的概率是多少？<br>用9次失败的概率乘以一次成功的概率<br>PMF:几何级数，每一个跟前一个差1-p倍<script type="math/tex; mode=display">
+P_{X}(x):X\sim Geometric(p)\\
+P_{X}(x)=\left\{\begin{matrix}
+(1-p)^{x-1} &,x=1,2,3,... \\ 
+0 & ,otherwise
+\end{matrix}\right.</script>CDF：<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
+&=\left\{\begin{matrix}
+x\geq 1:\sum_{n=1}^{\left \lfloor x \right \rfloor}(1-p)^{n-1}p=p\cdot\frac{1-(1-p)^{\left \lfloor x \right \rfloor}}{1-(1-p)} \\ 
+x<1:0
+\end{matrix}\right.\\
+&=\left\{\begin{matrix}
+1-(1-p)^{\left \lfloor x \right \rfloor} & ,x\geq 1 \\ 
+0& ,otherxise
+\end{matrix}\right.
+\end{align*}</script></li>
+</ul>
+<h2 id="Pascal-几率分布"><a href="#Pascal-几率分布" class="headerlink" title="Pascal 几率分布"></a>Pascal 几率分布</h2><p>六脉神剑：打出来的几率是0.1，成功5次便耗尽功力，问他第9次刚好耗尽功力的概率（5次成功4次失败）</p>
+<script type="math/tex; mode=display">
+C_{4}^{8}\cdot C_{1}^{1}\cdot 0.9^{4}\cdot 0.1^{5}</script><p>PMF:</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P_{X}(x)&=X\sim Pascal(k,p)
+&=\left\{\begin{matrix}
+C_{k-1}^{x-1}\cdot (1-p)^{x-k}\cdot P^{k} & ,x=k,k+1,...\\ 
+ 0&,otherwise 
+\end{matrix}\right.
+\end{align*}</script><p>CDF: Pascal又称作Negative Binomial</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=P(X\leq x)\\
+&=P(第k次成功在第x次以前)\\
+&=P(在x次实验中\geq k次成功)\\
+&=P(Y\geq k),Y\sim BIN(x,p)
+\end{align*}</script><h2 id="Poisson-几率分布"><a href="#Poisson-几率分布" class="headerlink" title="Poisson 几率分布"></a>Poisson 几率分布</h2><p>已知某事发生速率每单位时间$\lambda$次，若在T时间(扩张缩减)里，会发生X次的几率是多少<br>PMF：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=X\sim POI(\lambda T)\\
+&=P(X=x)\\
+&=e^{-\lambda T}\cdot \frac{(\lambda T)^{x}}{x!}
+\end{align*}</script><p>有些书籍会用mu代替lambda T</p>
+<script type="math/tex; mode=display">
+\mu = \lambda T</script><p>CDF：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
+&=\left\{\begin{matrix}
+\sum_{n=-\infty }^{\left \lfloor x \right \rfloor} e^{-\mu }\cdot \frac{\mu ^{n}}{n!},& x=0,1,2...\\ 
+ 0,& otherwise
+\end{matrix}\right.
+\end{align*}</script><p>Poisson的PMF推导</p>
+<ul>
+<li>将T切成长度$\delta T$的极小段</li>
+<li>$\delta \Rightarrow 共有n=\frac{T}{\delta_{T}\rightarrow \infty }个小段$</li>
+<li>若发生速率为$\lambda 次/分，每小时发生的几率P=\lambda \delta _{T}=\frac{\lambda T}{n}$</li>
+<li>故T时间内发生的次数$X\sim BIN(n,p)=BIN(n,\frac{\lambda T}{n})$<script type="math/tex; mode=display">
+\begin{align*}  
+\lim_{\delta _{T}\rightarrow 0}P_{X}(x)&=\lim_{n\rightarrow \infty }\frac{n!}{(n-x)!x!}(\frac{\lambda T}{n})^{x}(1-\frac{\lambda T}{n})^{n-x}\\
+&=\lim_{n\rightarrow \infty }\frac{n(n-1)...(n-n+1)}{x!}\frac{(\lambda T)^{x}}{n^{x}}(1-\frac{\lambda T}{n})^{n-x}\\
+&=\lim_{n\rightarrow \infty }\frac{1}{x!}\frac{n}{n}...\frac{n-x+1}{n}(\lambda T)^{x}(1-\frac{\lambda T}{n})^{n}(1-\frac{\lambda T}{n})^{-x}\\
+&=\frac{(\lambda T)^{x}}{x!}\lim_{n\rightarrow \infty }(1-\frac{\lambda T}{n})^{n}\\
+&=\frac{(\lambda T)^{x}}{x!}e^{-\lambda T}
+\end{align*}</script></li>
+</ul>
+<h1 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h1><p>连续的变数的几率分布有不均等</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+PDF:f_{X}(x)&=\lim_{\Delta x\rightarrow 0}\frac{P(x\leq X\leq x+\Delta x)}{\Delta x}\\
+&=\lim_{\Delta x\rightarrow 0}\frac{F_{X}(x+\Delta x)-F_{X}(x)}{\Delta x}\\
+&=F'_{X}(x)
+\end{align*}</script><p>由此可得PDF就是CDF的积分；反之CDF就是PDF的积分：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+CDFF_{X}(x)\xrightarrow[\int_{-\infty }^{x}]{\frac{d}{dx}}PDFf_{X}(x)
+\end{align*}</script><p>用几率表示PDF</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P(a<X\leq b)&=F_{X}(b)-F_{X}(a)\\
+&=\int_{-\infty }^{b}F_{X}(x)dx-\int_{-\infty }^{a}F_{X}(x)dx\\
+&=\int_{a }^{b}F_{X}(x)dx
+\end{align*}</script><p>另一个跟几率的关系</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+PDF:f_{X}(x)&=\lim_{\Delta x\rightarrow 0}\frac{P(x\leq X\leq x+\Delta x)}{\Delta x}\\
+P(x\leq X\leq x+\Delta x)&\approx f_{X}(x)\cdot \Delta x
+\end{align*}</script><p>关于PDF，PMF，CDF：<br><a href="https://blog.csdn.net/wzgbm/article/details/51680540" target="_blank" rel="noopener">https://blog.csdn.net/wzgbm/article/details/51680540</a></p>
+<h2 id="Uniform-几率分布（连续变量）"><a href="#Uniform-几率分布（连续变量）" class="headerlink" title="Uniform 几率分布（连续变量）"></a>Uniform 几率分布（连续变量）</h2><p>PDF:</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+f_{X}(x)=\left\{\begin{matrix}
+\frac{1}{b-a} &,a\leq x\leq b \\ 
+0 &, otherwise
+\end{matrix}\right.
+\end{align*}</script><p>CDF:</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\int_{-\infty }^{x}f_{X}(u)du\\
+&=\left\{\begin{matrix}
+ 0&,x\leq a \\ 
+ \frac{x-a}{b-a}&,a<x\leq b \\ 
+ 1& ,x>b
+\end{matrix}\right.
+\end{align*}</script><p>Ex:已知1路公车每十分钟一班，小美随意出发到公车站，小美需等车时间为X的几率是多少</p>
+<h2 id="Exponential-几率分布"><a href="#Exponential-几率分布" class="headerlink" title="Exponential 几率分布"></a>Exponential 几率分布</h2><p>有失忆性memoryless，常被用来model有失忆性质的事情<br>PDF:</p>
+<script type="math/tex; mode=display">
+f_{X}(x)=\left\{\begin{matrix}
+\lambda e^{-\lambda x} &,x\geq 0 \\ 
+ 0&,otherwise 
+\end{matrix}\right.</script><p>CDF:<br>$If:x\geq 0$</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\int_{-\infty }^{x}f_{X}(u)du\\
+&=\int_{0 }^{x}\lambda e^{-\lambda u}du\\
+&=-\int_{0 }^{x}e^{-\lambda u}d(-\lambda u)\\
+&=-[e^{-\lambda u}]_{0}^{x}\\
+&=1-e^{-\lambda u}
+\end{align*}</script><p>$If:x&lt;0 $</p>
+<p>$F_{X}(x)=0$</p>
+<h1 id="Erlang-几率分布"><a href="#Erlang-几率分布" class="headerlink" title="Erlang 几率分布"></a>Erlang 几率分布</h1>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/21/Statistics-Distribute-by-HouPhD/">Statistics Distribute by HouPhD</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/21/Statistics-Distribute-by-HouPhD/" class="archive-article-date"><time datetime="2019-08-21T05:45:59.000Z" itemprop="datePublished">August 21st</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="均匀分布"><a href="#均匀分布" class="headerlink" title="均匀分布"></a>均匀分布</h1><hr>
+<h2 id="复合均匀分布求概率"><a href="#复合均匀分布求概率" class="headerlink" title="复合均匀分布求概率"></a>复合均匀分布求概率</h2><p><img src="/images/StatisticsDistributeHouPhD/01.png" alt></p>
+<h2 id="复合泊松概率求分布"><a href="#复合泊松概率求分布" class="headerlink" title="复合泊松概率求分布"></a>复合泊松概率求分布</h2><p><img src="/images/StatisticsDistributeHouPhD/02.png" alt><br><img src="/images/StatisticsDistributeHouPhD/03.png" alt></p>
+<h2 id="二项分布"><a href="#二项分布" class="headerlink" title="二项分布"></a>二项分布</h2><p><img src="/images/StatisticsDistributeHouPhD/04.png" alt></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/20/statistics-by-HouPhD/">Statistics by HouPhD</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/20/statistics-by-HouPhD/" class="archive-article-date"><time datetime="2019-08-20T14:02:11.000Z" itemprop="datePublished">August 20th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="事件的概率-高中知识"><a href="#事件的概率-高中知识" class="headerlink" title="事件的概率(高中知识)"></a>事件的概率(高中知识)</h1><hr>
+<h2 id="无放回类题目"><a href="#无放回类题目" class="headerlink" title="无放回类题目"></a>无放回类题目</h2><p><img src="/images/statisticsHouPhD/02.png" alt><br><img src="/images/statisticsHouPhD/03.png" alt><br><img src="/images/statisticsHouPhD/04.png" alt><br><img src="/images/statisticsHouPhD/05.png" alt></p>
+<h2 id="有放回类题目"><a href="#有放回类题目" class="headerlink" title="有放回类题目"></a>有放回类题目</h2><p><img src="/images/statisticsHouPhD/06.png" alt><br><img src="/images/statisticsHouPhD/07.png" alt></p>
+<h2 id="画图题目"><a href="#画图题目" class="headerlink" title="画图题目"></a>画图题目</h2><p><img src="/images/statisticsHouPhD/09.png" alt><br><img src="/images/statisticsHouPhD/08.png" alt><br><img src="/images/statisticsHouPhD/10.png" alt></p>
+<h2 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h2><p><img src="/images/statisticsHouPhD/11.png" alt><br><img src="/images/statisticsHouPhD/12.png" alt><br><img src="/images/statisticsHouPhD/13.png" alt></p>
+<h2 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a>全概率公式</h2><p><img src="/images/statisticsHouPhD/14.png" alt><br><img src="/images/statisticsHouPhD/15.png" alt><br><img src="/images/statisticsHouPhD/16.png" alt><br><img src="/images/statisticsHouPhD/17.png" alt></p>
+<hr>
+<h1 id="一维随机变量"><a href="#一维随机变量" class="headerlink" title="一维随机变量"></a>一维随机变量</h1><p><img src="/images/statisticsHouPhD/19.png" alt><br><img src="/images/statisticsHouPhD/20.png" alt><br><img src="/images/statisticsHouPhD/21.png" alt><br><img src="/images/statisticsHouPhD/22.png" alt><br><img src="/images/statisticsHouPhD/23.png" alt></p>
+<ul>
+<li><img src="/images/statisticsHouPhD/24.png" alt><br><img src="/images/statisticsHouPhD/25.png" alt></li>
+<li>满足三个公式求函数中系数<br><img src="/images/statisticsHouPhD/26.png" alt><br><img src="/images/statisticsHouPhD/27.png" alt></li>
+<li>求分布律<br><img src="/images/statisticsHouPhD/28.png" alt><br><img src="/images/statisticsHouPhD/29.png" alt><br><img src="/images/statisticsHouPhD/30.png" alt><br><img src="/images/statisticsHouPhD/31.png" alt><br><img src="/images/statisticsHouPhD/32.png" alt><br><img src="/images/statisticsHouPhD/33.png" alt></li>
+<li>分布题型<br><img src="/images/statisticsHouPhD/34.png" alt><br><img src="/images/statisticsHouPhD/35.png" alt><br><img src="/images/statisticsHouPhD/36.png" alt><br><img src="/images/statisticsHouPhD/37.png" alt><br><img src="/images/statisticsHouPhD/38.png" alt></li>
+</ul>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+  
+    </div></section>
+  
+
+
+  <div id="page-nav">
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/2/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li><a class="page-number" href="/tags/Statistics/page/2/">2</a></li><li class="active"><span class="page-number">3</span></li><li><a class="page-number" href="/tags/Statistics/page/4/">4</a></li><li><a class="page-number" href="/tags/Statistics/page/5/">5</a></li><li><a class="page-number" href="/tags/Statistics/page/6/">6</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/4/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+  </div>
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p> Domain Tags Machine Learning, Deep Learning,  Front End Development, iOS Development, Statistics， <em>Python</em>, <em>R</em>, <em>Flutter</em>, <em>Swift</em>, <em>JavaScript</em>.</p>
+
+</div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Leetcode/">Leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Project/">Project</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/leetcode/">leetcode</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li></ul>
+  </div>
+
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-LeetCode/">ARTS-LeetCode</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-POJ/">ARTS-POJ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/ARTS-LeetCode/" style="font-size: 13.75px;">ARTS-LeetCode</a> <a href="/tags/ARTS-POJ/" style="font-size: 10px;">ARTS-POJ</a> <a href="/tags/Calculus/" style="font-size: 16.25px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.75px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.75px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 15px;">NLP</a> <a href="/tags/Python/" style="font-size: 18.75px;">Python</a> <a href="/tags/R/" style="font-size: 17.5px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 16.25px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/git/" style="font-size: 11.25px;">git</a> <a href="/tags/linear-algebra/" style="font-size: 12.5px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2019/10/05/EM-Arithmetic-by-Zou/">EM Arithmetic by Zou</a>
+        </li>
+      
+        <li>
+          <a href="/2019/09/30/Deep-Learning-Certificate-by-Coursera/">Deep Learning Certificate by Coursera</a>
+        </li>
+      
+        <li>
+          <a href="/2019/09/15/NLP-of-R-by-A-Z/">NLP of R by A-Z</a>
+        </li>
+      
+        <li>
+          <a href="/2019/09/14/Thompson-of-R-by-A-Z/">Thompson of R by A-Z</a>
+        </li>
+      
+        <li>
+          <a href="/2019/09/14/Thompson-of-Python-by-A-Z/">Thompson of Python by A-Z</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Sauron Lee<br>
+       <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
+       -
+       <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub:Sauron Lee</b></a>
+       -
+       <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode:Sauron Lee</b></a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
