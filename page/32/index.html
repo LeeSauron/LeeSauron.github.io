@@ -6,7 +6,7 @@
   <title>Sauron Lee‘blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="リ　ショウゼン 李笑然">
-<meta name="keywords" content="ML;FEND">
+<meta name="keywords" content="Statistics;ML;FEND">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sauron Lee‘blog">
 <meta property="og:url" content="https://github.com/SauronLee/page/32/index.html">
@@ -53,6 +53,9 @@
                  href="/index.html">Home</a></li>
         
           <li><a class=""
+                 href="/categories/math">Math</a></li>
+        
+          <li><a class=""
                  href="/categories/news">News</a></li>
         
           <li><a class=""
@@ -78,7 +81,7 @@
     <div class="blog-header">
   <h1 class="blog-title">Sauron Lee‘blog</h1>
   
-    <p class="lead blog-description">リ　ショウゼン</p>
+    <p class="lead blog-description">リ　ショウゼンのブログ</p>
   
 </div>
 
@@ -86,13 +89,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-Multiple-Linear-Regression-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Limg-by-pillow" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/12/Multiple-Linear-Regression-of-Python-by-A-Z/">Multiple Linear Regression of Python by A-Z</a>
+      <a class="article-title" href="/2019/07/10/Limg-by-pillow/">Greyimg of char by Pillow</a>
     </h1>
   
 
@@ -101,7 +104,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/06/12/Multiple-Linear-Regression-of-Python-by-A-Z/" class="article-date"><time datetime="2019-06-11T16:23:11.000Z" itemprop="datePublished">2019-06-12</time></a>
+  <a href="/2019/07/10/Limg-by-pillow/" class="article-date"><time datetime="2019-07-10T08:25:24.000Z" itemprop="datePublished">2019-07-10</time></a>
 </div>
 
     
@@ -112,7 +115,204 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="https://gist.github.com/SauronLee/9e65b12a0df11a2e6de7690f14fe3136.js"></script>
+        <ul>
+<li>我们读入一个图像用image打开它，此时图像还是图像并不是np格式的</li>
+<li>我们获取图像的宽和高并赋予新的比例作为字符的宽高</li>
+<li>根据字符的宽和高对图片进行拉伸变成一个新的图像</li>
+<li>新的图像我们把它转成灰度图进行像素的计算</li>
+<li>任何一个像素值我们都可以看看他的数据类型是什么</li>
+<li>读取数据大小</li>
+<li>读取数据本身</li>
+<li>我们再做一个字符串</li>
+<li>我们用256去除这个字符的个数也就是说每个字符管1/n的像素范围</li>
+<li>然后遍历替换</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/0f6224e602a030147539fdb61f528bdb.js"></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/07/10/Limg-by-pillow/" data-id="ckgc82c5c002lkptqph2qg5rc" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computer-Vision/">Computer Vision</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-jetbot-01" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/08/jetbot-01/">Jetbot</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/07/08/jetbot-01/" class="article-date"><time datetime="2019-07-08T13:53:55.000Z" itemprop="datePublished">2019-07-08</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="首先准备必备材料"><a href="#首先准备必备材料" class="headerlink" title="首先准备必备材料"></a>首先准备必备材料</h1><hr>
+<p><img src="/images/jetbot/01_01.png" alt></p>
+<hr>
+<h2 id="3D打印部分"><a href="#3D打印部分" class="headerlink" title="3D打印部分"></a>3D打印部分</h2><hr>
+<h3 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h3><p>关于打印机的选购NNVIDIA给了俩个测试过的打印机一个320美元，另一个2500美元。<br><img src="/images/jetbot/01_02.png" alt><br><img src="/images/jetbot/01_03.png" alt></p>
+<h4 id="打印材料"><a href="#打印材料" class="headerlink" title="打印材料"></a>打印材料</h4><p>NNVIDIA给出测试过的材料如下<br><img src="/images/jetbot/01_04.png" alt></p>
+<h4 id="打印材料-1"><a href="#打印材料-1" class="headerlink" title="打印材料"></a>打印材料</h4><p><img src="/images/jetbot/01_05.png" alt><br><img src="/images/jetbot/01_06.png" alt></p>
+<hr>
+<h2 id="相机部分"><a href="#相机部分" class="headerlink" title="相机部分"></a>相机部分</h2><hr>
+<p>这里我们选择树莓派18.99美元的相机，都一样用便宜就行：</p>
+<p><img src="/images/jetbot/01_07.png" alt></p>
+<hr>
+<h2 id="Wi-Fi部分"><a href="#Wi-Fi部分" class="headerlink" title="Wi-Fi部分"></a>Wi-Fi部分</h2><hr>
+<p>这里我们选择M2卡作为Wi-Fi部分元件</p>
+<p><img src="/images/jetbot/01_08.png" alt></p>
+<hr>
+<h2 id="车轮部分"><a href="#车轮部分" class="headerlink" title="车轮部分"></a>车轮部分</h2><hr>
+<p>车轮部分我们采用65mm的购买链接如下<br><a href="https://www.adafruit.com/product/3763" target="_blank" rel="noopener">https://www.adafruit.com/product/3763</a></p>
+<hr>
+<h2 id="螺丝部分"><a href="#螺丝部分" class="headerlink" title="螺丝部分"></a>螺丝部分</h2><hr>
+<p><img src="/images/jetbot/01_09.png" alt></p>
+<hr>
+<p>最后是NVIDIA建议的工具，这个按自己的需求来就行</p>
+<p><img src="/images/jetbot/01_10.png" alt></p>
+<hr>
+<p>本文的所有内容都可以在NVIDIA的开源库里找到链接如下</p>
+<p><a href="https://github.com/NVIDIA-AI-IOT/jetbot/wiki/bill-of-materials">https://github.com/NVIDIA-AI-IOT/jetbot/wiki/bill-of-materials</a></p>
+<hr>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><hr>
+<h2 id="安装ROS-Melodic-Enter-Nano-shell"><a href="#安装ROS-Melodic-Enter-Nano-shell" class="headerlink" title="安装ROS Melodic (Enter Nano shell)"></a>安装ROS Melodic (Enter Nano shell)</h2><ul>
+<li>使所有的Ubuntu的软件包：</li>
+<li>添加ROS库到APT</li>
+<li>安装ROS</li>
+<li>添加ROS路径环境</li>
+<li>关闭并重新启动终端</li>
+</ul>
+<pre><code>
+ enable all Ubuntu packages:
+sudo apt-add-repository universe
+sudo apt-add-repository multiverse
+sudo apt-add-repository restricted
+
+# add ROS repository to apt sources
+sudo sh -c &#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
+
+# install ROS Base
+sudo apt-get update
+sudo apt-get install ros-melodic-ros-base
+
+# add ROS paths to environment
+sudo sh -c &#39;echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc&#39;
+</code></pre><h2 id="安装Adafruit库"><a href="#安装Adafruit库" class="headerlink" title="安装Adafruit库"></a>安装Adafruit库</h2><ul>
+<li>Adafruit的这些Python库支持TB6612 / PCA9685电机驱动器和SSD1306调试OLED：</li>
+</ul>
+<pre><code>
+# pip should be installed
+$ sudo apt-get install python-pip
+
+＃安装Adafruit的库
+$ pip安装Adafruit-MotorHAT
+$ pip安装Adafruit-SSD1306
+</code></pre><ul>
+<li>授予您的用户访问i2c总线的权限：</li>
+</ul>
+<pre><code>
+$sudo usermod -aG i2c $USER
+sudo usermod -aG i2c nvidia
+</code></pre><ul>
+<li>重新引导系统以使更改生效。</li>
+</ul>
+<h2 id="创建catkin工作区"><a href="#创建catkin工作区" class="headerlink" title="创建catkin工作区"></a>创建catkin工作区</h2><pre><code># create the catkin workspace
+mkdir -p ~/work/catkin_ws/src
+cd ~/work/catkin_ws
+catkin_make
+
+# add catkin_ws path to bashrc
+sudo sh -c &#39;echo &quot;source ~/work/catkin_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc&#39;
+Note: out of personal preference, my catkin_ws is created as a subdirectory under ~/workspace
+
+#Close and open a new terminal window. Verify that your catkin_ws is visible to ROS:
+
+$ echo $ROS_PACKAGE_PATH 
+/home/nvidia/workspace/catkin_ws/src:/opt/ros/melodic/share
+</code></pre><h2 id="Build-jetson-inference"><a href="#Build-jetson-inference" class="headerlink" title="Build jetson-inference"></a>Build jetson-inference</h2><p>克隆并构建jetson-inference：</p>
+<pre><code># clone the repo
+$ cd ~/workspace/catkin_ws/src
+$ git clone https://github.com/dusty-nv/jetbot_ros
+
+# build the package
+$ cd ../    # cd ~/workspace/catkin_ws
+$ catkin_make
+
+# confirm that jetbot_ros package can be found
+$ rospack find jetbot_ros
+/home/nvidia/workspace/catkin_ws/src/jetbot_ros
+</code></pre><h2 id="运行ros-deep-learning"><a href="#运行ros-deep-learning" class="headerlink" title="运行ros_deep_learning"></a>运行ros_deep_learning</h2><pre><code>
+# install dependencies
+sudo apt-get install ros-melodic-vision-msgs ros-melodic-image-transport ros-melodic-image-publisher
+
+# clone the repo
+cd ~/work/catkin_ws/src
+git clone https://github.com/dusty-nv/ros_deep_learning
+
+# make ros_deep_learning
+cd ../    # cd ~/work/catkin_ws
+catkin_make
+
+# confirm that the package can be found
+$ rospack find ros_deep_learning
+/home/nvidia/works/catkin_ws/src/ros_deep_learning
+</code></pre><h1 id="测试Testing-JetBot"><a href="#测试Testing-JetBot" class="headerlink" title="测试Testing JetBot"></a>测试Testing JetBot</h1><p>接下来，让我们检查机器人的不同组件是否在ROS下工作。<br>首先打开一个新终端，然后开始 roscore</p>
+<pre><code>$ roscore
+</code></pre><h2 id="运行电机"><a href="#运行电机" class="headerlink" title="运行电机"></a>运行电机</h2><pre><code>$ rosrun jetbot_ros jetbot_motors.py
+</code></pre><p>该jetbot_motors节点将侦听以下主题：</p>
+<p>/jetbot_motors/cmd_dir 相对航向（度[-180.0, 180.0]，速度[-1.0, 1.0]）<br>/jetbot_motors/cmd_raw 原始L / R电机命令（速度[-1.0, 1.0]，速度[-1.0, 1.0]）<br>/jetbot_motors/cmd_str 简单的字符串命令（左/右/前进/后退/停止）</p>
+<h2 id="测试电机命令"><a href="#测试电机命令" class="headerlink" title="测试电机命令"></a>测试电机命令</h2><p>打开一个新终端，并运行一些测试命令：</p>
+<pre><code>$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ forward ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ backward ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ left ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ right ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ stop ”
+</code></pre><h2 id="使用Debug-OLED"><a href="#使用Debug-OLED" class="headerlink" title="使用Debug OLED"></a>使用Debug OLED</h2><p>如果您的JetBot上有SSD1306调试OLED，则可以运行该jetbot_oled节点以显示系统信息和用户定义的文本：</p>
+<pre><code>
+$ rosrun jetbot_ros jetbot_oled.py
+</code></pre><p>默认情况下，jetbot_oled将使用最新的内存使用情况，磁盘空间和IP地址每秒刷新一次显示。</p>
+<p>该节点还将侦听该/jetbot_oled/user_text主题以接收将显示的用户的字符串消息：</p>
+<pre><code>rostopic pub / jetbot_oled / user_text std_msgs / String --on “ HELLO！”
+</code></pre><h2 id="使用相机"><a href="#使用相机" class="headerlink" title="使用相机"></a>使用相机</h2><p>启动jetbot_camera节点：</p>
+<pre><code>
+$ rosrun jetbot_ros jetbot_camera
+</code></pre><p>将jetbot_camera/raw作为sensor_msgs::Image具有BGR8编码的消息发布到主题。</p>
+<h2 id="Gazebo-模拟器"><a href="#Gazebo-模拟器" class="headerlink" title="Gazebo 模拟器"></a>Gazebo 模拟器</h2><p><a href="http://gazebosim.org/tutorials?tut=install_ubuntu&amp;cat=install" target="_blank" rel="noopener">http://gazebosim.org/tutorials?tut=install_ubuntu&amp;cat=install</a></p>
+<p><img src="/images/jetbot/01_11.png" alt></p>
 
       
     </div>
@@ -123,7 +323,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/06/12/Multiple-Linear-Regression-of-Python-by-A-Z/" data-id="ck79tzfns003mz1tq1x7gr6ne" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/07/08/jetbot-01/" data-id="ckgc82c6y005wkptq15e4ilkp" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -139,121 +339,10 @@
 
 
   
-    <article id="post-Multiple-Linear-Regression-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/12/Multiple-Linear-Regression-of-R-by-A-Z/">Multiple Linear Regression of R  by A-Z</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2019/06/12/Multiple-Linear-Regression-of-R-by-A-Z/" class="article-date"><time datetime="2019-06-11T16:23:01.000Z" itemprop="datePublished">2019-06-12</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="https://gist.github.com/SauronLee/61aa30f3ae2d0730ea591d8851d24623.js"></script>
-
-
-<ul>
-<li>R有自己的元素factor数据类型不必转化为01，123=100010001，在Coefficients:中R会自动检测贡献度最小的维度然后舍掉。</li>
-<li>Estimate：预估的参数是多少，k_0，k_1,k_3，k_4。</li>
-<li>Std. Error：标准误差</li>
-<li>t value：T值</li>
-<li>Pr(&gt;|t|)：P值，越大越弱（R&amp;D贡献最高）</li>
-<li>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br>summary(regressor)</li>
-</ul>
-<p>Call:<br>lm(formula = Profit ~ ., data = training_set)</p>
-<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33128  -4865      5   6098  18065 </p>
-<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      4.965e+04  7.637e+03   6.501 1.94e-07 <strong><em><br>R.D.Spend        7.986e-01  5.604e-02  14.251 6.70e-16 </em></strong><br>Administration  -2.942e-02  5.828e-02  -0.505    0.617<br>Marketing.Spend  3.268e-02  2.127e-02   1.537    0.134<br>State2           1.213e+02  3.751e+03   0.032    0.974    </p>
-<h2 id="State3-2-376e-02-4-127e-03-0-058-0-954"><a href="#State3-2-376e-02-4-127e-03-0-058-0-954" class="headerlink" title="State3           2.376e+02  4.127e+03   0.058    0.954    "></a>State3           2.376e+02  4.127e+03   0.058    0.954    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 9908 on 34 degrees of freedom<br>Multiple R-squared:  0.9499,    Adjusted R-squared:  0.9425<br>F-statistic:   129 on 5 and 34 DF,  p-value: &lt; 2.2e-16</p>
-<p> y_pred = predict(regressor, newdata = test_set)</p>
-<ul>
-<li><p>y_pred</p>
-<pre><code> 4         5         8        11        16        20        21        24        31 
-</code></pre><p>173981.09 172655.64 160250.02 135513.90 146059.36 114151.03 117081.62 110671.31  98975.29 </p>
-<pre><code>32 
-</code></pre><p>96867.03 </p>
-<p>regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State,</p>
-<ul>
-<li>data = dataset)<br>summary(regressor)</li>
-</ul>
-</li>
-</ul>
-<p>Call:<br>lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend +<br>    State, data = dataset)</p>
-<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33504  -4736     90   6672  17338 </p>
-<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      5.008e+04  6.953e+03   7.204 5.76e-09 <strong><em><br>R.D.Spend        8.060e-01  4.641e-02  17.369  &lt; 2e-16 </em></strong><br>Administration  -2.700e-02  5.223e-02  -0.517    0.608<br>Marketing.Spend  2.698e-02  1.714e-02   1.574    0.123<br>State2           4.189e+01  3.256e+03   0.013    0.990    </p>
-<h2 id="State3-2-407e-02-3-339e-03-0-072-0-943"><a href="#State3-2-407e-02-3-339e-03-0-072-0-943" class="headerlink" title="State3           2.407e+02  3.339e+03   0.072    0.943    "></a>State3           2.407e+02  3.339e+03   0.072    0.943    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 9439 on 44 degrees of freedom<br>Multiple R-squared:  0.9508,    Adjusted R-squared:  0.9452<br>F-statistic: 169.9 on 5 and 44 DF,  p-value: &lt; 2.2e-16</p>
-<p> regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,</p>
-<ul>
-<li>data = dataset)<br>summary(regressor)</li>
-</ul>
-<p>Call:<br>lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,<br>    data = dataset)</p>
-<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33534  -4795     63   6606  17275 </p>
-<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      5.012e+04  6.572e+03   7.626 1.06e-09 <strong><em><br>R.D.Spend        8.057e-01  4.515e-02  17.846  &lt; 2e-16 </em></strong><br>Administration  -2.682e-02  5.103e-02  -0.526    0.602    </p>
-<h2 id="Marketing-Spend-2-723e-02-1-645e-02-1-655-0-105"><a href="#Marketing-Spend-2-723e-02-1-645e-02-1-655-0-105" class="headerlink" title="Marketing.Spend  2.723e-02  1.645e-02   1.655    0.105    "></a>Marketing.Spend  2.723e-02  1.645e-02   1.655    0.105    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 9232 on 46 degrees of freedom<br>Multiple R-squared:  0.9507,    Adjusted R-squared:  0.9475<br>F-statistic:   296 on 3 and 46 DF,  p-value: &lt; 2.2e-16</p>
-<p> regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend,</p>
-<ul>
-<li>data = dataset)<br>regressor = lm(formula = Profit ~ R.D.Spend,</li>
-<li>data = dataset)<br>summary(regressor)</li>
-</ul>
-<p>Call:<br>lm(formula = Profit ~ R.D.Spend, data = dataset)</p>
-<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-34351  -4626   -375   6249  17188 </p>
-<p>Coefficients:<br>             Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept) 4.903e+04  2.538e+03   19.32   &lt;2e-16 <em>*</em></p>
-<h2 id="R-D-Spend-8-543e-01-2-931e-02-29-15-lt-2e-16"><a href="#R-D-Spend-8-543e-01-2-931e-02-29-15-lt-2e-16" class="headerlink" title="R.D.Spend   8.543e-01  2.931e-02   29.15   &lt;2e-16 *"></a>R.D.Spend   8.543e-01  2.931e-02   29.15   &lt;2e-16 <em>*</em></h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 9416 on 48 degrees of freedom<br>Multiple R-squared:  0.9465,    Adjusted R-squared:  0.9454<br>F-statistic: 849.8 on 1 and 48 DF,  p-value: &lt; 2.2e-16</p>
-<p> y_pred = predict(regressor, newdata = test_set)<br> y_pred<br>       4        5        8       11       16       20       21       24       31       32<br>172369.0 170434.0 160345.5 136096.4 146869.4 122860.5 114175.9 106725.4 101994.2 101261.2 </p>
-<ul>
-<li>每个数的P值会根据垃圾维度的减少而变小</li>
-<li>Multiple R-squared:  0.9465,    Adjusted R-squared:  0.9454 为预测的点和原来的点的差的平方的和。越接近于1他的拟合度就越好</li>
-</ul>
-<p><img src="/images/A-Z_ML/21.png" alt></p>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/06/12/Multiple-Linear-Regression-of-R-by-A-Z/" data-id="ck79tzfnw003rz1tqvehvqqhd" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/31/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/30/">30</a></li><li><a class="page-number" href="/page/31/">31</a></li><li class="active"><span class="page-number">32</span></li><li><a class="page-number" href="/page/33/">33</a></li><li><a class="page-number" href="/page/34/">34</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/45/">45</a></li><li><a class="page-next" rel="next" href="/page/33/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/31/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/30/">30</a></li><li><a class="page-number" href="/page/31/">31</a></li><li class="active"><span class="page-number">32</span></li><li><a class="page-number" href="/page/33/">33</a></li><li><a class="page-number" href="/page/34/">34</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/33/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -270,7 +359,7 @@
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Leetcode/">Leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Project/">Project</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/leetcode/">leetcode</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Leetcode/">Leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Project/">Project</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/leetcode/">leetcode</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li></ul>
   </div>
 
 
@@ -279,7 +368,7 @@
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-LeetCode/">ARTS-LeetCode</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-POJ/">ARTS-POJ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-LeetCode/">ARTS-LeetCode</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-POJ/">ARTS-POJ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">52</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -288,7 +377,7 @@
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/ARTS-LeetCode/" style="font-size: 13.75px;">ARTS-LeetCode</a> <a href="/tags/ARTS-POJ/" style="font-size: 10px;">ARTS-POJ</a> <a href="/tags/Calculus/" style="font-size: 16.25px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.75px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.75px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 15px;">NLP</a> <a href="/tags/Python/" style="font-size: 18.75px;">Python</a> <a href="/tags/R/" style="font-size: 17.5px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 16.25px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/git/" style="font-size: 11.25px;">git</a> <a href="/tags/linear-algebra/" style="font-size: 12.5px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/ARTS-LeetCode/" style="font-size: 13.33px;">ARTS-LeetCode</a> <a href="/tags/ARTS-POJ/" style="font-size: 10px;">ARTS-POJ</a> <a href="/tags/Calculus/" style="font-size: 15.56px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 18.89px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </p>
   </div>
 
@@ -296,7 +385,7 @@
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -305,6 +394,14 @@
   <div class="sidebar-module">
     <h4>Recents</h4>
     <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
+        </li>
+      
+        <li>
+          <a href="/2020/10/16/Bayesian-Statistics-Notes-01/">Bayesian Statistics Notes 01</a>
+        </li>
       
         <li>
           <a href="/2019/10/05/EM-Arithmetic-by-Zou/">EM Arithmetic by Zou</a>
@@ -316,14 +413,6 @@
       
         <li>
           <a href="/2019/09/15/NLP-of-R-by-A-Z/">NLP of R by A-Z</a>
-        </li>
-      
-        <li>
-          <a href="/2019/09/14/Thompson-of-R-by-A-Z/">Thompson of R by A-Z</a>
-        </li>
-      
-        <li>
-          <a href="/2019/09/14/Thompson-of-Python-by-A-Z/">Thompson of Python by A-Z</a>
         </li>
       
     </ul>
@@ -338,11 +427,11 @@
   <div class="container">
     <div id="footer-info" class="inner">
       &copy; 2020 Sauron Lee<br>
-       <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
+       <!-- <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
+       - -->
+       <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub</b></a>
        -
-       <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub:Sauron Lee</b></a>
-       -
-       <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode:Sauron Lee</b></a>
+       <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode</b></a>
     </div>
   </div>
 </footer>

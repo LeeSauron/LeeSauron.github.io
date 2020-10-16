@@ -6,7 +6,7 @@
   <title>Sauron Lee‘blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="リ　ショウゼン 李笑然">
-<meta name="keywords" content="ML;FEND">
+<meta name="keywords" content="Statistics;ML;FEND">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sauron Lee‘blog">
 <meta property="og:url" content="https://github.com/SauronLee/page/13/index.html">
@@ -53,6 +53,9 @@
                  href="/index.html">Home</a></li>
         
           <li><a class=""
+                 href="/categories/math">Math</a></li>
+        
+          <li><a class=""
                  href="/categories/news">News</a></li>
         
           <li><a class=""
@@ -78,7 +81,7 @@
     <div class="blog-header">
   <h1 class="blog-title">Sauron Lee‘blog</h1>
   
-    <p class="lead blog-description">リ　ショウゼン</p>
+    <p class="lead blog-description">リ　ショウゼンのブログ</p>
   
 </div>
 
@@ -86,13 +89,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-Logistic-Regression-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SVM-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/">Logistic Regression of Python by A-Z</a>
+      <a class="article-title" href="/2019/09/13/SVM-of-Python-by-A-Z/">SVM of Python by A-Z</a>
     </h1>
   
 
@@ -101,7 +104,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-12T15:40:39.000Z" itemprop="datePublished">2019-09-13</time></a>
+  <a href="/2019/09/13/SVM-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-13T03:25:02.000Z" itemprop="datePublished">2019-09-13</time></a>
 </div>
 
     
@@ -112,23 +115,69 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/35.png" alt><br><img src="/images/A-Z_ML/36.png" alt><br><img src="/images/A-Z_ML/37.png" alt><br><img src="/images/A-Z_ML/38.png" alt></p>
-<ul>
-<li>列<br><img src="/images/A-Z_ML/39.png" alt></li>
-</ul>
-<script src="https://gist.github.com/SauronLee/fdff6948bb436e04e91e1ba70ed7e3bb.js"></script>
+        <p><img src="/images/A-Z_ML/45.png" alt></p>
+<script src="https://gist.github.com/SauronLee/162cbafc90b6797040b501cfb90f4cb7.js"></script>
 
-<ul>
-<li>运行confusion_matrix来测试精准度，正确率（65+24）%</li>
-</ul>
-<pre><code># Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)
-cm
-Out[3]: 
-array([[65,  3],
-       [ 8, 24]])
-</code></pre><p><img src="/images/A-Z_ML/40.png" alt><br><img src="/images/A-Z_ML/41.png" alt></p>
+<hr>
+<pre><code>
+&gt; y_pred = predict(classifier, newdata = test_set[-3])
+&gt; y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   0   1   1   1   0   1   0   1   1 
+389 392 395 400 
+  0   0   0   0 
+Levels: 0 1
+&gt; # Making the Confusion Matrix
+&gt; cm = table(test_set[, 3], y_pred)
+&gt; cm
+   y_pred
+     0  1
+  0 57  7
+  1 13 23
+</code></pre><hr>
+<p><img src="/images/A-Z_ML/47.png" alt></p>
+<hr>
+<p>svm {e1071}    R Documentation<br>Support Vector Machines<br>Description<br>svm is used to train a support vector machine. It can be used to carry out general regression and classification (of nu and epsilon-type), as well as density-estimation. A formula interface is provided.</p>
+<p>Usage</p>
+<h2 id="S3-method-for-class-‘formula’"><a href="#S3-method-for-class-‘formula’" class="headerlink" title="S3 method for class ‘formula’"></a>S3 method for class ‘formula’</h2><p>svm(formula, data = NULL, …, subset, na.action =<br>na.omit, scale = TRUE)</p>
+<h2 id="Default-S3-method"><a href="#Default-S3-method" class="headerlink" title="Default S3 method:"></a>Default S3 method:</h2><p>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =<br>“radial”, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x),<br>coef0 = 0, cost = 1, nu = 0.5,<br>class.weights = NULL, cachesize = 40, tolerance = 0.001, epsilon = 0.1,<br>shrinking = TRUE, cross = 0, probability = FALSE, fitted = TRUE,<br>…, subset, na.action = na.omit)<br>Arguments<br>formula<br>a symbolic description of the model to be fit.</p>
+<p>data<br>an optional data frame containing the variables in the model. By default the variables are taken from the environment which ‘svm’ is called from.</p>
+<p>x<br>a data matrix, a vector, or a sparse matrix (object of class Matrix provided by the Matrix package, or of class matrix.csr provided by the SparseM package, or of class simple_triplet_matrix provided by the slam package).</p>
+<p>y<br>a response vector with one label for each row/component of x. Can be either a factor (for classification tasks) or a numeric vector (for regression).</p>
+<p>scale<br>A logical vector indicating the variables to be scaled. If scale is of length 1, the value is recycled as many times as needed. Per default, data are scaled internally (both x and y variables) to zero mean and unit variance. The center and scale values are returned and used for later predictions.</p>
+<p>type<br>svm can be used as a classification machine, as a regression machine, or for novelty detection. Depending of whether y is a factor or not, the default setting for type is C-classification or eps-regression, respectively, but may be overwritten by setting an explicit value.<br>Valid options are:</p>
+<p>C-classification</p>
+<p>nu-classification</p>
+<p>one-classification (for novelty detection)</p>
+<p>eps-regression</p>
+<p>nu-regression</p>
+<p>kernel<br>the kernel used in training and predicting. You might consider changing some of the following parameters, depending on the kernel type.<br>linear:<br>u’*v</p>
+<p>polynomial:<br>(gamma<em>u’</em>v + coef0)^degree</p>
+<p>radial basis:<br>exp(-gamma*|u-v|^2)</p>
+<p>sigmoid:<br>tanh(gamma<em>u’</em>v + coef0)</p>
+<p>degree<br>parameter needed for kernel of type polynomial (default: 3)</p>
+<p>gamma<br>parameter needed for all kernels except linear (default: 1/(data dimension))</p>
+<p>coef0<br>parameter needed for kernels of type polynomial and sigmoid (default: 0)</p>
+<p>cost<br>cost of constraints violation (default: 1)—it is the ‘C’-constant of the regularization term in the Lagrange formulation.</p>
+<p>nu<br>parameter needed for nu-classification, nu-regression, and one-classification</p>
+<p>class.weights<br>a named vector of weights for the different classes, used for asymmetric class sizes. Not all factor levels have to be supplied (default weight: 1). All components have to be named. Specifying “inverse” will choose the weights inversely proportional to the class distribution.</p>
+<p>cachesize<br>cache memory in MB (default 40)</p>
+<p>tolerance<br>tolerance of termination criterion (default: 0.001)</p>
+<p>epsilon<br>epsilon in the insensitive-loss function (default: 0.1)</p>
+<p>shrinking<br>option whether to use the shrinking-heuristics (default: TRUE)</p>
+<p>cross<br>if a integer value k&gt;0 is specified, a k-fold cross validation on the training data is performed to assess the quality of the model: the accuracy rate for classification and the Mean Squared Error for regression</p>
+<p>fitted<br>logical indicating whether the fitted values should be computed and included in the model or not (default: TRUE)</p>
+<p>probability<br>logical indicating whether the model should allow for probability predictions.</p>
+<p>…<br>additional parameters for the low level fitting function svm.default</p>
+<p>subset<br>An index vector specifying the cases to be used in the training sample. (NOTE: If given, this argument must be named.)</p>
+<p>na.action<br>A function to specify the action to be taken if NAs are found. The default action is na.omit, which leads to rejection of cases with missing values on any required variable. An alternative is na.fail, which causes an error if NA cases are found. (NOTE: If given, this argument must be named.)</p>
+<hr>
 
       
     </div>
@@ -139,7 +188,7 @@ array([[65,  3],
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/Logistic-Regression-of-Python-by-A-Z/" data-id="ck79tzfnj0030z1tqw1ms56v1" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/09/13/SVM-of-Python-by-A-Z/" data-id="ckgc82c6g004qkptqdvt3hbqm" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -155,13 +204,13 @@ array([[65,  3],
 
 
   
-    <article id="post-Evaluating-Regression-Models-Performance-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Logistic-Regression-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/">Evaluating Regression Models Performance by A-Z</a>
+      <a class="article-title" href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/">Logistic Regression of R by A-Z</a>
     </h1>
   
 
@@ -170,7 +219,7 @@ array([[65,  3],
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/" class="article-date"><time datetime="2019-09-12T14:48:21.000Z" itemprop="datePublished">2019-09-12</time></a>
+  <a href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-12T18:18:54.000Z" itemprop="datePublished">2019-09-13</time></a>
 </div>
 
     
@@ -181,14 +230,162 @@ array([[65,  3],
 
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>R平方 - 原理(决定系数)<br><img src="/images/A-Z_ML/30.png" alt><br><img src="/images/A-Z_ML/31.png" alt></li>
-<li>广义R平方 - 原理（Adjected R^2）</li>
-<li>因为最差时:b<em>3*x</em>=0<br><img src="/images/A-Z_ML/32.png" alt></li>
-<li>P有惩罚的作用，P(自变量)越多分母就会越大，分数就会升高<br><img src="/images/A-Z_ML/33.png" alt></li>
-<li>回归模型性能评价及选择</li>
-<li>加自变量会增加R^2，所以AdjR^2会更好<br><img src="/images/A-Z_ML/34.png" alt></li>
+        <p><img src="/images/A-Z_ML/35.png" alt="issue"><br><img src="/images/A-Z_ML/36.png" alt="issue"><br><img src="/images/A-Z_ML/37.png" alt="issue"><br><img src="/images/A-Z_ML/38.png" alt="issue"></p>
+<ul>
+<li>列<br><img src="/images/A-Z_ML/42.png" alt="issue"></li>
 </ul>
+<pre><code>
+# Logistic Regression
+
+# Importing the dataset
+dataset = read.csv(&#39;Social_Network_Ads.csv&#39;)
+dataset = dataset[3:5]
+
+# Splitting the dataset into the Training set and Test set
+# install.packages(&#39;caTools&#39;)
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+training_set[, 1:2] = scale(training_set[, 1:2])
+test_set[, 1:2] = scale(test_set[, 1:2])  
+
+# Fitting Logistic Regression to the Training set
+classifier = glm(formula = Purchased ~ .,
+                 family= binomial,
+                 data= training_set)
+
+# Predicting the Test set results
+prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
+y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
+
+# Making the Confusion Matrix
+cm = table(test_set[,3], y_pred)
+
+# Visualising the Training set results
+# install.packages(ElemStatLearn)
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.0075)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.0075)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
+prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
+y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
+plot(set[, -3],
+     main = &#39;Classifier (Training set)&#39;,
+     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
+
+# Visualising the Test set results
+# install.packages(ElemStatLearn)
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
+prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
+y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
+plot(set[, -3],
+     main = &#39;Classifier (Test set)&#39;,
+     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
+</code></pre><hr>
+<pre><code>
+
+ prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
+ prob_pred
+           2            4            5            9           12           18           19 
+0.0162395375 0.0117148379 0.0037846461 0.0024527456 0.0073339436 0.2061576580 0.2669935073 
+          20           22           29           32           34           35           38 
+0.3851475689 0.5448578778 0.0103005636 0.2994922143 0.0084168787 0.0494471952 0.0171641479 
+          45           46           48           52           66           69           74 
+0.0485051303 0.0008343060 0.0102561619 0.0007055347 0.0058448457 0.0044534947 0.3933468488 
+          75           82           84           85           86           87           89 
+0.0071065671 0.1068589185 0.2580084947 0.0303248927 0.3303649169 0.0051132916 0.0263861849 
+         103          104          107          108          109          117          124 
+0.1310148056 0.7649772313 0.0034367786 0.0473827096 0.0327965105 0.1626049288 0.0675494054 
+         126          127          131          134          139          148          154 
+0.2189658514 0.4142562486 0.0324337750 0.0043457839 0.0163538708 0.1030590600 0.0751093248 
+         156          159          162          163          170          175          176 
+0.0048556976 0.0027487256 0.0306647902 0.0463555716 0.0122981409 0.1169016711 0.0011936610 
+         193          199          200          208          213          224          226 
+0.0103005636 0.0252589417 0.0177353905 0.9870859806 0.9453359968 0.9969454446 0.1064430571 
+         228          229          230          234          236          237          239 
+0.9979393884 0.3705093415 0.5807527959 0.9117762840 0.7817273411 0.2310672929 0.8037996043 
+         241          255          264          265          266          273          274 
+0.9682706714 0.6686007827 0.1451169281 0.9060311409 0.8293112410 0.9568520348 0.6781064291 
+         281          286          292          299          302          305          307 
+0.9926955397 0.4170486388 0.9220096987 0.7363498859 0.8247736816 0.2558136823 0.9932007105 
+         310          316          324          326          332          339          341 
+0.1178058928 0.3442845494 0.3958138650 0.3059412440 0.9725035550 0.1431602303 0.9842795480 
+         343          347          353          363          364          367          368 
+0.2073273008 0.9371909698 0.6843940060 0.5559479117 0.5698028861 0.9440512240 0.8427877409 
+         369          372          373          380          383          389          392 
+0.2549836305 0.9928717092 0.3243409327 0.8519685008 0.9697473704 0.3793408625 0.2718336775 
+         395          400 
+0.2040229226 0.5236436275 
+
+
+y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
+y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   1   1   1   1   0   1   0   1   1 
+389 392 395 400 
+  0   0   0   1 
+
+cm = table(test_set[,3], y_pred)
+#对角线为正确率
+&gt; cm
+   y_pred
+     0  1
+  0 57  7
+  1 10 26
+</code></pre><p><img src="/images/A-Z_ML/43.png" alt="issue"><br><img src="/images/A-Z_ML/44.png" alt="issue"></p>
+<hr>
+<p>glm {stats}    R Documentation<br>Fitting Generalized Linear Models<br>Description<br>glm is used to fit generalized linear models, specified by giving a symbolic description of the linear predictor and a description of the error distribution.</p>
+<p>Usage<br>glm(formula, family = gaussian, data, weights, subset,<br>    na.action, start = NULL, etastart, mustart, offset,<br>    control = list(…), model = TRUE, method = “glm.fit”,<br>    x = FALSE, y = TRUE, singular.ok = TRUE, contrasts = NULL, …)</p>
+<p>glm.fit(x, y, weights = rep(1, nobs),<br>        start = NULL, etastart = NULL, mustart = NULL,<br>        offset = rep(0, nobs), family = gaussian(),<br>        control = list(), intercept = TRUE, singular.ok = TRUE)</p>
+<h1 id="S3-method-for-class-‘glm’"><a href="#S3-method-for-class-‘glm’" class="headerlink" title="S3 method for class ‘glm’"></a>S3 method for class ‘glm’</h1><p>weights(object, type = c(“prior”, “working”), …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
+<p>family<br>a description of the error distribution and link function to be used in the model. For glm this can be a character string naming a family function, a family function or the result of a call to a family function. For glm.fit only the third option is supported. (See family for details of family functions.)</p>
+<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which glm is called.</p>
+<p>weights<br>an optional vector of ‘prior weights’ to be used in the fitting process. Should be NULL or a numeric vector.</p>
+<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
+<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
+<p>start<br>starting values for the parameters in the linear predictor.</p>
+<p>etastart<br>starting values for the linear predictor.</p>
+<p>mustart<br>starting values for the vector of means.</p>
+<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector of length equal to the number of cases. One or more offset terms can be included in the formula instead or as well, and if more than one is specified their sum is used. See model.offset.</p>
+<p>control<br>a list of parameters for controlling the fitting process. For glm.fit this is passed to glm.control.</p>
+<p>model<br>a logical value indicating whether model frame should be included as a component of the returned value.</p>
+<p>method<br>the method to be used in fitting the model. The default method “glm.fit” uses iteratively reweighted least squares (IWLS): the alternative “model.frame” returns the model frame and does no fitting.</p>
+<p>User-supplied fitting functions can be supplied either as a function or a character string naming a function, with a function which takes the same arguments as glm.fit. If specified as a character string it is looked up from within the stats namespace.</p>
+<p>x, y<br>For glm: logical values indicating whether the response vector and model matrix used in the fitting process should be returned as components of the returned value.</p>
+<p>For glm.fit: x is a design matrix of dimension n * p, and y is a vector of observations of length n.</p>
+<p>singular.ok<br>logical; if FALSE a singular fit is an error.</p>
+<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
+<p>intercept<br>logical. Should an intercept be included in the null model?</p>
+<p>object<br>an object inheriting from class “glm”.</p>
+<p>type<br>character, partial matching allowed. Type of weights to extract from the fitted model object. Can be abbreviated.</p>
+<p>…<br>For glm: arguments to be used to form the default control argument if it is not supplied directly.</p>
+<p>For weights: further arguments passed to or from other methods.</p>
+<hr>
 
       
     </div>
@@ -199,12 +396,12 @@ array([[65,  3],
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/" data-id="ck79tzfms0017z1tqgairmmel" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/09/13/Logistic-Regression-of-R-by-A-Z/" data-id="ckgc82c7k009jkptq8fwnma52" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
 
 
     </footer>
@@ -218,7 +415,7 @@ array([[65,  3],
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/12/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/11/">11</a></li><li><a class="page-number" href="/page/12/">12</a></li><li class="active"><span class="page-number">13</span></li><li><a class="page-number" href="/page/14/">14</a></li><li><a class="page-number" href="/page/15/">15</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/45/">45</a></li><li><a class="page-next" rel="next" href="/page/14/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/12/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/11/">11</a></li><li><a class="page-number" href="/page/12/">12</a></li><li class="active"><span class="page-number">13</span></li><li><a class="page-number" href="/page/14/">14</a></li><li><a class="page-number" href="/page/15/">15</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/14/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -235,7 +432,7 @@ array([[65,  3],
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Leetcode/">Leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Project/">Project</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/leetcode/">leetcode</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Leetcode/">Leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Project/">Project</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/leetcode/">leetcode</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li></ul>
   </div>
 
 
@@ -244,7 +441,7 @@ array([[65,  3],
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-LeetCode/">ARTS-LeetCode</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-POJ/">ARTS-POJ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-LeetCode/">ARTS-LeetCode</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ARTS-POJ/">ARTS-POJ</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">52</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -253,7 +450,7 @@ array([[65,  3],
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/ARTS-LeetCode/" style="font-size: 13.75px;">ARTS-LeetCode</a> <a href="/tags/ARTS-POJ/" style="font-size: 10px;">ARTS-POJ</a> <a href="/tags/Calculus/" style="font-size: 16.25px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.75px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.75px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 15px;">NLP</a> <a href="/tags/Python/" style="font-size: 18.75px;">Python</a> <a href="/tags/R/" style="font-size: 17.5px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 16.25px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/git/" style="font-size: 11.25px;">git</a> <a href="/tags/linear-algebra/" style="font-size: 12.5px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/ARTS-LeetCode/" style="font-size: 13.33px;">ARTS-LeetCode</a> <a href="/tags/ARTS-POJ/" style="font-size: 10px;">ARTS-POJ</a> <a href="/tags/Calculus/" style="font-size: 15.56px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 18.89px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </p>
   </div>
 
@@ -261,7 +458,7 @@ array([[65,  3],
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -270,6 +467,14 @@ array([[65,  3],
   <div class="sidebar-module">
     <h4>Recents</h4>
     <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
+        </li>
+      
+        <li>
+          <a href="/2020/10/16/Bayesian-Statistics-Notes-01/">Bayesian Statistics Notes 01</a>
+        </li>
       
         <li>
           <a href="/2019/10/05/EM-Arithmetic-by-Zou/">EM Arithmetic by Zou</a>
@@ -281,14 +486,6 @@ array([[65,  3],
       
         <li>
           <a href="/2019/09/15/NLP-of-R-by-A-Z/">NLP of R by A-Z</a>
-        </li>
-      
-        <li>
-          <a href="/2019/09/14/Thompson-of-R-by-A-Z/">Thompson of R by A-Z</a>
-        </li>
-      
-        <li>
-          <a href="/2019/09/14/Thompson-of-Python-by-A-Z/">Thompson of Python by A-Z</a>
         </li>
       
     </ul>
@@ -303,11 +500,11 @@ array([[65,  3],
   <div class="container">
     <div id="footer-info" class="inner">
       &copy; 2020 Sauron Lee<br>
-       <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
+       <!-- <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
+       - -->
+       <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub</b></a>
        -
-       <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub:Sauron Lee</b></a>
-       -
-       <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode:Sauron Lee</b></a>
+       <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode</b></a>
     </div>
   </div>
 </footer>
