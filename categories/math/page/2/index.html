@@ -3,13 +3,13 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Category: leetcode | Sauron Lee‘blog</title>
+  <title>Category: math | Sauron Lee‘blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="リ　ショウゼン 李笑然">
 <meta name="keywords" content="Statistics;ML;FEND">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sauron Lee‘blog">
-<meta property="og:url" content="https://github.com/SauronLee/categories/leetcode/index.html">
+<meta property="og:url" content="https://github.com/SauronLee/categories/math/page/2/index.html">
 <meta property="og:site_name" content="Sauron Lee‘blog">
 <meta property="og:description" content="リ　ショウゼン 李笑然">
 <meta property="og:locale" content="default">
@@ -52,7 +52,7 @@
           <li><a class=""
                  href="/index.html">Home</a></li>
         
-          <li><a class=""
+          <li><a class="active"
                  href="/categories/math">Math</a></li>
         
           <li><a class=""
@@ -102,79 +102,228 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/20/LeetCode-155-Min-Stack/">LeetCode 155 Min Stack</a>
+      <a class="archive-article-title" href="/2019/08/08/Determinant-nature-and-linear-algebra-of-houPhD/">Determinant nature and linear algebra of HouPhD</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/05/20/LeetCode-155-Min-Stack/" class="archive-article-date"><time datetime="2019-05-19T23:17:51.000Z" itemprop="datePublished">May 20th</time></a>
+  <a href="/2019/08/08/Determinant-nature-and-linear-algebra-of-houPhD/" class="archive-article-date"><time datetime="2019-08-08T11:42:14.000Z" itemprop="datePublished">August 8th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Min-Stack"><a href="#Min-Stack" class="headerlink" title="Min Stack"></a>Min Stack</h1><p>LeetCode_155<br>ARTS_03</p>
-<hr>
-<p><img src="/images/LeetCode-155-Min-Stack.png" alt></p>
-<script src="https://gist.github.com/SauronLee/8b0d5f89b9c659e871c769f05a8d37c6.js"></script>
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/20/LeetCode-232-Implement-Queue-using-Stacks/">LeetCode 232 Implement Queue using Stacks</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/05/20/LeetCode-232-Implement-Queue-using-Stacks/" class="archive-article-date"><time datetime="2019-05-19T19:03:51.000Z" itemprop="datePublished">May 20th</time></a>
+        <h1 id="行列式的计算"><a href="#行列式的计算" class="headerlink" title="行列式的计算"></a>行列式的计算</h1><hr>
+<ul>
+<li>二阶行列式就是求四边形的面积，jx和iy决定了四边形的长和高，当一条边不在x轴上的时候还要减去iy和jx的乘积<script type="math/tex; mode=display">\begin{vmatrix}
+1 &2 \\ 
+2& 3
+\end{vmatrix} = 1\times 3-2\times 2 =  -1</script></li>
+<li>多阶行列式 归零化 某行（列）加上或减去另一行列的几倍，行列式不变</li>
+<li><p>多阶行列式就是求立方体的体积，其对角线决定了立方体的长宽高，其他元素等于他的边与xyz的偏斜度，我们需要把向量都贴在z轴和x轴上，也就是把左下变成0，这样就方便计算（对角线乘积即可，即是长宽高乘积）</p>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2 & 3\\ 
+2 & 3 & 4\\ 
+4 & 5 & 6
+\end{vmatrix} = \begin{vmatrix}
+1 & 2 & 3\\ 
+0 & -1 & -2\\ 
+0 & 0 & 1
+\end{vmatrix}= 1\times -1\times 1=-1</script></li>
+<li><p>某行（列）乘k，等于k乘此行列式</p>
+<script type="math/tex; mode=display">\begin{bmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 3 & 4 & 5\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{bmatrix} = 1</script></li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+2 & 4 & 6 & 8\\ 
+2 & 3 & 4 & 5\\ 
+12 & 15 & 21 & 24\\ 
+8 & 9 & 10 & 12
+\end{vmatrix} = 2\times 3\times \begin{vmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 3 & 4 & 5\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{vmatrix}=2\times 3\times -1=-6</script><ul>
+<li>互换两行（列），行列式变号</li>
+</ul>
+<script type="math/tex; mode=display">\begin{bmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 3 & 4 & 5\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{bmatrix} = 1</script><script type="math/tex; mode=display">\begin{vmatrix}
+2 & 3 & 4 & 5\\ 
+1 & 2 & 3 & 4\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{vmatrix} = -1\times \begin{vmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 3 & 4 & 5\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{vmatrix}= -1\times -1 = 1</script><script type="math/tex; mode=display">\begin{vmatrix}
+0 & 0 & 0 & 3\\ 
+0 & 0 & 3 & 2\\ 
+1 & 2 & 3 & 4\\ 
+0 & 5 & 2 & 4
+\end{vmatrix}\overset{r1\leftrightarrow r4}{\rightarrow}-1\times \begin{vmatrix}
+0 & 5 & 2 & 4\\ 
+0 & 0 & 3 & 2\\ 
+1 & 2 & 3 & 4\\ 
+0 & 0 & 0 & 3
+\end{vmatrix}\overset{r2\leftrightarrow r3}{\rightarrow}\\-1\times -1\times  \begin{vmatrix}
+0 & 5 & 2 & 4\\ 
+1 & 2 & 3 & 4\\ 
+0 & 0 & 3 & 2\\ 
+0 & 0 & 0 & 3
+\end{vmatrix}\overset{r1\leftrightarrow r2}{\rightarrow} -1\times -1\times -1\times \begin{bmatrix}
+1 & 2 & 3 & 4\\ 
+0 & 5 & 2 & 4\\ 
+0 & 0 & 3 & 2\\ 
+0 & 0 & 0 & 3
+\end{bmatrix}\\=-1\times -1\times -1\times 1\times 5\times 3\times 3=-45</script><hr>
+<h1 id="特殊行列式计算公式"><a href="#特殊行列式计算公式" class="headerlink" title="特殊行列式计算公式"></a>特殊行列式计算公式</h1><hr>
+<ul>
+<li>对角线为x其余都是a则可用：</li>
+</ul>
+<script type="math/tex; mode=display">(x-a)^{n-1}[x+(n-1)a]</script><script type="math/tex; mode=display">\begin{vmatrix}
+2 & 3 & 3 & 3\\ 
+3 & 2 & 3 & 3\\ 
+3 & 3 & 2 & 3\\ 
+3 & 3 & 3 & 2
+\end{vmatrix} = (2-3)^{4-1}[2+(4-1)\times 3] = -11</script><ul>
+<li>第一行为1，其他行的次幂依次加1</li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 1 & 1 & 1\\ 
+3 & 4 & 5 & 6\\ 
+3^{2} & 4^{2} & 5^{2} & 6^{2}\\ 
+3^{3} & 4^{3} & 5^{3} & 6^{3}
+\end{vmatrix}= (6-5)(6-4)(6-3)(5-4)(5-3)(4-3)=12</script><ul>
+<li>两行（列）相同或成比例时，行列式为0</li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 4 & 6 & 8\\ 
+3 & 4 & 5 & 6\\ 
+7 & 8 & 9 & 10
+\end{vmatrix} = 0</script><ul>
+<li>某行（列）为两项相加减的时候，行列式可以拆成两个行列式相加减</li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2+a & 3 & 4\\
+2 & 4+b & 6 & 8\\
+3 & 4+c & 5 & 6\\
+7 & 8+d & 9 & 10
+\end{vmatrix}= \begin{vmatrix}
+1 & 2 & 3 & 4\\
+2 & 4 & 6 & 8\\
+3 & 4 & 5 & 6\\
+7 & 8 & 9 & 10
+\end{vmatrix} + \begin{vmatrix}
+1 & a & 3 & 4\\
+2 & b & 6 & 8\\
+3 & c & 5 & 6\\
+7 & d & 9 & 10
+\end{vmatrix}</script><h1 id="求余子式，代数余子式"><a href="#求余子式，代数余子式" class="headerlink" title="求余子式，代数余子式"></a>求余子式，代数余子式</h1><ul>
+<li>一个n阶行列式，如果其中第行所有元素（ij）元aij外都为零，那么这个行列式等于aij与他的代数余子式的乘积（也就是说其他向量在这一维度为0那么这个行列式的体积就等于这个数与他的代数余子式的乘积，也就是面积乘以高）<br>列：求下列中a23的余子式和代数余子式（<a href="http://setosa.io/ev/eigenvectors-and-eigenvalues/）" target="_blank" rel="noopener">http://setosa.io/ev/eigenvectors-and-eigenvalues/）</a></li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2 & 3\\ 
+5 & 6 & 7\\ 
+9 & 10 & 11
+\end{vmatrix}</script><script type="math/tex; mode=display">M_{23}=\begin{vmatrix}
+1 & 2\\ 
+9 & 10
+\end{vmatrix} = -8</script><ul>
+<li>代数余子式就是判断余子式的正负号以便于带入运算作用<script type="math/tex; mode=display">A_{23}=(-1)^{2+3}\times M_{23}=-1\times -8=8</script></li>
+</ul>
+<h1 id="利用行列式展开公式求行列式"><a href="#利用行列式展开公式求行列式" class="headerlink" title="利用行列式展开公式求行列式"></a>利用行列式展开公式求行列式</h1><ul>
+<li>当发现这个行列式其中有一个维度只有一个高度的时候，那么可用代数余子式展开出一个平行四边形的面积乘上这个高，如果那个维度不是只有一个高就表明这个立方体不在轴线上，那么就要加上或减去其他代数余子式所构成的立方体的体积</li>
+<li>当某行或列只有一个数其余为零的时候可用以下公式：（行列式的展开公式）<script type="math/tex; mode=display">D=a_{i1}A_{i1}+a_{i2}+A_{i2}+...+a_{in}+A_{in}\\
+D=a_{j1}A_{j1}+a_{j2}+A_{j2}+...+a_{jn}+A_{jn}</script></li>
+</ul>
+<p>列：</p>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2 & 3\\
+4 & 0 & 5\\
+6 & 0 & 7
+\end{vmatrix}=2\times (-1)^{1+2} M_{12} +0 \times  ...+0\times...=2\times (-1)^{1+2} M_{12}</script><ul>
+<li>求多个A或M相加减(倍数直接替换相应行号，M要变号)</li>
+</ul>
+<p>已知：</p>
+<script type="math/tex; mode=display">D=\begin{vmatrix}
+1 & 2 & 3 & 4\\
+5 & 6 & 7 & 8\\ 
+9 & 10 & 11 & 12\\
+13 & 14 & 15 & 16
+\end{vmatrix}</script><p>求：</p>
+<ul>
+<li><script type="math/tex; mode=display">3A_{11}+4A_{12}+5A_{13}+6A_{14}</script></li>
+<li><script type="math/tex; mode=display">3A_{11}+4A_{21}+5A_{31}+6A_{41}</script></li>
+<li><script type="math/tex; mode=display">3M_{11}+4M_{12}+5M_{13}+6M_{14}</script></li>
+</ul>
+<script type="math/tex; mode=display">3A_{11}+4A_{12}+5A_{13}+6A_{14}=  D=\begin{vmatrix}
+3 & 4 & 5 & 6\\
+5 & 6 & 7 & 8\\
+9 & 10 & 11 & 12\\
+13 & 14 & 15 & 16
+\end{vmatrix}</script><script type="math/tex; mode=display">3A_{21}+4A_{21}+5A_{31}+6A_{41}=  D=\begin{vmatrix}
+3 & 2 & 3 & 4\\
+4 & 6 & 7 & 8\\ 
+5 & 10 & 11 & 12\\
+6 & 14 & 15 & 16
+\end{vmatrix}</script><ul>
+<li>直接看行列和单数变号复数不变<script type="math/tex; mode=display">3M_{11}+4M_{12}+5M_{13}+6M_{14}=3A_{11}-4A_{21}+5A_{31}-6A_{41}</script><script type="math/tex; mode=display">=D=\begin{vmatrix}
+3 & 2 & 3 & 4\\
+-4 & 6 & 7 & 8\\ 
+5 & 10 & 11 & 12\\
+-6 & 14 & 15 & 16
+\end{vmatrix}</script></li>
+</ul>
+<h1 id="根据行列式判断方程解得情况"><a href="#根据行列式判断方程解得情况" class="headerlink" title="根据行列式判断方程解得情况"></a>根据行列式判断方程解得情况</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方程组</th>
+<th style="text-align:center">D≠0</th>
+<th style="text-align:center">D=0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>齐次</td>
+<td style="text-align:center">只有一组零解</td>
+<td style="text-align:center">有零解与非零解</td>
+<td></td>
+</tr>
+<tr>
+<td>非齐次</td>
+<td style="text-align:center">只有一组非零解</td>
+<td style="text-align:center">有多个解或无解</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>列：判断下列方程组是否有唯一解</p>
+<script type="math/tex; mode=display">\left\{\begin{matrix}
+x_{1} & +2x_{2} & +3x_{3} & =0\\ 
+4x_{1} & +5x_{2} & +6x_{3} & =0\\ 
+7x_{1} & +8x_{2} & +9x_{3} & =0
+\end{matrix}\right.</script><script type="math/tex; mode=display">D=\begin{vmatrix}
+1 & 2 & 3\\ 
+4 & 5 & 6\\ 
+7 & 8 & 9
+\end{vmatrix}=0</script><ul>
+<li>所以该方程组有零解与非零解，没有唯一解</li>
+</ul>
 
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Implement-Queue-using-Stacks"><a href="#Implement-Queue-using-Stacks" class="headerlink" title="Implement Queue using Stacks"></a>Implement Queue using Stacks</h1><p>LeetCode_232<br>ARTS_02</p>
-<hr>
-<p><img src="/images/LeetCode-232-Implement-Queue-using-Stacks.png" alt></p>
-<script src="https://gist.github.com/SauronLee/c6fd684b0e8268196f5fbb325ae7873c.js"></script>
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/20/LeetCode-225-Implement-Stack-using-Queyes/">LeetCode 225 Implement Stack using Queyes</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/05/20/LeetCode-225-Implement-Stack-using-Queyes/" class="archive-article-date"><time datetime="2019-05-19T16:42:41.000Z" itemprop="datePublished">May 20th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Implement-Stack-using-Queyes"><a href="#Implement-Stack-using-Queyes" class="headerlink" title="Implement Stack using Queyes"></a>Implement Stack using Queyes</h1><p>LeetCode_225<br>ARTS_01</p>
-<hr>
-<p><img src="/images/LeetCode-225-Implement-Stack-using-Queyes.png" alt></p>
-<script src="https://gist.github.com/SauronLee/ea5a37677ba49eb772b77522e00105d0.js"></script>
       
     </div>
   </header>
@@ -186,6 +335,10 @@
     </div></section>
   
 
+
+  <div id="page-nav">
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/categories/math/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/categories/math/">1</a></li><li class="active"><span class="page-number">2</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+  </div>
 
 
         </div>
@@ -201,7 +354,7 @@
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Leetcode/">Leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Project/">Project</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/leetcode/">leetcode</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Project/">Project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">5</span></li></ul>
   </div>
 
 
