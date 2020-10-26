@@ -78,13 +78,76 @@
     <div class="blog-header">
   <h1 class="blog-title">Sauron Lee‘blog</h1>
   
-    <p class="lead blog-description">リ　ショウゼンのブログ</p>
+    <p class="lead blog-description">Li xiaoran</p>
   
 </div>
 
     <div class="row">
         <div class="col-sm-8 blog-main">
           
+  
+    <article id="post-Apriori-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">2019-08-14</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
+<!-- ![issue](/images/A-Z_ML/244.png) -->
+<ul>
+<li>数据是商场的用户的消费详情</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
+
+<hr>
+<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
+<!-- ![issue](/images/A-Z_ML/245.png) -->
+<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
+<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/08/14/Apriori-of-Python-by-A-Z/" data-id="ckgqgffom00016ztqcx176mqw" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-Apriori-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
 
@@ -245,7 +308,7 @@ creating S4 object  ... done [0.00s].
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/14/Apriori-of-R-by-A-Z/" data-id="ckgcamrgy008xnptqwadrk9wi" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/14/Apriori-of-R-by-A-Z/" data-id="ckgqgfft5008z6ztqnjfj1apr" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -261,82 +324,10 @@ creating S4 object  ... done [0.00s].
 
 
   
-    <article id="post-Integral-of-HouPhD" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/14/Integral-of-HouPhD/">Integral of HouPhD</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2019/08/14/Integral-of-HouPhD/" class="article-date"><time datetime="2019-08-13T16:39:12.000Z" itemprop="datePublished">2019-08-14</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="不定积分基础公式"><a href="#不定积分基础公式" class="headerlink" title="不定积分基础公式"></a>不定积分基础公式</h2><script type="math/tex; mode=display">
-\int kdx = kx+C\\
-\int x^{\mu }dx=\frac{x^{\mu +1}}{\mu +1}+C)(\mu \not\equiv -1)\\
-\int a^{x}dx=\frac{1}{lna}a^{x}+C\\
-\int e^{x}dx=e^{x}+C\\
-\int sinxdx=-cosx+C\\
-\int cosxdx=sinx+C\\
-\int \frac{dx}{x}=ln\left | x \right |+C(x\neq 0)\\
-\int tanxdx=-ln\left | cosx \right |+C\\
-\int cotxdx=ln\left | sinx \right |+C\\
-\int \frac{1}{cosx}dx=ln\left | \frac{1}{cosx} +tanx \right |+C\\
-\int \frac{1}{sinx}dx=ln\left | \frac{1}{sinx}-cotx \right |+C\\
-\int \frac{1}{cos^{2}x}dx=tanx+C\\
-\int \frac{1}{sin^{2}x}dx=-cosx+C\\
-\int \frac{sinx}{cos^{2}x}dx=\frac{1}{cosx}+C\\
-\int \frac{cosx}{sin^{2}x}dx=-\frac{1}{sinx}+C\\
-\int \frac{1}{\sqrt{a^{2}-x^{2}}}dx=arcsin\frac{x}{a}+C\\
-\int \frac{1}{a^{2}+x^{2}}dx=\frac{1}{a}arctan\frac{x}{a}+C\\
-\int \frac{1}{x^{2}-a^{2}}dx=\frac{1}{2a}ln\left | \frac{x-a}{x+a} \right |+C\\
-\int \frac{1}{a^{2}-x^{2}}dx=\frac{1}{2a}ln\left | \frac{a+x}{a-x} \right |+C\\
-\int \frac{1}{\sqrt{x^{2}\pm a^{2}}}dx=ln\left | x+\sqrt{x^{2}\pm a^{2}} \right |+C</script><h2 id="Let部分再算积分"><a href="#Let部分再算积分" class="headerlink" title="Let部分再算积分"></a>Let部分再算积分</h2>
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/14/Integral-of-HouPhD/" data-id="ckgcamrej0024nptqlad2hp9v" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Calculus/">Calculus</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/20/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/19/">19</a></li><li><a class="page-number" href="/page/20/">20</a></li><li class="active"><span class="page-number">21</span></li><li><a class="page-number" href="/page/22/">22</a></li><li><a class="page-number" href="/page/23/">23</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/22/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/20/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/19/">19</a></li><li><a class="page-number" href="/page/20/">20</a></li><li class="active"><span class="page-number">21</span></li><li><a class="page-number" href="/page/22/">22</a></li><li><a class="page-number" href="/page/23/">23</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/47/">47</a></li><li><a class="page-next" rel="next" href="/page/22/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -353,7 +344,7 @@ creating S4 object  ... done [0.00s].
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li></ul>
   </div>
 
 
@@ -362,7 +353,7 @@ creating S4 object  ... done [0.00s].
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">52</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">52</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nlp/">nlp</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -371,7 +362,7 @@ creating S4 object  ... done [0.00s].
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15.56px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 18.89px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/leetcode/" style="font-size: 14.44px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15.56px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 18.89px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/leetcode/" style="font-size: 14.44px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </p>
   </div>
 
@@ -379,7 +370,7 @@ creating S4 object  ... done [0.00s].
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -390,11 +381,15 @@ creating S4 object  ... done [0.00s].
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
+          <a href="/2020/10/26/NLP-base-of-Greedy-notes/">NLP base of Greedy notes</a>
         </li>
       
         <li>
-          <a href="/2020/10/16/Bayesian-Statistics-Notes-01/">Bayesian Statistics Notes 01</a>
+          <a href="/2020/10/20/Bayesian-Statistics-Notes-01/">Prof.Yeh Benson Statistics Notes</a>
+        </li>
+      
+        <li>
+          <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
         </li>
       
         <li>
@@ -403,10 +398,6 @@ creating S4 object  ... done [0.00s].
       
         <li>
           <a href="/2019/09/30/Deep-Learning-Certificate-by-Coursera/">Deep Learning Certificate by Coursera</a>
-        </li>
-      
-        <li>
-          <a href="/2019/09/15/NLP-of-R-by-A-Z/">NLP of R by A-Z</a>
         </li>
       
     </ul>

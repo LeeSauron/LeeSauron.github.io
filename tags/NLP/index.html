@@ -3,13 +3,13 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Tag: NLP | Sauron Lee‘blog</title>
+  <title>Tag: nlp | Sauron Lee‘blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="李笑然">
 <meta name="keywords" content="Statistics;ML;FEND">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sauron Lee‘blog">
-<meta property="og:url" content="https://github.com/SauronLee/tags/NLP/index.html">
+<meta property="og:url" content="https://github.com/SauronLee/tags/nlp/index.html">
 <meta property="og:site_name" content="Sauron Lee‘blog">
 <meta property="og:description" content="李笑然">
 <meta property="og:locale" content="default">
@@ -78,7 +78,7 @@
     <div class="blog-header">
   <h1 class="blog-title">Sauron Lee‘blog</h1>
   
-    <p class="lead blog-description">リ　ショウゼンのブログ</p>
+    <p class="lead blog-description">Li xiaoran</p>
   
 </div>
 
@@ -93,7 +93,7 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+          <a href="/archives/2020" class="archive-year">2020</a>
         </div>
         <div class="archives">
     
@@ -102,38 +102,200 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/15/NLP-of-R-by-A-Z/">NLP of R by A-Z</a>
+      <a class="archive-article-title" href="/2020/10/26/NLP-base-of-Greedy-notes/">NLP base of Greedy notes</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/15/NLP-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-14T17:09:21.000Z" itemprop="datePublished">September 15th</time></a>
+  <a href="/2020/10/26/NLP-base-of-Greedy-notes/" class="archive-article-date"><time datetime="2020-10-26T11:07:52.000Z" itemprop="datePublished">October 26th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/272.png" alt="テキスト"></p>
-<hr>
-<ul>
-<li>テキストを利用して、テキストが積極的か消極的かを予測します。</li>
-<li>左の部分は段落にコンマできりました、右の方うがスペースを使って段落を引き。普通の時私たちがよくコンマを使います段落でも色々な状態であっだので、もしコンマを段落を区別すれば紛らわしくしまっだ、だから左の部分はここで我々は左のテキストを使います、</li>
-</ul>
-<script src="https://gist.github.com/SauronLee/e5cb61a2fb628954e353a7ca6193c3e5.js"></script>
+        
 
-<hr>
-<ul>
-<li>databset-tape of word model</li>
-</ul>
-<p><img src="/images/A-Z_ML/272.png" alt></p>
-<hr>
-<p>1, 大文字が子文字に転換する(map=マッピング)<br>corpus = tm_map(corpus, content_transformer(tolower))</p>
-<ul>
-<li>corpusを検査（corpusが超複雑だ）</li>
-</ul>
-<pre><code>as.character(corpus[[1]])
-[1] &quot;wow... loved this place.&quot;
-</code></pre><p>2, ナンバーを抜いて<br>corpus = tm_map(corpus, removeNumbers)<br>3, 句読点を削除して<br>corpus = tm_map(corpus, removePunctuation)<br>4, きょじを削除して<br>corpus = tm_map(corpus, removeWords, stopwords())<br>5, 全部の単語を語根に転換して<br>corpus = tm_map(corpus, stemDocument)<br>6, 最後は余計なスペースを削除して(まばらになっだ)<br>corpus = tm_map(corpus, stripWhitespace)<br>7,疎らなマトリクスを作ります<br>dtm = DocumentTermMatrix(corpus)<br>dtm<br>&lt;<documenttermmatrix (documents: 1000, terms: 1577)>&gt;<br>＃ここでゼロではないの数割るゼロの数<br>＃Sparsity＝空疎性、大きすぎだから、百パーセントになっだ<br>Non-/sparse entries: 5435/1571565<br>Sparsity           : 100%<br>Maximal term length: 32<br>Weighting          : term frequency (tf)<br>＃ここでオレたち一番最大空疎を耐えられるな比率を書いて（もしその）<br>dtm = removeSparseTerms(dtm, 0.999)</documenttermmatrix></p>
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1kzCnEdxdySVjxBvMUdFDTzx7JO15GkQz/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1wALLAGsSPR40Eyg-uxx06SbHCUnpDYg1/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1D4Is4U2EMXivq97f2GiT0uV6WrG1WFV9/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/19w-f9FicI-gp_5lUvEX3NJda4IP18LNh/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1k9ILdA9DENcV_IJjxMYCIGXAXAlzaFww/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/12QtKywqHz-T3m2QhhJNUHGphqW7Hmltp/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/13Rx_Mtzrq1AMjb6KJ1SFe6D9g9sWqIFA/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1y3flliQ0CjYoBg7jAFHE07lMyYpK8G2_/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1_RiMG2W1BN_9emMuGilj_niPoWyuA0Su/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1FSjAKAG34sC1trjqBlwhRM946v9HiKeC/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1SpZTCK-6Seb8SiDqg3SQD3Mx5xxhGI4J/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/15LnSKNckroIG3nzkDRlwC2dhCjA_2qfi/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1ecs0hFry9SSoTm9Bf6nY3I7SgO4y3s95/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1jMdgg7EGiBXCvJFI5ewgS4z2qm7VXesW/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1s8fiYLTB0NhwLXlPRs9vhSaKr4s0Cq9X/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/18aTr6h4CKkxYYatwJKhWWlWZZ9jKctaG/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1peqntrfdLFG0SB0iAx9Cfuec5InykByH/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1peqntrfdLFG0SB0iAx9Cfuec5InykByH/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1peqntrfdLFG0SB0iAx9Cfuec5InykByH/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1jczBfnnSsgEWSgPCvDNGNtkGhKJpUJ3C/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1WVQWTdELZwFUgJw9ZecXdnuxHLPREgf0/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1YBqSl_nVFYa2u709Zs4tQMNEp1kDDCs3/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
+
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1j1OUOxeR50mRauASunjFn0D6LvdMnsTV/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
 
       
     </div>
@@ -142,216 +304,132 @@
 
 
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/12/NLP-Sentence-analysis/">NLP Sentence analysis</a>
-    </h1>
+    </div></section>
   
 
 
-    <div class="article-datetime">
-  <a href="/2019/07/12/NLP-Sentence-analysis/" class="archive-article-date"><time datetime="2019-07-12T07:13:33.000Z" itemprop="datePublished">July 12th</time></a>
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p> Domain Tags Machine Learning, Deep Learning,  Front End Development, iOS Development, Statistics， <em>Python</em>, <em>R</em>, <em>Flutter</em>, <em>Swift</em>, <em>JavaScript</em>.</p>
+
 </div>
 
-    <div class="article-entry" itemprop="articleBody">
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li></ul>
+  </div>
+
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">52</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nlp/">nlp</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15.56px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 18.89px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/leetcode/" style="font-size: 14.44px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
       
-        <h1 id="句法分析任务"><a href="#句法分析任务" class="headerlink" title="句法分析任务"></a>句法分析任务</h1><p><img src="/images/NLP/sentence_analysis_01.png" alt></p>
-<h1 id="全局句法分析"><a href="#全局句法分析" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_02.png" alt></p>
-<h1 id="全局句法分析-1"><a href="#全局句法分析-1" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_03.png" alt></p>
-<h1 id="依存结构"><a href="#依存结构" class="headerlink" title="依存结构"></a>依存结构</h1><p><img src="/images/NLP/sentence_analysis_04.png" alt></p>
-<ul>
-<li>依存结构概念：</li>
-</ul>
-<ul>
-<li>依照句法通过分析语言单位成分之前的依存关系解释其句法结构，主张句子中核心动词是支配其他成分的中心成分，而他本身却不受其他任何成分的支配，所有受支配成分都以某种关系从属于支配者</li>
-</ul>
-<ul>
-<li>五个条件</li>
-</ul>
-<ul>
-<li>一个句子中只有一个成分是独立的</li>
-<li>句子的其他成分都从属于某一成分</li>
-<li>如果成分A从属于成分B.而成分C在句子中位于A和B之间，那么，成分C或者从属于A，或者从属于B，或者从属于A和B之间的某一成分</li>
-<li>中心成分左右两边的其他成分互相不发生关系<br><img src="/images/NLP/sentence_analysis_05.png" alt><h1 id="使用spacy进行语法分析"><a href="#使用spacy进行语法分析" class="headerlink" title="使用spacy进行语法分析"></a>使用spacy进行语法分析</h1></li>
-</ul>
-<ul>
-<li>下载英文数据以及对应的模型 <code>python -m spacy download en</code></li>
-</ul>
-<script src="https://gist.github.com/SauronLee/c656cd3081b1931087aa6713cd267828.js"></script>
+        <li>
+          <a href="/2020/10/26/NLP-base-of-Greedy-notes/">NLP base of Greedy notes</a>
+        </li>
       
+        <li>
+          <a href="/2020/10/20/Bayesian-Statistics-Notes-01/">Prof.Yeh Benson Statistics Notes</a>
+        </li>
+      
+        <li>
+          <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
+        </li>
+      
+        <li>
+          <a href="/2019/10/05/EM-Arithmetic-by-Zou/">EM Arithmetic by Zou</a>
+        </li>
+      
+        <li>
+          <a href="/2019/09/30/Deep-Learning-Certificate-by-Coursera/">Deep Learning Certificate by Coursera</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
     </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/11/NLP-Word-analysis/">NLP Word analysis</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/11/NLP-Word-analysis/" class="archive-article-date"><time datetime="2019-07-11T11:14:30.000Z" itemprop="datePublished">July 11th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="词法分析任务："><a href="#词法分析任务：" class="headerlink" title="词法分析任务："></a>词法分析任务：</h1><ul>
-<li>将句子转换成词序列并标记句子中的词的词性</li>
-<li>英文：用词的形态来表示语法变化的关系</li>
-</ul>
-<ul>
-<li>英文的词法分析（曲折语）<br><img src="/images/NLP/word_analysis_02.png" alt></li>
-<li>英文词识别，词形还原</li>
-<li><p>未登陆词的处理</p>
-</li>
-<li><p>英文词性标注<br><img src="/images/NLP/word_analysis_01.png" alt></p>
-</li>
-</ul>
-<ul>
-<li><p>孤立语（汉语）</p>
-</li>
-<li><p>主要特点：1，缺乏词形变化；2，词序严格；3，虚词十分重要；4复合词多，派生词少 —语言学纲要</p>
-</li>
-</ul>
-<h1 id="英语词法分析任务："><a href="#英语词法分析任务：" class="headerlink" title="英语词法分析任务："></a>英语词法分析任务：</h1><ul>
-<li>单词识别（Tokenization）</li>
-<li>词形还原（Lemmatization)</li>
-<li><p>词性标注 POS(Part-of-Speech)Tagging</p>
-</li>
-<li><p>英语特点：词之间一般有边界标记，词的形态变化丰富<br><img src="/images/NLP/word_analysis_03.png" alt><br><img src="/images/NLP/word_analysis_04.png" alt><br><img src="/images/NLP/word_analysis_05.png" alt><br><img src="/images/NLP/word_analysis_06.png" alt><br><img src="/images/NLP/word_analysis_07.png" alt></p>
-</li>
-</ul>
-<h1 id="中文词法分析任务："><a href="#中文词法分析任务：" class="headerlink" title="中文词法分析任务："></a>中文词法分析任务：</h1><ul>
-<li>原始句子：警察正在详细调查事故原因</li>
-<li>分词结果：警察/正在/详细/调查/事故/原因 （自动分词阶段）</li>
-<li>词性标注结果：警察/NN 正在/AD 详细/AD 调查/VV 事故/NN 原因/NN</li>
-</ul>
-<p><img src="/images/NLP/word_analysis_08.png" alt><br><img src="/images/NLP/word_analysis_09.png" alt><br><img src="/images/NLP/word_analysis_10.png" alt><br><img src="/images/NLP/word_analysis_11.png" alt><br><img src="/images/NLP/word_analysis_12.png" alt></p>
-<ul>
-<li>分词方法：1，事先人工建立好分词规律比如量词前应该有数词（大量人工）2.自动分词算法（正向最大匹配+逆向最大匹配=双向最大匹配）3利用同现频率作为分词依据</li>
-</ul>
-<h1 id="英文使用NLTK"><a href="#英文使用NLTK" class="headerlink" title="英文使用NLTK"></a>英文使用NLTK</h1><script src="https://gist.github.com/SauronLee/315ce54c6032c09693284b9a04419b84.js"></script>
-
-<h2 id="下载nltk"><a href="#下载nltk" class="headerlink" title="下载nltk"></a>下载nltk</h2><pre><code>conda activate tfpy36
-ipython
-import nltk
-nltk.download()
-</code></pre><h1 id="中文使用jieba"><a href="#中文使用jieba" class="headerlink" title="中文使用jieba"></a>中文使用jieba</h1><ul>
-<li><a href="https://gitbub.com/fxsiy/jieba" target="_blank" rel="noopener">https://gitbub.com/fxsiy/jieba</a></li>
-</ul>
-<p><img src="/images/NLP/word_analysis_13.png" alt="issue"></p>
-<p><a href="https://gist.github.com/SauronLee/8ad99cd9c995dd5ef5d83b7dfc0c1d17" target="_blank" rel="noopener">https://gist.github.com/SauronLee/8ad99cd9c995dd5ef5d83b7dfc0c1d17</a></p>
-<h1 id="TFIDF"><a href="#TFIDF" class="headerlink" title="TFIDF"></a>TFIDF</h1><p><img src="/images/NLP/word_analysis_14.png" alt="issue"></p>
-<h1 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h1><p><img src="/images/NLP/word_analysis_15.png" alt="issue"></p>
-<h1 id="TextRank"><a href="#TextRank" class="headerlink" title="TextRank"></a>TextRank</h1><ul>
-<li>将文本进行分词，去除停用词或词性刷选等操作之后，设定窗口为K，进行滑动，在窗口中共同出现的词之间即可建立起为无向边。<br><img src="/images/NLP/word_analysis_16.png" alt="issue"></li>
-<li>TextRank提取关键词步骤</li>
-<li>把给定的文本T按照完整的句子进行分割；</li>
-<li>对于每个句子，进行分词和词性的标注处理，过滤掉停用词，只保留指定词性的单词，如名词，动词，形容词等，这些词形形成候选词</li>
-<li>构建候选词关键词的词图G =（V，E)，其中V为节点集，由（2）生成候选词组，然后采用共现关系（cooccurrence）构造两点之间的边，两个节点之间存在的边仅当它们对应的词汇在长度为KDE窗口中共现；</li>
-<li>根据PageRank原理中的衡量重要性公式，初始化各个节点的权重，然后迭代计算各个节点的权重，直到收敛；</li>
-<li>对节点的权重进行倒序排列，从而得到最重要的个单词，作为关键词；</li>
-<li>由（5）得到的最重要的T个单词，在原始文中进行标记，若形成相邻词组，则组合成多词关键词</li>
-</ul>
-<h1 id="使用Pkuseg进行中文分词-专业类别细分"><a href="#使用Pkuseg进行中文分词-专业类别细分" class="headerlink" title="使用Pkuseg进行中文分词(专业类别细分)"></a>使用Pkuseg进行中文分词(专业类别细分)</h1><p><img src="/images/NLP/word_analysis_17.png" alt="issue"></p>
-
-      
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Sauron Lee<br>
+       <!-- <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
+       - -->
+       <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub</b></a>
+       -
+       <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode</b></a>
     </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/11/NLP-Corpus/">NLP_Corpus</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/11/NLP-Corpus/" class="archive-article-date"><time datetime="2019-07-11T10:42:21.000Z" itemprop="datePublished">July 11th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/NLP/corpus_01.png" alt></p>
-<h1 id="北京大学计算语言所语料库标记"><a href="#北京大学计算语言所语料库标记" class="headerlink" title="北京大学计算语言所语料库标记"></a>北京大学计算语言所语料库标记</h1><ul>
-<li><a href="http://opendata.pku.edu.cn/dataverse/icl" target="_blank" rel="noopener">http://opendata.pku.edu.cn/dataverse/icl</a></li>
-</ul>
-<p><img src="/images/NLP/corpus_02.png" alt></p>
-<h1 id="London-Lund英语口语语料库："><a href="#London-Lund英语口语语料库：" class="headerlink" title="London-Lund英语口语语料库："></a>London-Lund英语口语语料库：</h1><ul>
-<li><a href="http://www.helsinki.fi/varieng/CoRD/corpora/LLC/" target="_blank" rel="noopener">http://www.helsinki.fi/varieng/CoRD/corpora/LLC/</a></li>
-</ul>
-<p><img src="/images/NLP/corpus_03.png" alt></p>
-<h1 id="Tencent中文语料库-19年刚刚开源的"><a href="#Tencent中文语料库-19年刚刚开源的" class="headerlink" title="Tencent中文语料库-19年刚刚开源的"></a>Tencent中文语料库-19年刚刚开源的</h1><ul>
-<li><a href="https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz" target="_blank" rel="noopener">https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz</a><br><img src="/images/NLP/corpus_04.png" alt></li>
-</ul>
-<h1 id="语料库的类型"><a href="#语料库的类型" class="headerlink" title="语料库的类型"></a>语料库的类型</h1><ul>
-<li>异质性（heterogeneous）：简单无选材</li>
-<li>同质性（homogeneous）：如TIPSTER只收集军事方面语料</li>
-<li>系统性（systematic）：定好收据预料的规则，平衡性和系统性</li>
-<li>专用性（specialized）：如北美人文科学语料库</li>
-<li>单语语料库</li>
-<li>双语多多语对齐语料库：平行语料库：篇章对齐；句子对齐、结构对齐<br><img src="/images/NLP/corpus_05.png" alt></li>
-<li>生语语料库：未经加工</li>
-<li>熟语语料库：带有切分，标注（词性标注，句法结构信息标注（树库）语义信息标注</li>
-<li>共时语料库：一个时间段，横截面</li>
-<li>历时语料库：与共时相对，纵剖面<br><img src="/images/NLP/corpus_06.png" alt><!-- ![issue](/images/NLP/corpus_07.png) -->
-</li>
-</ul>
-
-      
-    </div>
-  </header>
-</article>
-
+  </div>
+</footer>
 
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/02/NLP-Gram/">Bi-Gram/Tri-Gram/N-Gram</a>
-    </h1>
-  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-    <div class="article-datetime">
-  <a href="/2019/05/02/NLP-Gram/" class="archive-article-date"><time datetime="2019-05-02T06:28:33.000Z" itemprop="datePublished">May 2nd</time></a>
-</div>
+<script src="/js/script.js"></script>
 
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="语言模型（Bi-Gram-Tri-Gram-N-Gram）"><a href="#语言模型（Bi-Gram-Tri-Gram-N-Gram）" class="headerlink" title="语言模型（Bi-Gram/Tri-Gram/N-Gram）"></a>语言模型（Bi-Gram/Tri-Gram/N-Gram）</h1><ul>
-<li>语言模型就是用于评估文本符合语言使用习惯程度的模型。<br>在计算机中很难找到人类语言的使用习惯，因为人类的语言使用习惯根据朝代试点的变迁有着很大的差异，所以现在更流行用语言出现的的概率来判断句子是否通顺。<br>比如：我去操场（  ）；计算机会识别我去操场跑步或是其他运动方面的单词出现的概率会更大，再比如翻译的时候，计算机会统计这么翻译的话他会在实际现实应用中出现概率。</li>
-<li>总结来说就是无论在机器翻译；拼音纠错；语音识别；音字转换方面都是判断这样转换的概率是否最大化</li>
-</ul>
-<h1 id="N-Gram"><a href="#N-Gram" class="headerlink" title="N-Gram"></a>N-Gram</h1><ul>
-<li>他的输入是一句话（单词的顺序序列），输出是这句话的概率（这些单词结合的概率-joint probability）</li>
-<li>N-Gram的意思就是由N个单词组合的模型，单词分先后顺序，不要求点此之间互不相同，其中N常用取2或者3词组合</li>
-<li>数学表达式：假设每一个单词都要依赖于从第一个单词在他之前的一个单词的影响：p(S)=p(w1w2…wn)=p(w1)p(w2|w1)…p(wn|wn-1…w2w1)；<br><img src="/images/NLP/bi_gram_01 .png" alt="issue"><br>利用MLE思想（利用已知的样本信息来反推模型参数，换句话说什么样的模型才会出现现在这种样本）；</li>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+句话说什么样的模型才会出现现在这种样本）；</li>
 <li>问题：参数空间太大O(n)个所以我们通过马尔科夫假设；数据稀疏严重</li>
 </ul>
 <h1 id="Bi-Gram"><a href="#Bi-Gram" class="headerlink" title="Bi-Gram"></a>Bi-Gram</h1><ul>
@@ -390,7 +468,7 @@ nltk.download()
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li></ul>
   </div>
 
 
@@ -399,7 +477,7 @@ nltk.download()
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">52</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">52</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nlp/">nlp</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -408,7 +486,7 @@ nltk.download()
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15.56px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 18.89px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/leetcode/" style="font-size: 14.44px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15.56px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 18.89px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/leetcode/" style="font-size: 14.44px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/nlp/" style="font-size: 10px;">nlp</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </p>
   </div>
 
@@ -416,7 +494,7 @@ nltk.download()
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -427,11 +505,15 @@ nltk.download()
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
+          <a href="/2020/10/26/NLP-base-of-Greedy-notes/">NLP base of Greedy notes</a>
         </li>
       
         <li>
-          <a href="/2020/10/16/Bayesian-Statistics-Notes-01/">Bayesian Statistics Notes 01</a>
+          <a href="/2020/10/20/Bayesian-Statistics-Notes-01/">Prof.Yeh Benson Statistics Notes</a>
+        </li>
+      
+        <li>
+          <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
         </li>
       
         <li>
@@ -440,10 +522,6 @@ nltk.download()
       
         <li>
           <a href="/2019/09/30/Deep-Learning-Certificate-by-Coursera/">Deep Learning Certificate by Coursera</a>
-        </li>
-      
-        <li>
-          <a href="/2019/09/15/NLP-of-R-by-A-Z/">NLP of R by A-Z</a>
         </li>
       
     </ul>

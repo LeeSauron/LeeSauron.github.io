@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Sauron Lee‘blog</title>
   
-  <subtitle>リ　ショウゼンのブログ</subtitle>
+  <subtitle>Li xiaoran</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/SauronLee/"/>
-  <updated>2020-10-16T12:22:03.471Z</updated>
+  <updated>2020-10-26T11:22:46.165Z</updated>
   <id>https://github.com/SauronLee/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NLP base of Greedy notes</title>
+    <link href="https://github.com/SauronLee/2020/10/26/NLP-base-of-Greedy-notes/"/>
+    <id>https://github.com/SauronLee/2020/10/26/NLP-base-of-Greedy-notes/</id>
+    <published>2020-10-26T11:07:52.000Z</published>
+    <updated>2020-10-26T11:22:46.165Z</updated>
+    
+    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1kzCnEdxdySVjxBvMUdFDTzx7JO15GkQz/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1wALLAGsSPR40Eyg-uxx06SbHCUnpDYg1/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1D4Is4U2EMXivq97f2GiT0uV6WrG1WFV9/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/19w-f9FicI-gp_5lUvEX3NJda4IP18LNh/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1k9ILdA9DENcV_IJjxMYCIGXAXAlzaFww/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/12QtKywqHz-T3m2QhhJNUHGphqW7Hmltp/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/13Rx_Mtzrq1AMjb6KJ1SFe6D9g9sWqIFA/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1y3flliQ0CjYoBg7jAFHE07lMyYpK8G2_/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1_RiMG2W1BN_9emMuGilj_niPoWyuA0Su/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1FSjAKAG34sC1trjqBlwhRM946v9HiKeC/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1SpZTCK-6Seb8SiDqg3SQD3Mx5xxhGI4J/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/15LnSKNckroIG3nzkDRlwC2dhCjA_2qfi/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1ecs0hFry9SSoTm9Bf6nY3I7SgO4y3s95/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1jMdgg7EGiBXCvJFI5ewgS4z2qm7VXesW/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1s8fiYLTB0NhwLXlPRs9vhSaKr4s0Cq9X/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/18aTr6h4CKkxYYatwJKhWWlWZZ9jKctaG/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1peqntrfdLFG0SB0iAx9Cfuec5InykByH/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1peqntrfdLFG0SB0iAx9Cfuec5InykByH/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1peqntrfdLFG0SB0iAx9Cfuec5InykByH/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1jczBfnnSsgEWSgPCvDNGNtkGhKJpUJ3C/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1WVQWTdELZwFUgJw9ZecXdnuxHLPREgf0/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1YBqSl_nVFYa2u709Zs4tQMNEp1kDDCs3/preview" style="width:100%; height:550px"></iframe></div><div class="row"><iframe src="https://drive.google.com/file/d/1j1OUOxeR50mRauASunjFn0D6LvdMnsTV/preview" style="width:100%; height:550px"></iframe></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;iframe src=&quot;https://drive.google.com/file/d/1kzCnEdxdySVjxBvMUdFDTzx7JO15GkQz/preview&quot; style=&quot;width:100%; height:550
+      
+    
+    </summary>
+    
+    
+      <category term="math" scheme="https://github.com/SauronLee/categories/math/"/>
+    
+    
+      <category term="nlp" scheme="https://github.com/SauronLee/tags/nlp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Prof.Yeh Benson Statistics Notes</title>
+    <link href="https://github.com/SauronLee/2020/10/20/Bayesian-Statistics-Notes-01/"/>
+    <id>https://github.com/SauronLee/2020/10/20/Bayesian-Statistics-Notes-01/</id>
+    <published>2020-10-20T11:46:20.000Z</published>
+    <updated>2020-10-26T11:05:15.505Z</updated>
+    
+    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1OOnkfNVKnzgxTF8vlcstBOepXyQP1Jas/preview" style="width:100%; height:550px"></iframe></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;iframe src=&quot;https://drive.google.com/file/d/1OOnkfNVKnzgxTF8vlcstBOepXyQP1Jas/preview&quot; style=&quot;width:100%; height:550
+      
+    
+    </summary>
+    
+    
+      <category term="math" scheme="https://github.com/SauronLee/categories/math/"/>
+    
+    
+      <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
+    
+  </entry>
   
   <entry>
     <title>Sunannan 10,000 words</title>
@@ -40,35 +98,6 @@
     
     
       <category term="english" scheme="https://github.com/SauronLee/tags/english/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bayesian Statistics Notes 01</title>
-    <link href="https://github.com/SauronLee/2020/10/16/Bayesian-Statistics-Notes-01/"/>
-    <id>https://github.com/SauronLee/2020/10/16/Bayesian-Statistics-Notes-01/</id>
-    <published>2020-10-16T11:46:20.000Z</published>
-    <updated>2020-10-16T12:17:39.154Z</updated>
-    
-    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1Vju2QxJhsgE0u_cCxoAhSNupX3-_T6aH/preview" style="width:100%; height:550px"></iframe></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-
-	&lt;div class=&quot;row&quot;&gt;
-		&lt;iframe src=&quot;https://drive.google.com/file/d/1Vju2QxJhsgE0u_cCxoAhSNupX3-_T6aH/preview&quot; style=&quot;width:100%; height:550
-      
-    
-    </summary>
-    
-    
-      <category term="math" scheme="https://github.com/SauronLee/categories/math/"/>
-    
-    
-      <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
     
   </entry>
   
@@ -565,37 +594,6 @@ import numpy as n
       <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
     
       <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Naive Bayes of R by A-Z</title>
-    <link href="https://github.com/SauronLee/2019/09/13/Naive-Bayes-of-R-by-A-Z/"/>
-    <id>https://github.com/SauronLee/2019/09/13/Naive-Bayes-of-R-by-A-Z/</id>
-    <published>2019-09-13T06:57:52.000Z</published>
-    <updated>2019-09-23T06:31:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/A-Z_ML/64.png" alt></p><script src="https://gist.github.com/SauronLee/15ceccb3322d21549d4685ec1b9bd58a.js"></script><hr><pre><code>&gt; # Predicting the Test set results&gt; y_pred = predict(classifier, newdata = test_set[-3])&gt; # Making the Confusion Matrix&gt; cm = table(test_set[, 3], y_pred)&gt; y_pred  [1] 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 [48] 0 0 0 0 0 1 1 1 0 1 0 0 1 1 0 1 1 1 0 1 1 1 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 1 1 0 0 1 1 0 1 0 [95] 1 1 1 1 0 1Levels: 0 1&gt; cm   y_pred     0  1  0 57  7  1  7 29</code></pre><p>  <img src="/images/A-Z_ML/80.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/images/A-Z_ML/64.png&quot; alt&gt;&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/SauronLee/15ceccb3322d21549d4685ec1b9bd58a.js&quot;&gt;&lt;/script&gt;
-
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
-    
-      <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
-    
-      <category term="R" scheme="https://github.com/SauronLee/tags/R/"/>
     
   </entry>
   
