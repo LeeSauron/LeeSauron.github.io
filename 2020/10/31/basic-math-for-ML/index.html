@@ -3,22 +3,17 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Data Preprocessing by Python | Sauron Lee‘blog</title>
+  <title>basic math for ML | Sauron Lee‘blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Data Preprocessing  command + i = helpeer  Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)  missing_values : integer or “NaN”, optional (default=”NaN”)The pla">
-<meta name="keywords" content="Machine Learning,Python,Statistics">
+  <meta name="keywords" content="Statistics">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data Preprocessing by Python">
-<meta property="og:url" content="https://github.com/SauronLee/2019/08/10/Data-Preprocessing-by-Python/index.html">
+<meta property="og:title" content="basic math for ML">
+<meta property="og:url" content="https://github.com/SauronLee/2020/10/31/basic-math-for-ML/index.html">
 <meta property="og:site_name" content="Sauron Lee‘blog">
-<meta property="og:description" content="Data Preprocessing  command + i = helpeer  Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)  missing_values : integer or “NaN”, optional (default=”NaN”)The pla">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/images/A-Z_ML/01.png">
-<meta property="og:updated_time" content="2019-09-23T06:31:47.000Z">
+<meta property="og:updated_time" content="2020-10-31T15:10:00.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data Preprocessing by Python">
-<meta name="twitter:description" content="Data Preprocessing  command + i = helpeer  Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)  missing_values : integer or “NaN”, optional (default=”NaN”)The pla">
-<meta name="twitter:image" content="https://github.com/images/A-Z_ML/01.png">
+<meta name="twitter:title" content="basic math for ML">
   
     <link rel="alternate" href="/atom.xml" title="Sauron Lee‘blog" type="application/atom+xml">
   
@@ -87,13 +82,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          <article id="post-Data-Preprocessing-by-Python" class="article article-type-post" itemscope itemprop="blogPost">
+          <article id="post-basic-math-for-ML" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 class="article-title" itemprop="name">
-      Data Preprocessing by Python
+      basic math for ML
     </h1>
   
 
@@ -102,60 +97,29 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/08/10/Data-Preprocessing-by-Python/" class="article-date"><time datetime="2019-08-10T11:08:27.000Z" itemprop="datePublished">2019-08-10</time></a>
+  <a href="/2020/10/31/basic-math-for-ML/" class="article-date"><time datetime="2020-10-30T17:27:20.000Z" itemprop="datePublished">2020-10-31</time></a>
 </div>
 
     
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/math/">math</a>
+  </div>
+
 
   </div>
   <div class="article-inner">
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d3f9b166dbfa5160de5411a0718c90b1.js"></script>
+        
 
-<p>command + i = helpeer</p>
-<ul>
-<li>Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)</li>
-</ul>
-<p>missing_values : integer or “NaN”, optional (default=”NaN”)<br>The placeholder for the missing values. All occurrences of missing_values will be imputed. For missing values encoded as np.nan, use the string value “NaN”.<br>strategy : string, optional (default=”mean”)<br>The imputation strategy.</p>
-<p>If “mean”, then replace missing values using the mean along the axis.<br>If “median”, then replace missing values using the median along the axis.<br>If “most_frequent”, then replace missing using the most frequent value along the axis.<br>axis : integer, optional (default=0)<br>The axis along which to impute.</p>
-<p>If axis=0, then impute along columns.<br>If axis=1, then impute along rows.<br>verbose : integer, optional (default=0)<br>Controls the verbosity of the imputer.<br>copy : boolean, optional (default=True)<br>If True, a copy of X will be created. If False, imputation will be done in-place whenever possible. Note that, in the following cases, a new copy will always be made, even if copy=False:</p>
-<p>If X is not an array of floating values;<br>If X is sparse and missing_values=0;<br>If axis=0 and X is encoded as a CSR matrix;<br>If axis=1 and X is encoded as a CSC matrix.</p>
-<ul>
-<li>fit(X, y=None)</li>
-</ul>
-<p>X : {array-like, sparse matrix}, shape (n_samples, n_features)<br>Input data, where n_samples is the number of samples and n_features is the number of features.</p>
-<ul>
-<li>Definition : OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=np.float64, handle_unknown=’error’)</li>
-</ul>
-<p>Type : Present in sklearn.preprocessing._encoders module</p>
-<p>categories : ‘auto’ or a list of lists/arrays of values, default=’auto’.<br>Categories (unique values) per feature:</p>
-<p>‘auto’ : Determine categories automatically from the training data.<br>list : categories[i] holds the categories expected in the ith column. The passed categories should not mix strings and numeric values within a single feature, and should be sorted in case of numeric values.<br>The used categories can be found in the categories_ attribute.</p>
-<p>sparse : boolean, default=True<br>Will return sparse matrix if set True else will return an array.<br>dtype : number type, default=np.float<br>Desired dtype of output.<br>handle_unknown : ‘error’ or ‘ignore’, default=’error’.<br>Whether to raise an error or ignore if an unknown categorical feature is present during transform (default is to raise). When this parameter is set to ‘ignore’ and an unknown category is encountered during transform, the resulting one-hot encoded columns for this feature will be all zeros. In the inverse transform, an unknown category will be denoted as None.<br>n_values : ‘auto’, int or array of ints, default=’auto’<br>Number of values per feature.</p>
-<p>‘auto’ : determine value range from training data.</p>
-<p>int : number of categorical values per feature.<br>Each feature value should be in range(n_values)</p>
-<p>array : n_values[i] is the number of categorical values in<br>X[:, i]. Each feature value should be in range(n_values[i])</p>
-<p>Deprecated since version 0.20: The n_values keyword was deprecated in version 0.20 and will be removed in 0.22. Use categories instead.</p>
-<p>categorical_features : ‘all’ or array of indices or mask, default=’all’<br>Specify what features are treated as categorical.</p>
-<p>‘all’: All features are treated as categorical.<br>array of indices: Array of categorical feature indices.<br>mask: Array of length n_features and with dtype=bool.<br>Non-categorical features are always stacked to the right of the matrix.</p>
-<p>Deprecated since version 0.20: The categorical_features keyword was deprecated in version 0.20 and will be removed in 0.22. You can use the ColumnTransformer instead.</p>
-<h2 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h2><ul>
-<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
-<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
-<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
-</li>
-<li><p>是否需要对虚拟变量进行特征缩放。答：不一定，要根据模型结果。</p>
-</li>
-<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
-</ul>
-<pre><code># Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc_XStandardScaler()
-X_train = sc_X.fit_transform(X_train)
-X_test = sc_X.transform(X_test)
-</code></pre>
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1qwZYYyfSfCMwcxYR41jeF5iqkIB-cRb7/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+
       
     </div>
 
@@ -165,12 +129,12 @@ X_test = sc_X.transform(X_test)
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/10/Data-Preprocessing-by-Python/" data-id="ckgxto25i000tsbtqqonad98h" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2020/10/31/basic-math-for-ML/" data-id="ckgxto282005jsbtq0yt1u8iw" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
 
 
     </footer>
@@ -180,19 +144,12 @@ X_test = sc_X.transform(X_test)
 <ul id="article-nav" class="nav nav-pills nav-justified">
   
   <li role="presentation">
-    <a href="/2019/08/10/Data-Preprocessing-by-R/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/16/Sunannan-10-000-words/" id="article-nav-older" class="article-nav-link-wrap">
       <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">Data Preprocessing by R</span>
+      <span class="article-nav-link-title">Sunannan 10,000 words</span>
     </a>
   </li>
   
-  
-  <li role="presentation">
-    <a href="/2019/08/11/Higher-Math-Basis-of-HouPhD/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">Higher Math Basis of HouPhD</span>
-      <i class="fa fa-chevron-right pull-right"></i>
-    </a>
-  </li>
   
 </ul>
 
