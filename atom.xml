@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/SauronLee/"/>
-  <updated>2020-10-31T15:10:00.384Z</updated>
+  <updated>2020-11-04T08:19:01.725Z</updated>
   <id>https://github.com/SauronLee/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>統計学習方法ノート</title>
+    <link href="https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/"/>
+    <id>https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/</id>
+    <published>2020-11-04T08:17:38.000Z</published>
+    <updated>2020-11-04T08:19:01.725Z</updated>
+    
+    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1u59bUq0-ioyWQiIOUQ7wal_zC8xoXRKk/preview" style="width:100%; height:550px"></iframe></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;iframe src=&quot;https://drive.google.com/file/d/1u59bUq0-ioyWQiIOUQ7wal_zC8xoXRKk/preview&quot; style=&quot;width:100%; height:550
+      
+    
+    </summary>
+    
+    
+      <category term="math" scheme="https://github.com/SauronLee/categories/math/"/>
+    
+    
+      <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
+    
+  </entry>
   
   <entry>
     <title>basic math for ML</title>
@@ -565,37 +594,6 @@ import numpy as n
       <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
     
       <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Naive Bayes of R by A-Z</title>
-    <link href="https://github.com/SauronLee/2019/09/13/Naive-Bayes-of-R-by-A-Z/"/>
-    <id>https://github.com/SauronLee/2019/09/13/Naive-Bayes-of-R-by-A-Z/</id>
-    <published>2019-09-13T06:57:52.000Z</published>
-    <updated>2019-09-23T06:31:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/A-Z_ML/64.png" alt></p><script src="https://gist.github.com/SauronLee/15ceccb3322d21549d4685ec1b9bd58a.js"></script><hr><pre><code>&gt; # Predicting the Test set results&gt; y_pred = predict(classifier, newdata = test_set[-3])&gt; # Making the Confusion Matrix&gt; cm = table(test_set[, 3], y_pred)&gt; y_pred  [1] 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 [48] 0 0 0 0 0 1 1 1 0 1 0 0 1 1 0 1 1 1 0 1 1 1 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 1 1 0 0 1 1 0 1 0 [95] 1 1 1 1 0 1Levels: 0 1&gt; cm   y_pred     0  1  0 57  7  1  7 29</code></pre><p>  <img src="/images/A-Z_ML/80.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/images/A-Z_ML/64.png&quot; alt&gt;&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/SauronLee/15ceccb3322d21549d4685ec1b9bd58a.js&quot;&gt;&lt;/script&gt;
-
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
-    
-      <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
-    
-      <category term="R" scheme="https://github.com/SauronLee/tags/R/"/>
     
   </entry>
   

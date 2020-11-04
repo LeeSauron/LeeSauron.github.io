@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-ML-Certificate-by-Udacity" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-xgs03" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/13/ML-Certificate-by-Udacity/">ML Certificate by Udacity</a>
+      <a class="article-title" href="/2017/06/01/xgs03/">模型评估与选择（2）</a>
     </h1>
   
 
@@ -101,22 +101,28 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2017/10/13/ML-Certificate-by-Udacity/" class="article-date"><time datetime="2017-10-13T07:35:03.000Z" itemprop="datePublished">2017-10-13</time></a>
+  <a href="/2017/06/01/xgs03/" class="article-date"><time datetime="2017-06-01T08:02:18.000Z" itemprop="datePublished">2017-06-01</time></a>
 </div>
 
     
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/news/">news</a>
-  </div>
-
 
   </div>
   <div class="article-inner">
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.imgur.com/jgIDkPF.png" alt> </p>
+        <h3 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h3><p>性能度量(performance measure):衡量模型泛化能力的评价标准,性能度量反映了任务需求，在对比不同模型的能力时，使用不同的性能度量往 往会导致不同的评判结果;这意味着模型的”好坏”是相对的，什么样的模型 是好的?不仅取决于算法和数据，还决定于任务需求.<br>在预测任务中?给定样例集 D = {(X1,Y1), (X2,Y2)， . . . , (Xm,Ym)}， 其中Yi是示例 Xi 的真实标记.要评估学习器f的性能，就要把学习器预测结果I(x)与真实标记y进行比较.<br>回归任务最常用的性能度量是”均方误差” (mean squared error)</p>
+<script type="math/tex; mode=display">E(f;D)=\frac{1}{m}\sum_{i=1}^{m}(f(x_{i})-y_{i})^{2}</script><h3 id="错误率与精度"><a href="#错误率与精度" class="headerlink" title="错误率与精度"></a>错误率与精度</h3><p>本章开头提到了错误率和精度?这是分类任务中最常用的两种性能度量，既适用于二分类任务，也适用于多分类任务.错误率是分类错误的样本数占样 本总数的比例，精度则是分类正确的样本数占样本总数的比例.对样例集 D，<br>分类错误率定义为</p>
+<script type="math/tex; mode=display">E(f;D)=\frac{1}{m}\sum_{i=1}^{m}(f(x_{i})\neq y_{i})</script><p>精度则定义为</p>
+<script type="math/tex; mode=display">acc(f:D)=\frac{1}{m}\sum_{i=1}^{m}(f(x_{i})= y_{i})</script><script type="math/tex; mode=display">=1-E(f;D)</script><h3 id="查准率、查全率"><a href="#查准率、查全率" class="headerlink" title="查准率、查全率"></a>查准率、查全率</h3><p>错误率和精度虽常用，但并不能满足所有任务需求.以西瓜问题为例，假定 瓜农拉来一车西瓜，我们用训练好的模型对这些西瓜进行判别，显然，错误率衡 量了有多少比例的瓜被判别错误.但是若我们关心的是”挑出的西瓜中有多少 比例是好瓜”，或者”所有好瓜中有多少比例被挑了出来就不够用了’这时需要使用其他的性能度量.类似的需求在信息检索，Web搜索等应用中经常出现?例如在信息检索中，我们经常会关心”检索出的信息中有多少比例是用户感兴趣的” 用户感兴趣的信息中有多少被检索出来了 查准率和查全率” 是更为适用于此类需求的性能度量.查准率和查全率是一对矛盾的度量.一般来说，查准率高时，查全率往往 偏低;而查全率高时，查准率往往偏低.</p>
+<h3 id="P-R-图"><a href="#P-R-图" class="headerlink" title="P-R 图"></a>P-R 图</h3><p>P-R 图直观地显示出学习器在样本总体上的查全率、 查准率.在进行比较 时?若一个学习器的 P-R 曲线被另一个学习器的曲线完全”包住” ， 则可断言 后者的性能优于前者， 例如图 2.3 中学习器 A 的性能优于学习器 C; 如果两个 学习器的 P-R 曲线发生了交叉, 中的 A 与 B ，则难以-般性地断言 两者孰优孰劣?只能在具体的查准率或查全率条件下进行比较然而，在很多情形下，人们往往仍希望把学习器 A 与 B 比出个高低. 这时一个比较合理的判据 是比较 P-R 曲线节面积的大小，它在一定程度上表征了学习器在查准率和查全 率上取得相对”双高”的比例.但这个值不太容易估算， 因此7 人们设计了一些 综合考虑查准率、 查全率的性能度量.<br>“平衡点 “ (Break-Event Point，简称 BEP)就是这样一个度量，它是”查 准率=查全率”时的取值3 例如图 2.3 中学习器 C 的 BEP 是 0.64，而基于 BEP 的比较，可认为学习器 A 优于 B .但 BEP 还是过于简化了些，更常用的是 F1 度量:</p>
+<script type="math/tex; mode=display">F1=\frac{2\times P\times R}{P+R}=\frac{2\times TP}{Case number+TP-TN}</script><h3 id="ROC-与-AUC"><a href="#ROC-与-AUC" class="headerlink" title="ROC 与 AUC"></a>ROC 与 AUC</h3><p>ROC 全称是”受试者工作特征” (Receiver Operating Characteristic) 曲 线7 它源于”二战”中用于敌机检测的雷达信号分析技术，二十世纪六七十 年代开始被用于→些心理学、医学检测应用中?此后被引入机器学习领域 [Spackman, 1989]. P-R 曲线相似我们根据学习器的预 测结果对样例进行排序，按此顺序逐个把样本作为正例进行预测，每次计算 出两个重要量的值，分别以它们为横、纵坐标作图’就得到了 “ROC曲线 与 P-R 曲线使用查准率、查全率为纵、横轴不同，ROC曲线的纵轴是”真正 例率” (True Positive Rate，简称 TPR)，横轴是”假正例率” (False Positive Rate，简称 FPR)，基于表 2.1 中的符号，两者分别定义为</p>
+<script type="math/tex; mode=display">TPR=\frac{TP}{TP+FN}</script><script type="math/tex; mode=display">TPR=\frac{FP}{TN+FP}</script><p>显示 ROC 曲线的图称为 “ROC 图”，对角线对应于 “随机猜测” 模型，而点 (0， 1) 则对应于将所有正例排在所有反 例之前的”理想模型”</p>
+<p>代价敏感错误率与代价曲线</p>
+<p>不同类型的错误所造成的后果不同. 例如在医疗诊断中，错误地把患者诊断为健康人与错误地把健康人诊断为患者， 看起来都是犯了”一次错误”但后者的影响是增加了进→步检查的麻烦，前者的后果却可能是丧失了拯救生命的最佳时机，为权衡不同类型错误所造成的不同损失，可为错误赋予”非均等代价” (unequa cost).<br>在非均等代价下， ROC 曲线不能直接反映出学习器的期望总体代价，而 “代价曲线” (cost curve) 则可达到该目的.代价曲线图的横轴是取值为 [0， 1] 的正例概率代价</p>
+<script type="math/tex; mode=display">P(+)cost=\frac{p\timescost_{01}}{p\timescost_{01}+(1-p)\timescost_{10}}</script><p>其中 p 是样例为正例的概率;纵轴是取值为 [0， 1] 的归一化代价</p>
+<script type="math/tex; mode=display">P(+)cost=\frac{p\timescost_{01}+FPR\times(1-p)\timescost_{10}}{p\timescost_{01}+(1-p)\timescost_{10}}</script><p>其中 FPR 是式(2.19)定义的假正例率， FNR = 1 - TPR 是假反例率.代价曲线 的绘制很简单: ROC曲线上每1点对应了代价平面上的1条线段7 设 ROC 曲 线上点的坐标为 (TPR， FPR)，则可相应计算出 FNR，然后在代价平面上绘制 一条从 (0， FPR) 到 (1， FNR) 的线段，线段下的面积即表示了该条件下的期望 总体代价;如此将 ROC 曲线土的每个点转化为代价平面上的一条线段，然后 取所有线段的下界，围成的自积即为在所有条件下学习器的期望总体代价</p>
 
       
     </div>
@@ -127,11 +133,13 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2017/10/13/ML-Certificate-by-Udacity/" data-id="ckgxto26l0034sbtqtguw3eby" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2017/06/01/xgs03/" data-id="ckh34xf1r006268tqwrt2qcko" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
 
     </footer>
   </div>
@@ -141,13 +149,13 @@
 
 
   
-    <article id="post-Bash-Keyboard-Shortcuts" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-xgs02" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/15/Bash-Keyboard-Shortcuts/">Bash Keyboard Shortcuts</a>
+      <a class="article-title" href="/2017/05/14/xgs02/">模型评估与选择</a>
     </h1>
   
 
@@ -156,7 +164,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2017/08/15/Bash-Keyboard-Shortcuts/" class="article-date"><time datetime="2017-08-15T10:01:36.000Z" itemprop="datePublished">2017-08-15</time></a>
+  <a href="/2017/05/14/xgs02/" class="article-date"><time datetime="2017-05-14T07:59:05.000Z" itemprop="datePublished">2017-05-14</time></a>
 </div>
 
     
@@ -167,25 +175,24 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Bash Keyboard Shortcuts<br>Moving the cursor:<br>  Ctrl + a   Go to the beginning of the line (Home)<br>  Ctrl + e   Go to the End of the line (End)<br>  Ctrl + p   Previous command (Up arrow)<br>  Ctrl + n   Next command (Down arrow)<br>   Alt + b   Back (left) one word<br>   Alt + f   Forward (right) one word<br>  Ctrl + f   Forward one character<br>  Ctrl + b   Backward one character<br>  Ctrl + xx  Toggle between the start of line and current cursor position<br>Editing:<br> Ctrl + L   Clear the Screen, similar to the clear command</p>
-<p>  Alt + Del Delete the Word before the cursor.<br>  Alt + d   Delete the Word after the cursor.<br> Ctrl + d   Delete character under the cursor<br> Ctrl + h   Delete character before the cursor (Backspace)</p>
-<p> Ctrl + w   Cut the Word before the cursor to the clipboard.<br> Ctrl + k   Cut the Line after the cursor to the clipboard.<br> Ctrl + u   Cut/delete the Line before the cursor to the clipboard.</p>
-<p>  Alt + t   Swap current word with previous<br> Ctrl + t   Swap the last two characters before the cursor (typo).<br> Esc  + t   Swap the last two words before the cursor.</p>
-<p> ctrl + y   Paste the last thing to be cut (yank)<br>  Alt + u   UPPER capitalize every character from the cursor to the end of the current word.<br>  Alt + l   Lower the case of every character from the cursor to the end of the current word.<br>  Alt + c   Capitalize the character under the cursor and move to the end of the word.<br>  Alt + r   Cancel the changes and put back the line as it was in the history (revert).<br> ctrl + _   Undo</p>
-<p> TAB        Tab completion for file/directory names<br>For example, to move to a directory ‘sample1’; Type cd sam ; then press TAB and ENTER.<br>type just enough characters to uniquely identify the directory you wish to open.</p>
-<p>Special keys: Tab, Backspace, Enter, Esc<br>Text Terminals send characters (bytes), not key strokes.<br>Special keys such as Tab, Backspace, Enter and Esc are encoded as control characters.<br>Control characters are not printable, they display in the terminal as ^ and are intended to have an effect on applications.</p>
-<p>Ctrl+I = Tab<br>Ctrl+J = Newline<br>Ctrl+M = Enter<br>Ctrl+[ = Escape</p>
-<p>Many terminals will also send control characters for keys in the digit row:<br>Ctrl+2 → ^@<br>Ctrl+3 → ^[ Escape<br>Ctrl+4 → ^\<br>Ctrl+5 → ^]<br>Ctrl+6 → ^^<br>Ctrl+7 → ^_ Undo<br>Ctrl+8 → ^? Backward-delete-char</p>
-<p>Ctrl+v tells the terminal to not interpret the following character, so Ctrl+v Ctrl-I will display a tab character,<br>similarly Ctrl+v ENTER will display the escape sequence for the Enter key: ^M</p>
-<p>History:<br>  Ctrl + r   Recall the last command including the specified character(s)<br>             searches the command history as you type.<br>             Equivalent to : vim ~/.bash_history.<br>  Ctrl + p   Previous command in history (i.e. walk back through the command history)<br>  Ctrl + n   Next command in history (i.e. walk forward through the command history)</p>
-<p>  Ctrl + s   Go back to the next most recent command.<br>             (beware to not execute it from a terminal because this will also launch its XOFF).<br>  Ctrl + o   Execute the command found via Ctrl+r or Ctrl+s<br>  Ctrl + g   Escape from history searching mode<br>        !!   Repeat last command<br>      !n     Repeat from the last command: args n e.g. !:2 for the second argumant.<br>      !n:m   Repeat from the last command: args from n to m. e.g. !:2-3 for the second and third.<br>      !n:$   Repeat from the last command: args n to the last argument.<br>      !n:p   Print last command starting with n<br>        !$   Last argument of previous command<br>   ALT + .   Last argument of previous command<br>        !*   All arguments of previous command<br>^abc­^­def   Run previous command, replacing abc with def<br>Process control:<br> Ctrl + C   Interrupt/Kill whatever you are running (SIGINT)<br> Ctrl + l   Clear the screen<br> Ctrl + s   Stop output to the screen (for long running verbose commands)<br>            Then use PgUp/PgDn for navigation<br> Ctrl + q   Allow output to the screen (if previously stopped using command above)<br> Ctrl + D   Send an EOF marker, unless disabled by an option, this will close the current shell (EXIT)<br> Ctrl + Z   Send the signal SIGTSTP to the current task, which suspends it.<br>            To return to it later enter fg ‘process name’ (foreground).<br>Emacs mode vs Vi Mode<br>All the above assume that bash is running in the default Emacs setting, if you prefer this can be switched to Vi shortcuts instead.</p>
-<p>Set Vi Mode in bash:</p>
-<p>$ set -o vi<br>Set Emacs Mode in bash:</p>
-<p>$ set -o emacs </p>
-<p>Article from ：<a href="https://ss64.com/bash/syntax-keyboard.html" target="_blank" rel="noopener">https://ss64.com/bash/syntax-keyboard.html</a></p>
-<p> 常用<br>ctrl+左右键:在单词之间跳转<br>ctrl+a:跳到本行的行首<br>ctrl+e:跳到页尾<br>Ctrl+u：删除当前光标前面的文字 （还有剪切功能）<br>ctrl+k：删除当前光标后面的文字(还有剪切功能)<br>Ctrl+L：进行清屏操作<br>Ctrl+y:粘贴Ctrl+u或ctrl+k剪切的内容<br>Ctrl+w:删除光标前面的单词的字符<br>Alt – d ：由光标位置开始，往右删除单词。往行尾删<br>说明<br>Ctrl – k: 先按住 Ctrl 键，然后再按 k 键；<br>Alt – k: 先按住 Alt 键，然后再按 k 键；<br>M – k：先单击 Esc 键，然后再按 k 键。<br>移动光标<br>Ctrl – a ：移到行首<br>Ctrl – e ：移到行尾<br>Ctrl – b ：往回(左)移动一个字符<br>Ctrl – f ：往后(右)移动一个字符<br>Alt – b ：往回(左)移动一个单词<br>Alt – f ：往后(右)移动一个单词<br>Ctrl – xx ：在命令行尾和光标之间移动<br>M-b ：往回(左)移动一个单词<br>M-f ：往后(右)移动一个单词<br>编辑命令<br>Ctrl – h ：删除光标左方位置的字符<br>Ctrl – d ：删除光标右方位置的字符（注意：当前命令行没有任何字符时，会注销系统或结束终端）<br>Ctrl – w ：由光标位置开始，往左删除单词。往行首删<br>Alt – d ：由光标位置开始，往右删除单词。往行尾删<br>M – d ：由光标位置开始，删除单词，直到该单词结束。<br>Ctrl – k ：由光标所在位置开始，删除右方所有的字符，直到该行结束。<br>Ctrl – u ：由光标所在位置开始，删除左方所有的字符，直到该行开始。<br>Ctrl – y ：粘贴之前删除的内容到光标后。<br>ctrl – t ：交换光标处和之前两个字符的位置。<br>Alt + . ：使用上一条命令的最后一个参数。<br>Ctrl – _ ：回复之前的状态。撤销操作。<br>Ctrl -a + Ctrl -k 或 Ctrl -e + Ctrl -u 或 Ctrl -k + Ctrl -u 组合可删除整行。</p>
-<p>Bang(!)命令<br>!! ：执行上一条命令。<br>^foo^bar ：把上一条命令里的foo替换为bar，并执行。<br>!wget ：执行最近的以wget开头的命令。<br>!wget:p ：仅打印最近的以wget开头的命令，不执行。<br>!$ ：上一条命令的最后一个参数， 与 Alt - . 和 $_ 相同。<br>!<em> ：上一条命令的所有参数<br>!</em>:p ：打印上一条命令是所有参数，也即 !*的内容。<br>^abc ：删除上一条命令中的abc。<br>^foo^bar ：将上一条命令中的 foo 替换为 bar<br>^foo^bar^ ：将上一条命令中的 foo 替换为 bar<br>!-n ：执行前n条命令，执行上一条命令： !-1， 执行前5条命令的格式是： !-5<br>查找历史命令<br>Ctrl – p ：显示当前命令的上一条历史命令<br>Ctrl – n ：显示当前命令的下一条历史命令<br>Ctrl – r ：搜索历史命令，随着输入会显示历史命令中的一条匹配命令，Enter键执行匹配命令；ESC键在命令行显示而不执行匹配命令。<br>Ctrl – g ：从历史搜索模式（Ctrl – r）退出。<br>控制命令<br>Ctrl – l ：清除屏幕，然后，在最上面重新显示目前光标所在的这一行的内容。<br>Ctrl – o ：执行当前命令，并选择上一条命令。<br>Ctrl – s ：阻止屏幕输出<br>Ctrl – q ：允许屏幕输出<br>Ctrl – c ：终止命令<br>Ctrl – z ：挂起命令<br>重复执行操作动作<br>M – 操作次数 操作动作 ： 指定操作次数，重复执行指定的操作。</p>
-<p>引用来自：<a href="https://ss64.com/bash/syntax-keyboard.html" target="_blank" rel="noopener">https://ss64.com/bash/syntax-keyboard.html</a></p>
+        <h3 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h3><ul>
+<li>错误率 (error rate):分类错误的样本数占样本总数的比例，即如果在 m 个样本中有 α 个样本分类错误，则错误率 E= α/m;<br>精度(accuracy):1-α/m，即”精度=1-错误率”</li>
+<li>误差 (error):学习器的实际预测输出与样本的真实输出之间的差异</li>
+<li>训练误差 (training error)或经验误差 (empirical error):学习器在训练集上的误差</li>
+<li>泛化误差 (generalization error):，在新样本上的误差<br>过拟合 (overfitting):，当学习器把训练样本学得”太 好”了的时候，很可能巳经把训练样本自身的一些特点当作了所有潜在样本都 会具有的一般性质，这样就会导致泛化性能下(有多种因素可能导致过拟合，其中最常见的情况是由于学习能力过于强大， 以至于把训练样本所包含的不太一般的特性都学到了，而欠拟合则通常是由 于学习能力低下而造成的欠拟合比较容易克服，例如在决策树学习中扩展分 支、在神经网络学习中增加训练轮数等，而过拟合则很麻烦.在后面的学习中 我们将看到，过拟合是机器学习面临的关键障碍，各类学习算法都必然带有一 些针对过拟合的措施)</li>
+<li>欠拟合 (underfitting):这是指对训练样本的一般性质尚未学好</li>
+<li>模型选择(model selection):理想的解决方案当然是对候选模型的泛化误差进行评估7 然后 选择泛化误差最小的那个模型</li>
+</ul>
+<h3 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h3><ul>
+<li>留出法 (hold-out):直接将数据集D划分为两个互斥的集合?其中一个 集合作为训练集5,另一个作为测试集T， 即 D=BUT，SNT= 空集.在 S 上训 练出模型后，用T来评估其测试误差，作为对泛化误差的估计.(以二分类任务为例，假定D包含1000个样本，将其划分为8包含 700个样本,T包含300个样本，用S进行训练后,如果模型在T上有90个样本分类错误，那么其错误率为(90/300)x100% = 30%，相应的，精度为 1-30%=70%. )</li>
+<li><p>交叉验证法 (cross validation)先将数据集D划分k个大小相似的 互斥子集，即D=D1 U D2 U… U Dk, Di n Dj = ø (i≠j). 每个子集Di都尽可能保持数据分布的一致性，即从D中通过分层采样得到. 然后，每次用k-1个子集的并集作为训练集?余F的那个子集作为测试集;这样就可获得k组训练/测试集，从而可进行k次训练和测试? 最终返回的是这k个测试结果的均值 显然交叉验证法评估结果的稳定性和保真性在很大程度上取决于k的取值，为强调这一点，通常把交叉验证法称为”k折交叉验证” (k-fold cross validation).k最常用的取值是10，此时称为10折交叉验证</p>
+</li>
+<li><p>自助法:它直接以自助采样 法(bootstrap sampling)为基础 [Efron and Tibshirani, 1993]. 给定包含 m 个样 本的数据集 D ， 我们对它进行采样产生数据集 D’: 每次随机从 D 中挑选一个 样本7 将其拷贝放入 DF’ 然后再将该样本放回初始数据集 D 中，使得该样本在 下次采样时仍有可能被采到;这个过程重复执行 m 次后?我们就得到了包含 m 个样本的数据集 DF，这就是自助采样的结果.显然， D 中有一部分样本会在 D’ 中多次出现，而另一部分样本不出现.可以做一个简单的估计，样本在 m 次采 样中始终不被采到的概率是(1-1/m)^m， 取极限得到即通过自助来样，初始数据集 D 中约有 36.8% 的样本未出现在采样数据集 D’ 中.于是我们可将 D’ 用作训练、集， D\D’ 用作测试集;这样?实际评估的模型与 期望评估的模型都使用 m 个训练、样本，而我们仍有数据总量约 1/3 的、没在训 练集中出现的样本用于测试.这样的测试结果，亦称”包外估计” (out-of-bag<br>estimate).</p>
+</li>
+</ul>
+<h3 id="调参与最终模型"><a href="#调参与最终模型" class="headerlink" title="调参与最终模型"></a>调参与最终模型</h3><ul>
+<li>调参(parameter tuning):大多数学习算法都有些参数(parameter)需要设定，参数配置不同，学得模 型的性能往往有显著差别.因此，在进行模型评估与选择时，除了要对适用学习 算法进行选择，还需对算法参数进行设定，这就是通常所说的”参数调节”</li>
+</ul>
 
       
     </div>
@@ -196,12 +203,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2017/08/15/Bash-Keyboard-Shortcuts/" data-id="ckgxto254000fsbtq6q0c6rro" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2017/05/14/xgs02/" data-id="ckh34xf1q005z68tqvlofzu5t" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
 
 
     </footer>
@@ -215,7 +222,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/43/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/42/">42</a></li><li><a class="page-number" href="/page/43/">43</a></li><li class="active"><span class="page-number">44</span></li><li><a class="page-number" href="/page/45/">45</a></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/45/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/43/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/42/">42</a></li><li><a class="page-number" href="/page/43/">43</a></li><li class="active"><span class="page-number">44</span></li><li><a class="page-number" href="/page/45/">45</a></li><li><a class="page-next" rel="next" href="/page/45/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -232,7 +239,7 @@
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li></ul>
   </div>
 
 
@@ -241,7 +248,7 @@
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">52</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -250,7 +257,7 @@
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15.56px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 18.89px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/leetcode/" style="font-size: 14.44px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.75px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.75px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 15px;">NLP</a> <a href="/tags/Python/" style="font-size: 18.75px;">Python</a> <a href="/tags/R/" style="font-size: 17.5px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 16.25px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.25px;">git</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.5px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </p>
   </div>
 
@@ -258,7 +265,7 @@
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/11/">November 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">17</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -267,6 +274,10 @@
   <div class="sidebar-module">
     <h4>Recents</h4>
     <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2020/11/04/Lihang-ML-notes/">統計学習方法ノート</a>
+        </li>
       
         <li>
           <a href="/2020/10/31/basic-math-for-ML/">basic math for ML</a>
@@ -282,10 +293,6 @@
       
         <li>
           <a href="/2019/09/30/Deep-Learning-Certificate-by-Coursera/">Deep Learning Certificate by Coursera</a>
-        </li>
-      
-        <li>
-          <a href="/2019/09/15/NLP-of-R-by-A-Z/">NLP of R by A-Z</a>
         </li>
       
     </ul>
@@ -319,7 +326,22 @@
   <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/script.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
