@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/SauronLee/"/>
-  <updated>2020-11-04T08:19:01.725Z</updated>
+  <updated>2020-12-10T05:57:16.632Z</updated>
   <id>https://github.com/SauronLee/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>arXiv:1905.09866 [cs] notes</title>
+    <link href="https://github.com/SauronLee/2020/12/10/arXiv-1905-09866-cs-notes/"/>
+    <id>https://github.com/SauronLee/2020/12/10/arXiv-1905-09866-cs-notes/</id>
+    <published>2020-12-10T05:50:15.000Z</published>
+    <updated>2020-12-10T05:57:16.632Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Fair-is-Better-than-Sensational-Man-is-to-Doctor-as-Woman-is-to-Doctor"><a href="#Fair-is-Better-than-Sensational-Man-is-to-Doctor-as-Woman-is-to-Doctor" class="headerlink" title="Fair is Better than Sensational:Man is to Doctor as Woman is to Doctor"></a>Fair is Better than Sensational:Man is to Doctor as Woman is to Doctor</h2><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Fair-is-Better-than-Sensational-Man-is-to-Doctor-as-Woman-is-to-Doctor&quot;&gt;&lt;a href=&quot;#Fair-is-Better-than-Sensational-Man-is-to-Doctor-a
+      
+    
+    </summary>
+    
+    
+      <category term="reading_notes" scheme="https://github.com/SauronLee/categories/reading-notes/"/>
+    
+    
+      <category term="paper" scheme="https://github.com/SauronLee/tags/paper/"/>
+    
+  </entry>
   
   <entry>
     <title>統計学習方法ノート</title>
@@ -557,34 +583,6 @@ import numpy as n
 &lt;li&gt;&lt;p&gt;集成学习：对多个分类器进行预测，在对分类结果进行组合已达到最终结果（组合方式：平均，加权平均，投票）三个臭皮匠顶一个诸葛亮&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;集成学习
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
-    
-      <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CART by A-Z</title>
-    <link href="https://github.com/SauronLee/2019/09/13/CART-by-A-Z/"/>
-    <id>https://github.com/SauronLee/2019/09/13/CART-by-A-Z/</id>
-    <published>2019-09-13T07:33:08.000Z</published>
-    <updated>2019-09-23T06:31:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/A-Z_ML/81.png" alt><br><img src="/images/A-Z_ML/82.png" alt><br><img src="/images/A-Z_ML/83.png" alt></p><ul><li>最小化一个优化后的基尼不纯度（就是分割后的一边只有只有一种颜色的纯度）</li><li>当添加了一条分割线后我们能够把这两边的纯度相加最小化，其实每一条分割线的寻找都是优化的问题，这里可以用基尼不纯度来判别纯度也可以用信息熵</li><li>Decision Tree Classifier虽然已经淘汰但是他有拓展</li></ul><p><img src="/images/A-Z_ML/87.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/images/A-Z_ML/81.png&quot; alt&gt;&lt;br&gt;&lt;img src=&quot;/images/A-Z_ML/82.png&quot; alt&gt;&lt;br&gt;&lt;img src=&quot;/images/A-Z_ML/83.png&quot; alt&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;最小化一
       
     
     </summary>

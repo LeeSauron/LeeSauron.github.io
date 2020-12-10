@@ -53,6 +53,9 @@
                  href="/index.html">Home</a></li>
         
           <li><a class=""
+                 href="/categories/reading_notes">Reading notes</a></li>
+        
+          <li><a class=""
                  href="/categories/math">Math</a></li>
         
           <li><a class=""
@@ -85,6 +88,181 @@
     <div class="row">
         <div class="col-sm-8 blog-main">
           
+  
+    <article id="post-Apriori-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">2019-08-14</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/242.png" alt></p>
+<ul>
+<li>数据是商场的用户的消费详情</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
+
+<hr>
+<pre><code>
+&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
+&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
+distribution of transactions with duplicates:
+# 重复一次出现在5行当中
+1 
+5 
+&gt; summary(dataset)
+transactions as itemMatrix in sparse format with
+ 7501 rows (elements/itemsets/transactions) and
+ # 稀疏矩阵，1占0.03288973 其他都是0
+ 119 columns (items) and a density of 0.03288973 
+
+most frequent items:
+mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
+         1788          1348          1306          1282          1229         22405 
+
+element (itemset/transaction) length distribution:
+sizes
+# 有1754笔交易只有1个产品
+   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
+1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   3.914   5.000  20.000 
+
+includes extended item information - examples:
+             labels
+1           almonds
+2 antioxydant juice
+3         asparagus
+&gt; itemFrequencyPlot(dataset, topN = 10)
+&gt; # Training Apriori on the dataset
+&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
+Apriori
+
+Parameter specification:
+ confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
+        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
+
+Algorithmic control:
+ filter tree heap memopt load sort verbose
+    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+
+Absolute minimum support count: 30 
+
+set item appearances ...[0 item(s)] done [0.00s].
+set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
+sorting and recoding items ... [114 item(s)] done [0.00s].
+creating transaction tree ... done [0.00s].
+checking subsets of size 1 2 3 4 done [0.16s].
+writing ... [811 rule(s)] done [0.00s].
+creating S4 object  ... done [0.00s].
+&gt; # Visualising the results
+&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
+     lhs                                            rhs             support     confidence
+[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
+[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
+[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
+[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
+[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
+[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
+[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
+[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
+[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
+[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
+     lift     count
+[1]  4.843951 34   
+[2]  4.700812 44   
+[3]  4.506672 38   
+[4]  4.178455 31   
+[5]  4.122410 60   
+[6]  4.004360 48   
+[7]  3.975683 50   
+[8]  3.840659 40   
+[9]  3.790833 43   
+[10] 3.731841 33   
+&gt; 
+&gt;
+</code></pre><ul>
+<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
+</ul>
+<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
+<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
+<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
+<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
+<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
+<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
+<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
+<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
+<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
+<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
+<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
+<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
+<p>Extends<br>Class itemMatrix, directly.</p>
+<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
+<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
+<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
+<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
+<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
+<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
+<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
+<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
+<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
+<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
+<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
+<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
+<p>show<br>signature(object = “transactions”)</p>
+<p>summary<br>signature(object = “transactions”)</p>
+<ul>
+<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
+</ul>
+<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
+<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
+<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
+<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/08/14/Apriori-of-R-by-A-Z/" data-id="ckiifkneu008kl8tqu0vj5yye" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-Integral-of-HouPhD" class="article article-type-post" itemscope itemprop="blogPost">
 
@@ -142,7 +320,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/14/Integral-of-HouPhD/" data-id="ckh34xeyo001u68tqktld8i0d" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/14/Integral-of-HouPhD/" data-id="ckiifknbx001nl8tqw3vtes16" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -198,7 +376,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/13/Naive-Bayes-of-python-by-A-Z/" data-id="ckh34xf01004768tq85gm3yv7" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/13/Naive-Bayes-of-python-by-A-Z/" data-id="ckiifknd5003yl8tql2y4gihj" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -269,7 +447,7 @@ b_{1}=\sqrt{y};b_{2}=\sqrt{x}
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/12/Higher-Math-Basis-of-PengTitus/" data-id="ckh34xeyk001o68tq0eyfc6gs" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/12/Higher-Math-Basis-of-PengTitus/" data-id="ckiifknbr001fl8tq7w26k8ty" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -477,7 +655,7 @@ f'(x)=(4x^{3}-12x^{2}+9x)'\\
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/11/Higher-Math-Basis-of-HouPhD/" data-id="ckh34xf2s008t68tqjx1vj67s" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/11/Higher-Math-Basis-of-HouPhD/" data-id="ckiifknex008pl8tquxhglwh4" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -571,7 +749,7 @@ X_test = sc_X.transform(X_test)
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/10/Data-Preprocessing-by-Python/" data-id="ckh34xey3000v68tqrocvaf9c" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/10/Data-Preprocessing-by-Python/" data-id="ckiifknb5000il8tqd530m4dq" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -693,7 +871,7 @@ test_set[,2:3] = scale(test_set[,2:3])
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/10/Data-Preprocessing-by-R/" data-id="ckh34xey6001168tqxtl671zx" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/10/Data-Preprocessing-by-R/" data-id="ckiifknba000rl8tqut1dh7o8" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1279,7 +1457,7 @@ a_{23}= 0.5
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/09/quadratic-form-of-houPhD/" data-id="ckh34xf34009068tqrunwjd0s" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/09/quadratic-form-of-houPhD/" data-id="ckiifknf1008zl8tq3vt7zebs" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1548,7 +1726,7 @@ R(B)=1\rightarrow \left\{\begin{matrix}
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/08/Matrix-of-houPhD/" data-id="ckh34xezj003b68tq4bkdgf5a" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/08/Matrix-of-houPhD/" data-id="ckiifkncn0031l8tqzmap1q1v" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1810,7 +1988,7 @@ x_{1} & +2x_{2} & +3x_{3} & =0\\
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/08/Determinant-nature-and-linear-algebra-of-houPhD/" data-id="ckh34xey5000x68tqick5jm16" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/08/Determinant-nature-and-linear-algebra-of-houPhD/" data-id="ckiifknb8000ol8tqx51de51x" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -1826,116 +2004,10 @@ x_{1} & +2x_{2} & +3x_{3} & =0\\
 
 
   
-    <article id="post-Essence-of-Linear-Algebra" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/05/Essence-of-Linear-Algebra/">Essence of Linear Algebra</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2019/08/05/Essence-of-Linear-Algebra/" class="article-date"><time datetime="2019-08-04T18:55:03.000Z" itemprop="datePublished">2019-08-05</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>尽管一批教授和教科书编者用关于矩阵的荒诞至极的计算内容掩盖了线性代数的简明性，但是鲜有与之相较更为初等的理论</p>
-<h1 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h1><p>引入一些数作为坐标是一种鲁莽行为<br>向量的三种观点：</p>
-<ul>
-<li>物理：向量是空间中的箭头，决定一个向量的是他的长度和他所指向的方向，只要上面两个两定下来，可以自由移动这个向量而保持不变，平面的向量是二维的，空间向量是三维的，里面有很多不同的二维向量组成可无规律可有规律</li>
-<li>计算机：向量是有序的数字列表</li>
-<li>数学家：向量可以是任何东西，只要向量运算有意义即可</li>
-</ul>
-<p>1，在线性代数中向量的起点必须是原点而不是物理中的随意点</p>
-<h1 id="向量的相加"><a href="#向量的相加" class="headerlink" title="向量的相加"></a>向量的相加</h1><p>就是两个剪头连接后的第一个向量头和第二向量尾距离，求最短距离无非就是曼哈顿距离的向量相加（向量相加是线性代数中为一一个允许向量离开原点的情形）<br>为什么这样定义：我们把每个向量看做是一种特定的运动，在空间中朝着某个方向迈出一定距离，直接走头尾相恋的线所到达的终点和先走第一个向量箭头在走第二个向量所到的终点是一样的（又因为如果两条向量平行的时候向量相加正好就是一条两个向量之和的线段）</p>
-<h1 id="线性组合，张量的空间与基"><a href="#线性组合，张量的空间与基" class="headerlink" title="线性组合，张量的空间与基"></a>线性组合，张量的空间与基</h1><p>数学不需要天赋，只需要少量的自由想象</p>
-<ul>
-<li>首先要换个角度理解向量，试着把每个向量的值看成一个标量，而在[1，1]（基向量）的向量中使其各种缩放成为向量，也就是缩放向量并相加，这一概念至关重要[1xi，1xj]，</li>
-<li>通过缩放任意向量中的标量再相加可以得到任意向量，两者的区别是前者是根据基向量缩放相加，后者是任意向量缩放相加，然而后者起初那个随意的向量也可以称为基向量，所以也可以说成：基向量就是这些标量的缩放对象，然而基向量未必就是以1为单位，他可以以任意数为单位<br><img src="/images/Essence_of_Linear_Algebra/0ß.png" alt></li>
-<li>结论：每当我们用数字描述向量时，他都依赖于我们正在使用的基向量是什么，前提两条向量不平行，或是两个零向量</li>
-<li>定向量张成的空间：所有可以表示为给定向量线性组合的向量集合av+bw，ab为实数</li>
-<li>如何把向量看做是一个点：当我们把向量看成是射线时往往会显得拥挤，我们会把他写成终点形式而起点仍然是原点，所以当我们考虑落在一条直线上的所有向量时只需要考虑这条直线本身就行了，（或是一条超平面）</li>
-<li>线性相关：如果你有两个或以上的向量，所构成的张成空间，在这个张成空间中如果减去一个向量后张成空间并没有变化，那么我们就把他叫做线性相关u=av+bw，u在vw组成的张成空间中，ab是任意数时</li>
-<li>如果所有的向量都给张成的空间增加了一个”新的维度“，那么就是线性无关，u!=av+bw，u不在vw组成的张成空间中，ab是任意数时</li>
-<li>空间的一组基的严格定义：张成空间的一个线性无关的向量集合</li>
-</ul>
-<p><img src="/images/Essence_of_Linear_Algebra/01.png" alt></p>
-<h1 id="矩阵与线性变换"><a href="#矩阵与线性变换" class="headerlink" title="矩阵与线性变换"></a>矩阵与线性变换</h1><ul>
-<li>线性变换是操纵空间的一种手段</li>
-<li>线性变换=函数：只是输入和输出变成了向量，变换是以特定方式来可视化这一输入输出关系，在各种空间中有着各种不同的变换，线性变换也就相当于空间变换后的向量的样子，而这种变换可以非常复杂，也可以是线性的（直线在变换后仍然为直线不能有所弯曲，即保持网格线平行且等距分布，原点保持固定）</li>
-<li>方法首先把向量转换成基向量的乘积的形式，然后确立ab后再乘上变换后的基向量<br><img src="/images/Essence_of_Linear_Algebra/02.png" alt><br><img src="/images/Essence_of_Linear_Algebra/03.png" alt><br><img src="/images/Essence_of_Linear_Algebra/04.png" alt><h1 id="矩阵乘法与线性变换复合"><a href="#矩阵乘法与线性变换复合" class="headerlink" title="矩阵乘法与线性变换复合"></a>矩阵乘法与线性变换复合</h1>复合变换：一个变换之后再进行另一种变换，两种变换互相独立</li>
-<li>时刻记住两个矩阵相乘的几何意义：也就是两个线性变换的相继作用<em>*</em><br><img src="/images/Essence_of_Linear_Algebra/05.png" alt><br><img src="/images/Essence_of_Linear_Algebra/06.png" alt><br><img src="/images/Essence_of_Linear_Algebra/07.png" alt><br>矩阵乘法：<br><img src="/images/Essence_of_Linear_Algebra/08.png" alt><br>i-hat由矩阵的第一列给出</li>
-<li>结合律<h1 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h1>线性变换改变面积的比例被称为这个变换的行列式，下图：就是说他将一个区域的面积增加为原来的6倍<br><img src="/images/Essence_of_Linear_Algebra/09.png" alt><br>如何用矩阵计算一个线性变换的行列式<br>当空间定向改变的情况下，行列式为负，但是行列式的绝对值依然表示区域面积的缩放比例<br>二维行列式负数是可理解为超平面翻转，三维行列式为右手坐标变成左手</li>
-<li>行列式如何计算：Xi <em> Yj - Xj </em> Yi：前面相乘为长方形面积公式，减去后面相乘<br><img src="/images/Essence_of_Linear_Algebra/10.png" alt><br><img src="/images/Essence_of_Linear_Algebra/11.png" alt><br>如果Xj和Yi均不为0：<br><img src="/images/Essence_of_Linear_Algebra/12.png" alt><br><img src="/images/Essence_of_Linear_Algebra/13.png" alt><br><img src="/images/Essence_of_Linear_Algebra/14.png" alt><h1 id="逆矩阵-列空间-零空间-秩"><a href="#逆矩阵-列空间-零空间-秩" class="headerlink" title="逆矩阵 列空间 零空间 秩"></a>逆矩阵 列空间 零空间 秩</h1></li>
-<li>线性方程组<br>未知数的相乘后相加就是矩阵的乘法运算，如果要求未知数那么就是求矩阵的逆运算，可解决方程组<br><img src="/images/Essence_of_Linear_Algebra/15.png" alt><br>A就是一个线性变换，方程的解依赖于A的变换<br>逆运算也有不可逆的情况，如果当有线性相关时，逆运算就变成了升维运算，那是不可能的所以就无法做逆运算：det(A)≠0 </li>
-<li>秩代表空间变换后的维度</li>
-<li>所有可能变换结果的集合就是列空间，（秩就是列空间的维数）当秩最大时与列数相等时成为满秩</li>
-<li>零空间或核：对于一个满秩来说，变换后唯一能够落在原点的就是原点本身，因为原点不会随变化而改变位置，相反如果非满秩就一定有向量变成0向量，在这个时候，变换后落在原点的向量集合就是矩阵的零空间或核，这些向量在被压缩成0点之前所构成的空间叫做零空间<br><img src="/images/Essence_of_Linear_Algebra/16.png" alt><br><img src="/images/Essence_of_Linear_Algebra/17.png" alt><h1 id="非方阵"><a href="#非方阵" class="headerlink" title="非方阵"></a>非方阵</h1></li>
-<li>2x3的矩阵可以理解成一个三维空间中过原点的二维平面（两条向量确定一个平面，而平面向z的倾斜取决于i与j的k<br><img src="/images/Essence_of_Linear_Algebra/18.png" alt><br>上面这个仍然为满秩，因为列空间的维数与输入空间的维数相同</li>
-<li>3x2的矩阵<br><img src="/images/Essence_of_Linear_Algebra/19.png" alt><br><img src="/images/Essence_of_Linear_Algebra/20.png" alt></li>
-<li>2x1的矩阵<br><img src="/images/Essence_of_Linear_Algebra/21.png" alt><h1 id="点积与对偶性"><a href="#点积与对偶性" class="headerlink" title="点积与对偶性"></a>点积与对偶性</h1>数学不是一门学科而是一门宗教<br><img src="/images/Essence_of_Linear_Algebra/22.png" alt><br><img src="/images/Essence_of_Linear_Algebra/23.png" alt><br><img src="/images/Essence_of_Linear_Algebra/24.png" alt><br>点积与顺序无关<br><img src="/images/Essence_of_Linear_Algebra/25.png" alt><br><img src="/images/Essence_of_Linear_Algebra/26.png" alt><br>为什么点积就是投影相乘：对偶性(多维空间到一维空间的线性变换)<br>我们根据向量基的方法求出降维后的向量v，假设变换后i=1，j=-2，v=i+j=-2<br><img src="/images/Essence_of_Linear_Algebra/27.png" alt><br>我们要得到i在u上的坐标i，也就是等于u的i的x坐标<br><img src="/images/Essence_of_Linear_Algebra/28.png" alt><br><img src="/images/Essence_of_Linear_Algebra/30.png" alt><h1 id="叉积"><a href="#叉积" class="headerlink" title="叉积"></a>叉积</h1><img src="/images/Essence_of_Linear_Algebra/31.png" alt></li>
-<li>定向问题：顺序会对叉积有影响：如果v在w的右侧那么v叉乘w为正；如果v在w的左侧那么v叉乘w为负（这就好比一张纸翻了一个面）<br><img src="/images/Essence_of_Linear_Algebra/32.png" alt><br><img src="/images/Essence_of_Linear_Algebra/33.png" alt></li>
-<li>真正的叉积是通过两个三维向量生成一个新的三维向量，叉积的结果不是一个数而是一个向量，这个向量的长度就是平行四边形的面积，叉积的长度就是另外两个向量的行列式的面积<br><img src="/images/Essence_of_Linear_Algebra/34.png" alt><br><img src="/images/Essence_of_Linear_Algebra/35.png" alt><br><img src="/images/Essence_of_Linear_Algebra/36.png" alt><br><img src="/images/Essence_of_Linear_Algebra/37.png" alt><br><img src="/images/Essence_of_Linear_Algebra/38.png" alt></li>
-<li>三维向量的叉积<br><img src="/images/Essence_of_Linear_Algebra/39.png" alt><h1 id="以线性变换的眼光看叉积"><a href="#以线性变换的眼光看叉积" class="headerlink" title="以线性变换的眼光看叉积"></a>以线性变换的眼光看叉积</h1><img src="/images/Essence_of_Linear_Algebra/40.png" alt><br><img src="/images/Essence_of_Linear_Algebra/41.png" alt><h1 id="基变换"><a href="#基变换" class="headerlink" title="基变换"></a>基变换</h1>*我们可以把一个向量基的第一个坐标看做是向右移动几个单位长度，可以把第二个坐标看作是向上移动的单位长度，而单位长度与i-hat和j-hat有关，而这个就是基向量，而现在我们讨论另一种基向量，这种基向量就是任意向量做基，那么如何求任意向量做基的v呢，也就是在不同角度关注同一向量，<br><img src="/images/Essence_of_Linear_Algebra/42.png" alt></li>
-<li>矩阵向量乘法<br><img src="/images/Essence_of_Linear_Algebra/43.png" alt></li>
-<li>矩阵的逆<br><img src="/images/Essence_of_Linear_Algebra/44.png" alt><h1 id="特征向量与特征值"><a href="#特征向量与特征值" class="headerlink" title="特征向量与特征值"></a>特征向量与特征值</h1></li>
-<li>张成空间，原点和向量尖端所延长的直线，可以是一维多维，大部分向量在进行变换时都离开了张成空间，而在矩阵变化时向量并没有离开他的张成空间这就是矩阵仅仅对他造成了拉伸或压缩</li>
-<li>作用：减少依赖特定坐标系，而是求出特征向量，益特征向量为基准<br><img src="/images/Essence_of_Linear_Algebra/45.png" alt></li>
-<li>特征向量：那些在矩阵变换中仅仅在张成空间里放大或缩小的而没有偏离的向量，</li>
-<li>特征值：特征向量拉伸或压缩的倍数称为特征值<br><img src="/images/Essence_of_Linear_Algebra/46.png" alt><br><img src="/images/Essence_of_Linear_Algebra/46.png" alt><h1 id="特征向量与特征值-1"><a href="#特征向量与特征值-1" class="headerlink" title="特征向量与特征值"></a>特征向量与特征值</h1></li>
-<li>我们通常把lambda称为特征值：$A\vec{v}= \lambda \vec{v}$矩阵向量的乘积=特征向量乘特征值，因此求矩阵A的特征向量和特征值就是求lambda</li>
-<li>我们把等号右侧重写成么讴歌矩阵向量乘积，矩阵的列代表变换后的基向量，每个基向量仅仅与lambda相乘，所以对角线为lamabda<br><img src="/images/Essence_of_Linear_Algebra/47.png" alt><br><img src="/images/Essence_of_Linear_Algebra/48.png" alt><br><img src="/images/Essence_of_Linear_Algebra/49.png" alt></li>
-<li>因为如果v为零等式自然成立所以我们需要v是一个非零解<br><img src="/images/Essence_of_Linear_Algebra/50.png" alt><br><img src="/images/Essence_of_Linear_Algebra/51.png" alt></li>
-<li>只有降维的时候，一个非零向量被压缩才能变成零<br><img src="/images/Essence_of_Linear_Algebra/52.png" alt><br><img src="/images/Essence_of_Linear_Algebra/53.png" alt><br><img src="/images/Essence_of_Linear_Algebra/54.png" alt><br>lamabda是A的特征向量，特征向量就是个轴心（立方体按照轴心旋转），只有特征向量压扁才可以使整个矩阵降维</li>
-<li>当二维矩阵在原点进行旋转时并没有特征向量，因为每一个向量都发生了旋转并离开了其张成空间，你也可以理解为特征向量就是二维中的z轴，虚数i或-i，如下图<br><img src="/images/Essence_of_Linear_Algebra/55.png" alt><br><img src="/images/Essence_of_Linear_Algebra/56.png" alt><br>剪切变换中（x轴不动只动y）<br><img src="/images/Essence_of_Linear_Algebra/57.png" alt><br>如果仅仅是缩放变换则每个向量都是特征向量，特征值为放大的倍数</li>
-<li>对角矩阵的解释，每个向量都是以x或y轴旋转所得（都可以以x或y把矩阵降维）对角矩阵就是两条边坐落在x和y轴上<br><img src="/images/Essence_of_Linear_Algebra/58.png" alt></li>
-<li>把特特征向量看成基向量（原始特征向量基矩阵变换成现在的矩阵就是缩放了，并且是以x轴和y轴缩放，因为现在的x和y轴是特征向量为基矩阵）<br><img src="/images/Essence_of_Linear_Algebra/61.png" alt><br><img src="/images/Essence_of_Linear_Algebra/59.png" alt><br><img src="/images/Essence_of_Linear_Algebra/60.png" alt></li>
-<li>变换成特征基的作用，方便对矩阵进行计算（切记；算完还要转变回标准坐标系中哦，转变到大家都能看到的视角）<br><img src="/images/Essence_of_Linear_Algebra/62.png" alt></li>
-<li>剪切变换因为特征量不够多并不能张成全空间<br><img src="/images/Essence_of_Linear_Algebra/63.png" alt></li>
-</ul>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/05/Essence-of-Linear-Algebra/" data-id="ckh34xf2a008r68tq0kum29k5" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/4/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/3/">3</a></li><li><a class="page-number" href="/page/4/">4</a></li><li class="active"><span class="page-number">5</span></li><li><a class="page-number" href="/page/6/">6</a></li><li><a class="page-number" href="/page/7/">7</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/9/">9</a></li><li><a class="page-next" rel="next" href="/page/6/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/4/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/3/">3</a></li><li><a class="page-number" href="/page/4/">4</a></li><li class="active"><span class="page-number">5</span></li><li><a class="page-number" href="/page/6/">6</a></li><li><a class="page-number" href="/page/7/">7</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/10/">10</a></li><li><a class="page-next" rel="next" href="/page/6/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -1952,7 +2024,7 @@ x_{1} & +2x_{2} & +3x_{3} & =0\\
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/reading-notes/">reading_notes</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -1961,7 +2033,7 @@ x_{1} & +2x_{2} & +3x_{3} & =0\\
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/paper/">paper</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -1970,7 +2042,7 @@ x_{1} & +2x_{2} & +3x_{3} & =0\\
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.75px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.75px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 15px;">NLP</a> <a href="/tags/Python/" style="font-size: 18.75px;">Python</a> <a href="/tags/R/" style="font-size: 17.5px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 16.25px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.25px;">git</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.5px;">linear algebra</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.75px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.75px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 15px;">NLP</a> <a href="/tags/Python/" style="font-size: 18.75px;">Python</a> <a href="/tags/R/" style="font-size: 17.5px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 16.25px;">Reinforcement Learning</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.25px;">git</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.5px;">linear algebra</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </p>
   </div>
 
@@ -1978,7 +2050,7 @@ x_{1} & +2x_{2} & +3x_{3} & =0\\
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/11/">November 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">17</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/12/">December 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/11/">November 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">17</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -1987,6 +2059,10 @@ x_{1} & +2x_{2} & +3x_{3} & =0\\
   <div class="sidebar-module">
     <h4>Recents</h4>
     <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2020/12/10/arXiv-1905-09866-cs-notes/">arXiv:1905.09866 [cs] notes</a>
+        </li>
       
         <li>
           <a href="/2020/11/04/Lihang-ML-notes/">統計学習方法ノート</a>
@@ -2002,10 +2078,6 @@ x_{1} & +2x_{2} & +3x_{3} & =0\\
       
         <li>
           <a href="/2019/10/05/EM-Arithmetic-by-Zou/">EM Arithmetic by Zou</a>
-        </li>
-      
-        <li>
-          <a href="/2019/09/30/Deep-Learning-Certificate-by-Coursera/">Deep Learning Certificate by Coursera</a>
         </li>
       
     </ul>
