@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/SauronLee/"/>
-  <updated>2020-12-11T16:49:07.792Z</updated>
+  <updated>2020-12-12T06:04:55.598Z</updated>
   <id>https://github.com/SauronLee/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>arXiv:1905.09866 [cs] notes</title>
+    <title>[Fair is Better than Sensational] Notes</title>
     <link href="https://github.com/SauronLee/2020/12/10/arXiv-1905-09866-cs-notes/"/>
     <id>https://github.com/SauronLee/2020/12/10/arXiv-1905-09866-cs-notes/</id>
     <published>2020-12-10T05:50:15.000Z</published>
-    <updated>2020-12-11T16:49:07.792Z</updated>
+    <updated>2020-12-12T06:04:55.598Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Fair-is-Better-than-Sensational"><a href="#Fair-is-Better-than-Sensational" class="headerlink" title="Fair is Better than Sensational:"></a>Fair is Better than Sensational:</h2><p>Man is to Doctor as Woman is to Doctor</p><p><a href="http://arxiv.org/abs/1905.09866" target="_blank" rel="noopener">http://arxiv.org/abs/1905.09866</a></p><hr><p>静冈县过了十二月的第一个星期渐渐感到寒意。</p><p>19年的一篇Malvina Nissim的关于类比词的评价。</p><p>这篇文章中作者提到类比词的“words embedding”的评估方法存在很大的漏洞，在一些类比词的计算方法中都存在了人们介入的偏见，（A:B::C:D）B不能等于D的限制 Mikolov et al. (2013)中存在偏差：</p><blockquote><p>simr(a:b,c:d) = simr(b:a,d:c) </p><p>simr(a:b,c:d) = simr(c:d,a:b) </p><p>simr(a:b,c:d) ̸= simr(a:b,d:c) </p><p> simr(a:b,c:d) ̸= simr(a:d,c:b) </p><p>​                                                              -(<a href="http://arxiv.org/abs/1309.4035)P554" target="_blank" rel="noopener">http://arxiv.org/abs/1309.4035)P554</a></p></blockquote><ul><li><p>caucasian lawful black : criminal : 2.0 : lawful criminal defamation libel vigilante</p><p>​                                                             -    Manzini et al. (2019b) and Manzini et al. (2019c)</p></li></ul><p>在表格三中提取的一段数据，“白人守法而黑人犯罪”带有人们的偏见，然而是因为限制了index==1的输入，这是不公平的，因为“白人守法而黑人犯罪”和“黑人守法而白人犯罪”完全是相等的。</p><p>此外：</p><ul><li>man is to doctor as woman is to doctor* (where D == B)</li></ul><p>男人与女人都可以身为医生，而不是限制index==1后女人和护士画等号。</p><p>另外（当限制 D == C时）：</p><ul><li>short is to shorter as new is to new*, thus D == C</li></ul><p>在计算类比词的算法中也存在偏见，比如给出三个词求第四个词，第三个词给予了限制并带有人类的偏见（比如：3COSADD  Mikolov et al. (2013) 3COSMUL Levy and Goldberg (2014)）</p><p>文中提到Bolukbasi et al. (2016)计算类比词给予两个词（A：B）预测C，D并给与了cos（pi/3）的限制此方法消除了第三个词的限制但是也因为限制输入词而损失大量信息。</p><p>文中给了这样的一段狠话：</p><ul><li><p>even though this constraint is mentioned in the original paper (Mikolov et al. 2013)</p><p>and in follow-up work (Linzen 2016; Bolukbasi et al. 2016; Rogers, Drozd, and Li 2017;</p><p>Goldberg 2017; Schluter 2018), we believe this is not common knowledge in the field(analogy examples are still widely used), and even more so outside the field.</p></li></ul><p>个人想法：</p><p>对于词向量类比词的算法之前也有研究过还有东大16年发表过的<strong>3CosAvg</strong> (vector offset averaged over multiple pairs)和<strong>LRCos</strong> (supervised learning of the target class + cosine similarity to the <em>b</em> word)详细可以看下面的连接：</p><ul><li>（<a href="https://aclweb.org/aclwiki/Analogy_(State_of_the_art)）" target="_blank" rel="noopener">https://aclweb.org/aclwiki/Analogy_(State_of_the_art)）</a></li></ul><p>其实词嵌入模型计算的无非就是使相同语法位置结构的单词最小化点积或者说是最小化cos相似度，然而偏见算法并不能很好的表示一个词向量的好坏，他只能说明词向量有一种特性（这个特性是人们的偏见所附加的），更好更优质的词向量应当是作为一个Pre-train更好的去服务下游（decode）应用并产生更好的结果，研究方向应该如何解决多义词问题（比如刘知远老师在17年提出的的Sememe义原）</p>]]></content>
     
