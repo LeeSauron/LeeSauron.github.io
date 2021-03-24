@@ -43,11 +43,42 @@
   </entry>
   
   <entry>
+    <title>白板推導(1~23) Notes</title>
+    <link href="https://github.com/SauronLee/2020/12/08/siroita/"/>
+    <id>https://github.com/SauronLee/2020/12/08/siroita/</id>
+    <published>2020-12-08T01:19:27.000Z</published>
+    <updated>2021-03-24T01:31:44.791Z</updated>
+    
+    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1B_4TLyWCGO0nFfM01CzKjy3oYzywMmTX/preview" style="width:100%; height:550px"></iframe></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;iframe src=&quot;https://drive.google.com/file/d/1B_4TLyWCGO0nFfM01CzKjy3oYzywMmTX/preview&quot; style=&quot;width:100%; height:550
+      
+    
+    </summary>
+    
+    
+      <category term="notes" scheme="https://github.com/SauronLee/categories/notes/"/>
+    
+    
+      <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
+    
+      <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
     <title>統計学習方法ノート</title>
     <link href="https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/"/>
     <id>https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/</id>
     <published>2020-11-04T08:17:38.000Z</published>
-    <updated>2020-11-04T08:19:01.725Z</updated>
+    <updated>2021-03-24T01:30:09.507Z</updated>
     
     <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1u59bUq0-ioyWQiIOUQ7wal_zC8xoXRKk/preview" style="width:100%; height:550px"></iframe></div>]]></content>
     
@@ -64,8 +95,10 @@
     </summary>
     
     
-      <category term="math" scheme="https://github.com/SauronLee/categories/math/"/>
+      <category term="notes" scheme="https://github.com/SauronLee/categories/notes/"/>
     
+    
+      <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
     
       <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
     
@@ -76,7 +109,7 @@
     <link href="https://github.com/SauronLee/2020/10/31/basic-math-for-ML/"/>
     <id>https://github.com/SauronLee/2020/10/31/basic-math-for-ML/</id>
     <published>2020-10-30T17:27:20.000Z</published>
-    <updated>2020-10-31T15:10:00.384Z</updated>
+    <updated>2021-03-24T01:30:21.230Z</updated>
     
     <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1qwZYYyfSfCMwcxYR41jeF5iqkIB-cRb7/preview" style="width:100%; height:550px"></iframe></div>]]></content>
     
@@ -93,8 +126,10 @@
     </summary>
     
     
-      <category term="math" scheme="https://github.com/SauronLee/categories/math/"/>
+      <category term="notes" scheme="https://github.com/SauronLee/categories/notes/"/>
     
+    
+      <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
     
       <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
     
@@ -105,7 +140,7 @@
     <link href="https://github.com/SauronLee/2020/10/16/Sunannan-10-000-words/"/>
     <id>https://github.com/SauronLee/2020/10/16/Sunannan-10-000-words/</id>
     <published>2020-10-16T12:20:01.000Z</published>
-    <updated>2020-10-16T12:22:03.471Z</updated>
+    <updated>2021-03-24T01:30:16.705Z</updated>
     
     <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1KhXeaUxGjDd8DjYy5c2HKlVhCOr7cIoM/preview" style="width:100%; height:550px"></iframe></div>]]></content>
     
@@ -121,6 +156,8 @@
     
     </summary>
     
+    
+      <category term="notes" scheme="https://github.com/SauronLee/categories/notes/"/>
     
     
       <category term="english" scheme="https://github.com/SauronLee/tags/english/"/>
@@ -560,36 +597,6 @@ import numpy as n
       <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
     
       <category term="Python" scheme="https://github.com/SauronLee/tags/Python/"/>
-    
-      <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Random Forest by A-Z</title>
-    <link href="https://github.com/SauronLee/2019/09/13/Random-Forest-by-A-Z/"/>
-    <id>https://github.com/SauronLee/2019/09/13/Random-Forest-by-A-Z/</id>
-    <published>2019-09-13T08:19:03.000Z</published>
-    <updated>2019-09-23T06:31:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/A-Z_ML/85.png" alt></p><ul><li><p>集成学习：对多个分类器进行预测，在对分类结果进行组合已达到最终结果（组合方式：平均，加权平均，投票）三个臭皮匠顶一个诸葛亮</p></li><li><p>集成学习的步骤：<br>1，随机构成训练集（装袋的一个过程）<br>2，把装好的这个袋的数据作为训练集进行预测<br>3，重复第一步和第二部已得到足够多的袋子，每个袋子里的数据都是不同的<br>4，最后进行投票决定分类（比如现在有1000个分类器树，那么当预测一个新的样本的时候要带入每颗分类器然后进行投票，比如有700颗为1，有300颗为0，那么结果就为1）<br><img src="/images/A-Z_ML/93.png" alt><br><img src="/images/A-Z_ML/97.png" alt><br><img src="/images/A-Z_ML/98.png" alt></p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/images/A-Z_ML/85.png&quot; alt&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;集成学习：对多个分类器进行预测，在对分类结果进行组合已达到最终结果（组合方式：平均，加权平均，投票）三个臭皮匠顶一个诸葛亮&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;集成学习
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Machine Learning" scheme="https://github.com/SauronLee/tags/Machine-Learning/"/>
     
       <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
     

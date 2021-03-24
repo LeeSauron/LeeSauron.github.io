@@ -53,7 +53,7 @@
                  href="/index.html">Home</a></li>
         
           <li><a class=""
-                 href="/categories/math">Math</a></li>
+                 href="/categories/notes">Notes</a></li>
         
           <li><a class=""
                  href="/categories/news">News</a></li>
@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-Random-Forest-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Exponential-function-and-logarithm-of-PengTitus" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Random-Forest-of-Python-by-A-Z/">Random Forest of Python by A-Z</a>
+      <a class="article-title" href="/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/">Exponential function  and logarithm of PengTitus</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/13/Random-Forest-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-13T08:39:44.000Z" itemprop="datePublished">2019-09-13</time></a>
+  <a href="/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/" class="article-date"><time datetime="2016-05-10T09:42:03.000Z" itemprop="datePublished">2016-05-10</time></a>
 </div>
 
     
@@ -112,137 +112,20 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/94.png" alt="issue"></p>
-<pre><code>
-# Random Forest Classification
-
-# Importing the libraries
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-
-# Importing the dataset
-dataset = pd.read_csv(&#39;Social_Network_Ads.csv&#39;)
-X = dataset.iloc[:, [2, 3]].values
-y = dataset.iloc[:, 4].values
-
-# Splitting the dataset into the Training set and Test set
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
-
-# Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
-
-# Fitting Random Forest to the Training set
-from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(n_estimators = 10, criterion = &#39;entropy&#39;, random_state = 0 )
-classifier.fit(X_train, y_train)
-
-# Predicting the Test set results
-y_pred = classifier.predict(X_test)
-
-# Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)
-
-# Visualising the Training set results
-from matplotlib.colors import ListedColormap
-X_set, y_set = X_train, y_train
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
-             alpha = 0.75, cmap = ListedColormap((&#39;red&#39;, &#39;green&#39;)))
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
-                c = ListedColormap((&#39;orange&#39;, &#39;blue&#39;))(i), label = j, s=15)
-plt.title(&#39;Random Forest (Training set)&#39;)
-plt.xlabel(&#39;Age&#39;)
-plt.ylabel(&#39;Estimated Salary&#39;)
-plt.legend()
-plt.show()
-
-# Visualising the Test set results
-from matplotlib.colors import ListedColormap
-X_set, y_set = X_test, y_test
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
-             alpha = 0.75, cmap = ListedColormap((&#39;red&#39;, &#39;green&#39;)))
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
-                c = ListedColormap((&#39;orange&#39;, &#39;blue&#39;))(i), label = j, s=15)
-plt.title(&#39;Random Forest (Test set)&#39;)
-plt.xlabel(&#39;Age&#39;)
-plt.ylabel(&#39;Estimated Salary&#39;)
-plt.legend()
-plt.show()
-</code></pre><p><img src="/images/A-Z_ML/95.png" alt="issue"><br><img src="/images/A-Z_ML/96.png" alt="issue"></p>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/Random-Forest-of-Python-by-A-Z/" data-id="ckjnw3jh5004hestqf1mrovx2" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Random-Forest-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Random-Forest-by-A-Z/">Random Forest by A-Z</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2019/09/13/Random-Forest-by-A-Z/" class="article-date"><time datetime="2019-09-13T08:19:03.000Z" itemprop="datePublished">2019-09-13</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/85.png" alt></p>
-<ul>
-<li><p>集成学习：对多个分类器进行预测，在对分类结果进行组合已达到最终结果（组合方式：平均，加权平均，投票）三个臭皮匠顶一个诸葛亮</p>
-</li>
-<li><p>集成学习的步骤：<br>1，随机构成训练集（装袋的一个过程）<br>2，把装好的这个袋的数据作为训练集进行预测<br>3，重复第一步和第二部已得到足够多的袋子，每个袋子里的数据都是不同的<br>4，最后进行投票决定分类（比如现在有1000个分类器树，那么当预测一个新的样本的时候要带入每颗分类器然后进行投票，比如有700颗为1，有300颗为0，那么结果就为1）<br><img src="/images/A-Z_ML/93.png" alt><br><img src="/images/A-Z_ML/97.png" alt><br><img src="/images/A-Z_ML/98.png" alt></p>
-</li>
+        <h2 id="指数exponent与对数概论"><a href="#指数exponent与对数概论" class="headerlink" title="指数exponent与对数概论"></a>指数exponent与对数概论</h2><ul>
+<li>对数就是一个函数</li>
+<li>指数的的作用是把自然数成倍增长，而对数的作用就是取消指数对自然数的增长，主要为了简化天文学计算</li>
 </ul>
+<p>比如：没人可以把一本书折叠9次：因为2的9次方是512，相当于一部字典的厚度<br>把一张纸折叠42次后的高度比地球到月球的距离还要高</p>
+<h2 id="指数律-a-m-a-n-a-m-n"><a href="#指数律-a-m-a-n-a-m-n" class="headerlink" title="指数律$(a^{m})(a^{n})=a^{m+n}$"></a>指数律$(a^{m})(a^{n})=a^{m+n}$</h2><p><img src="/images/Exponential&amp;logarithmPengTitus/01.png" alt><br>为什么$a^{0}=1$<br><img src="/images/Exponential&amp;logarithmPengTitus/02.png" alt><br>为什么$a^{-n}=\frac{1}{a^{n}}$<br><img src="/images/Exponential&amp;logarithmPengTitus/03.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/05.png" alt><br>m,n全部为负数时依然成立<br><img src="/images/Exponential&amp;logarithmPengTitus/04.png" alt></p>
+<h3 id="指数律-a-m-n-a-nm-与-ab-n-a-n-cdot-b-n"><a href="#指数律-a-m-n-a-nm-与-ab-n-a-n-cdot-b-n" class="headerlink" title="指数律$(a^{m})^{n}=a^{nm}与(ab)^{n}=a^{n}\cdot b^{n}$"></a>指数律$(a^{m})^{n}=a^{nm}与(ab)^{n}=a^{n}\cdot b^{n}$</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/06.png" alt></p>
+<h3 id="指数律-有理数指数-分数指数"><a href="#指数律-有理数指数-分数指数" class="headerlink" title="指数律_有理数指数(分数指数)"></a>指数律_有理数指数(分数指数)</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/07.png" alt></p>
+<h3 id="指数不等式"><a href="#指数不等式" class="headerlink" title="指数不等式"></a>指数不等式</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/08.png" alt><br>根据算几不等式可看出<br><img src="/images/Exponential&amp;logarithmPengTitus/09.png" alt></p>
+<h3 id="对数Logarithm概论"><a href="#对数Logarithm概论" class="headerlink" title="对数Logarithm概论"></a>对数Logarithm概论</h3><p>对数Logarithm=Logos神的话，arithmos计算-John Napier<br>对数就是把次幂抓下来的工具<br><img src="/images/Exponential&amp;logarithmPengTitus/10.png" alt><br>求指数就是原函数的反函数<br><img src="/images/Exponential&amp;logarithmPengTitus/11.png" alt></p>
+<h3 id="对数的定义和指数反函数的性质"><a href="#对数的定义和指数反函数的性质" class="headerlink" title="对数的定义和指数反函数的性质"></a>对数的定义和指数反函数的性质</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/12.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/13.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/14.png" alt></p>
+<h3 id="对数律logarithmic-identities"><a href="#对数律logarithmic-identities" class="headerlink" title="对数律logarithmic identities"></a>对数律logarithmic identities</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/15.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/16.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/17.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/18.png" alt></p>
+<h3 id="对数的换底法则和推论"><a href="#对数的换底法则和推论" class="headerlink" title="对数的换底法则和推论"></a>对数的换底法则和推论</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/19.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/20.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/21.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/22.png" alt></p>
+<h3 id="e"><a href="#e" class="headerlink" title="e"></a>e</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/23.png" alt></p>
 
       
     </div>
@@ -253,12 +136,12 @@ plt.show()
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/Random-Forest-by-A-Z/" data-id="ckjnw3jh3004eestqngb0pbua" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/" data-id="ckmmrvyom001h1ntquu4bv9m1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Calculus/">Calculus</a></li></ul>
 
 
     </footer>
@@ -272,7 +155,7 @@ plt.show()
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/9/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li class="active"><span class="page-number">10</span></li><li><a class="page-number" href="/page/11/">11</a></li><li><a class="page-number" href="/page/12/">12</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/11/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/9/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li class="active"><span class="page-number">10</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -289,7 +172,7 @@ plt.show()
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/math/">math</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/reading-notes/">reading_notes</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/notes/">notes</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/reading-notes/">reading_notes</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -298,7 +181,7 @@ plt.show()
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Research-plan/">Research plan</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/paper/">paper</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">53</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Research-plan/">Research plan</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/paper/">paper</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -307,7 +190,7 @@ plt.show()
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 15px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.75px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.75px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 15px;">NLP</a> <a href="/tags/Python/" style="font-size: 18.75px;">Python</a> <a href="/tags/R/" style="font-size: 17.5px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 16.25px;">Reinforcement Learning</a> <a href="/tags/Research-plan/" style="font-size: 10px;">Research plan</a> <a href="/tags/Statistics/" style="font-size: 20px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.25px;">git</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.5px;">linear algebra</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 14.44px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Research-plan/" style="font-size: 10px;">Research plan</a> <a href="/tags/Statistics/" style="font-size: 18.89px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/leetcode/" style="font-size: 14.44px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
     </p>
   </div>
 
@@ -315,7 +198,7 @@ plt.show()
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/12/">December 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/11/">November 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">17</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/12/">December 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/11/">November 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">29</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">16</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -330,6 +213,10 @@ plt.show()
         </li>
       
         <li>
+          <a href="/2020/12/08/siroita/">白板推導(1~23) Notes</a>
+        </li>
+      
+        <li>
           <a href="/2020/11/04/Lihang-ML-notes/">統計学習方法ノート</a>
         </li>
       
@@ -339,10 +226,6 @@ plt.show()
       
         <li>
           <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
-        </li>
-      
-        <li>
-          <a href="/2019/10/05/EM-Arithmetic-by-Zou/">EM Arithmetic by Zou</a>
         </li>
       
     </ul>
