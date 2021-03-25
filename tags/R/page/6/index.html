@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Tag: R | Xiaoran(Sauron) Li‘blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="李笑然">
+<meta name="keywords" content="NLP;ML;FEND">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Xiaoran(Sauron) Li‘blog">
+<meta property="og:url" content="https://github.com/SauronLee/tags/R/page/6/index.html">
+<meta property="og:site_name" content="Xiaoran(Sauron) Li‘blog">
+<meta property="og:description" content="李笑然">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xiaoran(Sauron) Li‘blog">
+<meta name="twitter:description" content="李笑然">
+  
+    <link rel="alternate" href="/atom.xml" title="Xiaoran(Sauron) Li‘blog" type="application/atom+xml">
+  
+  
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+</html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/categories/notes">Notes</a></li>
+        
+          <li><a class=""
+                 href="/categories/news">News</a></li>
+        
+          <li><a class=""
+                 href="/categories/projects">Projects</a></li>
+        
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+     
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">Xiaoran(Sauron) Li‘blog</h1>
+  
+    <p class="lead blog-description">www.xiaoranli.com</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">August 14th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/242.png" alt></p>
+<ul>
+<li>数据是商场的用户的消费详情</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
+
+<hr>
+<pre><code>
+&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
+&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
+distribution of transactions with duplicates:
+# 重复一次出现在5行当中
+1 
+5 
+&gt; summary(dataset)
+transactions as itemMatrix in sparse format with
+ 7501 rows (elements/itemsets/transactions) and
+ # 稀疏矩阵，1占0.03288973 其他都是0
+ 119 columns (items) and a density of 0.03288973 
+
+most frequent items:
+mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
+         1788          1348          1306          1282          1229         22405 
+
+element (itemset/transaction) length distribution:
+sizes
+# 有1754笔交易只有1个产品
+   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
+1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   3.914   5.000  20.000 
+
+includes extended item information - examples:
+             labels
+1           almonds
+2 antioxydant juice
+3         asparagus
+&gt; itemFrequencyPlot(dataset, topN = 10)
+&gt; # Training Apriori on the dataset
+&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
+Apriori
+
+Parameter specification:
+ confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
+        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
+
+Algorithmic control:
+ filter tree heap memopt load sort verbose
+    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+
+Absolute minimum support count: 30 
+
+set item appearances ...[0 item(s)] done [0.00s].
+set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
+sorting and recoding items ... [114 item(s)] done [0.00s].
+creating transaction tree ... done [0.00s].
+checking subsets of size 1 2 3 4 done [0.16s].
+writing ... [811 rule(s)] done [0.00s].
+creating S4 object  ... done [0.00s].
+&gt; # Visualising the results
+&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
+     lhs                                            rhs             support     confidence
+[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
+[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
+[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
+[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
+[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
+[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
+[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
+[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
+[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
+[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
+     lift     count
+[1]  4.843951 34   
+[2]  4.700812 44   
+[3]  4.506672 38   
+[4]  4.178455 31   
+[5]  4.122410 60   
+[6]  4.004360 48   
+[7]  3.975683 50   
+[8]  3.840659 40   
+[9]  3.790833 43   
+[10] 3.731841 33   
+&gt; 
+&gt;
+</code></pre><ul>
+<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
+</ul>
+<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
+<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
+<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
+<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
+<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
+<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
+<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
+<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
+<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
+<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
+<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
+<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
+<p>Extends<br>Class itemMatrix, directly.</p>
+<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
+<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
+<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
+<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
+<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
+<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
+<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
+<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
+<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
+<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
+<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
+<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
+<p>show<br>signature(object = “transactions”)</p>
+<p>summary<br>signature(object = “transactions”)</p>
+<ul>
+<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
+</ul>
+<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
+<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
+<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
+<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-R/">Data Preprocessing by R</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/10/Data-Preprocessing-by-R/" class="archive-article-date"><time datetime="2019-08-10T11:08:09.000Z" itemprop="datePublished">August 10th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d07b84f9caefd89dbc3f76a943bd8166.js"></script>
+
+<ul>
+<li>因子数据类型（有序因子&amp;无序因子），可以代替Python中的OneHotEncoder</li>
+</ul>
+<p>Usage<br>factor(x = character(), levels, labels = levels,<br>       exclude = NA, ordered = is.ordered(x), nmax = NA)</p>
+<p>ordered(x, …)</p>
+<p>is.factor(x)<br>is.ordered(x)</p>
+<p>as.factor(x)<br>as.ordered(x)</p>
+<p>addNA(x, ifany = FALSE)<br>Arguments<br>x<br>a vector of data, usually taking a small number of distinct values.</p>
+<p>levels<br>an optional vector of the unique values (as character strings) that x might have taken. The default is the unique set of values taken by as.character(x), sorted into increasing order of x. Note that this set can be specified as smaller than sort(unique(x)).</p>
+<p>labels<br>either an optional character vector of labels for the levels (in the same order as levels after removing those in exclude), or a character string of length 1. Duplicated values in labels can be used to map different values of x to the same factor level.</p>
+<p>exclude<br>a vector of values to be excluded when forming the set of levels. This may be factor with the same level set as x or should be a character.</p>
+<p>ordered<br>logical flag to determine if the levels should be regarded as ordered (in the order given).</p>
+<p>nmax<br>an upper bound on the number of levels; see ‘Details’.</p>
+<p>…<br>(in ordered(.)): any of the above, apart from ordered itself.</p>
+<p>ifany<br>only add an NA level if it is used, i.e. if any(is.na(x)).</p>
+<h2 id="Splitting-the-Dataset-into-the-Training-set-and-Test-set"><a href="#Splitting-the-Dataset-into-the-Training-set-and-Test-set" class="headerlink" title="Splitting the Dataset into the Training set and Test set"></a>Splitting the Dataset into the Training set and Test set</h2><pre><code># Data Preprocessing Template
+
+# Importing the dataset
+dataset = read.csv(&#39;Data.csv&#39;)
+# dataset = dataset[, 2:3]
+
+# Splitting the dataset into the Training set and Test set
+# R语言安装packages
+# install.packages(&#39;caTools&#39;)
+# library(caTools) = 在packages里面打钩，推荐用library(caTools) 
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.8)
+# split == TRUE为random出来的数据
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+# training_set[, 2:3] = scale(training_set[, 2:3])
+# test_set[, 2:3] = scale(test_set[, 2:3])
+</code></pre><ul>
+<li>set.seed<br>Random Number Generation</li>
+</ul>
+<p>Usage<br>.Random.seed &lt;- c(rng.kind, n1, n2, \dots)</p>
+<p>RNGkind(kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>RNGversion(vstr)<br>set.seed(seed, kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>Arguments<br>kind<br>character or NULL. If kind is a character string, set R’s RNG to the kind desired. Use “default” to return to the R default. See ‘Details’ for the interpretation of NULL.</p>
+<p>normal.kind<br>character string or NULL. If it is a character string, set the method of Normal generation. Use “default” to return to the R default. NULL makes no change.</p>
+<p>sample.kind<br>character string or NULL. If it is a character string, set the method of discrete uniform generation (used in sample, for instance). Use “default” to return to the R default. NULL makes no change.</p>
+<p>seed<br>a single value, interpreted as an integer, or NULL (see ‘Details’).</p>
+<p>vstr<br>a character string containing a version number, e.g., “1.6.2”. The default RNG configuration of the current R version is used if vstr is greater than the current version.</p>
+<p>rng.kind<br>integer code in 0:k for the above kind.</p>
+<p>n1, n2, …<br>integers. See the details for how many are required (which depends on rng.kind).</p>
+<ul>
+<li>sample.split<br>Split Data into Test and Train Set</li>
+</ul>
+<p>Usage<br> sample.split( Y, SplitRatio = 2/3, group = NULL )<br>Arguments<br>Y<br>Vector of data labels. If there are only a few labels (as is expected) than relative ratio of data in both subsets will be the same.</p>
+<p>SplitRatio<br>Splitting ratio:</p>
+<p>if (0&lt;=SplitRatio&lt;1) then SplitRatio fraction of points from Y will be set toTRUE</p>
+<p>if (SplitRatio==1) then one random point from Y will be set to TRUE</p>
+<p>if (SplitRatio&gt;1) then SplitRatio number of points from Y will be set to TRUE</p>
+<p>group<br>Optional vector/list used when multiple copies of each sample are present. In such a case group contains unique sample labels, marking all copies of the same sample with the same label, and the function tries to place all copies in either train or test subset. If provided than has to have the same length as Y.</p>
+<h1 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h1><ul>
+<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
+<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
+<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
+</li>
+<li><p>是否需要对虚拟变量进行特征缩放？答：不一定，要根据模型结果。</p>
+</li>
+<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
+<li>在R里factor属于单独的类型不属于数字它属于分类的一个数据类型</li>
+</ul>
+<pre><code># Feature Scaling
+training_set[,2:3] = scale(training_set[,2:3])
+test_set[,2:3] = scale(test_set[,2:3])
+</code></pre>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+  
+    </div></section>
+  
+
+
+  <div id="page-nav">
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/R/page/5/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/R/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/R/page/4/">4</a></li><li><a class="page-number" href="/tags/R/page/5/">5</a></li><li class="active"><span class="page-number">6</span></li><li><a class="page-number" href="/tags/R/page/7/">7</a></li><li><a class="page-number" href="/tags/R/page/8/">8</a></li><li><a class="page-next" rel="next" href="/tags/R/page/7/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+  </div>
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p> Domain Tags Machine Learning, Deep Learning,  Front End Development, iOS Development, Statistics， <em>Python</em>, <em>R</em>, <em>Flutter</em>, <em>Swift</em>, <em>JavaScript</em>.</p>
+
+</div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/news/">news</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/notes/">notes</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/project/">project</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/projects/">projects</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/reading-notes/">reading_notes</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ANN/">ANN</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Calculus/">Calculus</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Computer-Vision/">Computer Vision</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Data-cleaning/">Data cleaning</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/JavaScript/">JavaScript</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Linear-Algebra/">Linear Algebra</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">53</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/NLP/">NLP</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Python/">Python</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/R/">R</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Research-plan/">Research plan</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Statistics/">Statistics</a><span class="sidebar-module-list-count">51</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/english/">english</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/leetcode/">leetcode</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linear-algebra/">linear algebra</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/paper/">paper</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/python/">python</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/ANN/" style="font-size: 10px;">ANN</a> <a href="/tags/Calculus/" style="font-size: 14.44px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Data-cleaning/" style="font-size: 13.33px;">Data cleaning</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Linear-Algebra/" style="font-size: 10px;">Linear Algebra</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a> <a href="/tags/NLP/" style="font-size: 14.44px;">NLP</a> <a href="/tags/Python/" style="font-size: 17.78px;">Python</a> <a href="/tags/R/" style="font-size: 16.67px;">R</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 15.56px;">Reinforcement Learning</a> <a href="/tags/Research-plan/" style="font-size: 10px;">Research plan</a> <a href="/tags/Statistics/" style="font-size: 18.89px;">Statistics</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/git/" style="font-size: 11.11px;">git</a> <a href="/tags/leetcode/" style="font-size: 14.44px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 12.22px;">linear algebra</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/12/">December 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/11/">November 2020</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2020/10/">October 2020</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/10/">October 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/09/">September 2019</a><span class="sidebar-module-list-count">29</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/08/">August 2019</a><span class="sidebar-module-list-count">16</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/07/">July 2019</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/06/">June 2019</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/05/">May 2019</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2019/02/">February 2019</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/05/">May 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/04/">April 2018</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/03/">March 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/02/">February 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/12/">December 2017</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/10/">October 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/06/">June 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/05/">May 2017</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/05/">May 2016</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2020/12/10/arXiv-1905-09866-cs-notes/">[Fair is Better than Sensational] Notes</a>
+        </li>
+      
+        <li>
+          <a href="/2020/12/08/siroita/">白板推導(1~23) Notes</a>
+        </li>
+      
+        <li>
+          <a href="/2020/11/04/Lihang-ML-notes/">統計学習方法ノート</a>
+        </li>
+      
+        <li>
+          <a href="/2020/10/31/basic-math-for-ML/">basic math for ML</a>
+        </li>
+      
+        <li>
+          <a href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <br>
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2021 xiaoran Li<br>
+       <!-- <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
+       - -->
+       <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub</b></a>
+       -
+       <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode</b></a>
+       <br>
+       <br>
+    </div>
+  </div>
+  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=000000&w=300&t=tt&d=PV6WTSPjs7ishuc9dWmNngnJQGx-nTWiH49q1seT3Q4&co=f5f5f5&ct=000000'></script>
+</footer>
+
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

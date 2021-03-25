@@ -3,21 +3,21 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Tag: Python | Sauron Lee‘blog</title>
+  <title>Tag: Python | Xiaoran(Sauron) Li‘blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="李笑然">
-<meta name="keywords" content="Statistics;ML;FEND">
+<meta name="keywords" content="NLP;ML;FEND">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sauron Lee‘blog">
+<meta property="og:title" content="Xiaoran(Sauron) Li‘blog">
 <meta property="og:url" content="https://github.com/SauronLee/tags/Python/page/3/index.html">
-<meta property="og:site_name" content="Sauron Lee‘blog">
+<meta property="og:site_name" content="Xiaoran(Sauron) Li‘blog">
 <meta property="og:description" content="李笑然">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sauron Lee‘blog">
+<meta name="twitter:title" content="Xiaoran(Sauron) Li‘blog">
 <meta name="twitter:description" content="李笑然">
   
-    <link rel="alternate" href="/atom.xml" title="Sauron Lee‘blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Xiaoran(Sauron) Li‘blog" type="application/atom+xml">
   
   
   
@@ -76,9 +76,9 @@
 
   <div class="container">
     <div class="blog-header">
-  <h1 class="blog-title">Sauron Lee‘blog</h1>
+  <h1 class="blog-title">Xiaoran(Sauron) Li‘blog</h1>
   
-    <p class="lead blog-description">Li xiaoran</p>
+    <p class="lead blog-description">www.xiaoranli.com</p>
   
 </div>
 
@@ -93,7 +93,7 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+          <a href="/archives/2019" class="archive-year">2019</a>
         </div>
         <div class="archives">
     
@@ -102,18 +102,80 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/Titanic-Project/">Titanic Project</a>
+      <a class="archive-article-title" href="/2019/09/13/SVM-of-Python-by-A-Z/">SVM of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2017/12/13/Titanic-Project/" class="archive-article-date"><time datetime="2017-12-12T17:22:17.000Z" itemprop="datePublished">December 13th</time></a>
+  <a href="/2019/09/13/SVM-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T03:25:02.000Z" itemprop="datePublished">September 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/SauronLee/Udacity_ML_P4/blob/master/P4_titanic3.0/P4_titanic.ipynb">Titanic Project Adress</a></p>
+        <p><img src="/images/A-Z_ML/45.png" alt></p>
+<script src="https://gist.github.com/SauronLee/162cbafc90b6797040b501cfb90f4cb7.js"></script>
+
+<hr>
+<pre><code>
+&gt; y_pred = predict(classifier, newdata = test_set[-3])
+&gt; y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   0   1   1   1   0   1   0   1   1 
+389 392 395 400 
+  0   0   0   0 
+Levels: 0 1
+&gt; # Making the Confusion Matrix
+&gt; cm = table(test_set[, 3], y_pred)
+&gt; cm
+   y_pred
+     0  1
+  0 57  7
+  1 13 23
+</code></pre><hr>
+<p><img src="/images/A-Z_ML/47.png" alt></p>
+<hr>
+<p>svm {e1071}    R Documentation<br>Support Vector Machines<br>Description<br>svm is used to train a support vector machine. It can be used to carry out general regression and classification (of nu and epsilon-type), as well as density-estimation. A formula interface is provided.</p>
+<p>Usage</p>
+<h2 id="S3-method-for-class-‘formula’"><a href="#S3-method-for-class-‘formula’" class="headerlink" title="S3 method for class ‘formula’"></a>S3 method for class ‘formula’</h2><p>svm(formula, data = NULL, …, subset, na.action =<br>na.omit, scale = TRUE)</p>
+<h2 id="Default-S3-method"><a href="#Default-S3-method" class="headerlink" title="Default S3 method:"></a>Default S3 method:</h2><p>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =<br>“radial”, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x),<br>coef0 = 0, cost = 1, nu = 0.5,<br>class.weights = NULL, cachesize = 40, tolerance = 0.001, epsilon = 0.1,<br>shrinking = TRUE, cross = 0, probability = FALSE, fitted = TRUE,<br>…, subset, na.action = na.omit)<br>Arguments<br>formula<br>a symbolic description of the model to be fit.</p>
+<p>data<br>an optional data frame containing the variables in the model. By default the variables are taken from the environment which ‘svm’ is called from.</p>
+<p>x<br>a data matrix, a vector, or a sparse matrix (object of class Matrix provided by the Matrix package, or of class matrix.csr provided by the SparseM package, or of class simple_triplet_matrix provided by the slam package).</p>
+<p>y<br>a response vector with one label for each row/component of x. Can be either a factor (for classification tasks) or a numeric vector (for regression).</p>
+<p>scale<br>A logical vector indicating the variables to be scaled. If scale is of length 1, the value is recycled as many times as needed. Per default, data are scaled internally (both x and y variables) to zero mean and unit variance. The center and scale values are returned and used for later predictions.</p>
+<p>type<br>svm can be used as a classification machine, as a regression machine, or for novelty detection. Depending of whether y is a factor or not, the default setting for type is C-classification or eps-regression, respectively, but may be overwritten by setting an explicit value.<br>Valid options are:</p>
+<p>C-classification</p>
+<p>nu-classification</p>
+<p>one-classification (for novelty detection)</p>
+<p>eps-regression</p>
+<p>nu-regression</p>
+<p>kernel<br>the kernel used in training and predicting. You might consider changing some of the following parameters, depending on the kernel type.<br>linear:<br>u’*v</p>
+<p>polynomial:<br>(gamma<em>u’</em>v + coef0)^degree</p>
+<p>radial basis:<br>exp(-gamma*|u-v|^2)</p>
+<p>sigmoid:<br>tanh(gamma<em>u’</em>v + coef0)</p>
+<p>degree<br>parameter needed for kernel of type polynomial (default: 3)</p>
+<p>gamma<br>parameter needed for all kernels except linear (default: 1/(data dimension))</p>
+<p>coef0<br>parameter needed for kernels of type polynomial and sigmoid (default: 0)</p>
+<p>cost<br>cost of constraints violation (default: 1)—it is the ‘C’-constant of the regularization term in the Lagrange formulation.</p>
+<p>nu<br>parameter needed for nu-classification, nu-regression, and one-classification</p>
+<p>class.weights<br>a named vector of weights for the different classes, used for asymmetric class sizes. Not all factor levels have to be supplied (default weight: 1). All components have to be named. Specifying “inverse” will choose the weights inversely proportional to the class distribution.</p>
+<p>cachesize<br>cache memory in MB (default 40)</p>
+<p>tolerance<br>tolerance of termination criterion (default: 0.001)</p>
+<p>epsilon<br>epsilon in the insensitive-loss function (default: 0.1)</p>
+<p>shrinking<br>option whether to use the shrinking-heuristics (default: TRUE)</p>
+<p>cross<br>if a integer value k&gt;0 is specified, a k-fold cross validation on the training data is performed to assess the quality of the model: the accuracy rate for classification and the Mean Squared Error for regression</p>
+<p>fitted<br>logical indicating whether the fitted values should be computed and included in the model or not (default: TRUE)</p>
+<p>probability<br>logical indicating whether the model should allow for probability predictions.</p>
+<p>…<br>additional parameters for the low level fitting function svm.default</p>
+<p>subset<br>An index vector specifying the cases to be used in the training sample. (NOTE: If given, this argument must be named.)</p>
+<p>na.action<br>A function to specify the action to be taken if NAs are found. The default action is na.omit, which leads to rejection of cases with missing values on any required variable. An alternative is na.fail, which causes an error if NA cases are found. (NOTE: If given, this argument must be named.)</p>
+<hr>
 
       
     </div>
@@ -129,21 +191,35 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/Linear-Regression-Project/">Linear Regression Project</a>
+      <a class="archive-article-title" href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/">Logistic Regression of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2017/12/13/Linear-Regression-Project/" class="archive-article-date"><time datetime="2017-12-12T17:20:01.000Z" itemprop="datePublished">December 13th</time></a>
+  <a href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T15:40:39.000Z" itemprop="datePublished">September 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/SauronLee/Udacity_ML_P3/blob/master/linear_regression_P3/linear_regression_project-2-3.ipynb">Linear Regression Project Adress</a></p>
-<!-- <script src="https://gist.github.com/SauronLee/87b33007784de2850480249697949306.js"></script>
+        <p><img src="/images/A-Z_ML/35.png" alt><br><img src="/images/A-Z_ML/36.png" alt><br><img src="/images/A-Z_ML/37.png" alt><br><img src="/images/A-Z_ML/38.png" alt></p>
+<ul>
+<li>列<br><img src="/images/A-Z_ML/39.png" alt></li>
+</ul>
+<script src="https://gist.github.com/SauronLee/fdff6948bb436e04e91e1ba70ed7e3bb.js"></script>
 
-<script src="https://gist.github.com/SauronLee/98d5d077feba14ba914c7c92742cdaec.js"></script> -->
+<ul>
+<li>运行confusion_matrix来测试精准度，正确率（65+24）%</li>
+</ul>
+<pre><code># Making the Confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+cm
+Out[3]: 
+array([[65,  3],
+       [ 8, 24]])
+</code></pre><p><img src="/images/A-Z_ML/40.png" alt><br><img src="/images/A-Z_ML/41.png" alt></p>
+
       
     </div>
   </header>
@@ -157,7 +233,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/2/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li><a class="page-number" href="/tags/Python/page/2/">2</a></li><li class="active"><span class="page-number">3</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/2/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li><a class="page-number" href="/tags/Python/page/2/">2</a></li><li class="active"><span class="page-number">3</span></li><li><a class="page-number" href="/tags/Python/page/4/">4</a></li><li><a class="page-number" href="/tags/Python/page/5/">5</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/11/">11</a></li><li><a class="page-next" rel="next" href="/tags/Python/page/4/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -239,17 +315,22 @@
     </div>
   </div>
   <footer class="blog-footer">
+  <br>
   <div class="container">
     <div id="footer-info" class="inner">
-      &copy; 2021 Sauron Lee<br>
+      &copy; 2021 xiaoran Li<br>
        <!-- <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
        - -->
        <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub</b></a>
        -
        <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode</b></a>
+       <br>
+       <br>
     </div>
   </div>
+  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=000000&w=300&t=tt&d=PV6WTSPjs7ishuc9dWmNngnJQGx-nTWiH49q1seT3Q4&co=f5f5f5&ct=000000'></script>
 </footer>
+
 
   
 

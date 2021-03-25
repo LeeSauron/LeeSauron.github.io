@@ -3,21 +3,21 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Tag: Machine Learning | Sauron Lee‘blog</title>
+  <title>Tag: Machine Learning | Xiaoran(Sauron) Li‘blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="李笑然">
-<meta name="keywords" content="Statistics;ML;FEND">
+<meta name="keywords" content="NLP;ML;FEND">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sauron Lee‘blog">
+<meta property="og:title" content="Xiaoran(Sauron) Li‘blog">
 <meta property="og:url" content="https://github.com/SauronLee/tags/Machine-Learning/page/4/index.html">
-<meta property="og:site_name" content="Sauron Lee‘blog">
+<meta property="og:site_name" content="Xiaoran(Sauron) Li‘blog">
 <meta property="og:description" content="李笑然">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sauron Lee‘blog">
+<meta name="twitter:title" content="Xiaoran(Sauron) Li‘blog">
 <meta name="twitter:description" content="李笑然">
   
-    <link rel="alternate" href="/atom.xml" title="Sauron Lee‘blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Xiaoran(Sauron) Li‘blog" type="application/atom+xml">
   
   
   
@@ -76,9 +76,9 @@
 
   <div class="container">
     <div class="blog-header">
-  <h1 class="blog-title">Sauron Lee‘blog</h1>
+  <h1 class="blog-title">Xiaoran(Sauron) Li‘blog</h1>
   
-    <p class="lead blog-description">Li xiaoran</p>
+    <p class="lead blog-description">www.xiaoranli.com</p>
   
 </div>
 
@@ -102,177 +102,18 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/09/14/Thompson-by-A-Z/">Thompson by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">August 14th</time></a>
+  <a href="/2019/09/14/Thompson-by-A-Z/" class="archive-article-date"><time datetime="2019-09-14T08:45:57.000Z" itemprop="datePublished">September 14th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
-<!-- ![issue](/images/A-Z_ML/244.png) -->
-<ul>
-<li>数据是商场的用户的消费详情</li>
-</ul>
-<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
-
-<hr>
-<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
-<!-- ![issue](/images/A-Z_ML/245.png) -->
-<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
-<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">August 14th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/242.png" alt></p>
-<ul>
-<li>数据是商场的用户的消费详情</li>
-</ul>
-<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
-
-<hr>
-<pre><code>
-&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
-&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
-distribution of transactions with duplicates:
-# 重复一次出现在5行当中
-1 
-5 
-&gt; summary(dataset)
-transactions as itemMatrix in sparse format with
- 7501 rows (elements/itemsets/transactions) and
- # 稀疏矩阵，1占0.03288973 其他都是0
- 119 columns (items) and a density of 0.03288973 
-
-most frequent items:
-mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
-         1788          1348          1306          1282          1229         22405 
-
-element (itemset/transaction) length distribution:
-sizes
-# 有1754笔交易只有1个产品
-   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
-1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
-
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   2.000   3.000   3.914   5.000  20.000 
-
-includes extended item information - examples:
-             labels
-1           almonds
-2 antioxydant juice
-3         asparagus
-&gt; itemFrequencyPlot(dataset, topN = 10)
-&gt; # Training Apriori on the dataset
-&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
-Apriori
-
-Parameter specification:
- confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
-        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
-
-Algorithmic control:
- filter tree heap memopt load sort verbose
-    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
-
-Absolute minimum support count: 30 
-
-set item appearances ...[0 item(s)] done [0.00s].
-set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
-sorting and recoding items ... [114 item(s)] done [0.00s].
-creating transaction tree ... done [0.00s].
-checking subsets of size 1 2 3 4 done [0.16s].
-writing ... [811 rule(s)] done [0.00s].
-creating S4 object  ... done [0.00s].
-&gt; # Visualising the results
-&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
-     lhs                                            rhs             support     confidence
-[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
-[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
-[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
-[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
-[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
-[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
-[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
-[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
-[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
-[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
-     lift     count
-[1]  4.843951 34   
-[2]  4.700812 44   
-[3]  4.506672 38   
-[4]  4.178455 31   
-[5]  4.122410 60   
-[6]  4.004360 48   
-[7]  3.975683 50   
-[8]  3.840659 40   
-[9]  3.790833 43   
-[10] 3.731841 33   
-&gt; 
-&gt;
-</code></pre><ul>
-<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
-</ul>
-<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
-<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
-<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
-<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
-<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
-<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
-<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
-<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
-<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
-<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
-<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
-<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
-<p>Extends<br>Class itemMatrix, directly.</p>
-<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
-<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
-<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
-<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
-<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
-<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
-<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
-<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
-<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
-<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
-<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
-<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
-<p>show<br>signature(object = “transactions”)</p>
-<p>summary<br>signature(object = “transactions”)</p>
-<ul>
-<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
-</ul>
-<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
-<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
-<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
-<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
+        <p><img src="/images/A-Z_ML/264.png" alt><br><img src="/images/A-Z_ML/265.png" alt><br><img src="/images/A-Z_ML/266.png" alt><br><img src="/images/A-Z_ML/267.png" alt><br><img src="/images/A-Z_ML/268.png" alt><br><img src="/images/A-Z_ML/269.png" alt><br><img src="/images/A-Z_ML/270.png" alt><br>Thompson 抽样算法 vs.置信区间上界算法<br><img src="/images/A-Z_ML/271.png" alt></p>
 
       
     </div>
@@ -288,393 +129,20 @@ creating S4 object  ... done [0.00s].
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/13/Naive-Bayes-of-python-by-A-Z/">Naive Bayes of python by A-Z</a>
+      <a class="archive-article-title" href="/2019/09/14/UCB-by-A-Z/">UCB by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/13/Naive-Bayes-of-python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-13T06:57:44.000Z" itemprop="datePublished">August 13th</time></a>
+  <a href="/2019/09/14/UCB-by-A-Z/" class="archive-article-date"><time datetime="2019-09-14T03:37:37.000Z" itemprop="datePublished">September 14th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/77.png" alt></p>
-<script src="https://gist.github.com/SauronLee/3b8d2be2ae591a894876efc4ec63acff.js"></script>
-
-<p><img src="/images/A-Z_ML/78.png" alt><br><img src="/images/A-Z_ML/79.png" alt></p>
-
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-Python/">Data Preprocessing by Python</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/08/10/Data-Preprocessing-by-Python/" class="archive-article-date"><time datetime="2019-08-10T11:08:27.000Z" itemprop="datePublished">August 10th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d3f9b166dbfa5160de5411a0718c90b1.js"></script>
-
-<p>command + i = helpeer</p>
+        <p><img src="/images/A-Z_ML/250.png" alt><br><img src="/images/A-Z_ML/251.png" alt><br><img src="/images/A-Z_ML/252.png" alt><br><img src="/images/A-Z_ML/253.png" alt><br><img src="/images/A-Z_ML/254.png" alt><br><img src="/images/A-Z_ML/255.png" alt><br><img src="/images/A-Z_ML/256.png" alt><br><img src="/images/A-Z_ML/257.png" alt><br><img src="/images/A-Z_ML/258.png" alt></p>
 <ul>
-<li>Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)</li>
-</ul>
-<p>missing_values : integer or “NaN”, optional (default=”NaN”)<br>The placeholder for the missing values. All occurrences of missing_values will be imputed. For missing values encoded as np.nan, use the string value “NaN”.<br>strategy : string, optional (default=”mean”)<br>The imputation strategy.</p>
-<p>If “mean”, then replace missing values using the mean along the axis.<br>If “median”, then replace missing values using the median along the axis.<br>If “most_frequent”, then replace missing using the most frequent value along the axis.<br>axis : integer, optional (default=0)<br>The axis along which to impute.</p>
-<p>If axis=0, then impute along columns.<br>If axis=1, then impute along rows.<br>verbose : integer, optional (default=0)<br>Controls the verbosity of the imputer.<br>copy : boolean, optional (default=True)<br>If True, a copy of X will be created. If False, imputation will be done in-place whenever possible. Note that, in the following cases, a new copy will always be made, even if copy=False:</p>
-<p>If X is not an array of floating values;<br>If X is sparse and missing_values=0;<br>If axis=0 and X is encoded as a CSR matrix;<br>If axis=1 and X is encoded as a CSC matrix.</p>
-<ul>
-<li>fit(X, y=None)</li>
-</ul>
-<p>X : {array-like, sparse matrix}, shape (n_samples, n_features)<br>Input data, where n_samples is the number of samples and n_features is the number of features.</p>
-<ul>
-<li>Definition : OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=np.float64, handle_unknown=’error’)</li>
-</ul>
-<p>Type : Present in sklearn.preprocessing._encoders module</p>
-<p>categories : ‘auto’ or a list of lists/arrays of values, default=’auto’.<br>Categories (unique values) per feature:</p>
-<p>‘auto’ : Determine categories automatically from the training data.<br>list : categories[i] holds the categories expected in the ith column. The passed categories should not mix strings and numeric values within a single feature, and should be sorted in case of numeric values.<br>The used categories can be found in the categories_ attribute.</p>
-<p>sparse : boolean, default=True<br>Will return sparse matrix if set True else will return an array.<br>dtype : number type, default=np.float<br>Desired dtype of output.<br>handle_unknown : ‘error’ or ‘ignore’, default=’error’.<br>Whether to raise an error or ignore if an unknown categorical feature is present during transform (default is to raise). When this parameter is set to ‘ignore’ and an unknown category is encountered during transform, the resulting one-hot encoded columns for this feature will be all zeros. In the inverse transform, an unknown category will be denoted as None.<br>n_values : ‘auto’, int or array of ints, default=’auto’<br>Number of values per feature.</p>
-<p>‘auto’ : determine value range from training data.</p>
-<p>int : number of categorical values per feature.<br>Each feature value should be in range(n_values)</p>
-<p>array : n_values[i] is the number of categorical values in<br>X[:, i]. Each feature value should be in range(n_values[i])</p>
-<p>Deprecated since version 0.20: The n_values keyword was deprecated in version 0.20 and will be removed in 0.22. Use categories instead.</p>
-<p>categorical_features : ‘all’ or array of indices or mask, default=’all’<br>Specify what features are treated as categorical.</p>
-<p>‘all’: All features are treated as categorical.<br>array of indices: Array of categorical feature indices.<br>mask: Array of length n_features and with dtype=bool.<br>Non-categorical features are always stacked to the right of the matrix.</p>
-<p>Deprecated since version 0.20: The categorical_features keyword was deprecated in version 0.20 and will be removed in 0.22. You can use the ColumnTransformer instead.</p>
-<h2 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h2><ul>
-<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
-<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
-<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
-</li>
-<li><p>是否需要对虚拟变量进行特征缩放。答：不一定，要根据模型结果。</p>
-</li>
-<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
-</ul>
-<pre><code># Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc_XStandardScaler()
-X_train = sc_X.fit_transform(X_train)
-X_test = sc_X.transform(X_test)
-</code></pre>
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-R/">Data Preprocessing by R</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/08/10/Data-Preprocessing-by-R/" class="archive-article-date"><time datetime="2019-08-10T11:08:09.000Z" itemprop="datePublished">August 10th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d07b84f9caefd89dbc3f76a943bd8166.js"></script>
-
-<ul>
-<li>因子数据类型（有序因子&amp;无序因子），可以代替Python中的OneHotEncoder</li>
-</ul>
-<p>Usage<br>factor(x = character(), levels, labels = levels,<br>       exclude = NA, ordered = is.ordered(x), nmax = NA)</p>
-<p>ordered(x, …)</p>
-<p>is.factor(x)<br>is.ordered(x)</p>
-<p>as.factor(x)<br>as.ordered(x)</p>
-<p>addNA(x, ifany = FALSE)<br>Arguments<br>x<br>a vector of data, usually taking a small number of distinct values.</p>
-<p>levels<br>an optional vector of the unique values (as character strings) that x might have taken. The default is the unique set of values taken by as.character(x), sorted into increasing order of x. Note that this set can be specified as smaller than sort(unique(x)).</p>
-<p>labels<br>either an optional character vector of labels for the levels (in the same order as levels after removing those in exclude), or a character string of length 1. Duplicated values in labels can be used to map different values of x to the same factor level.</p>
-<p>exclude<br>a vector of values to be excluded when forming the set of levels. This may be factor with the same level set as x or should be a character.</p>
-<p>ordered<br>logical flag to determine if the levels should be regarded as ordered (in the order given).</p>
-<p>nmax<br>an upper bound on the number of levels; see ‘Details’.</p>
-<p>…<br>(in ordered(.)): any of the above, apart from ordered itself.</p>
-<p>ifany<br>only add an NA level if it is used, i.e. if any(is.na(x)).</p>
-<h2 id="Splitting-the-Dataset-into-the-Training-set-and-Test-set"><a href="#Splitting-the-Dataset-into-the-Training-set-and-Test-set" class="headerlink" title="Splitting the Dataset into the Training set and Test set"></a>Splitting the Dataset into the Training set and Test set</h2><pre><code># Data Preprocessing Template
-
-# Importing the dataset
-dataset = read.csv(&#39;Data.csv&#39;)
-# dataset = dataset[, 2:3]
-
-# Splitting the dataset into the Training set and Test set
-# R语言安装packages
-# install.packages(&#39;caTools&#39;)
-# library(caTools) = 在packages里面打钩，推荐用library(caTools) 
-library(caTools)
-set.seed(123)
-split = sample.split(dataset$Purchased, SplitRatio = 0.8)
-# split == TRUE为random出来的数据
-training_set = subset(dataset, split == TRUE)
-test_set = subset(dataset, split == FALSE)
-
-# Feature Scaling
-# training_set[, 2:3] = scale(training_set[, 2:3])
-# test_set[, 2:3] = scale(test_set[, 2:3])
-</code></pre><ul>
-<li>set.seed<br>Random Number Generation</li>
-</ul>
-<p>Usage<br>.Random.seed &lt;- c(rng.kind, n1, n2, \dots)</p>
-<p>RNGkind(kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>RNGversion(vstr)<br>set.seed(seed, kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>Arguments<br>kind<br>character or NULL. If kind is a character string, set R’s RNG to the kind desired. Use “default” to return to the R default. See ‘Details’ for the interpretation of NULL.</p>
-<p>normal.kind<br>character string or NULL. If it is a character string, set the method of Normal generation. Use “default” to return to the R default. NULL makes no change.</p>
-<p>sample.kind<br>character string or NULL. If it is a character string, set the method of discrete uniform generation (used in sample, for instance). Use “default” to return to the R default. NULL makes no change.</p>
-<p>seed<br>a single value, interpreted as an integer, or NULL (see ‘Details’).</p>
-<p>vstr<br>a character string containing a version number, e.g., “1.6.2”. The default RNG configuration of the current R version is used if vstr is greater than the current version.</p>
-<p>rng.kind<br>integer code in 0:k for the above kind.</p>
-<p>n1, n2, …<br>integers. See the details for how many are required (which depends on rng.kind).</p>
-<ul>
-<li>sample.split<br>Split Data into Test and Train Set</li>
-</ul>
-<p>Usage<br> sample.split( Y, SplitRatio = 2/3, group = NULL )<br>Arguments<br>Y<br>Vector of data labels. If there are only a few labels (as is expected) than relative ratio of data in both subsets will be the same.</p>
-<p>SplitRatio<br>Splitting ratio:</p>
-<p>if (0&lt;=SplitRatio&lt;1) then SplitRatio fraction of points from Y will be set toTRUE</p>
-<p>if (SplitRatio==1) then one random point from Y will be set to TRUE</p>
-<p>if (SplitRatio&gt;1) then SplitRatio number of points from Y will be set to TRUE</p>
-<p>group<br>Optional vector/list used when multiple copies of each sample are present. In such a case group contains unique sample labels, marking all copies of the same sample with the same label, and the function tries to place all copies in either train or test subset. If provided than has to have the same length as Y.</p>
-<h1 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h1><ul>
-<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
-<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
-<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
-</li>
-<li><p>是否需要对虚拟变量进行特征缩放？答：不一定，要根据模型结果。</p>
-</li>
-<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
-<li>在R里factor属于单独的类型不属于数字它属于分类的一个数据类型</li>
-</ul>
-<pre><code># Feature Scaling
-training_set[,2:3] = scale(training_set[,2:3])
-test_set[,2:3] = scale(test_set[,2:3])
-</code></pre>
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/CART-of-R-by-A-Z/">Decision Tree Classifier of R  by A-Z</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/13/CART-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:29.000Z" itemprop="datePublished">July 13th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/88.png" alt></p>
-<ul>
-<li>因为决策树用的是切线切割没有用到欧式距离所以不需要进行特征缩放</li>
-</ul>
-<script src="https://gist.github.com/SauronLee/5550de72b8e9ab228abb30178fe5dbb6.js"></script>
-
-<hr>
-<pre><code>
-&gt; View(dataset)
-&gt; y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   1   1   0   0   1   0   1   0   0   0   0   0   0   0   1   0   0   1 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   1   0   0   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   0   0   1   1   1   1   1   1 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   0   0   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1 
-389 392 395 400 
-  1   1   0   1 
-Levels: 0 1
-
-&gt; cm
-   y_pred
-     0  1
-  0 53 11
-  1  6 30
-</code></pre><p><img src="/images/A-Z_ML/89.png" alt><br><img src="/images/A-Z_ML/90.png" alt><br><img src="/images/A-Z_ML/91.png" alt></p>
-
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/CART-of-Python-by-A-Z/">Decision Tree Classifier of Python by A-Z</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/13/CART-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:19.000Z" itemprop="datePublished">July 13th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/85.png" alt></p>
-<script src="https://gist.github.com/SauronLee/ef680bf345a816817042c7acf0503a39.js"></script>
-
-<ul>
-<li>由于过度拟合所以预测的非常差</li>
-</ul>
-<p><img src="/images/A-Z_ML/84.png" alt><br><img src="/images/A-Z_ML/86.png" alt></p>
-
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/Bayes-Theorem-by-A-Z/">Bayes Theorem by A-Z</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/13/Bayes-Theorem-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T05:41:36.000Z" itemprop="datePublished">July 13th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/64.png" alt></p>
-<ul>
-<li>P(A)是先验概率P(A|B)是后验概率</li>
-<li>B在朴素贝叶斯的分类器当中叫做特征，所以P(B)和P(A|B)不完全叫概率而叫做似然<br><img src="/images/A-Z_ML/65.png" alt></li>
-<li>Plane Attack<br><img src="/images/A-Z_ML/66.png" alt><br><img src="/images/A-Z_ML/67.png" alt><br><img src="/images/A-Z_ML/68.png" alt><br><img src="/images/A-Z_ML/69.png" alt><br><img src="/images/A-Z_ML/70.png" alt><br><img src="/images/A-Z_ML/71.png" alt><br><img src="/images/A-Z_ML/72.png" alt><br><img src="/images/A-Z_ML/73.png" alt><br><img src="/images/A-Z_ML/74.png" alt><br><img src="/images/A-Z_ML/75.png" alt></li>
-<li>缺少似然会降低计算量用于估计<br><img src="/images/A-Z_ML/76.png" alt></li>
-</ul>
-
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/12/NLP-Sentence-analysis/">NLP Sentence analysis</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/12/NLP-Sentence-analysis/" class="archive-article-date"><time datetime="2019-07-12T07:13:33.000Z" itemprop="datePublished">July 12th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="句法分析任务"><a href="#句法分析任务" class="headerlink" title="句法分析任务"></a>句法分析任务</h1><p><img src="/images/NLP/sentence_analysis_01.png" alt></p>
-<h1 id="全局句法分析"><a href="#全局句法分析" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_02.png" alt></p>
-<h1 id="全局句法分析-1"><a href="#全局句法分析-1" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_03.png" alt></p>
-<h1 id="依存结构"><a href="#依存结构" class="headerlink" title="依存结构"></a>依存结构</h1><p><img src="/images/NLP/sentence_analysis_04.png" alt></p>
-<ul>
-<li>依存结构概念：</li>
-</ul>
-<ul>
-<li>依照句法通过分析语言单位成分之前的依存关系解释其句法结构，主张句子中核心动词是支配其他成分的中心成分，而他本身却不受其他任何成分的支配，所有受支配成分都以某种关系从属于支配者</li>
-</ul>
-<ul>
-<li>五个条件</li>
-</ul>
-<ul>
-<li>一个句子中只有一个成分是独立的</li>
-<li>句子的其他成分都从属于某一成分</li>
-<li>如果成分A从属于成分B.而成分C在句子中位于A和B之间，那么，成分C或者从属于A，或者从属于B，或者从属于A和B之间的某一成分</li>
-<li>中心成分左右两边的其他成分互相不发生关系<br><img src="/images/NLP/sentence_analysis_05.png" alt><h1 id="使用spacy进行语法分析"><a href="#使用spacy进行语法分析" class="headerlink" title="使用spacy进行语法分析"></a>使用spacy进行语法分析</h1></li>
-</ul>
-<ul>
-<li>下载英文数据以及对应的模型 <code>python -m spacy download en</code></li>
-</ul>
-<script src="https://gist.github.com/SauronLee/c656cd3081b1931087aa6713cd267828.js"></script>
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/12/Dataset-Business-Problem-Description-by-A-Z/">Dataset + Business Problem Description by A-Z</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/12/Dataset-Business-Problem-Description-by-A-Z/" class="archive-article-date"><time datetime="2019-07-11T17:57:51.000Z" itemprop="datePublished">July 12th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/07.png" alt></p>
-<p><img src="/images/A-Z_ML/08.png" alt></p>
-<ul>
-<li>简单=多元<br>简单回归~多元回归向量的内积形式<br><img src="/images/A-Z_ML/09.png" alt></li>
-<li>条件<br>1.数据是否是线性的<br>2.数据要有同样的方差<br>3,数据要呈现多元正态分布<br>4,我们的误差在不同的维度之间都必须是独立的<br>5,没有一个自变量是其他自变量的线性关系（因为只要两个自变量有逻辑关系那么整个预测就会被这种逻辑关系干扰）<br><img src="/images/A-Z_ML/10.png" alt></li>
-<li>Dummy Data的处理</li>
-<li>重点，在这里的【0，1】可以是任意的两个数，因为y=b_0+b_1*x这两个数只代表固定的两个数而已，两个维度中的变量，只是进行了整体的缩放。<br><img src="/images/A-Z_ML/11.png" alt><br><img src="/images/A-Z_ML/12.png" alt></li>
-<li>虚拟变量陷阱=同时使用两个虚拟变量（会出现*条件5中的多重共线性）</li>
-<li>如果加上D_5拟合后会出现误差极度接近为零=过拟合，冯诺依曼说过：“给我4个参数我可以拟合出一头大象，再给我一个参数我可以让这头大象鼻子竖在地上跳舞”</li>
-<li>遇到2个以上的分类形式的虚拟变量的时候我们始终n-1，使得我们的维度不会溢出<br><img src="/images/A-Z_ML/13.png" alt><br><img src="/images/A-Z_ML/14.png" alt></li>
-<li>对自变量的筛选极为重要，1，喂进去的如果是垃圾那么出来的也是垃圾，2，不容易解释自变量各自的意义和对模型的贡献最大<br><img src="/images/A-Z_ML/15.png" alt></li>
-<li>刷选方法：<br>1，每个自变量都有用一个也不能舍去<br><img src="/images/A-Z_ML/16.png" alt><br>2，看每个自变量的显著性（反向淘汰）</li>
-<li>门槛SL=0.05，对所有的自变量都做拟合求出P值（y=kx+b），取最高P值高于SL则去除（SL越小显著性越高）<br><img src="/images/A-Z_ML/17.png" alt><br>3，（顺向选择）和（反向淘汰）一样<br><img src="/images/A-Z_ML/18.png" alt><br>4，（双向淘汰）<br><img src="/images/A-Z_ML/19.png" alt><br>5，（信息量比较）最大信息熵</li>
-<li>赤池信息量准则（一种信息打分的方式）对所有可能的模型进行打分，不适用过多自变量<br><img src="/images/A-Z_ML/20.png" alt></li>
+<li>我们的收益在灰色区间之中</li>
 </ul>
 
       
@@ -690,7 +158,7 @@ Levels: 0 1
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/3/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/2/">2</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/3/">3</a></li><li class="active"><span class="page-number">4</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/5/">5</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/6/">6</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/5/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/3/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/2/">2</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/3/">3</a></li><li class="active"><span class="page-number">4</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/5/">5</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/6/">6</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/27/">27</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/5/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -772,17 +240,22 @@ Levels: 0 1
     </div>
   </div>
   <footer class="blog-footer">
+  <br>
   <div class="container">
     <div id="footer-info" class="inner">
-      &copy; 2021 Sauron Lee<br>
+      &copy; 2021 xiaoran Li<br>
        <!-- <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
        - -->
        <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub</b></a>
        -
        <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode</b></a>
+       <br>
+       <br>
     </div>
   </div>
+  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=000000&w=300&t=tt&d=PV6WTSPjs7ishuc9dWmNngnJQGx-nTWiH49q1seT3Q4&co=f5f5f5&ct=000000'></script>
 </footer>
+
 
   
 

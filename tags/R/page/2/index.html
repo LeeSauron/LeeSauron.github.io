@@ -3,21 +3,21 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Tag: R | Sauron Lee‘blog</title>
+  <title>Tag: R | Xiaoran(Sauron) Li‘blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="李笑然">
-<meta name="keywords" content="Statistics;ML;FEND">
+<meta name="keywords" content="NLP;ML;FEND">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sauron Lee‘blog">
+<meta property="og:title" content="Xiaoran(Sauron) Li‘blog">
 <meta property="og:url" content="https://github.com/SauronLee/tags/R/page/2/index.html">
-<meta property="og:site_name" content="Sauron Lee‘blog">
+<meta property="og:site_name" content="Xiaoran(Sauron) Li‘blog">
 <meta property="og:description" content="李笑然">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sauron Lee‘blog">
+<meta name="twitter:title" content="Xiaoran(Sauron) Li‘blog">
 <meta name="twitter:description" content="李笑然">
   
-    <link rel="alternate" href="/atom.xml" title="Sauron Lee‘blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Xiaoran(Sauron) Li‘blog" type="application/atom+xml">
   
   
   
@@ -76,9 +76,9 @@
 
   <div class="container">
     <div class="blog-header">
-  <h1 class="blog-title">Sauron Lee‘blog</h1>
+  <h1 class="blog-title">Xiaoran(Sauron) Li‘blog</h1>
   
-    <p class="lead blog-description">Li xiaoran</p>
+    <p class="lead blog-description">www.xiaoranli.com</p>
   
 </div>
 
@@ -102,141 +102,44 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
+      <a class="archive-article-title" href="/2019/09/14/K-Means-Clustering-of-R-by-A-Z/">K-Means Clustering of R by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">August 14th</time></a>
+  <a href="/2019/09/14/K-Means-Clustering-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T15:47:23.000Z" itemprop="datePublished">September 14th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/242.png" alt></p>
+        <p><img src="/images/A-Z_ML/232.png" alt="issue"></p>
 <ul>
-<li>数据是商场的用户的消费详情</li>
+<li>数据是商场的用户购买评分，越高用户花的钱越多，帮助商场把用户分群，那样的客户更愿意消费</li>
 </ul>
-<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
-
+<h2 id><a href="#" class="headerlink" title></a><script src="https://gist.github.com/SauronLee/30e18655a8f30377c01281a6a67b136f.js"></script></h2><pre><code>#每个用户被分到哪个组
+&gt; y_kmeans
+  [1] 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 5 2 4 5
+ [48] 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+ [95] 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 3 1 3 5 3 1 3 1 3 5 3 1 3 1 3 1 3 1
+[142] 3 5 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3
+[189] 1 3 1 3 1 3 1 3 1 3 1 3
+</code></pre><hr>
+<p><img src="/images/A-Z_ML/230.png" alt><br><img src="/images/A-Z_ML/231.png" alt></p>
 <hr>
-<pre><code>
-&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
-&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
-distribution of transactions with duplicates:
-# 重复一次出现在5行当中
-1 
-5 
-&gt; summary(dataset)
-transactions as itemMatrix in sparse format with
- 7501 rows (elements/itemsets/transactions) and
- # 稀疏矩阵，1占0.03288973 其他都是0
- 119 columns (items) and a density of 0.03288973 
-
-most frequent items:
-mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
-         1788          1348          1306          1282          1229         22405 
-
-element (itemset/transaction) length distribution:
-sizes
-# 有1754笔交易只有1个产品
-   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
-1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
-
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   2.000   3.000   3.914   5.000  20.000 
-
-includes extended item information - examples:
-             labels
-1           almonds
-2 antioxydant juice
-3         asparagus
-&gt; itemFrequencyPlot(dataset, topN = 10)
-&gt; # Training Apriori on the dataset
-&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
-Apriori
-
-Parameter specification:
- confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
-        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
-
-Algorithmic control:
- filter tree heap memopt load sort verbose
-    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
-
-Absolute minimum support count: 30 
-
-set item appearances ...[0 item(s)] done [0.00s].
-set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
-sorting and recoding items ... [114 item(s)] done [0.00s].
-creating transaction tree ... done [0.00s].
-checking subsets of size 1 2 3 4 done [0.16s].
-writing ... [811 rule(s)] done [0.00s].
-creating S4 object  ... done [0.00s].
-&gt; # Visualising the results
-&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
-     lhs                                            rhs             support     confidence
-[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
-[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
-[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
-[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
-[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
-[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
-[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
-[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
-[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
-[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
-     lift     count
-[1]  4.843951 34   
-[2]  4.700812 44   
-[3]  4.506672 38   
-[4]  4.178455 31   
-[5]  4.122410 60   
-[6]  4.004360 48   
-[7]  3.975683 50   
-[8]  3.840659 40   
-[9]  3.790833 43   
-[10] 3.731841 33   
-&gt; 
-&gt;
-</code></pre><ul>
-<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
-</ul>
-<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
-<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
-<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
-<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
-<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
-<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
-<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
-<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
-<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
-<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
-<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
-<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
-<p>Extends<br>Class itemMatrix, directly.</p>
-<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
-<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
-<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
-<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
-<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
-<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
-<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
-<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
-<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
-<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
-<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
-<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
-<p>show<br>signature(object = “transactions”)</p>
-<p>summary<br>signature(object = “transactions”)</p>
-<ul>
-<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
-</ul>
-<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
-<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
-<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
-<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
-
+<p>kmeans {stats}    R Documentation<br>K-Means Clustering<br>Description<br>Perform k-means clustering on a data matrix.</p>
+<p>Usage<br>kmeans(x, centers, iter.max = 10, nstart = 1,<br>       algorithm = c(“Hartigan-Wong”, “Lloyd”, “Forgy”,<br>                     “MacQueen”), trace=FALSE)</p>
+<h2 id="S3-method-for-class-‘kmeans’"><a href="#S3-method-for-class-‘kmeans’" class="headerlink" title="S3 method for class ‘kmeans’"></a>S3 method for class ‘kmeans’</h2><p>fitted(object, method = c(“centers”, “classes”), …)<br>Arguments<br>x<br>numeric matrix of data, or an object that can be coerced to such a matrix (such as a numeric vector or a data frame with all numeric columns).</p>
+<p>centers<br>either the number of clusters, say k, or a set of initial (distinct) cluster centres. If a number, a random set of (distinct) rows in x is chosen as the initial centres.</p>
+<p>iter.max<br>the maximum number of iterations allowed.</p>
+<p>nstart<br>if centers is a number, how many random sets should be chosen?</p>
+<p>algorithm<br>character: may be abbreviated. Note that “Lloyd” and “Forgy” are alternative names for one algorithm.</p>
+<p>object<br>an R object of class “kmeans”, typically the result ob of ob &lt;- kmeans(..).</p>
+<p>method<br>character: may be abbreviated. “centers” causes fitted to return cluster centers (one for each input point) and “classes” causes fitted to return a vector of class assignments.</p>
+<p>trace<br>logical or integer number, currently only used in the default method (“Hartigan-Wong”): if positive (or true), tracing information on the progress of the algorithm is produced. Higher values may produce more tracing information.</p>
+<p>…<br>not used.</p>
+<p>nstart<br>if centers is a number, how many random sets should be chosen?</p>
+<h2 id="在开始时同时创建10组中心点然后选择一个最好的"><a href="#在开始时同时创建10组中心点然后选择一个最好的" class="headerlink" title="在开始时同时创建10组中心点然后选择一个最好的"></a>在开始时同时创建10组中心点然后选择一个最好的</h2>
       
     </div>
   </header>
@@ -251,267 +154,45 @@ creating S4 object  ... done [0.00s].
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-R/">Data Preprocessing by R</a>
+      <a class="archive-article-title" href="/2019/09/13/Random-Forest-of-R-by-A-Z/">Random Forest of R by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/10/Data-Preprocessing-by-R/" class="archive-article-date"><time datetime="2019-08-10T11:08:09.000Z" itemprop="datePublished">August 10th</time></a>
+  <a href="/2019/09/13/Random-Forest-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T09:03:14.000Z" itemprop="datePublished">September 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d07b84f9caefd89dbc3f76a943bd8166.js"></script>
-
-<ul>
-<li>因子数据类型（有序因子&amp;无序因子），可以代替Python中的OneHotEncoder</li>
-</ul>
-<p>Usage<br>factor(x = character(), levels, labels = levels,<br>       exclude = NA, ordered = is.ordered(x), nmax = NA)</p>
-<p>ordered(x, …)</p>
-<p>is.factor(x)<br>is.ordered(x)</p>
-<p>as.factor(x)<br>as.ordered(x)</p>
-<p>addNA(x, ifany = FALSE)<br>Arguments<br>x<br>a vector of data, usually taking a small number of distinct values.</p>
-<p>levels<br>an optional vector of the unique values (as character strings) that x might have taken. The default is the unique set of values taken by as.character(x), sorted into increasing order of x. Note that this set can be specified as smaller than sort(unique(x)).</p>
-<p>labels<br>either an optional character vector of labels for the levels (in the same order as levels after removing those in exclude), or a character string of length 1. Duplicated values in labels can be used to map different values of x to the same factor level.</p>
-<p>exclude<br>a vector of values to be excluded when forming the set of levels. This may be factor with the same level set as x or should be a character.</p>
-<p>ordered<br>logical flag to determine if the levels should be regarded as ordered (in the order given).</p>
-<p>nmax<br>an upper bound on the number of levels; see ‘Details’.</p>
-<p>…<br>(in ordered(.)): any of the above, apart from ordered itself.</p>
-<p>ifany<br>only add an NA level if it is used, i.e. if any(is.na(x)).</p>
-<h2 id="Splitting-the-Dataset-into-the-Training-set-and-Test-set"><a href="#Splitting-the-Dataset-into-the-Training-set-and-Test-set" class="headerlink" title="Splitting the Dataset into the Training set and Test set"></a>Splitting the Dataset into the Training set and Test set</h2><pre><code># Data Preprocessing Template
-
-# Importing the dataset
-dataset = read.csv(&#39;Data.csv&#39;)
-# dataset = dataset[, 2:3]
-
-# Splitting the dataset into the Training set and Test set
-# R语言安装packages
-# install.packages(&#39;caTools&#39;)
-# library(caTools) = 在packages里面打钩，推荐用library(caTools) 
-library(caTools)
-set.seed(123)
-split = sample.split(dataset$Purchased, SplitRatio = 0.8)
-# split == TRUE为random出来的数据
-training_set = subset(dataset, split == TRUE)
-test_set = subset(dataset, split == FALSE)
-
-# Feature Scaling
-# training_set[, 2:3] = scale(training_set[, 2:3])
-# test_set[, 2:3] = scale(test_set[, 2:3])
-</code></pre><ul>
-<li>set.seed<br>Random Number Generation</li>
-</ul>
-<p>Usage<br>.Random.seed &lt;- c(rng.kind, n1, n2, \dots)</p>
-<p>RNGkind(kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>RNGversion(vstr)<br>set.seed(seed, kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>Arguments<br>kind<br>character or NULL. If kind is a character string, set R’s RNG to the kind desired. Use “default” to return to the R default. See ‘Details’ for the interpretation of NULL.</p>
-<p>normal.kind<br>character string or NULL. If it is a character string, set the method of Normal generation. Use “default” to return to the R default. NULL makes no change.</p>
-<p>sample.kind<br>character string or NULL. If it is a character string, set the method of discrete uniform generation (used in sample, for instance). Use “default” to return to the R default. NULL makes no change.</p>
-<p>seed<br>a single value, interpreted as an integer, or NULL (see ‘Details’).</p>
-<p>vstr<br>a character string containing a version number, e.g., “1.6.2”. The default RNG configuration of the current R version is used if vstr is greater than the current version.</p>
-<p>rng.kind<br>integer code in 0:k for the above kind.</p>
-<p>n1, n2, …<br>integers. See the details for how many are required (which depends on rng.kind).</p>
-<ul>
-<li>sample.split<br>Split Data into Test and Train Set</li>
-</ul>
-<p>Usage<br> sample.split( Y, SplitRatio = 2/3, group = NULL )<br>Arguments<br>Y<br>Vector of data labels. If there are only a few labels (as is expected) than relative ratio of data in both subsets will be the same.</p>
-<p>SplitRatio<br>Splitting ratio:</p>
-<p>if (0&lt;=SplitRatio&lt;1) then SplitRatio fraction of points from Y will be set toTRUE</p>
-<p>if (SplitRatio==1) then one random point from Y will be set to TRUE</p>
-<p>if (SplitRatio&gt;1) then SplitRatio number of points from Y will be set to TRUE</p>
-<p>group<br>Optional vector/list used when multiple copies of each sample are present. In such a case group contains unique sample labels, marking all copies of the same sample with the same label, and the function tries to place all copies in either train or test subset. If provided than has to have the same length as Y.</p>
-<h1 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h1><ul>
-<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
-<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
-<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
-</li>
-<li><p>是否需要对虚拟变量进行特征缩放？答：不一定，要根据模型结果。</p>
-</li>
-<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
-<li>在R里factor属于单独的类型不属于数字它属于分类的一个数据类型</li>
-</ul>
-<pre><code># Feature Scaling
-training_set[,2:3] = scale(training_set[,2:3])
-test_set[,2:3] = scale(test_set[,2:3])
-</code></pre>
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/CART-of-R-by-A-Z/">Decision Tree Classifier of R  by A-Z</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/13/CART-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:29.000Z" itemprop="datePublished">July 13th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/88.png" alt></p>
-<ul>
-<li>因为决策树用的是切线切割没有用到欧式距离所以不需要进行特征缩放</li>
-</ul>
-<script src="https://gist.github.com/SauronLee/5550de72b8e9ab228abb30178fe5dbb6.js"></script>
+        <p><img src="/images/A-Z_ML/100.png" alt></p>
+<script src="https://gist.github.com/SauronLee/d3c2238ba1ea263551f096d64a5e594e.js"></script>
 
 <hr>
 <pre><code>
-&gt; View(dataset)
+&gt; # Predicting the Test set results
+&gt; y_pred = predict(classifier, newdata = test_set[-3])
 &gt; y_pred
   2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   1   1   0   0   1   0   1   0   0   0   0   0   0   0   1   0   0   1 
+  0   0   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   0   0   1   0   0   1 
  85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   1   0   0   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0 
+  0   1   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
 176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   0   0   1   1   1   1   1   1 
+  0   0   0   0   1   1   1   0   1   0   0   1   1   0   0   1   0   0   1   1   1   1   1   1 
 292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   0   0   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1 
+  1   0   0   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   0   0   1   0   1   0 
 389 392 395 400 
   1   1   0   1 
 Levels: 0 1
 
+&gt; # Making the Confusion Matrix
+&gt; cm = table(test_set[, 3], y_pred)
 &gt; cm
    y_pred
      0  1
-  0 53 11
-  1  6 30
-</code></pre><p><img src="/images/A-Z_ML/89.png" alt><br><img src="/images/A-Z_ML/90.png" alt><br><img src="/images/A-Z_ML/91.png" alt></p>
-
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/12/Dataset-Business-Problem-Description-by-A-Z/">Dataset + Business Problem Description by A-Z</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/12/Dataset-Business-Problem-Description-by-A-Z/" class="archive-article-date"><time datetime="2019-07-11T17:57:51.000Z" itemprop="datePublished">July 12th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/07.png" alt></p>
-<p><img src="/images/A-Z_ML/08.png" alt></p>
-<ul>
-<li>简单=多元<br>简单回归~多元回归向量的内积形式<br><img src="/images/A-Z_ML/09.png" alt></li>
-<li>条件<br>1.数据是否是线性的<br>2.数据要有同样的方差<br>3,数据要呈现多元正态分布<br>4,我们的误差在不同的维度之间都必须是独立的<br>5,没有一个自变量是其他自变量的线性关系（因为只要两个自变量有逻辑关系那么整个预测就会被这种逻辑关系干扰）<br><img src="/images/A-Z_ML/10.png" alt></li>
-<li>Dummy Data的处理</li>
-<li>重点，在这里的【0，1】可以是任意的两个数，因为y=b_0+b_1*x这两个数只代表固定的两个数而已，两个维度中的变量，只是进行了整体的缩放。<br><img src="/images/A-Z_ML/11.png" alt><br><img src="/images/A-Z_ML/12.png" alt></li>
-<li>虚拟变量陷阱=同时使用两个虚拟变量（会出现*条件5中的多重共线性）</li>
-<li>如果加上D_5拟合后会出现误差极度接近为零=过拟合，冯诺依曼说过：“给我4个参数我可以拟合出一头大象，再给我一个参数我可以让这头大象鼻子竖在地上跳舞”</li>
-<li>遇到2个以上的分类形式的虚拟变量的时候我们始终n-1，使得我们的维度不会溢出<br><img src="/images/A-Z_ML/13.png" alt><br><img src="/images/A-Z_ML/14.png" alt></li>
-<li>对自变量的筛选极为重要，1，喂进去的如果是垃圾那么出来的也是垃圾，2，不容易解释自变量各自的意义和对模型的贡献最大<br><img src="/images/A-Z_ML/15.png" alt></li>
-<li>刷选方法：<br>1，每个自变量都有用一个也不能舍去<br><img src="/images/A-Z_ML/16.png" alt><br>2，看每个自变量的显著性（反向淘汰）</li>
-<li>门槛SL=0.05，对所有的自变量都做拟合求出P值（y=kx+b），取最高P值高于SL则去除（SL越小显著性越高）<br><img src="/images/A-Z_ML/17.png" alt><br>3，（顺向选择）和（反向淘汰）一样<br><img src="/images/A-Z_ML/18.png" alt><br>4，（双向淘汰）<br><img src="/images/A-Z_ML/19.png" alt><br>5，（信息量比较）最大信息熵</li>
-<li>赤池信息量准则（一种信息打分的方式）对所有可能的模型进行打分，不适用过多自变量<br><img src="/images/A-Z_ML/20.png" alt></li>
-</ul>
-
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/12/Multiple-Linear-Regression-of-R-by-A-Z/">Multiple Linear Regression of R  by A-Z</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/06/12/Multiple-Linear-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-06-11T16:23:01.000Z" itemprop="datePublished">June 12th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src="https://gist.github.com/SauronLee/61aa30f3ae2d0730ea591d8851d24623.js"></script>
-
-
-<ul>
-<li>R有自己的元素factor数据类型不必转化为01，123=100010001，在Coefficients:中R会自动检测贡献度最小的维度然后舍掉。</li>
-<li>Estimate：预估的参数是多少，k_0，k_1,k_3，k_4。</li>
-<li>Std. Error：标准误差</li>
-<li>t value：T值</li>
-<li>Pr(&gt;|t|)：P值，越大越弱（R&amp;D贡献最高）</li>
-<li>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br>summary(regressor)</li>
-</ul>
-<p>Call:<br>lm(formula = Profit ~ ., data = training_set)</p>
-<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33128  -4865      5   6098  18065 </p>
-<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      4.965e+04  7.637e+03   6.501 1.94e-07 <strong><em><br>R.D.Spend        7.986e-01  5.604e-02  14.251 6.70e-16 </em></strong><br>Administration  -2.942e-02  5.828e-02  -0.505    0.617<br>Marketing.Spend  3.268e-02  2.127e-02   1.537    0.134<br>State2           1.213e+02  3.751e+03   0.032    0.974    </p>
-<h2 id="State3-2-376e-02-4-127e-03-0-058-0-954"><a href="#State3-2-376e-02-4-127e-03-0-058-0-954" class="headerlink" title="State3           2.376e+02  4.127e+03   0.058    0.954    "></a>State3           2.376e+02  4.127e+03   0.058    0.954    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 9908 on 34 degrees of freedom<br>Multiple R-squared:  0.9499,    Adjusted R-squared:  0.9425<br>F-statistic:   129 on 5 and 34 DF,  p-value: &lt; 2.2e-16</p>
-<p> y_pred = predict(regressor, newdata = test_set)</p>
-<ul>
-<li><p>y_pred</p>
-<pre><code> 4         5         8        11        16        20        21        24        31 
-</code></pre><p>173981.09 172655.64 160250.02 135513.90 146059.36 114151.03 117081.62 110671.31  98975.29 </p>
-<pre><code>32 
-</code></pre><p>96867.03 </p>
-<p>regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State,</p>
-<ul>
-<li>data = dataset)<br>summary(regressor)</li>
-</ul>
-</li>
-</ul>
-<p>Call:<br>lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend +<br>    State, data = dataset)</p>
-<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33504  -4736     90   6672  17338 </p>
-<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      5.008e+04  6.953e+03   7.204 5.76e-09 <strong><em><br>R.D.Spend        8.060e-01  4.641e-02  17.369  &lt; 2e-16 </em></strong><br>Administration  -2.700e-02  5.223e-02  -0.517    0.608<br>Marketing.Spend  2.698e-02  1.714e-02   1.574    0.123<br>State2           4.189e+01  3.256e+03   0.013    0.990    </p>
-<h2 id="State3-2-407e-02-3-339e-03-0-072-0-943"><a href="#State3-2-407e-02-3-339e-03-0-072-0-943" class="headerlink" title="State3           2.407e+02  3.339e+03   0.072    0.943    "></a>State3           2.407e+02  3.339e+03   0.072    0.943    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 9439 on 44 degrees of freedom<br>Multiple R-squared:  0.9508,    Adjusted R-squared:  0.9452<br>F-statistic: 169.9 on 5 and 44 DF,  p-value: &lt; 2.2e-16</p>
-<p> regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,</p>
-<ul>
-<li>data = dataset)<br>summary(regressor)</li>
-</ul>
-<p>Call:<br>lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,<br>    data = dataset)</p>
-<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33534  -4795     63   6606  17275 </p>
-<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      5.012e+04  6.572e+03   7.626 1.06e-09 <strong><em><br>R.D.Spend        8.057e-01  4.515e-02  17.846  &lt; 2e-16 </em></strong><br>Administration  -2.682e-02  5.103e-02  -0.526    0.602    </p>
-<h2 id="Marketing-Spend-2-723e-02-1-645e-02-1-655-0-105"><a href="#Marketing-Spend-2-723e-02-1-645e-02-1-655-0-105" class="headerlink" title="Marketing.Spend  2.723e-02  1.645e-02   1.655    0.105    "></a>Marketing.Spend  2.723e-02  1.645e-02   1.655    0.105    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 9232 on 46 degrees of freedom<br>Multiple R-squared:  0.9507,    Adjusted R-squared:  0.9475<br>F-statistic:   296 on 3 and 46 DF,  p-value: &lt; 2.2e-16</p>
-<p> regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend,</p>
-<ul>
-<li>data = dataset)<br>regressor = lm(formula = Profit ~ R.D.Spend,</li>
-<li>data = dataset)<br>summary(regressor)</li>
-</ul>
-<p>Call:<br>lm(formula = Profit ~ R.D.Spend, data = dataset)</p>
-<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-34351  -4626   -375   6249  17188 </p>
-<p>Coefficients:<br>             Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept) 4.903e+04  2.538e+03   19.32   &lt;2e-16 <em>*</em></p>
-<h2 id="R-D-Spend-8-543e-01-2-931e-02-29-15-lt-2e-16"><a href="#R-D-Spend-8-543e-01-2-931e-02-29-15-lt-2e-16" class="headerlink" title="R.D.Spend   8.543e-01  2.931e-02   29.15   &lt;2e-16 *"></a>R.D.Spend   8.543e-01  2.931e-02   29.15   &lt;2e-16 <em>*</em></h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 9416 on 48 degrees of freedom<br>Multiple R-squared:  0.9465,    Adjusted R-squared:  0.9454<br>F-statistic: 849.8 on 1 and 48 DF,  p-value: &lt; 2.2e-16</p>
-<p> y_pred = predict(regressor, newdata = test_set)<br> y_pred<br>       4        5        8       11       16       20       21       24       31       32<br>172369.0 170434.0 160345.5 136096.4 146869.4 122860.5 114175.9 106725.4 101994.2 101261.2 </p>
-<ul>
-<li>每个数的P值会根据垃圾维度的减少而变小</li>
-<li>Multiple R-squared:  0.9465,    Adjusted R-squared:  0.9454 为预测的点和原来的点的差的平方的和。越接近于1他的拟合度就越好</li>
-</ul>
-<p><img src="/images/A-Z_ML/21.png" alt></p>
+  0 59  5
+  1  9 27
+</code></pre><p><img src="/images/A-Z_ML/95.png" alt></p>
 
       
     </div>
@@ -526,7 +207,7 @@ Levels: 0 1
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/R/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/R/">1</a></li><li class="active"><span class="page-number">2</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/R/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/R/">1</a></li><li class="active"><span class="page-number">2</span></li><li><a class="page-number" href="/tags/R/page/3/">3</a></li><li><a class="page-number" href="/tags/R/page/4/">4</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/R/page/8/">8</a></li><li><a class="page-next" rel="next" href="/tags/R/page/3/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
@@ -608,17 +289,22 @@ Levels: 0 1
     </div>
   </div>
   <footer class="blog-footer">
+  <br>
   <div class="container">
     <div id="footer-info" class="inner">
-      &copy; 2021 Sauron Lee<br>
+      &copy; 2021 xiaoran Li<br>
        <!-- <a href="https://i.imgur.com/S8qHH1C.jpg" target="_blank"><b>@Sauron Lee</b></a>
        - -->
        <a href="https://github.com/SauronLee" target="_blank"> <b>GitHub</b></a>
        -
        <a href="https://leetcode.com/sauronlee/" target="_blank"> <b>Leetcode</b></a>
+       <br>
+       <br>
     </div>
   </div>
+  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=000000&w=300&t=tt&d=PV6WTSPjs7ishuc9dWmNngnJQGx-nTWiH49q1seT3Q4&co=f5f5f5&ct=000000'></script>
 </footer>
+
 
   
 

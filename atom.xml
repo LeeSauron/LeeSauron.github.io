@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Sauron Lee‘blog</title>
+  <title>Xiaoran(Sauron) Li‘blog</title>
   
-  <subtitle>Li xiaoran</subtitle>
+  <subtitle>www.xiaoranli.com</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/SauronLee/"/>
@@ -10,7 +10,7 @@
   <id>https://github.com/SauronLee/</id>
   
   <author>
-    <name>Sauron Lee</name>
+    <name>xiaoran Li</name>
     
   </author>
   
