@@ -47,9 +47,9 @@
     <link href="https://github.com/SauronLee/2020/12/08/siroita/"/>
     <id>https://github.com/SauronLee/2020/12/08/siroita/</id>
     <published>2020-12-08T01:19:27.000Z</published>
-    <updated>2021-03-24T01:31:44.791Z</updated>
+    <updated>2021-03-25T06:09:14.803Z</updated>
     
-    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1B_4TLyWCGO0nFfM01CzKjy3oYzywMmTX/preview" style="width:100%; height:550px"></iframe></div>]]></content>
+    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/research_notes.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
     
     <summary type="html">
     
@@ -58,7 +58,12 @@
         
 
 	&lt;div class=&quot;row&quot;&gt;
-		&lt;iframe src=&quot;https://drive.google.com/file/d/1B_4TLyWCGO0nFfM01CzKjy3oYzywMmTX/preview&quot; style=&quot;width:100%; height:550
+    &lt;embed src=&quot;/pdf/research_notes.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+	&lt;/div&gt;
+
+
+
+
       
     
     </summary>
@@ -78,9 +83,9 @@
     <link href="https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/"/>
     <id>https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/</id>
     <published>2020-11-04T08:17:38.000Z</published>
-    <updated>2021-03-24T01:30:09.507Z</updated>
+    <updated>2021-03-25T06:20:28.134Z</updated>
     
-    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1u59bUq0-ioyWQiIOUQ7wal_zC8xoXRKk/preview" style="width:100%; height:550px"></iframe></div>]]></content>
+    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/Statistics_notes" width="100%" height="550" type="application/pdf"></div>]]></content>
     
     <summary type="html">
     
@@ -89,7 +94,11 @@
         
 
 	&lt;div class=&quot;row&quot;&gt;
-		&lt;iframe src=&quot;https://drive.google.com/file/d/1u59bUq0-ioyWQiIOUQ7wal_zC8xoXRKk/preview&quot; style=&quot;width:100%; height:550
+    &lt;embed src=&quot;/pdf/Statistics_notes&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+	&lt;/div&gt;
+
+
+
       
     
     </summary>
@@ -109,9 +118,9 @@
     <link href="https://github.com/SauronLee/2020/10/31/basic-math-for-ML/"/>
     <id>https://github.com/SauronLee/2020/10/31/basic-math-for-ML/</id>
     <published>2020-10-30T17:27:20.000Z</published>
-    <updated>2021-03-24T01:30:21.230Z</updated>
+    <updated>2021-03-25T06:20:09.361Z</updated>
     
-    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1qwZYYyfSfCMwcxYR41jeF5iqkIB-cRb7/preview" style="width:100%; height:550px"></iframe></div>]]></content>
+    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/basic_math_for_ML_notes.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
     
     <summary type="html">
     
@@ -120,7 +129,11 @@
         
 
 	&lt;div class=&quot;row&quot;&gt;
-		&lt;iframe src=&quot;https://drive.google.com/file/d/1qwZYYyfSfCMwcxYR41jeF5iqkIB-cRb7/preview&quot; style=&quot;width:100%; height:550
+    &lt;embed src=&quot;/pdf/basic_math_for_ML_notes.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+	&lt;/div&gt;
+
+
+
       
     
     </summary>
@@ -140,9 +153,9 @@
     <link href="https://github.com/SauronLee/2020/10/16/Sunannan-10-000-words/"/>
     <id>https://github.com/SauronLee/2020/10/16/Sunannan-10-000-words/</id>
     <published>2020-10-16T12:20:01.000Z</published>
-    <updated>2021-03-24T01:30:16.705Z</updated>
+    <updated>2021-03-25T06:16:26.315Z</updated>
     
-    <content type="html"><![CDATA[<div class="row"><iframe src="https://drive.google.com/file/d/1KhXeaUxGjDd8DjYy5c2HKlVhCOr7cIoM/preview" style="width:100%; height:550px"></iframe></div>]]></content>
+    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/Sunannan_1wwords.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
     
     <summary type="html">
     
@@ -151,7 +164,11 @@
         
 
 	&lt;div class=&quot;row&quot;&gt;
-		&lt;iframe src=&quot;https://drive.google.com/file/d/1KhXeaUxGjDd8DjYy5c2HKlVhCOr7cIoM/preview&quot; style=&quot;width:100%; height:550
+    &lt;embed src=&quot;/pdf/Sunannan_1wwords.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+	&lt;/div&gt;
+
+
+
       
     
     </summary>
