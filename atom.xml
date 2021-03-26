@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Xiaoran(Sauron) Li‘blog</title>
+  <title>Sauron Lee‘blog</title>
   
   <subtitle>www.xiaoranli.com</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://github.com/SauronLee/</id>
   
   <author>
-    <name>xiaoran Li</name>
+    <name>Xiaoran Li</name>
     
   </author>
   
@@ -43,13 +43,13 @@
   </entry>
   
   <entry>
-    <title>白板推導(1~23) Notes</title>
+    <title>Research Notes In March 2021</title>
     <link href="https://github.com/SauronLee/2020/12/08/siroita/"/>
     <id>https://github.com/SauronLee/2020/12/08/siroita/</id>
     <published>2020-12-08T01:19:27.000Z</published>
-    <updated>2021-03-25T06:11:31.979Z</updated>
+    <updated>2021-03-26T20:14:08.548Z</updated>
     
-    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/research_notes.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/Research2103_notes.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
     
     <summary type="html">
     
@@ -58,7 +58,7 @@
         
 
 	&lt;div class=&quot;row&quot;&gt;
-    &lt;embed src=&quot;/pdf/research_notes.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+    &lt;embed src=&quot;/pdf/Research2103_notes.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
 	&lt;/div&gt;
 
 
@@ -76,6 +76,8 @@
     
       <category term="Statistics" scheme="https://github.com/SauronLee/tags/Statistics/"/>
     
+      <category term="Research Notes" scheme="https://github.com/SauronLee/tags/Research-Notes/"/>
+    
   </entry>
   
   <entry>
@@ -83,9 +85,9 @@
     <link href="https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/"/>
     <id>https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/</id>
     <published>2020-11-04T08:17:38.000Z</published>
-    <updated>2021-03-25T06:20:28.134Z</updated>
+    <updated>2021-03-26T20:08:58.635Z</updated>
     
-    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/Statistics_notes" width="100%" height="550" type="application/pdf"></div>]]></content>
+    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/Statistics_notes.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
     
     <summary type="html">
     
@@ -94,7 +96,7 @@
         
 
 	&lt;div class=&quot;row&quot;&gt;
-    &lt;embed src=&quot;/pdf/Statistics_notes&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+    &lt;embed src=&quot;/pdf/Statistics_notes.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
 	&lt;/div&gt;
 
 
