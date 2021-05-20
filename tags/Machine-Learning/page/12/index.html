@@ -102,35 +102,60 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/">Logistic Regression of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-Python/">Data Preprocessing by Python</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T15:40:39.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/08/10/Data-Preprocessing-by-Python/" class="archive-article-date"><time datetime="2019-08-10T11:08:27.000Z" itemprop="datePublished">August 10th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/35.png" alt><br><img src="/images/A-Z_ML/36.png" alt><br><img src="/images/A-Z_ML/37.png" alt><br><img src="/images/A-Z_ML/38.png" alt></p>
-<ul>
-<li>列<br><img src="/images/A-Z_ML/39.png" alt></li>
-</ul>
-<script src="https://gist.github.com/SauronLee/fdff6948bb436e04e91e1ba70ed7e3bb.js"></script>
+        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d3f9b166dbfa5160de5411a0718c90b1.js"></script>
 
+<p>command + i = helpeer</p>
 <ul>
-<li>运行confusion_matrix来测试精准度，正确率（65+24）%</li>
+<li>Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)</li>
 </ul>
-<pre><code># Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)
-cm
-Out[3]: 
-array([[65,  3],
-       [ 8, 24]])
-</code></pre><p><img src="/images/A-Z_ML/40.png" alt><br><img src="/images/A-Z_ML/41.png" alt></p>
-
+<p>missing_values : integer or “NaN”, optional (default=”NaN”)<br>The placeholder for the missing values. All occurrences of missing_values will be imputed. For missing values encoded as np.nan, use the string value “NaN”.<br>strategy : string, optional (default=”mean”)<br>The imputation strategy.</p>
+<p>If “mean”, then replace missing values using the mean along the axis.<br>If “median”, then replace missing values using the median along the axis.<br>If “most_frequent”, then replace missing using the most frequent value along the axis.<br>axis : integer, optional (default=0)<br>The axis along which to impute.</p>
+<p>If axis=0, then impute along columns.<br>If axis=1, then impute along rows.<br>verbose : integer, optional (default=0)<br>Controls the verbosity of the imputer.<br>copy : boolean, optional (default=True)<br>If True, a copy of X will be created. If False, imputation will be done in-place whenever possible. Note that, in the following cases, a new copy will always be made, even if copy=False:</p>
+<p>If X is not an array of floating values;<br>If X is sparse and missing_values=0;<br>If axis=0 and X is encoded as a CSR matrix;<br>If axis=1 and X is encoded as a CSC matrix.</p>
+<ul>
+<li>fit(X, y=None)</li>
+</ul>
+<p>X : {array-like, sparse matrix}, shape (n_samples, n_features)<br>Input data, where n_samples is the number of samples and n_features is the number of features.</p>
+<ul>
+<li>Definition : OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=np.float64, handle_unknown=’error’)</li>
+</ul>
+<p>Type : Present in sklearn.preprocessing._encoders module</p>
+<p>categories : ‘auto’ or a list of lists/arrays of values, default=’auto’.<br>Categories (unique values) per feature:</p>
+<p>‘auto’ : Determine categories automatically from the training data.<br>list : categories[i] holds the categories expected in the ith column. The passed categories should not mix strings and numeric values within a single feature, and should be sorted in case of numeric values.<br>The used categories can be found in the categories_ attribute.</p>
+<p>sparse : boolean, default=True<br>Will return sparse matrix if set True else will return an array.<br>dtype : number type, default=np.float<br>Desired dtype of output.<br>handle_unknown : ‘error’ or ‘ignore’, default=’error’.<br>Whether to raise an error or ignore if an unknown categorical feature is present during transform (default is to raise). When this parameter is set to ‘ignore’ and an unknown category is encountered during transform, the resulting one-hot encoded columns for this feature will be all zeros. In the inverse transform, an unknown category will be denoted as None.<br>n_values : ‘auto’, int or array of ints, default=’auto’<br>Number of values per feature.</p>
+<p>‘auto’ : determine value range from training data.</p>
+<p>int : number of categorical values per feature.<br>Each feature value should be in range(n_values)</p>
+<p>array : n_values[i] is the number of categorical values in<br>X[:, i]. Each feature value should be in range(n_values[i])</p>
+<p>Deprecated since version 0.20: The n_values keyword was deprecated in version 0.20 and will be removed in 0.22. Use categories instead.</p>
+<p>categorical_features : ‘all’ or array of indices or mask, default=’all’<br>Specify what features are treated as categorical.</p>
+<p>‘all’: All features are treated as categorical.<br>array of indices: Array of categorical feature indices.<br>mask: Array of length n_features and with dtype=bool.<br>Non-categorical features are always stacked to the right of the matrix.</p>
+<p>Deprecated since version 0.20: The categorical_features keyword was deprecated in version 0.20 and will be removed in 0.22. You can use the ColumnTransformer instead.</p>
+<h2 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h2><ul>
+<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
+<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
+<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
+</li>
+<li><p>是否需要对虚拟变量进行特征缩放。答：不一定，要根据模型结果。</p>
+</li>
+<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
+</ul>
+<pre><code># Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc_XStandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
+</code></pre>
       
     </div>
   </header>
@@ -145,25 +170,141 @@ array([[65,  3],
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/">Evaluating Regression Models Performance by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-R/">Data Preprocessing by R</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T14:48:21.000Z" itemprop="datePublished">September 12th</time></a>
+  <a href="/2019/08/10/Data-Preprocessing-by-R/" class="archive-article-date"><time datetime="2019-08-10T11:08:09.000Z" itemprop="datePublished">August 10th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>R平方 - 原理(决定系数)<br><img src="/images/A-Z_ML/30.png" alt><br><img src="/images/A-Z_ML/31.png" alt></li>
-<li>广义R平方 - 原理（Adjected R^2）</li>
-<li>因为最差时:b<em>3*x</em>=0<br><img src="/images/A-Z_ML/32.png" alt></li>
-<li>P有惩罚的作用，P(自变量)越多分母就会越大，分数就会升高<br><img src="/images/A-Z_ML/33.png" alt></li>
-<li>回归模型性能评价及选择</li>
-<li>加自变量会增加R^2，所以AdjR^2会更好<br><img src="/images/A-Z_ML/34.png" alt></li>
+        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d07b84f9caefd89dbc3f76a943bd8166.js"></script>
+
+<ul>
+<li>因子数据类型（有序因子&amp;无序因子），可以代替Python中的OneHotEncoder</li>
 </ul>
+<p>Usage<br>factor(x = character(), levels, labels = levels,<br>       exclude = NA, ordered = is.ordered(x), nmax = NA)</p>
+<p>ordered(x, …)</p>
+<p>is.factor(x)<br>is.ordered(x)</p>
+<p>as.factor(x)<br>as.ordered(x)</p>
+<p>addNA(x, ifany = FALSE)<br>Arguments<br>x<br>a vector of data, usually taking a small number of distinct values.</p>
+<p>levels<br>an optional vector of the unique values (as character strings) that x might have taken. The default is the unique set of values taken by as.character(x), sorted into increasing order of x. Note that this set can be specified as smaller than sort(unique(x)).</p>
+<p>labels<br>either an optional character vector of labels for the levels (in the same order as levels after removing those in exclude), or a character string of length 1. Duplicated values in labels can be used to map different values of x to the same factor level.</p>
+<p>exclude<br>a vector of values to be excluded when forming the set of levels. This may be factor with the same level set as x or should be a character.</p>
+<p>ordered<br>logical flag to determine if the levels should be regarded as ordered (in the order given).</p>
+<p>nmax<br>an upper bound on the number of levels; see ‘Details’.</p>
+<p>…<br>(in ordered(.)): any of the above, apart from ordered itself.</p>
+<p>ifany<br>only add an NA level if it is used, i.e. if any(is.na(x)).</p>
+<h2 id="Splitting-the-Dataset-into-the-Training-set-and-Test-set"><a href="#Splitting-the-Dataset-into-the-Training-set-and-Test-set" class="headerlink" title="Splitting the Dataset into the Training set and Test set"></a>Splitting the Dataset into the Training set and Test set</h2><pre><code># Data Preprocessing Template
+
+# Importing the dataset
+dataset = read.csv(&#39;Data.csv&#39;)
+# dataset = dataset[, 2:3]
+
+# Splitting the dataset into the Training set and Test set
+# R语言安装packages
+# install.packages(&#39;caTools&#39;)
+# library(caTools) = 在packages里面打钩，推荐用library(caTools) 
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.8)
+# split == TRUE为random出来的数据
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+# training_set[, 2:3] = scale(training_set[, 2:3])
+# test_set[, 2:3] = scale(test_set[, 2:3])
+</code></pre><ul>
+<li>set.seed<br>Random Number Generation</li>
+</ul>
+<p>Usage<br>.Random.seed &lt;- c(rng.kind, n1, n2, \dots)</p>
+<p>RNGkind(kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>RNGversion(vstr)<br>set.seed(seed, kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>Arguments<br>kind<br>character or NULL. If kind is a character string, set R’s RNG to the kind desired. Use “default” to return to the R default. See ‘Details’ for the interpretation of NULL.</p>
+<p>normal.kind<br>character string or NULL. If it is a character string, set the method of Normal generation. Use “default” to return to the R default. NULL makes no change.</p>
+<p>sample.kind<br>character string or NULL. If it is a character string, set the method of discrete uniform generation (used in sample, for instance). Use “default” to return to the R default. NULL makes no change.</p>
+<p>seed<br>a single value, interpreted as an integer, or NULL (see ‘Details’).</p>
+<p>vstr<br>a character string containing a version number, e.g., “1.6.2”. The default RNG configuration of the current R version is used if vstr is greater than the current version.</p>
+<p>rng.kind<br>integer code in 0:k for the above kind.</p>
+<p>n1, n2, …<br>integers. See the details for how many are required (which depends on rng.kind).</p>
+<ul>
+<li>sample.split<br>Split Data into Test and Train Set</li>
+</ul>
+<p>Usage<br> sample.split( Y, SplitRatio = 2/3, group = NULL )<br>Arguments<br>Y<br>Vector of data labels. If there are only a few labels (as is expected) than relative ratio of data in both subsets will be the same.</p>
+<p>SplitRatio<br>Splitting ratio:</p>
+<p>if (0&lt;=SplitRatio&lt;1) then SplitRatio fraction of points from Y will be set toTRUE</p>
+<p>if (SplitRatio==1) then one random point from Y will be set to TRUE</p>
+<p>if (SplitRatio&gt;1) then SplitRatio number of points from Y will be set to TRUE</p>
+<p>group<br>Optional vector/list used when multiple copies of each sample are present. In such a case group contains unique sample labels, marking all copies of the same sample with the same label, and the function tries to place all copies in either train or test subset. If provided than has to have the same length as Y.</p>
+<h1 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h1><ul>
+<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
+<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
+<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
+</li>
+<li><p>是否需要对虚拟变量进行特征缩放？答：不一定，要根据模型结果。</p>
+</li>
+<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
+<li>在R里factor属于单独的类型不属于数字它属于分类的一个数据类型</li>
+</ul>
+<pre><code># Feature Scaling
+training_set[,2:3] = scale(training_set[,2:3])
+test_set[,2:3] = scale(test_set[,2:3])
+</code></pre>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/13/CART-of-R-by-A-Z/">Decision Tree Classifier of R  by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/07/13/CART-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:29.000Z" itemprop="datePublished">July 13th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/88.png" alt></p>
+<ul>
+<li>因为决策树用的是切线切割没有用到欧式距离所以不需要进行特征缩放</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/5550de72b8e9ab228abb30178fe5dbb6.js"></script>
+
+<hr>
+<pre><code>
+&gt; View(dataset)
+&gt; y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   1   1   0   0   1   0   1   0   0   0   0   0   0   0   1   0   0   1 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   1   0   0   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   0   0   1   1   1   1   1   1 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   0   0   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1 
+389 392 395 400 
+  1   1   0   1 
+Levels: 0 1
+
+&gt; cm
+   y_pred
+     0  1
+  0 53 11
+  1  6 30
+</code></pre><p><img src="/images/A-Z_ML/89.png" alt><br><img src="/images/A-Z_ML/90.png" alt><br><img src="/images/A-Z_ML/91.png" alt></p>
 
       
     </div>
@@ -178,7 +319,7 @@ array([[65,  3],
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/11/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/10/">10</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/11/">11</a></li><li class="active"><span class="page-number">12</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/13/">13</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/14/">14</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/27/">27</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/13/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/11/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/10/">10</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/11/">11</a></li><li class="active"><span class="page-number">12</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/13/">13</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/14/">14</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/18/">18</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/13/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

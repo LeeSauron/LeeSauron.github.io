@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-Apriori-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-NagelSchrekenberg-data-cleaning" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
+      <a class="article-title" href="/2019/07/11/NagelSchrekenberg-data-cleaning/">NagelSchrekenberg data cleaning</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">2019-08-14</time></a>
+  <a href="/2019/07/11/NagelSchrekenberg-data-cleaning/" class="article-date"><time datetime="2019-07-11T04:43:41.000Z" itemprop="datePublished">2019-07-11</time></a>
 </div>
 
     
@@ -112,18 +112,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
-<!-- ![issue](/images/A-Z_ML/244.png) -->
-<ul>
-<li>数据是商场的用户的消费详情</li>
-</ul>
-<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
+        <script src="https://gist.github.com/SauronLee/888d1371083e085df1309b33641e0fee.js"></script>
 
-<hr>
-<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
-<!-- ![issue](/images/A-Z_ML/245.png) -->
-<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
-<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
+<p><img src="/images/NS_data_cleaning_01.png" alt></p>
+
       
     </div>
 
@@ -133,7 +125,257 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/14/Apriori-of-Python-by-A-Z/" data-id="ckowhcx5u000280ybeb6puwav" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/07/11/NagelSchrekenberg-data-cleaning/" data-id="ckowhp00x004mluybdmd6mbcj" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-cleaning/">Data cleaning</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Limg-by-pillow" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/10/Limg-by-pillow/">Greyimg of char by Pillow</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/07/10/Limg-by-pillow/" class="article-date"><time datetime="2019-07-10T08:25:24.000Z" itemprop="datePublished">2019-07-10</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>我们读入一个图像用image打开它，此时图像还是图像并不是np格式的</li>
+<li>我们获取图像的宽和高并赋予新的比例作为字符的宽高</li>
+<li>根据字符的宽和高对图片进行拉伸变成一个新的图像</li>
+<li>新的图像我们把它转成灰度图进行像素的计算</li>
+<li>任何一个像素值我们都可以看看他的数据类型是什么</li>
+<li>读取数据大小</li>
+<li>读取数据本身</li>
+<li>我们再做一个字符串</li>
+<li>我们用256去除这个字符的个数也就是说每个字符管1/n的像素范围</li>
+<li>然后遍历替换</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/0f6224e602a030147539fdb61f528bdb.js"></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/07/10/Limg-by-pillow/" data-id="ckowhozzw002zluyb1t2wplqq" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computer-Vision/">Computer Vision</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-jetbot-01" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/08/jetbot-01/">Jetbot</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/07/08/jetbot-01/" class="article-date"><time datetime="2019-07-08T13:53:55.000Z" itemprop="datePublished">2019-07-08</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="首先准备必备材料"><a href="#首先准备必备材料" class="headerlink" title="首先准备必备材料"></a>首先准备必备材料</h1><hr>
+<p><img src="/images/jetbot/01_01.png" alt></p>
+<hr>
+<h2 id="3D打印部分"><a href="#3D打印部分" class="headerlink" title="3D打印部分"></a>3D打印部分</h2><hr>
+<h3 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h3><p>关于打印机的选购NNVIDIA给了俩个测试过的打印机一个320美元，另一个2500美元。<br><img src="/images/jetbot/01_02.png" alt><br><img src="/images/jetbot/01_03.png" alt></p>
+<h4 id="打印材料"><a href="#打印材料" class="headerlink" title="打印材料"></a>打印材料</h4><p>NNVIDIA给出测试过的材料如下<br><img src="/images/jetbot/01_04.png" alt></p>
+<h4 id="打印材料-1"><a href="#打印材料-1" class="headerlink" title="打印材料"></a>打印材料</h4><p><img src="/images/jetbot/01_05.png" alt><br><img src="/images/jetbot/01_06.png" alt></p>
+<hr>
+<h2 id="相机部分"><a href="#相机部分" class="headerlink" title="相机部分"></a>相机部分</h2><hr>
+<p>这里我们选择树莓派18.99美元的相机，都一样用便宜就行：</p>
+<p><img src="/images/jetbot/01_07.png" alt></p>
+<hr>
+<h2 id="Wi-Fi部分"><a href="#Wi-Fi部分" class="headerlink" title="Wi-Fi部分"></a>Wi-Fi部分</h2><hr>
+<p>这里我们选择M2卡作为Wi-Fi部分元件</p>
+<p><img src="/images/jetbot/01_08.png" alt></p>
+<hr>
+<h2 id="车轮部分"><a href="#车轮部分" class="headerlink" title="车轮部分"></a>车轮部分</h2><hr>
+<p>车轮部分我们采用65mm的购买链接如下<br><a href="https://www.adafruit.com/product/3763" target="_blank" rel="noopener">https://www.adafruit.com/product/3763</a></p>
+<hr>
+<h2 id="螺丝部分"><a href="#螺丝部分" class="headerlink" title="螺丝部分"></a>螺丝部分</h2><hr>
+<p><img src="/images/jetbot/01_09.png" alt></p>
+<hr>
+<p>最后是NVIDIA建议的工具，这个按自己的需求来就行</p>
+<p><img src="/images/jetbot/01_10.png" alt></p>
+<hr>
+<p>本文的所有内容都可以在NVIDIA的开源库里找到链接如下</p>
+<p><a href="https://github.com/NVIDIA-AI-IOT/jetbot/wiki/bill-of-materials">https://github.com/NVIDIA-AI-IOT/jetbot/wiki/bill-of-materials</a></p>
+<hr>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><hr>
+<h2 id="安装ROS-Melodic-Enter-Nano-shell"><a href="#安装ROS-Melodic-Enter-Nano-shell" class="headerlink" title="安装ROS Melodic (Enter Nano shell)"></a>安装ROS Melodic (Enter Nano shell)</h2><ul>
+<li>使所有的Ubuntu的软件包：</li>
+<li>添加ROS库到APT</li>
+<li>安装ROS</li>
+<li>添加ROS路径环境</li>
+<li>关闭并重新启动终端</li>
+</ul>
+<pre><code>
+ enable all Ubuntu packages:
+sudo apt-add-repository universe
+sudo apt-add-repository multiverse
+sudo apt-add-repository restricted
+
+# add ROS repository to apt sources
+sudo sh -c &#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
+
+# install ROS Base
+sudo apt-get update
+sudo apt-get install ros-melodic-ros-base
+
+# add ROS paths to environment
+sudo sh -c &#39;echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc&#39;
+</code></pre><h2 id="安装Adafruit库"><a href="#安装Adafruit库" class="headerlink" title="安装Adafruit库"></a>安装Adafruit库</h2><ul>
+<li>Adafruit的这些Python库支持TB6612 / PCA9685电机驱动器和SSD1306调试OLED：</li>
+</ul>
+<pre><code>
+# pip should be installed
+$ sudo apt-get install python-pip
+
+＃安装Adafruit的库
+$ pip安装Adafruit-MotorHAT
+$ pip安装Adafruit-SSD1306
+</code></pre><ul>
+<li>授予您的用户访问i2c总线的权限：</li>
+</ul>
+<pre><code>
+$sudo usermod -aG i2c $USER
+sudo usermod -aG i2c nvidia
+</code></pre><ul>
+<li>重新引导系统以使更改生效。</li>
+</ul>
+<h2 id="创建catkin工作区"><a href="#创建catkin工作区" class="headerlink" title="创建catkin工作区"></a>创建catkin工作区</h2><pre><code># create the catkin workspace
+mkdir -p ~/work/catkin_ws/src
+cd ~/work/catkin_ws
+catkin_make
+
+# add catkin_ws path to bashrc
+sudo sh -c &#39;echo &quot;source ~/work/catkin_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc&#39;
+Note: out of personal preference, my catkin_ws is created as a subdirectory under ~/workspace
+
+#Close and open a new terminal window. Verify that your catkin_ws is visible to ROS:
+
+$ echo $ROS_PACKAGE_PATH 
+/home/nvidia/workspace/catkin_ws/src:/opt/ros/melodic/share
+</code></pre><h2 id="Build-jetson-inference"><a href="#Build-jetson-inference" class="headerlink" title="Build jetson-inference"></a>Build jetson-inference</h2><p>克隆并构建jetson-inference：</p>
+<pre><code># clone the repo
+$ cd ~/workspace/catkin_ws/src
+$ git clone https://github.com/dusty-nv/jetbot_ros
+
+# build the package
+$ cd ../    # cd ~/workspace/catkin_ws
+$ catkin_make
+
+# confirm that jetbot_ros package can be found
+$ rospack find jetbot_ros
+/home/nvidia/workspace/catkin_ws/src/jetbot_ros
+</code></pre><h2 id="运行ros-deep-learning"><a href="#运行ros-deep-learning" class="headerlink" title="运行ros_deep_learning"></a>运行ros_deep_learning</h2><pre><code>
+# install dependencies
+sudo apt-get install ros-melodic-vision-msgs ros-melodic-image-transport ros-melodic-image-publisher
+
+# clone the repo
+cd ~/work/catkin_ws/src
+git clone https://github.com/dusty-nv/ros_deep_learning
+
+# make ros_deep_learning
+cd ../    # cd ~/work/catkin_ws
+catkin_make
+
+# confirm that the package can be found
+$ rospack find ros_deep_learning
+/home/nvidia/works/catkin_ws/src/ros_deep_learning
+</code></pre><h1 id="测试Testing-JetBot"><a href="#测试Testing-JetBot" class="headerlink" title="测试Testing JetBot"></a>测试Testing JetBot</h1><p>接下来，让我们检查机器人的不同组件是否在ROS下工作。<br>首先打开一个新终端，然后开始 roscore</p>
+<pre><code>$ roscore
+</code></pre><h2 id="运行电机"><a href="#运行电机" class="headerlink" title="运行电机"></a>运行电机</h2><pre><code>$ rosrun jetbot_ros jetbot_motors.py
+</code></pre><p>该jetbot_motors节点将侦听以下主题：</p>
+<p>/jetbot_motors/cmd_dir 相对航向（度[-180.0, 180.0]，速度[-1.0, 1.0]）<br>/jetbot_motors/cmd_raw 原始L / R电机命令（速度[-1.0, 1.0]，速度[-1.0, 1.0]）<br>/jetbot_motors/cmd_str 简单的字符串命令（左/右/前进/后退/停止）</p>
+<h2 id="测试电机命令"><a href="#测试电机命令" class="headerlink" title="测试电机命令"></a>测试电机命令</h2><p>打开一个新终端，并运行一些测试命令：</p>
+<pre><code>$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ forward ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ backward ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ left ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ right ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ stop ”
+</code></pre><h2 id="使用Debug-OLED"><a href="#使用Debug-OLED" class="headerlink" title="使用Debug OLED"></a>使用Debug OLED</h2><p>如果您的JetBot上有SSD1306调试OLED，则可以运行该jetbot_oled节点以显示系统信息和用户定义的文本：</p>
+<pre><code>
+$ rosrun jetbot_ros jetbot_oled.py
+</code></pre><p>默认情况下，jetbot_oled将使用最新的内存使用情况，磁盘空间和IP地址每秒刷新一次显示。</p>
+<p>该节点还将侦听该/jetbot_oled/user_text主题以接收将显示的用户的字符串消息：</p>
+<pre><code>rostopic pub / jetbot_oled / user_text std_msgs / String --on “ HELLO！”
+</code></pre><h2 id="使用相机"><a href="#使用相机" class="headerlink" title="使用相机"></a>使用相机</h2><p>启动jetbot_camera节点：</p>
+<pre><code>
+$ rosrun jetbot_ros jetbot_camera
+</code></pre><p>将jetbot_camera/raw作为sensor_msgs::Image具有BGR8编码的消息发布到主题。</p>
+<h2 id="Gazebo-模拟器"><a href="#Gazebo-模拟器" class="headerlink" title="Gazebo 模拟器"></a>Gazebo 模拟器</h2><p><a href="http://gazebosim.org/tutorials?tut=install_ubuntu&amp;cat=install" target="_blank" rel="noopener">http://gazebosim.org/tutorials?tut=install_ubuntu&amp;cat=install</a></p>
+<p><img src="/images/jetbot/01_11.png" alt></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/07/08/jetbot-01/" data-id="ckowhp01r005zluyb5vhpojon" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -149,185 +391,10 @@
 
 
   
-    <article id="post-Apriori-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">2019-08-14</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/242.png" alt></p>
-<ul>
-<li>数据是商场的用户的消费详情</li>
-</ul>
-<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
-
-<hr>
-<pre><code>
-&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
-&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
-distribution of transactions with duplicates:
-# 重复一次出现在5行当中
-1 
-5 
-&gt; summary(dataset)
-transactions as itemMatrix in sparse format with
- 7501 rows (elements/itemsets/transactions) and
- # 稀疏矩阵，1占0.03288973 其他都是0
- 119 columns (items) and a density of 0.03288973 
-
-most frequent items:
-mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
-         1788          1348          1306          1282          1229         22405 
-
-element (itemset/transaction) length distribution:
-sizes
-# 有1754笔交易只有1个产品
-   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
-1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
-
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   2.000   3.000   3.914   5.000  20.000 
-
-includes extended item information - examples:
-             labels
-1           almonds
-2 antioxydant juice
-3         asparagus
-&gt; itemFrequencyPlot(dataset, topN = 10)
-&gt; # Training Apriori on the dataset
-&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
-Apriori
-
-Parameter specification:
- confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
-        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
-
-Algorithmic control:
- filter tree heap memopt load sort verbose
-    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
-
-Absolute minimum support count: 30 
-
-set item appearances ...[0 item(s)] done [0.00s].
-set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
-sorting and recoding items ... [114 item(s)] done [0.00s].
-creating transaction tree ... done [0.00s].
-checking subsets of size 1 2 3 4 done [0.16s].
-writing ... [811 rule(s)] done [0.00s].
-creating S4 object  ... done [0.00s].
-&gt; # Visualising the results
-&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
-     lhs                                            rhs             support     confidence
-[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
-[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
-[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
-[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
-[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
-[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
-[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
-[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
-[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
-[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
-     lift     count
-[1]  4.843951 34   
-[2]  4.700812 44   
-[3]  4.506672 38   
-[4]  4.178455 31   
-[5]  4.122410 60   
-[6]  4.004360 48   
-[7]  3.975683 50   
-[8]  3.840659 40   
-[9]  3.790833 43   
-[10] 3.731841 33   
-&gt; 
-&gt;
-</code></pre><ul>
-<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
-</ul>
-<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
-<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
-<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
-<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
-<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
-<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
-<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
-<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
-<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
-<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
-<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
-<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
-<p>Extends<br>Class itemMatrix, directly.</p>
-<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
-<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
-<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
-<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
-<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
-<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
-<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
-<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
-<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
-<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
-<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
-<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
-<p>show<br>signature(object = “transactions”)</p>
-<p>summary<br>signature(object = “transactions”)</p>
-<ul>
-<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
-</ul>
-<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
-<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
-<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
-<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/08/14/Apriori-of-R-by-A-Z/" data-id="ckowhcx5z000580ybjaqf9e5h" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/20/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/19/">19</a></li><li><a class="page-number" href="/page/20/">20</a></li><li class="active"><span class="page-number">21</span></li><li><a class="page-number" href="/page/22/">22</a></li><li><a class="page-number" href="/page/23/">23</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/22/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/20/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/19/">19</a></li><li><a class="page-number" href="/page/20/">20</a></li><li class="active"><span class="page-number">21</span></li><li><a class="page-number" href="/page/22/">22</a></li><li><a class="page-number" href="/page/23/">23</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/31/">31</a></li><li><a class="page-next" rel="next" href="/page/22/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

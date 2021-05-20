@@ -102,21 +102,55 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/Kernel-SVM-of-Python-by-A-Z/">Kernel SVM of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/">Simple Linear Regression of R  by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/Kernel-SVM-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T04:58:06.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:29.000Z" itemprop="datePublished">September 11th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/62.png" alt></p>
-<script src="https://gist.github.com/SauronLee/fefc21aba80e1b4c6f7f8b1ae687c72f.js"></script>
+        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
+<script src="https://gist.github.com/SauronLee/ea489f7e3335cbc820bf593f7de6cd62.js"></script>
 
-<p><img src="/images/A-Z_ML/60.png" alt><br><img src="/images/A-Z_ML/61.png" alt></p>
+<p><img src="/images/A-Z_ML/06.png" alt></p>
+<ul>
+<li>lm {stats}    R Documentation<br>Fitting Linear Models<br>Description<br>lm is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).</li>
+</ul>
+<p>Usage<br>lm(formula, data, subset, weights, na.action,<br>   method = “qr”, model = TRUE, x = FALSE, y = FALSE, qr = TRUE,<br>   singular.ok = TRUE, contrasts = NULL, offset, …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
+<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.</p>
+<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
+<p>weights<br>an optional vector of weights to be used in the fitting process. Should be NULL or a numeric vector. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used. See also ‘Details’,</p>
+<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
+<p>method<br>the method to be used; for fitting, currently only method = “qr” is supported; method = “model.frame” returns the model frame (the same as with model = TRUE, see below).</p>
+<p>model, x, y, qr<br>logicals. If TRUE the corresponding components of the fit (the model frame, the model matrix, the response, the QR decomposition) are returned.</p>
+<p>singular.ok<br>logical. If FALSE (the default in S but not in R) a singular fit is an error.</p>
+<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
+<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector or matrix of extents matching those of the response. One or more offset terms can be included in the formula instead or as well, and if more than one are specified their sum is used. See model.offset.</p>
+<p>…<br>additional arguments to be passed to the low level regression fitting functions (see below).</p>
+<ul>
+<li>summary(regressor)</li>
+</ul>
+<p>Call:<br>lm(formula = Salary ~ YearsExperience, data = training_set)</p>
+<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-7325.1 -3814.4   427.7  3559.7  8884.6 </p>
+<p>Coefficients:<br>                Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)        25592       2646   9.672 1.49e-08 <em>*</em></p>
+<h2 id="YearsExperience-9365-421-22-245-1-52e-14"><a href="#YearsExperience-9365-421-22-245-1-52e-14" class="headerlink" title="YearsExperience     9365        421  22.245 1.52e-14 *"></a>YearsExperience     9365        421  22.245 1.52e-14 <em>*</em></h2><ul>
+<li><em>代表变量对模型的显著性（重要性）P值越小显著性越（强当p值小于0.05时显著性就很大了）R-squared:  0.9649（越接近1说明拟合效果越好）<br>Signif. codes:  0 ‘**</em>’ 0.001 ‘<em>*’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1</li>
+</ul>
+<p>Residual standard error: 5391 on 18 degrees of freedom<br>Multiple R-squared:  0.9649,    Adjusted R-squared:  0.963<br>F-statistic: 494.8 on 1 and 18 DF,  p-value: 1.524e-14</p>
+<ul>
+<li>command+enter<br>y_pred = predict(regressor, newdata = test_set)<blockquote>
+<p>y_pred</p>
+<pre><code>  2         4         5         8        11        16        20        21        24 
+</code></pre><p>37766.77  44322.33  46195.35  55560.43  62115.99  71481.07  81782.66  89274.72 102385.84 </p>
+<pre><code> 26 
+</code></pre><p>109877.90 </p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
@@ -132,27 +166,269 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/Kernel-SVM-by-A-Z/">Kernel SVM by A-Z</a>
+      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/">Simple Linear Regression of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/Kernel-SVM-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T04:12:47.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:04.000Z" itemprop="datePublished">September 11th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/48.png" alt><br><img src="/images/A-Z_ML/49.png" alt><br><img src="/images/A-Z_ML/50.png" alt><br><img src="/images/A-Z_ML/51.png" alt><br><img src="/images/A-Z_ML/52.png" alt><br>引用核函数加快SVM</p>
-<ul>
-<li>高斯径向基和函数The Kernel Trick（RBF）</li>
-<li>|x-l|值越大那么y越接近1，值越小越接近0，这其实跟sigmoud函数一个意思只不过这个是3维的<br><img src="/images/A-Z_ML/53.png" alt><br><img src="/images/A-Z_ML/54.png" alt><br><img src="/images/A-Z_ML/55.png" alt><br><img src="/images/A-Z_ML/56.png" alt><br><img src="/images/A-Z_ML/57.png" alt><br><img src="/images/A-Z_ML/58.png" alt></li>
-<li>Types of Kernel Functions<br><img src="/images/A-Z_ML/59.png" alt></li>
-<li>S函数=双曲正切的平移和缩放</li>
-<li>所有的核函数的详细教程网站：<br><a href="http://crsouza.com/2010/03/17/kernel-functions-for-machine-learning-applications/" target="_blank" rel="noopener">http://crsouza.com/2010/03/17/kernel-functions-for-machine-learning-applications/</a></li>
-<li>展示多项式核函数视频<br><a href="https://www.youtube.com/watch?time_continue=1&amp;v=3liCbRZPrZA" target="_blank" rel="noopener">https://www.youtube.com/watch?time_continue=1&amp;v=3liCbRZPrZA</a></li>
-</ul>
+        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
+<script src="https://gist.github.com/SauronLee/bf7e3f954b445edc107ef4271b13642b.js"></script>
 
+<p><img src="/images/A-Z_ML/04.png" alt><br><img src="/images/A-Z_ML/05.png" alt></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/21/Statistics-by-Yebingcheng-of-Taiwan-University/">Statistics by Yebingcheng of Taiwan University</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/21/Statistics-by-Yebingcheng-of-Taiwan-University/" class="archive-article-date"><time datetime="2019-08-21T09:08:34.000Z" itemprop="datePublished">August 21st</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="几率的独立性（Independent）"><a href="#几率的独立性（Independent）" class="headerlink" title="几率的独立性（Independent）"></a>几率的独立性（Independent）</h1><p>若两个事件满足：<script type="math/tex">P(A\cap B)=P(A)\cdot P(B)</script> 则A，B两件事称为独立事件<br>两个事件没有交集，同时发生两件事的几率就是完全两个几率相乘没有扣除交集部分<br>我比较喜欢另一个版本的独立事件的定义：<script type="math/tex">P(A|B)=P(A)</script> 也就是说在B发生时A发生的概率等于A发生的概率（也就是说B发生对A没有影响）<br>两个公式是一样的：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P(A|B)&=P(A)\\
+\frac{P(A\cap B)}{P(B)}&=P(A)\\
+P(A\cap B)&=P(A)\cdot P(B)
+\end{align*}</script><p>如果是多事件也是一样的：如果有m个事件那么先Cm取2每个算一遍Cm取3每个算一遍，最后Cm取m每个算一遍，全部独立我们才能说是互相独立的</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P(A_{i1}\cap A_{i2}\cap A_{i3}...\cap A_{im})&=P(A_{i1})\cdot P(A_{i2})\cdot P(A_{i3})\cdot ...\cdot P(A_{im}) 
+\end{align*}</script><h1 id="排列（Permutation）"><a href="#排列（Permutation）" class="headerlink" title="排列（Permutation）"></a>排列（Permutation）</h1><p>判断事件是否是排列问题首先要看事件：<br>是否可区分=y，<br>有无放回=n，（无放回用阶乘）<br>顺序有无差异=y<br>比如：若有n个异物，从中依序取出k物有多少种结果</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P=\frac{n!}{n!-k!}
+\end{align*}</script><h1 id="重复选取（Chooes-with-Replacements）"><a href="#重复选取（Chooes-with-Replacements）" class="headerlink" title="重复选取（Chooes with Replacements）"></a>重复选取（Chooes with Replacements）</h1><p>判断：<br>是否可区分=y，<br>有无放回=y，<br>顺序有无差异=y<br>比如：若有n个异物，从中依序取出k物（但每取出一个异物便放回去）有多少种结果</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P=k^{n}
+\end{align*}</script><h1 id="组合（Combination）"><a href="#组合（Combination）" class="headerlink" title="组合（Combination）"></a>组合（Combination）</h1><p>判断：<br>是否可区分=y，<br>有无放回=n，（无放回用阶乘）<br>顺序有无差异=n，（无顺序用组合，因为一共会有k！个顺序所以除以多余k！）<br>比如：若有n异物，从中取出k物共有多少种结果？</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P=\frac{n!}{(n-k)!k!}
+\end{align*}</script><p>$<br>C<em>{n}^{k}:又称为二项式系数，根据二项式定理\<br>(x+y)^{n}=\sum</em>{n}^{k=0}C_{n}^{k}x^{k}y^{n-k}<br>$</p>
+<h1 id="多项组合（Multionomial）"><a href="#多项组合（Multionomial）" class="headerlink" title="多项组合（Multionomial）"></a>多项组合（Multionomial）</h1><p>其实就是几种组合的并集，也可以写成多项式的形式,直接记原始形式就行</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P&=C_{n1}^{n}\cdot C_{n2}^{n-n1}\cdot  C_{n3}^{n-n1-n2}...C_{n_{m}}^{n_{m}}\\
+&=\frac{n!}{n_{1}!n_{2}!n_{3}!...n_{m}!}
+\end{align*}</script><script type="math/tex; mode=display">
+\begin{align*}  
+(x_{1}+x_{2}+x_{3}+...+x_{m})^{n}
+=\sum_{n_{1}=0}^{n}\sum_{n_{2}=0}^{n}...\sum_{n_{m}=0}^{n}\frac{n!}{n_{1}!n_{2}!n_{3}!...n_{m}!}x_{n_{1}}^{1}x_{n_{2}}^{2}...x_{n_{m}}^{m}
+\end{align*}</script><h1 id="随机变数-（Random-variable）"><a href="#随机变数-（Random-variable）" class="headerlink" title="随机变数 （Random variable）"></a>随机变数 （Random variable）</h1><ul>
+<li>就是把实验结果数字化的表示方式，目的是使数学的推导更加简单明了，随机变数都是大写的字母</li>
+<li>随机变数是一个函数，喂给F()一个随机变数，得出一个相应的概率</li>
+</ul>
+<h1 id="分布函数-CDF"><a href="#分布函数-CDF" class="headerlink" title="分布函数 CDF"></a>分布函数 CDF</h1><p>对于任意一个随机变数X，我们定义其CDF为函数：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)= \overset{dif}{\rightarrow}P(X\leq x)
+\end{align*}</script><p>例1：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(0.5)= P(X\leq0.5)=\frac{1}{2}
+\end{align*}</script><p>例2：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P(3<X\leq 5)&=P(-\infty <X\leq 5)-P(-\infty <X\leq 3)\\
+&=P(X\leq 5)-P(X\leq 3)\\
+&=F_{X}(5)-F_{X}(3)
+\end{align*}</script><ul>
+<li>$x\leq 5^{-}=x&lt;5(CDF为离散变数时)，CDF在连续值时x&lt;5^{-}=x&lt;5$</li>
+</ul>
+<h1 id="密度函数-PMF"><a href="#密度函数-PMF" class="headerlink" title="密度函数 PMF"></a>密度函数 PMF</h1><p>又称质量函数，必须是离散函数</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)= \overset{dif}{\rightarrow}P(X = x)
+\end{align*}</script><p>PMF是非常直观的，直接就是x发生的几率<br>Ex：X为骰子点数</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(3)= P(X=3)=\frac{1}{6}
+\end{align*}</script><script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)=\sum_{n=-\infty }^{\left \lfloor x \right \rfloor}P_{X}(n)
+\end{align*}</script><h2 id="Bernoulli-伯努利几率分布"><a href="#Bernoulli-伯努利几率分布" class="headerlink" title="Bernoulli 伯努利几率分布"></a>Bernoulli 伯努利几率分布</h2><p>PMF：只做一次实验，或成功或失败，X表示成功的概率</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+X\sim Bernoulli (0.6)\\
+P_{X}(x)=\left\{\begin{matrix}
+0.6 & ,x=1\\ 
+0.4 & ,x=0\\ 
+0 & ,otherwise
+\end{matrix}\right.
+\end{align*}</script><h2 id="Binomial-二项式几率分布"><a href="#Binomial-二项式几率分布" class="headerlink" title="Binomial 二项式几率分布"></a>Binomial 二项式几率分布</h2><p>PMF：若实验成功率为0.6作10次实验，问8次成功的概率是多少？X表示成功次数<br>二项式定理就是说：每一种实验的组合都要乘上8次的成功几率，然后再乘上2次失败的几率</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P_{X}(x)&=X\sim BIN(10,0.6)\\
+P_{X}(8)&=P(x=8)\\
+&=C_{8}^{10}\cdot 0.6^{8}\cdot (1-0.6)^{10-8}
+\end{align*}</script><p>CDF：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
+&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}C_{m}^{10}\cdot 0.6^{m}\cdot (1-0.6)^{n-m}
+\end{align*}</script><h2 id="uniform-均匀几率分布"><a href="#uniform-均匀几率分布" class="headerlink" title="uniform 均匀几率分布"></a>uniform 均匀几率分布</h2><p>PMF:如果X等于3，4，5，…，7的几率均等</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P_{X}(x)&=X\sim UNIF(3,7)\\
+p_{X}=\left\{\begin{matrix}
+\frac{1}{7-3+1}=\frac{1}{5},&x=3,4,...,7\\ 
+0,&otherwise
+\end{matrix}\right.
+\end{align*}</script><p>CDF</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
+&=\left\{\begin{matrix}
+0 &,x<3 \\ 
+\frac{\left \lfloor x \right \rfloor-3+1}{6} &,3\leq x\leq 8 \\ 
+ 1& ,x\leq 8
+\end{matrix}\right.
+\end{align*}</script><h2 id="Geometric-几何几率分布"><a href="#Geometric-几何几率分布" class="headerlink" title="Geometric 几何几率分布"></a>Geometric 几何几率分布</h2><ul>
+<li>有失意性<br>六脉神剑：打出来的概率是0.1，那么在他第十次打出来的概率是多少？<br>用9次失败的概率乘以一次成功的概率<br>PMF:几何级数，每一个跟前一个差1-p倍<script type="math/tex; mode=display">
+P_{X}(x):X\sim Geometric(p)\\
+P_{X}(x)=\left\{\begin{matrix}
+(1-p)^{x-1} &,x=1,2,3,... \\ 
+0 & ,otherwise
+\end{matrix}\right.</script>CDF：<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
+&=\left\{\begin{matrix}
+x\geq 1:\sum_{n=1}^{\left \lfloor x \right \rfloor}(1-p)^{n-1}p=p\cdot\frac{1-(1-p)^{\left \lfloor x \right \rfloor}}{1-(1-p)} \\ 
+x<1:0
+\end{matrix}\right.\\
+&=\left\{\begin{matrix}
+1-(1-p)^{\left \lfloor x \right \rfloor} & ,x\geq 1 \\ 
+0& ,otherxise
+\end{matrix}\right.
+\end{align*}</script></li>
+</ul>
+<h2 id="Pascal-几率分布"><a href="#Pascal-几率分布" class="headerlink" title="Pascal 几率分布"></a>Pascal 几率分布</h2><p>六脉神剑：打出来的几率是0.1，成功5次便耗尽功力，问他第9次刚好耗尽功力的概率（5次成功4次失败）</p>
+<script type="math/tex; mode=display">
+C_{4}^{8}\cdot C_{1}^{1}\cdot 0.9^{4}\cdot 0.1^{5}</script><p>PMF:</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P_{X}(x)&=X\sim Pascal(k,p)
+&=\left\{\begin{matrix}
+C_{k-1}^{x-1}\cdot (1-p)^{x-k}\cdot P^{k} & ,x=k,k+1,...\\ 
+ 0&,otherwise 
+\end{matrix}\right.
+\end{align*}</script><p>CDF: Pascal又称作Negative Binomial</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=P(X\leq x)\\
+&=P(第k次成功在第x次以前)\\
+&=P(在x次实验中\geq k次成功)\\
+&=P(Y\geq k),Y\sim BIN(x,p)
+\end{align*}</script><h2 id="Poisson-几率分布"><a href="#Poisson-几率分布" class="headerlink" title="Poisson 几率分布"></a>Poisson 几率分布</h2><p>已知某事发生速率每单位时间$\lambda$次，若在T时间(扩张缩减)里，会发生X次的几率是多少<br>PMF：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=X\sim POI(\lambda T)\\
+&=P(X=x)\\
+&=e^{-\lambda T}\cdot \frac{(\lambda T)^{x}}{x!}
+\end{align*}</script><p>有些书籍会用mu代替lambda T</p>
+<script type="math/tex; mode=display">
+\mu = \lambda T</script><p>CDF：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
+&=\left\{\begin{matrix}
+\sum_{n=-\infty }^{\left \lfloor x \right \rfloor} e^{-\mu }\cdot \frac{\mu ^{n}}{n!},& x=0,1,2...\\ 
+ 0,& otherwise
+\end{matrix}\right.
+\end{align*}</script><p>Poisson的PMF推导</p>
+<ul>
+<li>将T切成长度$\delta T$的极小段</li>
+<li>$\delta \Rightarrow 共有n=\frac{T}{\delta_{T}\rightarrow \infty }个小段$</li>
+<li>若发生速率为$\lambda 次/分，每小时发生的几率P=\lambda \delta _{T}=\frac{\lambda T}{n}$</li>
+<li>故T时间内发生的次数$X\sim BIN(n,p)=BIN(n,\frac{\lambda T}{n})$<script type="math/tex; mode=display">
+\begin{align*}  
+\lim_{\delta _{T}\rightarrow 0}P_{X}(x)&=\lim_{n\rightarrow \infty }\frac{n!}{(n-x)!x!}(\frac{\lambda T}{n})^{x}(1-\frac{\lambda T}{n})^{n-x}\\
+&=\lim_{n\rightarrow \infty }\frac{n(n-1)...(n-n+1)}{x!}\frac{(\lambda T)^{x}}{n^{x}}(1-\frac{\lambda T}{n})^{n-x}\\
+&=\lim_{n\rightarrow \infty }\frac{1}{x!}\frac{n}{n}...\frac{n-x+1}{n}(\lambda T)^{x}(1-\frac{\lambda T}{n})^{n}(1-\frac{\lambda T}{n})^{-x}\\
+&=\frac{(\lambda T)^{x}}{x!}\lim_{n\rightarrow \infty }(1-\frac{\lambda T}{n})^{n}\\
+&=\frac{(\lambda T)^{x}}{x!}e^{-\lambda T}
+\end{align*}</script></li>
+</ul>
+<h1 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h1><p>连续的变数的几率分布有不均等</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+PDF:f_{X}(x)&=\lim_{\Delta x\rightarrow 0}\frac{P(x\leq X\leq x+\Delta x)}{\Delta x}\\
+&=\lim_{\Delta x\rightarrow 0}\frac{F_{X}(x+\Delta x)-F_{X}(x)}{\Delta x}\\
+&=F'_{X}(x)
+\end{align*}</script><p>由此可得PDF就是CDF的积分；反之CDF就是PDF的积分：</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+CDFF_{X}(x)\xrightarrow[\int_{-\infty }^{x}]{\frac{d}{dx}}PDFf_{X}(x)
+\end{align*}</script><p>用几率表示PDF</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+P(a<X\leq b)&=F_{X}(b)-F_{X}(a)\\
+&=\int_{-\infty }^{b}F_{X}(x)dx-\int_{-\infty }^{a}F_{X}(x)dx\\
+&=\int_{a }^{b}F_{X}(x)dx
+\end{align*}</script><p>另一个跟几率的关系</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+PDF:f_{X}(x)&=\lim_{\Delta x\rightarrow 0}\frac{P(x\leq X\leq x+\Delta x)}{\Delta x}\\
+P(x\leq X\leq x+\Delta x)&\approx f_{X}(x)\cdot \Delta x
+\end{align*}</script><p>关于PDF，PMF，CDF：<br><a href="https://blog.csdn.net/wzgbm/article/details/51680540" target="_blank" rel="noopener">https://blog.csdn.net/wzgbm/article/details/51680540</a></p>
+<h2 id="Uniform-几率分布（连续变量）"><a href="#Uniform-几率分布（连续变量）" class="headerlink" title="Uniform 几率分布（连续变量）"></a>Uniform 几率分布（连续变量）</h2><p>PDF:</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+f_{X}(x)=\left\{\begin{matrix}
+\frac{1}{b-a} &,a\leq x\leq b \\ 
+0 &, otherwise
+\end{matrix}\right.
+\end{align*}</script><p>CDF:</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\int_{-\infty }^{x}f_{X}(u)du\\
+&=\left\{\begin{matrix}
+ 0&,x\leq a \\ 
+ \frac{x-a}{b-a}&,a<x\leq b \\ 
+ 1& ,x>b
+\end{matrix}\right.
+\end{align*}</script><p>Ex:已知1路公车每十分钟一班，小美随意出发到公车站，小美需等车时间为X的几率是多少</p>
+<h2 id="Exponential-几率分布"><a href="#Exponential-几率分布" class="headerlink" title="Exponential 几率分布"></a>Exponential 几率分布</h2><p>有失忆性memoryless，常被用来model有失忆性质的事情<br>PDF:</p>
+<script type="math/tex; mode=display">
+f_{X}(x)=\left\{\begin{matrix}
+\lambda e^{-\lambda x} &,x\geq 0 \\ 
+ 0&,otherwise 
+\end{matrix}\right.</script><p>CDF:<br>$If:x\geq 0$</p>
+<script type="math/tex; mode=display">
+\begin{align*}  
+F_{X}(x)&=\int_{-\infty }^{x}f_{X}(u)du\\
+&=\int_{0 }^{x}\lambda e^{-\lambda u}du\\
+&=-\int_{0 }^{x}e^{-\lambda u}d(-\lambda u)\\
+&=-[e^{-\lambda u}]_{0}^{x}\\
+&=1-e^{-\lambda u}
+\end{align*}</script><p>$If:x&lt;0 $</p>
+<p>$F_{X}(x)=0$</p>
+<h1 id="Erlang-几率分布"><a href="#Erlang-几率分布" class="headerlink" title="Erlang 几率分布"></a>Erlang 几率分布</h1>
       
     </div>
   </header>
@@ -166,7 +442,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/9/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/8/">8</a></li><li><a class="page-number" href="/tags/Statistics/page/9/">9</a></li><li class="active"><span class="page-number">10</span></li><li><a class="page-number" href="/tags/Statistics/page/11/">11</a></li><li><a class="page-number" href="/tags/Statistics/page/12/">12</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/26/">26</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/11/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/9/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/8/">8</a></li><li><a class="page-number" href="/tags/Statistics/page/9/">9</a></li><li class="active"><span class="page-number">10</span></li><li><a class="page-number" href="/tags/Statistics/page/11/">11</a></li><li><a class="page-number" href="/tags/Statistics/page/12/">12</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/11/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

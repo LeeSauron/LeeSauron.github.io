@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-NagelSchrekenberg-data-cleaning" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-xgs01" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/11/NagelSchrekenberg-data-cleaning/">NagelSchrekenberg data cleaning</a>
+      <a class="article-title" href="/2017/05/04/xgs01/">基本术语</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/07/11/NagelSchrekenberg-data-cleaning/" class="article-date"><time datetime="2019-07-11T04:43:41.000Z" itemprop="datePublished">2019-07-11</time></a>
+  <a href="/2017/05/04/xgs01/" class="article-date"><time datetime="2017-05-04T07:49:43.000Z" itemprop="datePublished">2017-05-04</time></a>
 </div>
 
     
@@ -112,9 +112,55 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="https://gist.github.com/SauronLee/888d1371083e085df1309b33641e0fee.js"></script>
-
-<p><img src="/images/NS_data_cleaning_01.png" alt></p>
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><hr>
+<ul>
+<li>机器学习：致力于研究如何通过计算手段，利用经验来改善系统自身的性能，在计算机中，“经验”通常以“数据”的形式存在，因此，机器学习所研究的主要内容，是关于在计算机上从数据产生“模型”（model）的算法，即“机器学习”算法（learning algorithm）.</li>
+</ul>
+<hr>
+<h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><hr>
+<ul>
+<li>数据集（data set）： 记录一组数据的集合比如所有西瓜的声音，根蒂，颜色</li>
+<li>示例（instance）或者 样本（sample）：每个西瓜都是一个实例或样本</li>
+<li>属性（attribute）或者特征（feature）：每个西瓜的声音，根蒂，颜色就是西瓜的属性或特征</li>
+<li>分类（classification）：预测的数据为离散型数据</li>
+<li>回归（regression）：预测的数据为连续型数据</li>
+<li>测试（testing）：学得模型后，使用其进行预测的过程</li>
+<li>预测样本（testing sample）：被预测的样本</li>
+<li>聚类（clustering），在非监督学习中区分每组数据，即将训练集中西瓜分成若干组，每组称为一个“簇”（cluster），这些自动形成的簇可能对应潜在的概念划分，例如“浅色瓜”“深色瓜”等。</li>
+<li>监督学习（supervised learning）：训练数据有标记信息，使用回归和分类算法</li>
+<li>无监督学习（unsupervised learning）：训练数据无标记信息，使用聚类算法</li>
+<li>泛化（generalization）：学得的模型适用于新样本的能力</li>
+</ul>
+<hr>
+<h3 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h3><hr>
+<ul>
+<li>归纳（induction）：从特殊到一般的泛化（generalization）过程</li>
+<li>演绎（deduction）：从一般到特殊的特化（specialization）过程</li>
+<li>归纳学习（induction learning）：归纳学习有广义和狭义之分，广义的归纳学习大体相当于从样本中学习，而狭义的归纳学习则要从训练数据中学得概念（concept），因此有叫做概念学习</li>
+</ul>
+<hr>
+<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><hr>
+<ul>
+<li>归纳偏好（inductive bias）当有与训练集一致的假设，但与他们对应的模型在面临新样本的时候会产生不同的输出，那么我们应该采取哪个模型？这时学习算法本身的偏好就会起到关键的作用，任何一个有效的机器学习算法必有其归纳偏好，否则它将被假设空间中看似训练集上等效的假设所迷惑而无法产生确定的结果.</li>
+<li>奥卡姆剃刀（Occam’s razor)：若有多个假设与观察一致，则选择最简单的那个，但是如何判断哪个更简单则不是个简单的问题</li>
+<li>NFL定理（No Free Lunch Theorem）：要谈论算法的相对优劣，必须要针对具体的学习问题，学习算法自身的归纳偏好与问题是否相配，往往会起到觉得决定性作用</li>
+</ul>
+<hr>
+<h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h3><hr>
+<ul>
+<li>二十世纪五十年代到七十年代人们认为只要赋予机器的逻辑推理能力机器就赋予只能后来人们逐渐意识到把总结的知识交给机器是十分困难的<br>1950年：图灵提到机器学习可能.代表：A.Samuel跳棋程序</li>
+<li>五十年代中后期：基于神经网络的联接主义出现.代表F.Rosenblatt的感知机（Perceptron）、B.Widrow的Adaline等</li>
+<li>六七十年代：基于符号主义的学习技术蓬勃发展.代表P.Winston的结构学习系统、R.S.Michalski等人的基于逻辑的归纳学习系统，以决策论为基础的学习技术以及强化学习技术也得到蓬勃发展.如：N.J.Nilsom的机器学习等<br>1980年夏：美国卡耐基梅隆大学第一届机器学习研讨会（IWML）</li>
+<li>二十世纪八十年代：从样例中学习的一大主流是符号主义学习比如决策树（decision tree）至今也是最常用的机器学习技术之一</li>
+<li>二十世纪九十年代：神经网络的连接主义成为主流</li>
+<li>二十世纪九十年代中期：统计学习成为主流代表：支持向量机以及一般的核方法</li>
+<li>二十一世纪：多层深度神经网络成为主流</li>
+</ul>
+<hr>
+<h3 id="应用现状"><a href="#应用现状" class="headerlink" title="应用现状"></a>应用现状</h3><hr>
+<ul>
+<li>人工智能，模式识别，数据挖掘，语音识别，图像识别，信息检索，生物信息，网络通信，软件工程，芯片设计，计算机视觉.总之就像爱迪生发明电</li>
+</ul>
 
       
     </div>
@@ -125,12 +171,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/07/11/NagelSchrekenberg-data-cleaning/" data-id="ckowhcx8e004980ybpavsqwub" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2017/05/04/xgs01/" data-id="ckowhp01w006dluyblw5o9576" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-cleaning/">Data cleaning</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
 
 
     </footer>
@@ -141,13 +187,13 @@
 
 
   
-    <article id="post-Limg-by-pillow" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Exponential-function-and-logarithm-of-PengTitus" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/10/Limg-by-pillow/">Greyimg of char by Pillow</a>
+      <a class="article-title" href="/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/">Exponential function  and logarithm of PengTitus</a>
     </h1>
   
 
@@ -156,7 +202,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/07/10/Limg-by-pillow/" class="article-date"><time datetime="2019-07-10T08:25:24.000Z" itemprop="datePublished">2019-07-10</time></a>
+  <a href="/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/" class="article-date"><time datetime="2016-05-10T09:42:03.000Z" itemprop="datePublished">2016-05-10</time></a>
 </div>
 
     
@@ -167,19 +213,21 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>我们读入一个图像用image打开它，此时图像还是图像并不是np格式的</li>
-<li>我们获取图像的宽和高并赋予新的比例作为字符的宽高</li>
-<li>根据字符的宽和高对图片进行拉伸变成一个新的图像</li>
-<li>新的图像我们把它转成灰度图进行像素的计算</li>
-<li>任何一个像素值我们都可以看看他的数据类型是什么</li>
-<li>读取数据大小</li>
-<li>读取数据本身</li>
-<li>我们再做一个字符串</li>
-<li>我们用256去除这个字符的个数也就是说每个字符管1/n的像素范围</li>
-<li>然后遍历替换</li>
+        <h2 id="指数exponent与对数概论"><a href="#指数exponent与对数概论" class="headerlink" title="指数exponent与对数概论"></a>指数exponent与对数概论</h2><ul>
+<li>对数就是一个函数</li>
+<li>指数的的作用是把自然数成倍增长，而对数的作用就是取消指数对自然数的增长，主要为了简化天文学计算</li>
 </ul>
-<script src="https://gist.github.com/SauronLee/0f6224e602a030147539fdb61f528bdb.js"></script>
+<p>比如：没人可以把一本书折叠9次：因为2的9次方是512，相当于一部字典的厚度<br>把一张纸折叠42次后的高度比地球到月球的距离还要高</p>
+<h2 id="指数律-a-m-a-n-a-m-n"><a href="#指数律-a-m-a-n-a-m-n" class="headerlink" title="指数律$(a^{m})(a^{n})=a^{m+n}$"></a>指数律$(a^{m})(a^{n})=a^{m+n}$</h2><p><img src="/images/Exponential&amp;logarithmPengTitus/01.png" alt><br>为什么$a^{0}=1$<br><img src="/images/Exponential&amp;logarithmPengTitus/02.png" alt><br>为什么$a^{-n}=\frac{1}{a^{n}}$<br><img src="/images/Exponential&amp;logarithmPengTitus/03.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/05.png" alt><br>m,n全部为负数时依然成立<br><img src="/images/Exponential&amp;logarithmPengTitus/04.png" alt></p>
+<h3 id="指数律-a-m-n-a-nm-与-ab-n-a-n-cdot-b-n"><a href="#指数律-a-m-n-a-nm-与-ab-n-a-n-cdot-b-n" class="headerlink" title="指数律$(a^{m})^{n}=a^{nm}与(ab)^{n}=a^{n}\cdot b^{n}$"></a>指数律$(a^{m})^{n}=a^{nm}与(ab)^{n}=a^{n}\cdot b^{n}$</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/06.png" alt></p>
+<h3 id="指数律-有理数指数-分数指数"><a href="#指数律-有理数指数-分数指数" class="headerlink" title="指数律_有理数指数(分数指数)"></a>指数律_有理数指数(分数指数)</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/07.png" alt></p>
+<h3 id="指数不等式"><a href="#指数不等式" class="headerlink" title="指数不等式"></a>指数不等式</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/08.png" alt><br>根据算几不等式可看出<br><img src="/images/Exponential&amp;logarithmPengTitus/09.png" alt></p>
+<h3 id="对数Logarithm概论"><a href="#对数Logarithm概论" class="headerlink" title="对数Logarithm概论"></a>对数Logarithm概论</h3><p>对数Logarithm=Logos神的话，arithmos计算-John Napier<br>对数就是把次幂抓下来的工具<br><img src="/images/Exponential&amp;logarithmPengTitus/10.png" alt><br>求指数就是原函数的反函数<br><img src="/images/Exponential&amp;logarithmPengTitus/11.png" alt></p>
+<h3 id="对数的定义和指数反函数的性质"><a href="#对数的定义和指数反函数的性质" class="headerlink" title="对数的定义和指数反函数的性质"></a>对数的定义和指数反函数的性质</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/12.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/13.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/14.png" alt></p>
+<h3 id="对数律logarithmic-identities"><a href="#对数律logarithmic-identities" class="headerlink" title="对数律logarithmic identities"></a>对数律logarithmic identities</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/15.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/16.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/17.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/18.png" alt></p>
+<h3 id="对数的换底法则和推论"><a href="#对数的换底法则和推论" class="headerlink" title="对数的换底法则和推论"></a>对数的换底法则和推论</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/19.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/20.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/21.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/22.png" alt></p>
+<h3 id="e"><a href="#e" class="headerlink" title="e"></a>e</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/23.png" alt></p>
+
       
     </div>
 
@@ -189,12 +237,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/07/10/Limg-by-pillow/" data-id="ckowhcx7s003680yblbrajep5" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/" data-id="ckowhozzb001rluyb1ci07lp2" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computer-Vision/">Computer Vision</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Calculus/">Calculus</a></li></ul>
 
 
     </footer>
@@ -208,7 +256,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/30/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/29/">29</a></li><li><a class="page-number" href="/page/30/">30</a></li><li class="active"><span class="page-number">31</span></li><li><a class="page-number" href="/page/32/">32</a></li><li><a class="page-number" href="/page/33/">33</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/32/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/30/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/29/">29</a></li><li><a class="page-number" href="/page/30/">30</a></li><li class="active"><span class="page-number">31</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

@@ -93,7 +93,7 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+          <a href="/archives/2019" class="archive-year">2019</a>
         </div>
         <div class="archives">
     
@@ -102,18 +102,36 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/Titanic-Project/">Titanic Project</a>
+      <a class="archive-article-title" href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/">Polynomial Regression of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2017/12/13/Titanic-Project/" class="archive-article-date"><time datetime="2017-12-12T17:22:17.000Z" itemprop="datePublished">December 13th</time></a>
+  <a href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T06:53:36.000Z" itemprop="datePublished">September 12th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/SauronLee/Udacity_ML_P4/blob/master/P4_titanic3.0/P4_titanic.ipynb">Titanic Project Adress</a></p>
+        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt></p>
+<ul>
+<li>多应用在流行病学：疾病在时间和空间上的传播速度</li>
+</ul>
+<p><img src="/images/A-Z_ML/25.png" alt><br><img src="/images/A-Z_ML/26.png" alt></p>
+<script src="https://gist.github.com/SauronLee/deb2cca719850a2cf43b585503bc3be1.js"></script>
+
+<p>多项式回归就是利用：下面👇代码拟合出b_0和次方项然后全部进行线性回归</p>
+<pre><code>poly_reg = PolynomialFeatures(degree = 4)
+X_poly = poly_reg.fit_transform(X)
+</code></pre><p><img src="/images/A-Z_ML/27.png" alt="issue"><br><img src="/images/A-Z_ML/29.png" alt="issue"><br><img src="/images/A-Z_ML/28.png" alt="issue"></p>
+<ul>
+<li>如果要使线段变得平滑增加x的密度即可比如：<pre><code>X_grid=np.arange(min(X),max(X),0.1)
+X_grid=X_grid.reshape(len(X_grid),1)
+plt.plot(X_grid, lin_reg_2.predict(poly_reg.fit_transform(X_grid)), color = &#39;blue&#39;)
+</code></pre>如果一个新人他说他35岁工作了6年半工资16万是否诚实<pre><code>lin_reg.predict(6.5）
+lin_reg_2.predict(poly_reg.fit_transform(6.5))
+</code></pre></li>
+</ul>
 
       
     </div>
@@ -129,21 +147,59 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/Linear-Regression-Project/">Linear Regression Project</a>
+      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/">Simple Linear Regression of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2017/12/13/Linear-Regression-Project/" class="archive-article-date"><time datetime="2017-12-12T17:20:01.000Z" itemprop="datePublished">December 13th</time></a>
+  <a href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:04.000Z" itemprop="datePublished">September 11th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/SauronLee/Udacity_ML_P3/blob/master/linear_regression_P3/linear_regression_project-2-3.ipynb">Linear Regression Project Adress</a></p>
-<!-- <script src="https://gist.github.com/SauronLee/87b33007784de2850480249697949306.js"></script>
+        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
+<script src="https://gist.github.com/SauronLee/bf7e3f954b445edc107ef4271b13642b.js"></script>
 
-<script src="https://gist.github.com/SauronLee/98d5d077feba14ba914c7c92742cdaec.js"></script> -->
+<p><img src="/images/A-Z_ML/04.png" alt><br><img src="/images/A-Z_ML/05.png" alt></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">August 14th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
+<!-- ![issue](/images/A-Z_ML/244.png) -->
+<ul>
+<li>数据是商场的用户的消费详情</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
+
+<hr>
+<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
+<!-- ![issue](/images/A-Z_ML/245.png) -->
+<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
+<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
       
     </div>
   </header>
@@ -157,7 +213,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/2/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li><a class="page-number" href="/tags/Python/page/2/">2</a></li><li class="active"><span class="page-number">3</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/2/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li><a class="page-number" href="/tags/Python/page/2/">2</a></li><li class="active"><span class="page-number">3</span></li><li><a class="page-number" href="/tags/Python/page/4/">4</a></li><li><a class="page-number" href="/tags/Python/page/5/">5</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/8/">8</a></li><li><a class="page-next" rel="next" href="/tags/Python/page/4/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

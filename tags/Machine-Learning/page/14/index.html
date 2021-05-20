@@ -102,54 +102,31 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/">Simple Linear Regression of R  by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/12/Dataset-Business-Problem-Description-by-A-Z/">Dataset + Business Problem Description by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:29.000Z" itemprop="datePublished">September 11th</time></a>
+  <a href="/2019/07/12/Dataset-Business-Problem-Description-by-A-Z/" class="archive-article-date"><time datetime="2019-07-11T17:57:51.000Z" itemprop="datePublished">July 12th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
-<script src="https://gist.github.com/SauronLee/ea489f7e3335cbc820bf593f7de6cd62.js"></script>
-
-<p><img src="/images/A-Z_ML/06.png" alt></p>
+        <p><img src="/images/A-Z_ML/07.png" alt></p>
+<p><img src="/images/A-Z_ML/08.png" alt></p>
 <ul>
-<li>lm {stats}    R Documentation<br>Fitting Linear Models<br>Description<br>lm is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).</li>
-</ul>
-<p>Usage<br>lm(formula, data, subset, weights, na.action,<br>   method = “qr”, model = TRUE, x = FALSE, y = FALSE, qr = TRUE,<br>   singular.ok = TRUE, contrasts = NULL, offset, …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
-<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.</p>
-<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
-<p>weights<br>an optional vector of weights to be used in the fitting process. Should be NULL or a numeric vector. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used. See also ‘Details’,</p>
-<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
-<p>method<br>the method to be used; for fitting, currently only method = “qr” is supported; method = “model.frame” returns the model frame (the same as with model = TRUE, see below).</p>
-<p>model, x, y, qr<br>logicals. If TRUE the corresponding components of the fit (the model frame, the model matrix, the response, the QR decomposition) are returned.</p>
-<p>singular.ok<br>logical. If FALSE (the default in S but not in R) a singular fit is an error.</p>
-<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
-<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector or matrix of extents matching those of the response. One or more offset terms can be included in the formula instead or as well, and if more than one are specified their sum is used. See model.offset.</p>
-<p>…<br>additional arguments to be passed to the low level regression fitting functions (see below).</p>
-<ul>
-<li>summary(regressor)</li>
-</ul>
-<p>Call:<br>lm(formula = Salary ~ YearsExperience, data = training_set)</p>
-<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-7325.1 -3814.4   427.7  3559.7  8884.6 </p>
-<p>Coefficients:<br>                Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)        25592       2646   9.672 1.49e-08 <em>*</em></p>
-<h2 id="YearsExperience-9365-421-22-245-1-52e-14"><a href="#YearsExperience-9365-421-22-245-1-52e-14" class="headerlink" title="YearsExperience     9365        421  22.245 1.52e-14 *"></a>YearsExperience     9365        421  22.245 1.52e-14 <em>*</em></h2><ul>
-<li><em>代表变量对模型的显著性（重要性）P值越小显著性越（强当p值小于0.05时显著性就很大了）R-squared:  0.9649（越接近1说明拟合效果越好）<br>Signif. codes:  0 ‘**</em>’ 0.001 ‘<em>*’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1</li>
-</ul>
-<p>Residual standard error: 5391 on 18 degrees of freedom<br>Multiple R-squared:  0.9649,    Adjusted R-squared:  0.963<br>F-statistic: 494.8 on 1 and 18 DF,  p-value: 1.524e-14</p>
-<ul>
-<li>command+enter<br>y_pred = predict(regressor, newdata = test_set)<blockquote>
-<p>y_pred</p>
-<pre><code>  2         4         5         8        11        16        20        21        24 
-</code></pre><p>37766.77  44322.33  46195.35  55560.43  62115.99  71481.07  81782.66  89274.72 102385.84 </p>
-<pre><code> 26 
-</code></pre><p>109877.90 </p>
-</blockquote>
-</li>
+<li>简单=多元<br>简单回归~多元回归向量的内积形式<br><img src="/images/A-Z_ML/09.png" alt></li>
+<li>条件<br>1.数据是否是线性的<br>2.数据要有同样的方差<br>3,数据要呈现多元正态分布<br>4,我们的误差在不同的维度之间都必须是独立的<br>5,没有一个自变量是其他自变量的线性关系（因为只要两个自变量有逻辑关系那么整个预测就会被这种逻辑关系干扰）<br><img src="/images/A-Z_ML/10.png" alt></li>
+<li>Dummy Data的处理</li>
+<li>重点，在这里的【0，1】可以是任意的两个数，因为y=b_0+b_1*x这两个数只代表固定的两个数而已，两个维度中的变量，只是进行了整体的缩放。<br><img src="/images/A-Z_ML/11.png" alt><br><img src="/images/A-Z_ML/12.png" alt></li>
+<li>虚拟变量陷阱=同时使用两个虚拟变量（会出现*条件5中的多重共线性）</li>
+<li>如果加上D_5拟合后会出现误差极度接近为零=过拟合，冯诺依曼说过：“给我4个参数我可以拟合出一头大象，再给我一个参数我可以让这头大象鼻子竖在地上跳舞”</li>
+<li>遇到2个以上的分类形式的虚拟变量的时候我们始终n-1，使得我们的维度不会溢出<br><img src="/images/A-Z_ML/13.png" alt><br><img src="/images/A-Z_ML/14.png" alt></li>
+<li>对自变量的筛选极为重要，1，喂进去的如果是垃圾那么出来的也是垃圾，2，不容易解释自变量各自的意义和对模型的贡献最大<br><img src="/images/A-Z_ML/15.png" alt></li>
+<li>刷选方法：<br>1，每个自变量都有用一个也不能舍去<br><img src="/images/A-Z_ML/16.png" alt><br>2，看每个自变量的显著性（反向淘汰）</li>
+<li>门槛SL=0.05，对所有的自变量都做拟合求出P值（y=kx+b），取最高P值高于SL则去除（SL越小显著性越高）<br><img src="/images/A-Z_ML/17.png" alt><br>3，（顺向选择）和（反向淘汰）一样<br><img src="/images/A-Z_ML/18.png" alt><br>4，（双向淘汰）<br><img src="/images/A-Z_ML/19.png" alt><br>5，（信息量比较）最大信息熵</li>
+<li>赤池信息量准则（一种信息打分的方式）对所有可能的模型进行打分，不适用过多自变量<br><img src="/images/A-Z_ML/20.png" alt></li>
 </ul>
 
       
@@ -166,21 +143,127 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/">Simple Linear Regression of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/11/NLP-Word-analysis/">NLP Word analysis</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:04.000Z" itemprop="datePublished">September 11th</time></a>
+  <a href="/2019/07/11/NLP-Word-analysis/" class="archive-article-date"><time datetime="2019-07-11T11:14:30.000Z" itemprop="datePublished">July 11th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
-<script src="https://gist.github.com/SauronLee/bf7e3f954b445edc107ef4271b13642b.js"></script>
+        <h1 id="词法分析任务："><a href="#词法分析任务：" class="headerlink" title="词法分析任务："></a>词法分析任务：</h1><ul>
+<li>将句子转换成词序列并标记句子中的词的词性</li>
+<li>英文：用词的形态来表示语法变化的关系</li>
+</ul>
+<ul>
+<li>英文的词法分析（曲折语）<br><img src="/images/NLP/word_analysis_02.png" alt></li>
+<li>英文词识别，词形还原</li>
+<li><p>未登陆词的处理</p>
+</li>
+<li><p>英文词性标注<br><img src="/images/NLP/word_analysis_01.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>孤立语（汉语）</p>
+</li>
+<li><p>主要特点：1，缺乏词形变化；2，词序严格；3，虚词十分重要；4复合词多，派生词少 —语言学纲要</p>
+</li>
+</ul>
+<h1 id="英语词法分析任务："><a href="#英语词法分析任务：" class="headerlink" title="英语词法分析任务："></a>英语词法分析任务：</h1><ul>
+<li>单词识别（Tokenization）</li>
+<li>词形还原（Lemmatization)</li>
+<li><p>词性标注 POS(Part-of-Speech)Tagging</p>
+</li>
+<li><p>英语特点：词之间一般有边界标记，词的形态变化丰富<br><img src="/images/NLP/word_analysis_03.png" alt><br><img src="/images/NLP/word_analysis_04.png" alt><br><img src="/images/NLP/word_analysis_05.png" alt><br><img src="/images/NLP/word_analysis_06.png" alt><br><img src="/images/NLP/word_analysis_07.png" alt></p>
+</li>
+</ul>
+<h1 id="中文词法分析任务："><a href="#中文词法分析任务：" class="headerlink" title="中文词法分析任务："></a>中文词法分析任务：</h1><ul>
+<li>原始句子：警察正在详细调查事故原因</li>
+<li>分词结果：警察/正在/详细/调查/事故/原因 （自动分词阶段）</li>
+<li>词性标注结果：警察/NN 正在/AD 详细/AD 调查/VV 事故/NN 原因/NN</li>
+</ul>
+<p><img src="/images/NLP/word_analysis_08.png" alt><br><img src="/images/NLP/word_analysis_09.png" alt><br><img src="/images/NLP/word_analysis_10.png" alt><br><img src="/images/NLP/word_analysis_11.png" alt><br><img src="/images/NLP/word_analysis_12.png" alt></p>
+<ul>
+<li>分词方法：1，事先人工建立好分词规律比如量词前应该有数词（大量人工）2.自动分词算法（正向最大匹配+逆向最大匹配=双向最大匹配）3利用同现频率作为分词依据</li>
+</ul>
+<h1 id="英文使用NLTK"><a href="#英文使用NLTK" class="headerlink" title="英文使用NLTK"></a>英文使用NLTK</h1><script src="https://gist.github.com/SauronLee/315ce54c6032c09693284b9a04419b84.js"></script>
 
-<p><img src="/images/A-Z_ML/04.png" alt><br><img src="/images/A-Z_ML/05.png" alt></p>
+<h2 id="下载nltk"><a href="#下载nltk" class="headerlink" title="下载nltk"></a>下载nltk</h2><pre><code>conda activate tfpy36
+ipython
+import nltk
+nltk.download()
+</code></pre><h1 id="中文使用jieba"><a href="#中文使用jieba" class="headerlink" title="中文使用jieba"></a>中文使用jieba</h1><ul>
+<li><a href="https://gitbub.com/fxsiy/jieba" target="_blank" rel="noopener">https://gitbub.com/fxsiy/jieba</a></li>
+</ul>
+<p><img src="/images/NLP/word_analysis_13.png" alt="issue"></p>
+<p><a href="https://gist.github.com/SauronLee/8ad99cd9c995dd5ef5d83b7dfc0c1d17" target="_blank" rel="noopener">https://gist.github.com/SauronLee/8ad99cd9c995dd5ef5d83b7dfc0c1d17</a></p>
+<h1 id="TFIDF"><a href="#TFIDF" class="headerlink" title="TFIDF"></a>TFIDF</h1><p><img src="/images/NLP/word_analysis_14.png" alt="issue"></p>
+<h1 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h1><p><img src="/images/NLP/word_analysis_15.png" alt="issue"></p>
+<h1 id="TextRank"><a href="#TextRank" class="headerlink" title="TextRank"></a>TextRank</h1><ul>
+<li>将文本进行分词，去除停用词或词性刷选等操作之后，设定窗口为K，进行滑动，在窗口中共同出现的词之间即可建立起为无向边。<br><img src="/images/NLP/word_analysis_16.png" alt="issue"></li>
+<li>TextRank提取关键词步骤</li>
+<li>把给定的文本T按照完整的句子进行分割；</li>
+<li>对于每个句子，进行分词和词性的标注处理，过滤掉停用词，只保留指定词性的单词，如名词，动词，形容词等，这些词形形成候选词</li>
+<li>构建候选词关键词的词图G =（V，E)，其中V为节点集，由（2）生成候选词组，然后采用共现关系（cooccurrence）构造两点之间的边，两个节点之间存在的边仅当它们对应的词汇在长度为KDE窗口中共现；</li>
+<li>根据PageRank原理中的衡量重要性公式，初始化各个节点的权重，然后迭代计算各个节点的权重，直到收敛；</li>
+<li>对节点的权重进行倒序排列，从而得到最重要的个单词，作为关键词；</li>
+<li>由（5）得到的最重要的T个单词，在原始文中进行标记，若形成相邻词组，则组合成多词关键词</li>
+</ul>
+<h1 id="使用Pkuseg进行中文分词-专业类别细分"><a href="#使用Pkuseg进行中文分词-专业类别细分" class="headerlink" title="使用Pkuseg进行中文分词(专业类别细分)"></a>使用Pkuseg进行中文分词(专业类别细分)</h1><p><img src="/images/NLP/word_analysis_17.png" alt="issue"></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/11/NLP-Corpus/">NLP_Corpus</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/07/11/NLP-Corpus/" class="archive-article-date"><time datetime="2019-07-11T10:42:21.000Z" itemprop="datePublished">July 11th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/NLP/corpus_01.png" alt></p>
+<h1 id="北京大学计算语言所语料库标记"><a href="#北京大学计算语言所语料库标记" class="headerlink" title="北京大学计算语言所语料库标记"></a>北京大学计算语言所语料库标记</h1><ul>
+<li><a href="http://opendata.pku.edu.cn/dataverse/icl" target="_blank" rel="noopener">http://opendata.pku.edu.cn/dataverse/icl</a></li>
+</ul>
+<p><img src="/images/NLP/corpus_02.png" alt></p>
+<h1 id="London-Lund英语口语语料库："><a href="#London-Lund英语口语语料库：" class="headerlink" title="London-Lund英语口语语料库："></a>London-Lund英语口语语料库：</h1><ul>
+<li><a href="http://www.helsinki.fi/varieng/CoRD/corpora/LLC/" target="_blank" rel="noopener">http://www.helsinki.fi/varieng/CoRD/corpora/LLC/</a></li>
+</ul>
+<p><img src="/images/NLP/corpus_03.png" alt></p>
+<h1 id="Tencent中文语料库-19年刚刚开源的"><a href="#Tencent中文语料库-19年刚刚开源的" class="headerlink" title="Tencent中文语料库-19年刚刚开源的"></a>Tencent中文语料库-19年刚刚开源的</h1><ul>
+<li><a href="https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz" target="_blank" rel="noopener">https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz</a><br><img src="/images/NLP/corpus_04.png" alt></li>
+</ul>
+<h1 id="语料库的类型"><a href="#语料库的类型" class="headerlink" title="语料库的类型"></a>语料库的类型</h1><ul>
+<li>异质性（heterogeneous）：简单无选材</li>
+<li>同质性（homogeneous）：如TIPSTER只收集军事方面语料</li>
+<li>系统性（systematic）：定好收据预料的规则，平衡性和系统性</li>
+<li>专用性（specialized）：如北美人文科学语料库</li>
+<li>单语语料库</li>
+<li>双语多多语对齐语料库：平行语料库：篇章对齐；句子对齐、结构对齐<br><img src="/images/NLP/corpus_05.png" alt></li>
+<li>生语语料库：未经加工</li>
+<li>熟语语料库：带有切分，标注（词性标注，句法结构信息标注（树库）语义信息标注</li>
+<li>共时语料库：一个时间段，横截面</li>
+<li>历时语料库：与共时相对，纵剖面<br><img src="/images/NLP/corpus_06.png" alt><!-- ![issue](/images/NLP/corpus_07.png) -->
+</li>
+</ul>
 
       
     </div>
@@ -195,7 +278,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/13/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/12/">12</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/13/">13</a></li><li class="active"><span class="page-number">14</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/15/">15</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/16/">16</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/27/">27</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/15/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/13/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/12/">12</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/13/">13</a></li><li class="active"><span class="page-number">14</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/15/">15</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/16/">16</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/18/">18</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/15/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

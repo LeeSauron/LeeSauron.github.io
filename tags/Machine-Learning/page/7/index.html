@@ -102,45 +102,26 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/Random-Forest-of-R-by-A-Z/">Random Forest of R by A-Z</a>
+      <a class="archive-article-title" href="/2019/09/13/Kernel-SVM-by-A-Z/">Kernel SVM by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/Random-Forest-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T09:03:14.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/09/13/Kernel-SVM-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T04:12:47.000Z" itemprop="datePublished">September 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/100.png" alt></p>
-<script src="https://gist.github.com/SauronLee/d3c2238ba1ea263551f096d64a5e594e.js"></script>
-
-<hr>
-<pre><code>
-&gt; # Predicting the Test set results
-&gt; y_pred = predict(classifier, newdata = test_set[-3])
-&gt; y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   0   0   1   0   0   1 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   1   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   0   1   1   0   0   1   0   0   1   1   1   1   1   1 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   0   0   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   0   0   1   0   1   0 
-389 392 395 400 
-  1   1   0   1 
-Levels: 0 1
-
-&gt; # Making the Confusion Matrix
-&gt; cm = table(test_set[, 3], y_pred)
-&gt; cm
-   y_pred
-     0  1
-  0 59  5
-  1  9 27
-</code></pre><p><img src="/images/A-Z_ML/95.png" alt></p>
+        <p><img src="/images/A-Z_ML/48.png" alt><br><img src="/images/A-Z_ML/49.png" alt><br><img src="/images/A-Z_ML/50.png" alt><br><img src="/images/A-Z_ML/51.png" alt><br><img src="/images/A-Z_ML/52.png" alt><br>引用核函数加快SVM</p>
+<ul>
+<li>高斯径向基和函数The Kernel Trick（RBF）</li>
+<li>|x-l|值越大那么y越接近1，值越小越接近0，这其实跟sigmoud函数一个意思只不过这个是3维的<br><img src="/images/A-Z_ML/53.png" alt><br><img src="/images/A-Z_ML/54.png" alt><br><img src="/images/A-Z_ML/55.png" alt><br><img src="/images/A-Z_ML/56.png" alt><br><img src="/images/A-Z_ML/57.png" alt><br><img src="/images/A-Z_ML/58.png" alt></li>
+<li>Types of Kernel Functions<br><img src="/images/A-Z_ML/59.png" alt></li>
+<li>S函数=双曲正切的平移和缩放</li>
+<li>所有的核函数的详细教程网站：<br><a href="http://crsouza.com/2010/03/17/kernel-functions-for-machine-learning-applications/" target="_blank" rel="noopener">http://crsouza.com/2010/03/17/kernel-functions-for-machine-learning-applications/</a></li>
+<li>展示多项式核函数视频<br><a href="https://www.youtube.com/watch?time_continue=1&amp;v=3liCbRZPrZA" target="_blank" rel="noopener">https://www.youtube.com/watch?time_continue=1&amp;v=3liCbRZPrZA</a></li>
+</ul>
 
       
     </div>
@@ -156,89 +137,107 @@ Levels: 0 1
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/Random-Forest-of-Python-by-A-Z/">Random Forest of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/09/13/SVM-of-R-by-A-Z/">SVM of R by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/Random-Forest-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T08:39:44.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/09/13/SVM-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T03:40:28.000Z" itemprop="datePublished">September 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/94.png" alt="issue"></p>
+        <p><img src="/images/A-Z_ML/45.png" alt><br><img src="/images/A-Z_ML/46.png" alt></p>
+<script src="https://gist.github.com/SauronLee/1de42bb638ce5fe37ed8d91c1eab179d.js"></script>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/13/SVM-of-Python-by-A-Z/">SVM of Python by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/13/SVM-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T03:25:02.000Z" itemprop="datePublished">September 13th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/45.png" alt></p>
+<script src="https://gist.github.com/SauronLee/162cbafc90b6797040b501cfb90f4cb7.js"></script>
+
+<hr>
 <pre><code>
-# Random Forest Classification
-
-# Importing the libraries
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-
-# Importing the dataset
-dataset = pd.read_csv(&#39;Social_Network_Ads.csv&#39;)
-X = dataset.iloc[:, [2, 3]].values
-y = dataset.iloc[:, 4].values
-
-# Splitting the dataset into the Training set and Test set
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
-
-# Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
-
-# Fitting Random Forest to the Training set
-from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(n_estimators = 10, criterion = &#39;entropy&#39;, random_state = 0 )
-classifier.fit(X_train, y_train)
-
-# Predicting the Test set results
-y_pred = classifier.predict(X_test)
-
-# Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)
-
-# Visualising the Training set results
-from matplotlib.colors import ListedColormap
-X_set, y_set = X_train, y_train
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
-             alpha = 0.75, cmap = ListedColormap((&#39;red&#39;, &#39;green&#39;)))
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
-                c = ListedColormap((&#39;orange&#39;, &#39;blue&#39;))(i), label = j, s=15)
-plt.title(&#39;Random Forest (Training set)&#39;)
-plt.xlabel(&#39;Age&#39;)
-plt.ylabel(&#39;Estimated Salary&#39;)
-plt.legend()
-plt.show()
-
-# Visualising the Test set results
-from matplotlib.colors import ListedColormap
-X_set, y_set = X_test, y_test
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
-             alpha = 0.75, cmap = ListedColormap((&#39;red&#39;, &#39;green&#39;)))
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
-                c = ListedColormap((&#39;orange&#39;, &#39;blue&#39;))(i), label = j, s=15)
-plt.title(&#39;Random Forest (Test set)&#39;)
-plt.xlabel(&#39;Age&#39;)
-plt.ylabel(&#39;Estimated Salary&#39;)
-plt.legend()
-plt.show()
-</code></pre><p><img src="/images/A-Z_ML/95.png" alt="issue"><br><img src="/images/A-Z_ML/96.png" alt="issue"></p>
+&gt; y_pred = predict(classifier, newdata = test_set[-3])
+&gt; y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   0   1   1   1   0   1   0   1   1 
+389 392 395 400 
+  0   0   0   0 
+Levels: 0 1
+&gt; # Making the Confusion Matrix
+&gt; cm = table(test_set[, 3], y_pred)
+&gt; cm
+   y_pred
+     0  1
+  0 57  7
+  1 13 23
+</code></pre><hr>
+<p><img src="/images/A-Z_ML/47.png" alt></p>
+<hr>
+<p>svm {e1071}    R Documentation<br>Support Vector Machines<br>Description<br>svm is used to train a support vector machine. It can be used to carry out general regression and classification (of nu and epsilon-type), as well as density-estimation. A formula interface is provided.</p>
+<p>Usage</p>
+<h2 id="S3-method-for-class-‘formula’"><a href="#S3-method-for-class-‘formula’" class="headerlink" title="S3 method for class ‘formula’"></a>S3 method for class ‘formula’</h2><p>svm(formula, data = NULL, …, subset, na.action =<br>na.omit, scale = TRUE)</p>
+<h2 id="Default-S3-method"><a href="#Default-S3-method" class="headerlink" title="Default S3 method:"></a>Default S3 method:</h2><p>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =<br>“radial”, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x),<br>coef0 = 0, cost = 1, nu = 0.5,<br>class.weights = NULL, cachesize = 40, tolerance = 0.001, epsilon = 0.1,<br>shrinking = TRUE, cross = 0, probability = FALSE, fitted = TRUE,<br>…, subset, na.action = na.omit)<br>Arguments<br>formula<br>a symbolic description of the model to be fit.</p>
+<p>data<br>an optional data frame containing the variables in the model. By default the variables are taken from the environment which ‘svm’ is called from.</p>
+<p>x<br>a data matrix, a vector, or a sparse matrix (object of class Matrix provided by the Matrix package, or of class matrix.csr provided by the SparseM package, or of class simple_triplet_matrix provided by the slam package).</p>
+<p>y<br>a response vector with one label for each row/component of x. Can be either a factor (for classification tasks) or a numeric vector (for regression).</p>
+<p>scale<br>A logical vector indicating the variables to be scaled. If scale is of length 1, the value is recycled as many times as needed. Per default, data are scaled internally (both x and y variables) to zero mean and unit variance. The center and scale values are returned and used for later predictions.</p>
+<p>type<br>svm can be used as a classification machine, as a regression machine, or for novelty detection. Depending of whether y is a factor or not, the default setting for type is C-classification or eps-regression, respectively, but may be overwritten by setting an explicit value.<br>Valid options are:</p>
+<p>C-classification</p>
+<p>nu-classification</p>
+<p>one-classification (for novelty detection)</p>
+<p>eps-regression</p>
+<p>nu-regression</p>
+<p>kernel<br>the kernel used in training and predicting. You might consider changing some of the following parameters, depending on the kernel type.<br>linear:<br>u’*v</p>
+<p>polynomial:<br>(gamma<em>u’</em>v + coef0)^degree</p>
+<p>radial basis:<br>exp(-gamma*|u-v|^2)</p>
+<p>sigmoid:<br>tanh(gamma<em>u’</em>v + coef0)</p>
+<p>degree<br>parameter needed for kernel of type polynomial (default: 3)</p>
+<p>gamma<br>parameter needed for all kernels except linear (default: 1/(data dimension))</p>
+<p>coef0<br>parameter needed for kernels of type polynomial and sigmoid (default: 0)</p>
+<p>cost<br>cost of constraints violation (default: 1)—it is the ‘C’-constant of the regularization term in the Lagrange formulation.</p>
+<p>nu<br>parameter needed for nu-classification, nu-regression, and one-classification</p>
+<p>class.weights<br>a named vector of weights for the different classes, used for asymmetric class sizes. Not all factor levels have to be supplied (default weight: 1). All components have to be named. Specifying “inverse” will choose the weights inversely proportional to the class distribution.</p>
+<p>cachesize<br>cache memory in MB (default 40)</p>
+<p>tolerance<br>tolerance of termination criterion (default: 0.001)</p>
+<p>epsilon<br>epsilon in the insensitive-loss function (default: 0.1)</p>
+<p>shrinking<br>option whether to use the shrinking-heuristics (default: TRUE)</p>
+<p>cross<br>if a integer value k&gt;0 is specified, a k-fold cross validation on the training data is performed to assess the quality of the model: the accuracy rate for classification and the Mean Squared Error for regression</p>
+<p>fitted<br>logical indicating whether the fitted values should be computed and included in the model or not (default: TRUE)</p>
+<p>probability<br>logical indicating whether the model should allow for probability predictions.</p>
+<p>…<br>additional parameters for the low level fitting function svm.default</p>
+<p>subset<br>An index vector specifying the cases to be used in the training sample. (NOTE: If given, this argument must be named.)</p>
+<p>na.action<br>A function to specify the action to be taken if NAs are found. The default action is na.omit, which leads to rejection of cases with missing values on any required variable. An alternative is na.fail, which causes an error if NA cases are found. (NOTE: If given, this argument must be named.)</p>
+<hr>
 
       
     </div>
@@ -253,7 +252,7 @@ plt.show()
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/6/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/5/">5</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/6/">6</a></li><li class="active"><span class="page-number">7</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/8/">8</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/9/">9</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/27/">27</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/8/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/6/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/5/">5</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/6/">6</a></li><li class="active"><span class="page-number">7</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/8/">8</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/9/">9</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/18/">18</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/8/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

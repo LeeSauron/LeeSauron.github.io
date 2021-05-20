@@ -102,80 +102,177 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/SVM-of-Python-by-A-Z/">SVM of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/SVM-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T03:25:02.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">August 14th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/45.png" alt></p>
-<script src="https://gist.github.com/SauronLee/162cbafc90b6797040b501cfb90f4cb7.js"></script>
+        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
+<!-- ![issue](/images/A-Z_ML/244.png) -->
+<ul>
+<li>数据是商场的用户的消费详情</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
+
+<hr>
+<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
+<!-- ![issue](/images/A-Z_ML/245.png) -->
+<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
+<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">August 14th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/242.png" alt></p>
+<ul>
+<li>数据是商场的用户的消费详情</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
 
 <hr>
 <pre><code>
-&gt; y_pred = predict(classifier, newdata = test_set[-3])
-&gt; y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   0   1   1   1   0   1   0   1   1 
-389 392 395 400 
-  0   0   0   0 
-Levels: 0 1
-&gt; # Making the Confusion Matrix
-&gt; cm = table(test_set[, 3], y_pred)
-&gt; cm
-   y_pred
-     0  1
-  0 57  7
-  1 13 23
-</code></pre><hr>
-<p><img src="/images/A-Z_ML/47.png" alt></p>
-<hr>
-<p>svm {e1071}    R Documentation<br>Support Vector Machines<br>Description<br>svm is used to train a support vector machine. It can be used to carry out general regression and classification (of nu and epsilon-type), as well as density-estimation. A formula interface is provided.</p>
-<p>Usage</p>
-<h2 id="S3-method-for-class-‘formula’"><a href="#S3-method-for-class-‘formula’" class="headerlink" title="S3 method for class ‘formula’"></a>S3 method for class ‘formula’</h2><p>svm(formula, data = NULL, …, subset, na.action =<br>na.omit, scale = TRUE)</p>
-<h2 id="Default-S3-method"><a href="#Default-S3-method" class="headerlink" title="Default S3 method:"></a>Default S3 method:</h2><p>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =<br>“radial”, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x),<br>coef0 = 0, cost = 1, nu = 0.5,<br>class.weights = NULL, cachesize = 40, tolerance = 0.001, epsilon = 0.1,<br>shrinking = TRUE, cross = 0, probability = FALSE, fitted = TRUE,<br>…, subset, na.action = na.omit)<br>Arguments<br>formula<br>a symbolic description of the model to be fit.</p>
-<p>data<br>an optional data frame containing the variables in the model. By default the variables are taken from the environment which ‘svm’ is called from.</p>
-<p>x<br>a data matrix, a vector, or a sparse matrix (object of class Matrix provided by the Matrix package, or of class matrix.csr provided by the SparseM package, or of class simple_triplet_matrix provided by the slam package).</p>
-<p>y<br>a response vector with one label for each row/component of x. Can be either a factor (for classification tasks) or a numeric vector (for regression).</p>
-<p>scale<br>A logical vector indicating the variables to be scaled. If scale is of length 1, the value is recycled as many times as needed. Per default, data are scaled internally (both x and y variables) to zero mean and unit variance. The center and scale values are returned and used for later predictions.</p>
-<p>type<br>svm can be used as a classification machine, as a regression machine, or for novelty detection. Depending of whether y is a factor or not, the default setting for type is C-classification or eps-regression, respectively, but may be overwritten by setting an explicit value.<br>Valid options are:</p>
-<p>C-classification</p>
-<p>nu-classification</p>
-<p>one-classification (for novelty detection)</p>
-<p>eps-regression</p>
-<p>nu-regression</p>
-<p>kernel<br>the kernel used in training and predicting. You might consider changing some of the following parameters, depending on the kernel type.<br>linear:<br>u’*v</p>
-<p>polynomial:<br>(gamma<em>u’</em>v + coef0)^degree</p>
-<p>radial basis:<br>exp(-gamma*|u-v|^2)</p>
-<p>sigmoid:<br>tanh(gamma<em>u’</em>v + coef0)</p>
-<p>degree<br>parameter needed for kernel of type polynomial (default: 3)</p>
-<p>gamma<br>parameter needed for all kernels except linear (default: 1/(data dimension))</p>
-<p>coef0<br>parameter needed for kernels of type polynomial and sigmoid (default: 0)</p>
-<p>cost<br>cost of constraints violation (default: 1)—it is the ‘C’-constant of the regularization term in the Lagrange formulation.</p>
-<p>nu<br>parameter needed for nu-classification, nu-regression, and one-classification</p>
-<p>class.weights<br>a named vector of weights for the different classes, used for asymmetric class sizes. Not all factor levels have to be supplied (default weight: 1). All components have to be named. Specifying “inverse” will choose the weights inversely proportional to the class distribution.</p>
-<p>cachesize<br>cache memory in MB (default 40)</p>
-<p>tolerance<br>tolerance of termination criterion (default: 0.001)</p>
-<p>epsilon<br>epsilon in the insensitive-loss function (default: 0.1)</p>
-<p>shrinking<br>option whether to use the shrinking-heuristics (default: TRUE)</p>
-<p>cross<br>if a integer value k&gt;0 is specified, a k-fold cross validation on the training data is performed to assess the quality of the model: the accuracy rate for classification and the Mean Squared Error for regression</p>
-<p>fitted<br>logical indicating whether the fitted values should be computed and included in the model or not (default: TRUE)</p>
-<p>probability<br>logical indicating whether the model should allow for probability predictions.</p>
-<p>…<br>additional parameters for the low level fitting function svm.default</p>
-<p>subset<br>An index vector specifying the cases to be used in the training sample. (NOTE: If given, this argument must be named.)</p>
-<p>na.action<br>A function to specify the action to be taken if NAs are found. The default action is na.omit, which leads to rejection of cases with missing values on any required variable. An alternative is na.fail, which causes an error if NA cases are found. (NOTE: If given, this argument must be named.)</p>
-<hr>
+&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
+&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
+distribution of transactions with duplicates:
+# 重复一次出现在5行当中
+1 
+5 
+&gt; summary(dataset)
+transactions as itemMatrix in sparse format with
+ 7501 rows (elements/itemsets/transactions) and
+ # 稀疏矩阵，1占0.03288973 其他都是0
+ 119 columns (items) and a density of 0.03288973 
+
+most frequent items:
+mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
+         1788          1348          1306          1282          1229         22405 
+
+element (itemset/transaction) length distribution:
+sizes
+# 有1754笔交易只有1个产品
+   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
+1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   3.914   5.000  20.000 
+
+includes extended item information - examples:
+             labels
+1           almonds
+2 antioxydant juice
+3         asparagus
+&gt; itemFrequencyPlot(dataset, topN = 10)
+&gt; # Training Apriori on the dataset
+&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
+Apriori
+
+Parameter specification:
+ confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
+        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
+
+Algorithmic control:
+ filter tree heap memopt load sort verbose
+    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+
+Absolute minimum support count: 30 
+
+set item appearances ...[0 item(s)] done [0.00s].
+set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
+sorting and recoding items ... [114 item(s)] done [0.00s].
+creating transaction tree ... done [0.00s].
+checking subsets of size 1 2 3 4 done [0.16s].
+writing ... [811 rule(s)] done [0.00s].
+creating S4 object  ... done [0.00s].
+&gt; # Visualising the results
+&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
+     lhs                                            rhs             support     confidence
+[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
+[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
+[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
+[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
+[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
+[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
+[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
+[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
+[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
+[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
+     lift     count
+[1]  4.843951 34   
+[2]  4.700812 44   
+[3]  4.506672 38   
+[4]  4.178455 31   
+[5]  4.122410 60   
+[6]  4.004360 48   
+[7]  3.975683 50   
+[8]  3.840659 40   
+[9]  3.790833 43   
+[10] 3.731841 33   
+&gt; 
+&gt;
+</code></pre><ul>
+<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
+</ul>
+<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
+<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
+<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
+<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
+<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
+<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
+<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
+<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
+<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
+<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
+<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
+<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
+<p>Extends<br>Class itemMatrix, directly.</p>
+<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
+<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
+<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
+<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
+<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
+<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
+<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
+<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
+<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
+<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
+<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
+<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
+<p>show<br>signature(object = “transactions”)</p>
+<p>summary<br>signature(object = “transactions”)</p>
+<ul>
+<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
+</ul>
+<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
+<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
+<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
+<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
 
       
     </div>
@@ -191,173 +288,21 @@ Levels: 0 1
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/">Logistic Regression of R by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/13/Naive-Bayes-of-python-by-A-Z/">Naive Bayes of python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T18:18:54.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/08/13/Naive-Bayes-of-python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-13T06:57:44.000Z" itemprop="datePublished">August 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/35.png" alt="issue"><br><img src="/images/A-Z_ML/36.png" alt="issue"><br><img src="/images/A-Z_ML/37.png" alt="issue"><br><img src="/images/A-Z_ML/38.png" alt="issue"></p>
-<ul>
-<li>列<br><img src="/images/A-Z_ML/42.png" alt="issue"></li>
-</ul>
-<pre><code>
-# Logistic Regression
+        <p><img src="/images/A-Z_ML/77.png" alt></p>
+<script src="https://gist.github.com/SauronLee/3b8d2be2ae591a894876efc4ec63acff.js"></script>
 
-# Importing the dataset
-dataset = read.csv(&#39;Social_Network_Ads.csv&#39;)
-dataset = dataset[3:5]
-
-# Splitting the dataset into the Training set and Test set
-# install.packages(&#39;caTools&#39;)
-library(caTools)
-set.seed(123)
-split = sample.split(dataset$Purchased, SplitRatio = 0.75)
-training_set = subset(dataset, split == TRUE)
-test_set = subset(dataset, split == FALSE)
-
-# Feature Scaling
-training_set[, 1:2] = scale(training_set[, 1:2])
-test_set[, 1:2] = scale(test_set[, 1:2])  
-
-# Fitting Logistic Regression to the Training set
-classifier = glm(formula = Purchased ~ .,
-                 family= binomial,
-                 data= training_set)
-
-# Predicting the Test set results
-prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
-y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
-
-# Making the Confusion Matrix
-cm = table(test_set[,3], y_pred)
-
-# Visualising the Training set results
-# install.packages(ElemStatLearn)
-library(ElemStatLearn)
-set = training_set
-X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.0075)
-X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.0075)
-grid_set = expand.grid(X1, X2)
-colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
-prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
-y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
-plot(set[, -3],
-     main = &#39;Classifier (Training set)&#39;,
-     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
-     xlim = range(X1), ylim = range(X2))
-contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
-points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
-points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
-
-# Visualising the Test set results
-# install.packages(ElemStatLearn)
-library(ElemStatLearn)
-set = test_set
-X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
-X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
-grid_set = expand.grid(X1, X2)
-colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
-prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
-y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
-plot(set[, -3],
-     main = &#39;Classifier (Test set)&#39;,
-     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
-     xlim = range(X1), ylim = range(X2))
-contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
-points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
-points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
-</code></pre><hr>
-<pre><code>
-
- prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
- prob_pred
-           2            4            5            9           12           18           19 
-0.0162395375 0.0117148379 0.0037846461 0.0024527456 0.0073339436 0.2061576580 0.2669935073 
-          20           22           29           32           34           35           38 
-0.3851475689 0.5448578778 0.0103005636 0.2994922143 0.0084168787 0.0494471952 0.0171641479 
-          45           46           48           52           66           69           74 
-0.0485051303 0.0008343060 0.0102561619 0.0007055347 0.0058448457 0.0044534947 0.3933468488 
-          75           82           84           85           86           87           89 
-0.0071065671 0.1068589185 0.2580084947 0.0303248927 0.3303649169 0.0051132916 0.0263861849 
-         103          104          107          108          109          117          124 
-0.1310148056 0.7649772313 0.0034367786 0.0473827096 0.0327965105 0.1626049288 0.0675494054 
-         126          127          131          134          139          148          154 
-0.2189658514 0.4142562486 0.0324337750 0.0043457839 0.0163538708 0.1030590600 0.0751093248 
-         156          159          162          163          170          175          176 
-0.0048556976 0.0027487256 0.0306647902 0.0463555716 0.0122981409 0.1169016711 0.0011936610 
-         193          199          200          208          213          224          226 
-0.0103005636 0.0252589417 0.0177353905 0.9870859806 0.9453359968 0.9969454446 0.1064430571 
-         228          229          230          234          236          237          239 
-0.9979393884 0.3705093415 0.5807527959 0.9117762840 0.7817273411 0.2310672929 0.8037996043 
-         241          255          264          265          266          273          274 
-0.9682706714 0.6686007827 0.1451169281 0.9060311409 0.8293112410 0.9568520348 0.6781064291 
-         281          286          292          299          302          305          307 
-0.9926955397 0.4170486388 0.9220096987 0.7363498859 0.8247736816 0.2558136823 0.9932007105 
-         310          316          324          326          332          339          341 
-0.1178058928 0.3442845494 0.3958138650 0.3059412440 0.9725035550 0.1431602303 0.9842795480 
-         343          347          353          363          364          367          368 
-0.2073273008 0.9371909698 0.6843940060 0.5559479117 0.5698028861 0.9440512240 0.8427877409 
-         369          372          373          380          383          389          392 
-0.2549836305 0.9928717092 0.3243409327 0.8519685008 0.9697473704 0.3793408625 0.2718336775 
-         395          400 
-0.2040229226 0.5236436275 
-
-
-y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
-y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   1   1   1   1   0   1   0   1   1 
-389 392 395 400 
-  0   0   0   1 
-
-cm = table(test_set[,3], y_pred)
-#对角线为正确率
-&gt; cm
-   y_pred
-     0  1
-  0 57  7
-  1 10 26
-</code></pre><p><img src="/images/A-Z_ML/43.png" alt="issue"><br><img src="/images/A-Z_ML/44.png" alt="issue"></p>
-<hr>
-<p>glm {stats}    R Documentation<br>Fitting Generalized Linear Models<br>Description<br>glm is used to fit generalized linear models, specified by giving a symbolic description of the linear predictor and a description of the error distribution.</p>
-<p>Usage<br>glm(formula, family = gaussian, data, weights, subset,<br>    na.action, start = NULL, etastart, mustart, offset,<br>    control = list(…), model = TRUE, method = “glm.fit”,<br>    x = FALSE, y = TRUE, singular.ok = TRUE, contrasts = NULL, …)</p>
-<p>glm.fit(x, y, weights = rep(1, nobs),<br>        start = NULL, etastart = NULL, mustart = NULL,<br>        offset = rep(0, nobs), family = gaussian(),<br>        control = list(), intercept = TRUE, singular.ok = TRUE)</p>
-<h1 id="S3-method-for-class-‘glm’"><a href="#S3-method-for-class-‘glm’" class="headerlink" title="S3 method for class ‘glm’"></a>S3 method for class ‘glm’</h1><p>weights(object, type = c(“prior”, “working”), …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
-<p>family<br>a description of the error distribution and link function to be used in the model. For glm this can be a character string naming a family function, a family function or the result of a call to a family function. For glm.fit only the third option is supported. (See family for details of family functions.)</p>
-<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which glm is called.</p>
-<p>weights<br>an optional vector of ‘prior weights’ to be used in the fitting process. Should be NULL or a numeric vector.</p>
-<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
-<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
-<p>start<br>starting values for the parameters in the linear predictor.</p>
-<p>etastart<br>starting values for the linear predictor.</p>
-<p>mustart<br>starting values for the vector of means.</p>
-<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector of length equal to the number of cases. One or more offset terms can be included in the formula instead or as well, and if more than one is specified their sum is used. See model.offset.</p>
-<p>control<br>a list of parameters for controlling the fitting process. For glm.fit this is passed to glm.control.</p>
-<p>model<br>a logical value indicating whether model frame should be included as a component of the returned value.</p>
-<p>method<br>the method to be used in fitting the model. The default method “glm.fit” uses iteratively reweighted least squares (IWLS): the alternative “model.frame” returns the model frame and does no fitting.</p>
-<p>User-supplied fitting functions can be supplied either as a function or a character string naming a function, with a function which takes the same arguments as glm.fit. If specified as a character string it is looked up from within the stats namespace.</p>
-<p>x, y<br>For glm: logical values indicating whether the response vector and model matrix used in the fitting process should be returned as components of the returned value.</p>
-<p>For glm.fit: x is a design matrix of dimension n * p, and y is a vector of observations of length n.</p>
-<p>singular.ok<br>logical; if FALSE a singular fit is an error.</p>
-<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
-<p>intercept<br>logical. Should an intercept be included in the null model?</p>
-<p>object<br>an object inheriting from class “glm”.</p>
-<p>type<br>character, partial matching allowed. Type of weights to extract from the fitted model object. Can be abbreviated.</p>
-<p>…<br>For glm: arguments to be used to form the default control argument if it is not supplied directly.</p>
-<p>For weights: further arguments passed to or from other methods.</p>
-<hr>
+<p><img src="/images/A-Z_ML/78.png" alt><br><img src="/images/A-Z_ML/79.png" alt></p>
 
       
     </div>
@@ -372,7 +317,7 @@ cm = table(test_set[,3], y_pred)
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/10/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/9/">9</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/10/">10</a></li><li class="active"><span class="page-number">11</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/12/">12</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/13/">13</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/27/">27</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/12/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/10/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/9/">9</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/10/">10</a></li><li class="active"><span class="page-number">11</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/12/">12</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/13/">13</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/18/">18</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/12/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-Naive-Bayes-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Simple-Linear-Regression-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Naive-Bayes-of-R-by-A-Z/">Naive Bayes of R by A-Z</a>
+      <a class="article-title" href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/">Simple Linear Regression of R  by A-Z</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/13/Naive-Bayes-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-13T06:57:52.000Z" itemprop="datePublished">2019-09-13</time></a>
+  <a href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-11T04:45:29.000Z" itemprop="datePublished">2019-09-11</time></a>
 </div>
 
     
@@ -112,26 +112,44 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/64.png" alt></p>
-<script src="https://gist.github.com/SauronLee/15ceccb3322d21549d4685ec1b9bd58a.js"></script>
+        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
+<script src="https://gist.github.com/SauronLee/ea489f7e3335cbc820bf593f7de6cd62.js"></script>
 
-<hr>
-<pre><code>
-&gt; # Predicting the Test set results
-&gt; y_pred = predict(classifier, newdata = test_set[-3])
-&gt; # Making the Confusion Matrix
-&gt; cm = table(test_set[, 3], y_pred)
-&gt; y_pred
-  [1] 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
- [48] 0 0 0 0 0 1 1 1 0 1 0 0 1 1 0 1 1 1 0 1 1 1 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 1 1 0 0 1 1 0 1 0
- [95] 1 1 1 1 0 1
-Levels: 0 1
-&gt; cm
-   y_pred
-     0  1
-  0 57  7
-  1  7 29
-</code></pre><p>  <img src="/images/A-Z_ML/80.png" alt></p>
+<p><img src="/images/A-Z_ML/06.png" alt></p>
+<ul>
+<li>lm {stats}    R Documentation<br>Fitting Linear Models<br>Description<br>lm is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).</li>
+</ul>
+<p>Usage<br>lm(formula, data, subset, weights, na.action,<br>   method = “qr”, model = TRUE, x = FALSE, y = FALSE, qr = TRUE,<br>   singular.ok = TRUE, contrasts = NULL, offset, …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
+<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.</p>
+<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
+<p>weights<br>an optional vector of weights to be used in the fitting process. Should be NULL or a numeric vector. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used. See also ‘Details’,</p>
+<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
+<p>method<br>the method to be used; for fitting, currently only method = “qr” is supported; method = “model.frame” returns the model frame (the same as with model = TRUE, see below).</p>
+<p>model, x, y, qr<br>logicals. If TRUE the corresponding components of the fit (the model frame, the model matrix, the response, the QR decomposition) are returned.</p>
+<p>singular.ok<br>logical. If FALSE (the default in S but not in R) a singular fit is an error.</p>
+<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
+<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector or matrix of extents matching those of the response. One or more offset terms can be included in the formula instead or as well, and if more than one are specified their sum is used. See model.offset.</p>
+<p>…<br>additional arguments to be passed to the low level regression fitting functions (see below).</p>
+<ul>
+<li>summary(regressor)</li>
+</ul>
+<p>Call:<br>lm(formula = Salary ~ YearsExperience, data = training_set)</p>
+<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-7325.1 -3814.4   427.7  3559.7  8884.6 </p>
+<p>Coefficients:<br>                Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)        25592       2646   9.672 1.49e-08 <em>*</em></p>
+<h2 id="YearsExperience-9365-421-22-245-1-52e-14"><a href="#YearsExperience-9365-421-22-245-1-52e-14" class="headerlink" title="YearsExperience     9365        421  22.245 1.52e-14 *"></a>YearsExperience     9365        421  22.245 1.52e-14 <em>*</em></h2><ul>
+<li><em>代表变量对模型的显著性（重要性）P值越小显著性越（强当p值小于0.05时显著性就很大了）R-squared:  0.9649（越接近1说明拟合效果越好）<br>Signif. codes:  0 ‘**</em>’ 0.001 ‘<em>*’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1</li>
+</ul>
+<p>Residual standard error: 5391 on 18 degrees of freedom<br>Multiple R-squared:  0.9649,    Adjusted R-squared:  0.963<br>F-statistic: 494.8 on 1 and 18 DF,  p-value: 1.524e-14</p>
+<ul>
+<li>command+enter<br>y_pred = predict(regressor, newdata = test_set)<blockquote>
+<p>y_pred</p>
+<pre><code>  2         4         5         8        11        16        20        21        24 
+</code></pre><p>37766.77  44322.33  46195.35  55560.43  62115.99  71481.07  81782.66  89274.72 102385.84 </p>
+<pre><code> 26 
+</code></pre><p>109877.90 </p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
@@ -142,7 +160,7 @@ Levels: 0 1
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/Naive-Bayes-of-R-by-A-Z/" data-id="ckowhcx8f004b80ybimisomjz" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/" data-id="ckowhp01f005eluyb2uhzwi7h" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -158,13 +176,13 @@ Levels: 0 1
 
 
   
-    <article id="post-Kernel-SVM-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Simple-Linear-Regression-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Kernel-SVM-of-R-by-A-Z/">Kernel SVM of R by A-Z</a>
+      <a class="article-title" href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/">Simple Linear Regression of Python by A-Z</a>
     </h1>
   
 
@@ -173,7 +191,7 @@ Levels: 0 1
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/13/Kernel-SVM-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-13T04:59:07.000Z" itemprop="datePublished">2019-09-13</time></a>
+  <a href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-11T04:45:04.000Z" itemprop="datePublished">2019-09-11</time></a>
 </div>
 
     
@@ -184,33 +202,10 @@ Levels: 0 1
 
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="https://gist.github.com/SauronLee/4ff846b18fd678e81c4f426e1fde6d38.js"></script>
+        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
+<script src="https://gist.github.com/SauronLee/bf7e3f954b445edc107ef4271b13642b.js"></script>
 
-<hr>
-<pre><code>
-&gt; # Predicting the Test set results
-&gt; y_pred = predict(classifier, newdata = test_set[-3])
-&gt; y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   1   1   1   0   0   1   0   0   0   0   0   0   0   0   0   1   0   0   0 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   1   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   1   0   1   1   1   1   1   1 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   0   1   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1 
-389 392 395 400 
-  1   1   0   1 
-Levels: 0 1
-
-&gt; # Making the Confusion Matrix
-&gt; cm = table(test_set[, 3], y_pred)
-&gt; cm
-   y_pred
-     0  1
-  0 58  6
-  1  4 32
-</code></pre><p><img src="/images/A-Z_ML/63.png" alt></p>
+<p><img src="/images/A-Z_ML/04.png" alt><br><img src="/images/A-Z_ML/05.png" alt></p>
 
       
     </div>
@@ -221,12 +216,65 @@ Levels: 0 1
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/Kernel-SVM-of-R-by-A-Z/" data-id="ckowhcx7g002i80ybgj1efsz2" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/" data-id="ckowhp025006rluyb14cwvoze" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Get-data-set-by-Machine-Learning-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/10/Get-data-set-by-Machine-Learning-A-Z/">Get data set by Machine Learning A-Z</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/09/10/Get-data-set-by-Machine-Learning-A-Z/" class="article-date"><time datetime="2019-09-10T10:55:18.000Z" itemprop="datePublished">2019-09-10</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.superdatascience.com/pages/%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86" target="_blank" rel="noopener">https://www.superdatascience.com/pages/%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86</a></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/09/10/Get-data-set-by-Machine-Learning-A-Z/" data-id="ckowhozzd001tluybz65gywqh" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
 
 
     </footer>
@@ -240,7 +288,7 @@ Levels: 0 1
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/11/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/10/">10</a></li><li><a class="page-number" href="/page/11/">11</a></li><li class="active"><span class="page-number">12</span></li><li><a class="page-number" href="/page/13/">13</a></li><li><a class="page-number" href="/page/14/">14</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/13/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/11/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/10/">10</a></li><li><a class="page-number" href="/page/11/">11</a></li><li class="active"><span class="page-number">12</span></li><li><a class="page-number" href="/page/13/">13</a></li><li><a class="page-number" href="/page/14/">14</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/31/">31</a></li><li><a class="page-next" rel="next" href="/page/13/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

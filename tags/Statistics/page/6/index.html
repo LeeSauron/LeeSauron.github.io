@@ -93,7 +93,7 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+          <a href="/archives/2019" class="archive-year">2019</a>
         </div>
         <div class="archives">
     
@@ -102,21 +102,124 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/Linear-Regression-Project/">Linear Regression Project</a>
+      <a class="archive-article-title" href="/2019/09/13/CART-by-A-Z/">CART by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2017/12/13/Linear-Regression-Project/" class="archive-article-date"><time datetime="2017-12-12T17:20:01.000Z" itemprop="datePublished">December 13th</time></a>
+  <a href="/2019/09/13/CART-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T07:33:08.000Z" itemprop="datePublished">September 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/SauronLee/Udacity_ML_P3/blob/master/linear_regression_P3/linear_regression_project-2-3.ipynb">Linear Regression Project Adress</a></p>
-<!-- <script src="https://gist.github.com/SauronLee/87b33007784de2850480249697949306.js"></script>
+        <p><img src="/images/A-Z_ML/81.png" alt><br><img src="/images/A-Z_ML/82.png" alt><br><img src="/images/A-Z_ML/83.png" alt></p>
+<ul>
+<li>最小化一个优化后的基尼不纯度（就是分割后的一边只有只有一种颜色的纯度）</li>
+<li>当添加了一条分割线后我们能够把这两边的纯度相加最小化，其实每一条分割线的寻找都是优化的问题，这里可以用基尼不纯度来判别纯度也可以用信息熵</li>
+<li>Decision Tree Classifier虽然已经淘汰但是他有拓展</li>
+</ul>
+<p><img src="/images/A-Z_ML/87.png" alt></p>
 
-<script src="https://gist.github.com/SauronLee/98d5d077feba14ba914c7c92742cdaec.js"></script> -->
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/13/Naive-Bayes-of-R-by-A-Z/">Naive Bayes of R by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/13/Naive-Bayes-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T06:57:52.000Z" itemprop="datePublished">September 13th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/64.png" alt></p>
+<script src="https://gist.github.com/SauronLee/15ceccb3322d21549d4685ec1b9bd58a.js"></script>
+
+<hr>
+<pre><code>
+&gt; # Predicting the Test set results
+&gt; y_pred = predict(classifier, newdata = test_set[-3])
+&gt; # Making the Confusion Matrix
+&gt; cm = table(test_set[, 3], y_pred)
+&gt; y_pred
+  [1] 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ [48] 0 0 0 0 0 1 1 1 0 1 0 0 1 1 0 1 1 1 0 1 1 1 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 1 1 0 0 1 1 0 1 0
+ [95] 1 1 1 1 0 1
+Levels: 0 1
+&gt; cm
+   y_pred
+     0  1
+  0 57  7
+  1  7 29
+</code></pre><p>  <img src="/images/A-Z_ML/80.png" alt></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/13/Kernel-SVM-of-R-by-A-Z/">Kernel SVM of R by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/09/13/Kernel-SVM-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T04:59:07.000Z" itemprop="datePublished">September 13th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="https://gist.github.com/SauronLee/4ff846b18fd678e81c4f426e1fde6d38.js"></script>
+
+<hr>
+<pre><code>
+&gt; # Predicting the Test set results
+&gt; y_pred = predict(classifier, newdata = test_set[-3])
+&gt; y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   1   1   1   0   0   1   0   0   0   0   0   0   0   0   0   1   0   0   0 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   1   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   1   0   1   1   1   1   1   1 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   0   1   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1 
+389 392 395 400 
+  1   1   0   1 
+Levels: 0 1
+
+&gt; # Making the Confusion Matrix
+&gt; cm = table(test_set[, 3], y_pred)
+&gt; cm
+   y_pred
+     0  1
+  0 58  6
+  1  4 32
+</code></pre><p><img src="/images/A-Z_ML/63.png" alt></p>
+
       
     </div>
   </header>
@@ -130,7 +233,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/5/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/4/">4</a></li><li><a class="page-number" href="/tags/Statistics/page/5/">5</a></li><li class="active"><span class="page-number">6</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/5/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/4/">4</a></li><li><a class="page-number" href="/tags/Statistics/page/5/">5</a></li><li class="active"><span class="page-number">6</span></li><li><a class="page-number" href="/tags/Statistics/page/7/">7</a></li><li><a class="page-number" href="/tags/Statistics/page/8/">8</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/7/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

@@ -93,7 +93,7 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+          <a href="/archives/2018" class="archive-year">2018</a>
         </div>
         <div class="archives">
     
@@ -102,140 +102,65 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
+      <a class="archive-article-title" href="/2018/08/29/Artificial-Neural-Networks-by-A-Z/">Artificial Neural Networks by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">August 14th</time></a>
+  <a href="/2018/08/29/Artificial-Neural-Networks-by-A-Z/" class="archive-article-date"><time datetime="2018-08-28T17:50:18.000Z" itemprop="datePublished">August 29th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/242.png" alt></p>
+        <ul>
+<li>Gradient Descent</li>
+</ul>
+<p><img src="/images/A-Z_ML/275.png" alt="Gradient Descent"><br><img src="/images/A-Z_ML/276.png" alt="Gradient Descent"><br><img src="/images/A-Z_ML/277.png" alt="Gradient Descent"><br><img src="/images/A-Z_ML/278.png" alt="Gradient Descent"></p>
 <ul>
-<li>数据是商场的用户的消费详情</li>
+<li>Stochastic Gradient Descent<br><img src="/images/A-Z_ML/279.png" alt="Stochastic Gradient Descent"></li>
+<li>Stochastic Gradient Descent と　Gradient Descent比べて</li>
+<li>Gradient Descentではデーターまとめてこのモデルに入っていっしょに計算したらウエイトをでること</li>
+<li>Stochastic Gradient Descentではデーターを一つずつモデルにはりたそのウエイトを計算して、次のデーターベクトル入って前回のウエイト次第更新すること（ウエイトは毎回違いですので、なぜいStochasticということ）<br><img src="/images/A-Z_ML/280.png" alt="Stochastic Gradient Descent"><br><img src="/images/A-Z_ML/281.png" alt="13 lines"><br><img src="/images/A-Z_ML/282.png" alt="neural network and deep learning"><br><a href="http://static.latexstudio.net/article/2018/0912/neuralnetworksanddeeplearning.pdf" target="_blank" rel="noopener">http://static.latexstudio.net/article/2018/0912/neuralnetworksanddeeplearning.pdf</a></li>
+<li>Back-propagation<br><img src="/images/A-Z_ML/283.png" alt="propagation"><br><img src="/images/A-Z_ML/284.png" alt="Back-propagation"><br><img src="/images/A-Z_ML/285.png" alt="Back-propagation"></li>
 </ul>
-<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
 
-<hr>
-<pre><code>
-&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
-&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
-distribution of transactions with duplicates:
-# 重复一次出现在5行当中
-1 
-5 
-&gt; summary(dataset)
-transactions as itemMatrix in sparse format with
- 7501 rows (elements/itemsets/transactions) and
- # 稀疏矩阵，1占0.03288973 其他都是0
- 119 columns (items) and a density of 0.03288973 
+      
+    </div>
+  </header>
+</article>
 
-most frequent items:
-mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
-         1788          1348          1306          1282          1229         22405 
 
-element (itemset/transaction) length distribution:
-sizes
-# 有1754笔交易只有1个产品
-   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
-1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
+  
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/17/Boston-Housing-Project/">Boston Housing Project</a>
+    </h1>
+  
 
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   2.000   3.000   3.914   5.000  20.000 
 
-includes extended item information - examples:
-             labels
-1           almonds
-2 antioxydant juice
-3         asparagus
-&gt; itemFrequencyPlot(dataset, topN = 10)
-&gt; # Training Apriori on the dataset
-&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
-Apriori
+    <div class="article-datetime">
+  <a href="/2017/12/17/Boston-Housing-Project/" class="archive-article-date"><time datetime="2017-12-17T03:12:33.000Z" itemprop="datePublished">December 17th</time></a>
+</div>
 
-Parameter specification:
- confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
-        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
-
-Algorithmic control:
- filter tree heap memopt load sort verbose
-    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
-
-Absolute minimum support count: 30 
-
-set item appearances ...[0 item(s)] done [0.00s].
-set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
-sorting and recoding items ... [114 item(s)] done [0.00s].
-creating transaction tree ... done [0.00s].
-checking subsets of size 1 2 3 4 done [0.16s].
-writing ... [811 rule(s)] done [0.00s].
-creating S4 object  ... done [0.00s].
-&gt; # Visualising the results
-&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
-     lhs                                            rhs             support     confidence
-[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
-[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
-[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
-[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
-[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
-[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
-[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
-[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
-[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
-[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
-     lift     count
-[1]  4.843951 34   
-[2]  4.700812 44   
-[3]  4.506672 38   
-[4]  4.178455 31   
-[5]  4.122410 60   
-[6]  4.004360 48   
-[7]  3.975683 50   
-[8]  3.840659 40   
-[9]  3.790833 43   
-[10] 3.731841 33   
-&gt; 
-&gt;
-</code></pre><ul>
-<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
-</ul>
-<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
-<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
-<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
-<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
-<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
-<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
-<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
-<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
-<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
-<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
-<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
-<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
-<p>Extends<br>Class itemMatrix, directly.</p>
-<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
-<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
-<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
-<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
-<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
-<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
-<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
-<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
-<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
-<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
-<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
-<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
-<p>show<br>signature(object = “transactions”)</p>
-<p>summary<br>signature(object = “transactions”)</p>
-<ul>
-<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
-</ul>
-<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
-<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
-<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
-<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/SauronLee/Udacity_ML_P5/tree/master/p5_boston2.0">Boston Housing Project Adress</a></p>
 
       
     </div>
@@ -251,60 +176,21 @@ creating S4 object  ... done [0.00s].
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-Python/">Data Preprocessing by Python</a>
+      <a class="archive-article-title" href="/2017/12/13/Linear-Regression-Project/">Linear Regression Project</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/10/Data-Preprocessing-by-Python/" class="archive-article-date"><time datetime="2019-08-10T11:08:27.000Z" itemprop="datePublished">August 10th</time></a>
+  <a href="/2017/12/13/Linear-Regression-Project/" class="archive-article-date"><time datetime="2017-12-12T17:20:01.000Z" itemprop="datePublished">December 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d3f9b166dbfa5160de5411a0718c90b1.js"></script>
+        <p><a href="https://github.com/SauronLee/Udacity_ML_P3/blob/master/linear_regression_P3/linear_regression_project-2-3.ipynb">Linear Regression Project Adress</a></p>
+<!-- <script src="https://gist.github.com/SauronLee/87b33007784de2850480249697949306.js"></script>
 
-<p>command + i = helpeer</p>
-<ul>
-<li>Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)</li>
-</ul>
-<p>missing_values : integer or “NaN”, optional (default=”NaN”)<br>The placeholder for the missing values. All occurrences of missing_values will be imputed. For missing values encoded as np.nan, use the string value “NaN”.<br>strategy : string, optional (default=”mean”)<br>The imputation strategy.</p>
-<p>If “mean”, then replace missing values using the mean along the axis.<br>If “median”, then replace missing values using the median along the axis.<br>If “most_frequent”, then replace missing using the most frequent value along the axis.<br>axis : integer, optional (default=0)<br>The axis along which to impute.</p>
-<p>If axis=0, then impute along columns.<br>If axis=1, then impute along rows.<br>verbose : integer, optional (default=0)<br>Controls the verbosity of the imputer.<br>copy : boolean, optional (default=True)<br>If True, a copy of X will be created. If False, imputation will be done in-place whenever possible. Note that, in the following cases, a new copy will always be made, even if copy=False:</p>
-<p>If X is not an array of floating values;<br>If X is sparse and missing_values=0;<br>If axis=0 and X is encoded as a CSR matrix;<br>If axis=1 and X is encoded as a CSC matrix.</p>
-<ul>
-<li>fit(X, y=None)</li>
-</ul>
-<p>X : {array-like, sparse matrix}, shape (n_samples, n_features)<br>Input data, where n_samples is the number of samples and n_features is the number of features.</p>
-<ul>
-<li>Definition : OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=np.float64, handle_unknown=’error’)</li>
-</ul>
-<p>Type : Present in sklearn.preprocessing._encoders module</p>
-<p>categories : ‘auto’ or a list of lists/arrays of values, default=’auto’.<br>Categories (unique values) per feature:</p>
-<p>‘auto’ : Determine categories automatically from the training data.<br>list : categories[i] holds the categories expected in the ith column. The passed categories should not mix strings and numeric values within a single feature, and should be sorted in case of numeric values.<br>The used categories can be found in the categories_ attribute.</p>
-<p>sparse : boolean, default=True<br>Will return sparse matrix if set True else will return an array.<br>dtype : number type, default=np.float<br>Desired dtype of output.<br>handle_unknown : ‘error’ or ‘ignore’, default=’error’.<br>Whether to raise an error or ignore if an unknown categorical feature is present during transform (default is to raise). When this parameter is set to ‘ignore’ and an unknown category is encountered during transform, the resulting one-hot encoded columns for this feature will be all zeros. In the inverse transform, an unknown category will be denoted as None.<br>n_values : ‘auto’, int or array of ints, default=’auto’<br>Number of values per feature.</p>
-<p>‘auto’ : determine value range from training data.</p>
-<p>int : number of categorical values per feature.<br>Each feature value should be in range(n_values)</p>
-<p>array : n_values[i] is the number of categorical values in<br>X[:, i]. Each feature value should be in range(n_values[i])</p>
-<p>Deprecated since version 0.20: The n_values keyword was deprecated in version 0.20 and will be removed in 0.22. Use categories instead.</p>
-<p>categorical_features : ‘all’ or array of indices or mask, default=’all’<br>Specify what features are treated as categorical.</p>
-<p>‘all’: All features are treated as categorical.<br>array of indices: Array of categorical feature indices.<br>mask: Array of length n_features and with dtype=bool.<br>Non-categorical features are always stacked to the right of the matrix.</p>
-<p>Deprecated since version 0.20: The categorical_features keyword was deprecated in version 0.20 and will be removed in 0.22. You can use the ColumnTransformer instead.</p>
-<h2 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h2><ul>
-<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
-<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
-<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
-</li>
-<li><p>是否需要对虚拟变量进行特征缩放。答：不一定，要根据模型结果。</p>
-</li>
-<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
-</ul>
-<pre><code># Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc_XStandardScaler()
-X_train = sc_X.fit_transform(X_train)
-X_test = sc_X.transform(X_test)
-</code></pre>
+<script src="https://gist.github.com/SauronLee/98d5d077feba14ba914c7c92742cdaec.js"></script> -->
       
     </div>
   </header>
@@ -318,7 +204,7 @@ X_test = sc_X.transform(X_test)
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/16/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/15/">15</a></li><li><a class="page-number" href="/tags/Statistics/page/16/">16</a></li><li class="active"><span class="page-number">17</span></li><li><a class="page-number" href="/tags/Statistics/page/18/">18</a></li><li><a class="page-number" href="/tags/Statistics/page/19/">19</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/26/">26</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/18/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/16/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/15/">15</a></li><li><a class="page-number" href="/tags/Statistics/page/16/">16</a></li><li class="active"><span class="page-number">17</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

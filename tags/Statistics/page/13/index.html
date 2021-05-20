@@ -102,25 +102,45 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/">Evaluating Regression Models Performance by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/13/CART-of-R-by-A-Z/">Decision Tree Classifier of R  by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T14:48:21.000Z" itemprop="datePublished">September 12th</time></a>
+  <a href="/2019/07/13/CART-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:29.000Z" itemprop="datePublished">July 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>R平方 - 原理(决定系数)<br><img src="/images/A-Z_ML/30.png" alt><br><img src="/images/A-Z_ML/31.png" alt></li>
-<li>广义R平方 - 原理（Adjected R^2）</li>
-<li>因为最差时:b<em>3*x</em>=0<br><img src="/images/A-Z_ML/32.png" alt></li>
-<li>P有惩罚的作用，P(自变量)越多分母就会越大，分数就会升高<br><img src="/images/A-Z_ML/33.png" alt></li>
-<li>回归模型性能评价及选择</li>
-<li>加自变量会增加R^2，所以AdjR^2会更好<br><img src="/images/A-Z_ML/34.png" alt></li>
+        <p><img src="/images/A-Z_ML/88.png" alt></p>
+<ul>
+<li>因为决策树用的是切线切割没有用到欧式距离所以不需要进行特征缩放</li>
 </ul>
+<script src="https://gist.github.com/SauronLee/5550de72b8e9ab228abb30178fe5dbb6.js"></script>
+
+<hr>
+<pre><code>
+&gt; View(dataset)
+&gt; y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   1   1   0   0   1   0   1   0   0   0   0   0   0   0   1   0   0   1 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   1   0   0   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   0   0   1   1   1   1   1   1 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   0   0   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1 
+389 392 395 400 
+  1   1   0   1 
+Levels: 0 1
+
+&gt; cm
+   y_pred
+     0  1
+  0 53 11
+  1  6 30
+</code></pre><p><img src="/images/A-Z_ML/89.png" alt><br><img src="/images/A-Z_ML/90.png" alt><br><img src="/images/A-Z_ML/91.png" alt></p>
 
       
     </div>
@@ -136,101 +156,57 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/12/Polynomial-Regression-of-R-by-A-Z/">Polynomial Regression of R by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/13/CART-of-Python-by-A-Z/">Decision Tree Classifier of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/12/Polynomial-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T06:53:46.000Z" itemprop="datePublished">September 12th</time></a>
+  <a href="/2019/07/13/CART-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:19.000Z" itemprop="datePublished">July 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt><br><img src="/images/A-Z_ML/25.png" alt></p>
-<pre><code># Polynomial Regression
+        <p><img src="/images/A-Z_ML/85.png" alt></p>
+<script src="https://gist.github.com/SauronLee/ef680bf345a816817042c7acf0503a39.js"></script>
 
-# Importing the dataset
-dataset = read.csv(&#39;Position_Salaries.csv&#39;)
-dataset = dataset[, 2:3]
-
-# Splitting the dataset into the Training set and Test set
-# install.packages(&#39;caTools&#39;)
-# library(caTools)
-# set.seed(123)
-# split = sample.split(dataset$Purchased, SplitRatio = 0.8)
-# training_set = subset(dataset, split == TRUE)
-# test_set = subset(dataset, split == FALSE)
-
-# Feature Scaling
-# training_set[, 2:3] = scale(training_set[, 2:3])
-# test_set[, 2:3] = scale(test_set[, 2:3])
-
-# Fitting Linear Regression to the dataset
-lin_reg=lm(formula = Salary~.,
-           data=dataset)
-
-# Fitting Polynomial Regression to the dataset
-dataset$level2 = dataset$Level^2
-dataset$level3 = dataset$Level^3
-dataset$level4 = dataset$Level^4
-poly_reg = lm(formula = Salary~.,
-              data=dataset)
-
-#Visualising the Linear Regression results
-install.packages(&#39;ggplot2&#39;)
-library(ggplot2)
-ggplot() +
-  geom_point(aes(x=dataset$Level,y=dataset$Salary),
-             colour = &#39;red&#39;) +
-  geom_line (aes (x=dataset$Level, y = predict (lin_reg, newdata=dataset)),
-             colour = &#39;blue&#39;) +
-  xlab(&#39;Level&#39;) +
-  ylab(&#39;Salary&#39;)
-
-#Visualising the Polynomial Regression results
-ggplot() +
-  geom_point(aes(x=dataset$Level,y=dataset$Salary),
-             colour = &#39;red&#39;) +
-  geom_line (aes (x=dataset$Level, y = predict (poly_reg, newdata=dataset)),
-             colour = &#39;blue&#39;) +
-  xlab(&#39;Level&#39;) +
-  ylab(&#39;Salary&#39;)
-
-#Predicting a new result with Linear Regression
-y_pred=predict(lin_reg, data.frame(Level=6.5))
-
-#Predicting a new result with Polynomial Regression
-#因为我们的维度比较高那么R需要让我们告诉他每个维度的值
-y_pred=predict(poly_reg, data.frame(Level=6.5,
-                                    level2=6.5^2,
-                                    level3=6.5^3,
-                                    level4=6.5^4))
-</code></pre><hr>
-<p>summary(lin_reg)</p>
-<p>Call:<br>lm(formula = Salary ~ ., data = dataset)</p>
-<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-170818 -129720  -40379   65856  386545 </p>
-<p>Coefficients:<br>            Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)  -195333     124790  -1.565  0.15615   </p>
-<h2 id="Level-80879-20112-4-021-0-00383"><a href="#Level-80879-20112-4-021-0-00383" class="headerlink" title="Level          80879      20112   4.021  0.00383 **"></a>Level          80879      20112   4.021  0.00383 **</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 182700 on 8 degrees of freedom<br>Multiple R-squared:  0.669,    Adjusted R-squared:  0.6277<br>F-statistic: 16.17 on 1 and 8 DF,  p-value: 0.003833</p>
-<hr>
 <ul>
-<li>增加次方项</li>
+<li>由于过度拟合所以预测的非常差</li>
 </ul>
-<pre><code># Fitting Polynomial Regression to the dataset
-dataset$level2 = dataset$Level^2
-dataset$level3 = dataset$Level^3
-dataset$level4 = dataset$Level^4
-poly_reg = lm(formula = Salary~.,
-              data=dataset)
-</code></pre><hr>
-<p> summary(poly_reg)</p>
-<p>Call:<br>lm(formula = Salary ~ ., data = dataset)</p>
-<p>Residuals:<br>     1      2      3      4      5      6      7      8      9     10<br> -8357  18240   1358 -14633 -11725   6725  15997  10006 -28695  11084 </p>
-<p>Coefficients:<br>             Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)  184166.7    67768.0   2.718  0.04189 <em><br>Level       -211002.3    76382.2  -2.762  0.03972 </em><br>level2        94765.4    26454.2   3.582  0.01584 <em><br>level3       -15463.3     3535.0  -4.374  0.00719 *</em></p>
-<h2 id="level4-890-2-159-8-5-570-0-00257"><a href="#level4-890-2-159-8-5-570-0-00257" class="headerlink" title="level4          890.2      159.8   5.570  0.00257 **"></a>level4          890.2      159.8   5.570  0.00257 **</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 20510 on 5 degrees of freedom<br>Multiple R-squared:  0.9974,    Adjusted R-squared:  0.9953<br>F-statistic: 478.1 on 4 and 5 DF,  p-value: 1.213e-06</p>
-<hr>
+<p><img src="/images/A-Z_ML/84.png" alt><br><img src="/images/A-Z_ML/86.png" alt></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/13/Bayes-Theorem-by-A-Z/">Bayes Theorem by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/07/13/Bayes-Theorem-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T05:41:36.000Z" itemprop="datePublished">July 13th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/64.png" alt></p>
+<ul>
+<li>P(A)是先验概率P(A|B)是后验概率</li>
+<li>B在朴素贝叶斯的分类器当中叫做特征，所以P(B)和P(A|B)不完全叫概率而叫做似然<br><img src="/images/A-Z_ML/65.png" alt></li>
+<li>Plane Attack<br><img src="/images/A-Z_ML/66.png" alt><br><img src="/images/A-Z_ML/67.png" alt><br><img src="/images/A-Z_ML/68.png" alt><br><img src="/images/A-Z_ML/69.png" alt><br><img src="/images/A-Z_ML/70.png" alt><br><img src="/images/A-Z_ML/71.png" alt><br><img src="/images/A-Z_ML/72.png" alt><br><img src="/images/A-Z_ML/73.png" alt><br><img src="/images/A-Z_ML/74.png" alt><br><img src="/images/A-Z_ML/75.png" alt></li>
+<li>缺少似然会降低计算量用于估计<br><img src="/images/A-Z_ML/76.png" alt></li>
+</ul>
 
       
     </div>
@@ -245,7 +221,7 @@ poly_reg = lm(formula = Salary~.,
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/12/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/11/">11</a></li><li><a class="page-number" href="/tags/Statistics/page/12/">12</a></li><li class="active"><span class="page-number">13</span></li><li><a class="page-number" href="/tags/Statistics/page/14/">14</a></li><li><a class="page-number" href="/tags/Statistics/page/15/">15</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/26/">26</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/14/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/12/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/11/">11</a></li><li><a class="page-number" href="/tags/Statistics/page/12/">12</a></li><li class="active"><span class="page-number">13</span></li><li><a class="page-number" href="/tags/Statistics/page/14/">14</a></li><li><a class="page-number" href="/tags/Statistics/page/15/">15</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/14/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

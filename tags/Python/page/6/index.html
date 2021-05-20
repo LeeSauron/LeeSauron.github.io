@@ -102,18 +102,152 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/14/Artificial-Neural-Networks-of-Python-by-A-Z/">Artificial Neural Networks of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/08/jetbot-01/">Jetbot</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/07/14/Artificial-Neural-Networks-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-07-14T06:32:59.000Z" itemprop="datePublished">July 14th</time></a>
+  <a href="/2019/07/08/jetbot-01/" class="archive-article-date"><time datetime="2019-07-08T13:53:55.000Z" itemprop="datePublished">July 8th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="https://gist.github.com/SauronLee/071e1a959a04484f9d80d8362ec4a2cd.js"></script>
+        <h1 id="首先准备必备材料"><a href="#首先准备必备材料" class="headerlink" title="首先准备必备材料"></a>首先准备必备材料</h1><hr>
+<p><img src="/images/jetbot/01_01.png" alt></p>
+<hr>
+<h2 id="3D打印部分"><a href="#3D打印部分" class="headerlink" title="3D打印部分"></a>3D打印部分</h2><hr>
+<h3 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h3><p>关于打印机的选购NNVIDIA给了俩个测试过的打印机一个320美元，另一个2500美元。<br><img src="/images/jetbot/01_02.png" alt><br><img src="/images/jetbot/01_03.png" alt></p>
+<h4 id="打印材料"><a href="#打印材料" class="headerlink" title="打印材料"></a>打印材料</h4><p>NNVIDIA给出测试过的材料如下<br><img src="/images/jetbot/01_04.png" alt></p>
+<h4 id="打印材料-1"><a href="#打印材料-1" class="headerlink" title="打印材料"></a>打印材料</h4><p><img src="/images/jetbot/01_05.png" alt><br><img src="/images/jetbot/01_06.png" alt></p>
+<hr>
+<h2 id="相机部分"><a href="#相机部分" class="headerlink" title="相机部分"></a>相机部分</h2><hr>
+<p>这里我们选择树莓派18.99美元的相机，都一样用便宜就行：</p>
+<p><img src="/images/jetbot/01_07.png" alt></p>
+<hr>
+<h2 id="Wi-Fi部分"><a href="#Wi-Fi部分" class="headerlink" title="Wi-Fi部分"></a>Wi-Fi部分</h2><hr>
+<p>这里我们选择M2卡作为Wi-Fi部分元件</p>
+<p><img src="/images/jetbot/01_08.png" alt></p>
+<hr>
+<h2 id="车轮部分"><a href="#车轮部分" class="headerlink" title="车轮部分"></a>车轮部分</h2><hr>
+<p>车轮部分我们采用65mm的购买链接如下<br><a href="https://www.adafruit.com/product/3763" target="_blank" rel="noopener">https://www.adafruit.com/product/3763</a></p>
+<hr>
+<h2 id="螺丝部分"><a href="#螺丝部分" class="headerlink" title="螺丝部分"></a>螺丝部分</h2><hr>
+<p><img src="/images/jetbot/01_09.png" alt></p>
+<hr>
+<p>最后是NVIDIA建议的工具，这个按自己的需求来就行</p>
+<p><img src="/images/jetbot/01_10.png" alt></p>
+<hr>
+<p>本文的所有内容都可以在NVIDIA的开源库里找到链接如下</p>
+<p><a href="https://github.com/NVIDIA-AI-IOT/jetbot/wiki/bill-of-materials">https://github.com/NVIDIA-AI-IOT/jetbot/wiki/bill-of-materials</a></p>
+<hr>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><hr>
+<h2 id="安装ROS-Melodic-Enter-Nano-shell"><a href="#安装ROS-Melodic-Enter-Nano-shell" class="headerlink" title="安装ROS Melodic (Enter Nano shell)"></a>安装ROS Melodic (Enter Nano shell)</h2><ul>
+<li>使所有的Ubuntu的软件包：</li>
+<li>添加ROS库到APT</li>
+<li>安装ROS</li>
+<li>添加ROS路径环境</li>
+<li>关闭并重新启动终端</li>
+</ul>
+<pre><code>
+ enable all Ubuntu packages:
+sudo apt-add-repository universe
+sudo apt-add-repository multiverse
+sudo apt-add-repository restricted
+
+# add ROS repository to apt sources
+sudo sh -c &#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
+
+# install ROS Base
+sudo apt-get update
+sudo apt-get install ros-melodic-ros-base
+
+# add ROS paths to environment
+sudo sh -c &#39;echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc&#39;
+</code></pre><h2 id="安装Adafruit库"><a href="#安装Adafruit库" class="headerlink" title="安装Adafruit库"></a>安装Adafruit库</h2><ul>
+<li>Adafruit的这些Python库支持TB6612 / PCA9685电机驱动器和SSD1306调试OLED：</li>
+</ul>
+<pre><code>
+# pip should be installed
+$ sudo apt-get install python-pip
+
+＃安装Adafruit的库
+$ pip安装Adafruit-MotorHAT
+$ pip安装Adafruit-SSD1306
+</code></pre><ul>
+<li>授予您的用户访问i2c总线的权限：</li>
+</ul>
+<pre><code>
+$sudo usermod -aG i2c $USER
+sudo usermod -aG i2c nvidia
+</code></pre><ul>
+<li>重新引导系统以使更改生效。</li>
+</ul>
+<h2 id="创建catkin工作区"><a href="#创建catkin工作区" class="headerlink" title="创建catkin工作区"></a>创建catkin工作区</h2><pre><code># create the catkin workspace
+mkdir -p ~/work/catkin_ws/src
+cd ~/work/catkin_ws
+catkin_make
+
+# add catkin_ws path to bashrc
+sudo sh -c &#39;echo &quot;source ~/work/catkin_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc&#39;
+Note: out of personal preference, my catkin_ws is created as a subdirectory under ~/workspace
+
+#Close and open a new terminal window. Verify that your catkin_ws is visible to ROS:
+
+$ echo $ROS_PACKAGE_PATH 
+/home/nvidia/workspace/catkin_ws/src:/opt/ros/melodic/share
+</code></pre><h2 id="Build-jetson-inference"><a href="#Build-jetson-inference" class="headerlink" title="Build jetson-inference"></a>Build jetson-inference</h2><p>克隆并构建jetson-inference：</p>
+<pre><code># clone the repo
+$ cd ~/workspace/catkin_ws/src
+$ git clone https://github.com/dusty-nv/jetbot_ros
+
+# build the package
+$ cd ../    # cd ~/workspace/catkin_ws
+$ catkin_make
+
+# confirm that jetbot_ros package can be found
+$ rospack find jetbot_ros
+/home/nvidia/workspace/catkin_ws/src/jetbot_ros
+</code></pre><h2 id="运行ros-deep-learning"><a href="#运行ros-deep-learning" class="headerlink" title="运行ros_deep_learning"></a>运行ros_deep_learning</h2><pre><code>
+# install dependencies
+sudo apt-get install ros-melodic-vision-msgs ros-melodic-image-transport ros-melodic-image-publisher
+
+# clone the repo
+cd ~/work/catkin_ws/src
+git clone https://github.com/dusty-nv/ros_deep_learning
+
+# make ros_deep_learning
+cd ../    # cd ~/work/catkin_ws
+catkin_make
+
+# confirm that the package can be found
+$ rospack find ros_deep_learning
+/home/nvidia/works/catkin_ws/src/ros_deep_learning
+</code></pre><h1 id="测试Testing-JetBot"><a href="#测试Testing-JetBot" class="headerlink" title="测试Testing JetBot"></a>测试Testing JetBot</h1><p>接下来，让我们检查机器人的不同组件是否在ROS下工作。<br>首先打开一个新终端，然后开始 roscore</p>
+<pre><code>$ roscore
+</code></pre><h2 id="运行电机"><a href="#运行电机" class="headerlink" title="运行电机"></a>运行电机</h2><pre><code>$ rosrun jetbot_ros jetbot_motors.py
+</code></pre><p>该jetbot_motors节点将侦听以下主题：</p>
+<p>/jetbot_motors/cmd_dir 相对航向（度[-180.0, 180.0]，速度[-1.0, 1.0]）<br>/jetbot_motors/cmd_raw 原始L / R电机命令（速度[-1.0, 1.0]，速度[-1.0, 1.0]）<br>/jetbot_motors/cmd_str 简单的字符串命令（左/右/前进/后退/停止）</p>
+<h2 id="测试电机命令"><a href="#测试电机命令" class="headerlink" title="测试电机命令"></a>测试电机命令</h2><p>打开一个新终端，并运行一些测试命令：</p>
+<pre><code>$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ forward ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ backward ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ left ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ right ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ stop ”
+</code></pre><h2 id="使用Debug-OLED"><a href="#使用Debug-OLED" class="headerlink" title="使用Debug OLED"></a>使用Debug OLED</h2><p>如果您的JetBot上有SSD1306调试OLED，则可以运行该jetbot_oled节点以显示系统信息和用户定义的文本：</p>
+<pre><code>
+$ rosrun jetbot_ros jetbot_oled.py
+</code></pre><p>默认情况下，jetbot_oled将使用最新的内存使用情况，磁盘空间和IP地址每秒刷新一次显示。</p>
+<p>该节点还将侦听该/jetbot_oled/user_text主题以接收将显示的用户的字符串消息：</p>
+<pre><code>rostopic pub / jetbot_oled / user_text std_msgs / String --on “ HELLO！”
+</code></pre><h2 id="使用相机"><a href="#使用相机" class="headerlink" title="使用相机"></a>使用相机</h2><p>启动jetbot_camera节点：</p>
+<pre><code>
+$ rosrun jetbot_ros jetbot_camera
+</code></pre><p>将jetbot_camera/raw作为sensor_msgs::Image具有BGR8编码的消息发布到主题。</p>
+<h2 id="Gazebo-模拟器"><a href="#Gazebo-模拟器" class="headerlink" title="Gazebo 模拟器"></a>Gazebo 模拟器</h2><p><a href="http://gazebosim.org/tutorials?tut=install_ubuntu&amp;cat=install" target="_blank" rel="noopener">http://gazebosim.org/tutorials?tut=install_ubuntu&amp;cat=install</a></p>
+<p><img src="/images/jetbot/01_11.png" alt></p>
+
       
     </div>
   </header>
@@ -128,24 +262,63 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/CART-of-Python-by-A-Z/">Decision Tree Classifier of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/06/12/Multiple-Linear-Regression-of-Python-by-A-Z/">Multiple Linear Regression of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/07/13/CART-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:19.000Z" itemprop="datePublished">July 13th</time></a>
+  <a href="/2019/06/12/Multiple-Linear-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-06-11T16:23:11.000Z" itemprop="datePublished">June 12th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/85.png" alt></p>
-<script src="https://gist.github.com/SauronLee/ef680bf345a816817042c7acf0503a39.js"></script>
+        <script src="https://gist.github.com/SauronLee/9e65b12a0df11a2e6de7690f14fe3136.js"></script>
 
-<ul>
-<li>由于过度拟合所以预测的非常差</li>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/05/02/NLP-Gram/">Bi-Gram/Tri-Gram/N-Gram</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/05/02/NLP-Gram/" class="archive-article-date"><time datetime="2019-05-02T06:28:33.000Z" itemprop="datePublished">May 2nd</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="语言模型（Bi-Gram-Tri-Gram-N-Gram）"><a href="#语言模型（Bi-Gram-Tri-Gram-N-Gram）" class="headerlink" title="语言模型（Bi-Gram/Tri-Gram/N-Gram）"></a>语言模型（Bi-Gram/Tri-Gram/N-Gram）</h1><ul>
+<li>语言模型就是用于评估文本符合语言使用习惯程度的模型。<br>在计算机中很难找到人类语言的使用习惯，因为人类的语言使用习惯根据朝代试点的变迁有着很大的差异，所以现在更流行用语言出现的的概率来判断句子是否通顺。<br>比如：我去操场（  ）；计算机会识别我去操场跑步或是其他运动方面的单词出现的概率会更大，再比如翻译的时候，计算机会统计这么翻译的话他会在实际现实应用中出现概率。</li>
+<li>总结来说就是无论在机器翻译；拼音纠错；语音识别；音字转换方面都是判断这样转换的概率是否最大化</li>
 </ul>
-<p><img src="/images/A-Z_ML/84.png" alt><br><img src="/images/A-Z_ML/86.png" alt></p>
+<h1 id="N-Gram"><a href="#N-Gram" class="headerlink" title="N-Gram"></a>N-Gram</h1><ul>
+<li>他的输入是一句话（单词的顺序序列），输出是这句话的概率（这些单词结合的概率-joint probability）</li>
+<li>N-Gram的意思就是由N个单词组合的模型，单词分先后顺序，不要求点此之间互不相同，其中N常用取2或者3词组合</li>
+<li>数学表达式：假设每一个单词都要依赖于从第一个单词在他之前的一个单词的影响：p(S)=p(w1w2…wn)=p(w1)p(w2|w1)…p(wn|wn-1…w2w1)；<br><img src="/images/NLP/bi_gram_01 .png" alt="issue"><br>利用MLE思想（利用已知的样本信息来反推模型参数，换句话说什么样的模型才会出现现在这种样本）；</li>
+<li>问题：参数空间太大O(n)个所以我们通过马尔科夫假设；数据稀疏严重</li>
+</ul>
+<h1 id="Bi-Gram"><a href="#Bi-Gram" class="headerlink" title="Bi-Gram"></a>Bi-Gram</h1><ul>
+<li>之前说的马尔科夫假设如果只与前面一个词有关我们就叫bi-gram：p(S)=p(wn|wn-1)<br><img src="/images/NLP/bi_gram_02.png" alt></li>
+<li>问题：语境切换问题存在，我们用神经网络模型引入时间维度来解决此问题</li>
+<li>那么句子I want english food 的概率为：<br><img src="/images/NLP/bi_gram_03.png" alt>   </li>
+<li>为防止数据溢出我们会用加法代替乘法计算<br><img src="/images/NLP/bi_gram_04.png" alt><br><img src="/images/NLP/bi_gram_05.png" alt>  </li>
+</ul>
+<h1 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h1><ul>
+<li>在实际应用中看具体表现；计算preplexity<br><img src="/images/NLP/bi_gram_06.png" alt>  </li>
+</ul>
 
       
     </div>
@@ -160,7 +333,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/5/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/4/">4</a></li><li><a class="page-number" href="/tags/Python/page/5/">5</a></li><li class="active"><span class="page-number">6</span></li><li><a class="page-number" href="/tags/Python/page/7/">7</a></li><li><a class="page-number" href="/tags/Python/page/8/">8</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/11/">11</a></li><li><a class="page-next" rel="next" href="/tags/Python/page/7/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/5/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/4/">4</a></li><li><a class="page-number" href="/tags/Python/page/5/">5</a></li><li class="active"><span class="page-number">6</span></li><li><a class="page-number" href="/tags/Python/page/7/">7</a></li><li><a class="page-number" href="/tags/Python/page/8/">8</a></li><li><a class="page-next" rel="next" href="/tags/Python/page/7/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

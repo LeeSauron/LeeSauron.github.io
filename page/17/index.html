@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-Polynomial-Regression-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-quadratic-form-of-houPhD" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/">Polynomial Regression of Python by A-Z</a>
+      <a class="article-title" href="/2019/08/09/quadratic-form-of-houPhD/">quadratic form of houPhD</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-12T06:53:36.000Z" itemprop="datePublished">2019-09-12</time></a>
+  <a href="/2019/08/09/quadratic-form-of-houPhD/" class="article-date"><time datetime="2019-08-09T08:07:56.000Z" itemprop="datePublished">2019-08-09</time></a>
 </div>
 
     
@@ -112,24 +112,539 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt></p>
-<ul>
-<li>多应用在流行病学：疾病在时间和空间上的传播速度</li>
+        <h1 id="判断某向量是否可以由某向量组线性表示"><a href="#判断某向量是否可以由某向量组线性表示" class="headerlink" title="判断某向量是否可以由某向量组线性表示"></a>判断某向量是否可以由某向量组线性表示</h1><ul>
+<li>判断将其向量加入矩阵和矩阵原先的秩是否有变化，如果没变化就代表可以<br>列：<script type="math/tex; mode=display">已知 a_{1}=\begin{pmatrix}
+1\\ 
+1\\ 
+2\\ 
+2
+\end{pmatrix},a_{2}=\begin{pmatrix}
+1\\ 
+2\\ 
+1\\ 
+3
+\end{pmatrix},a_{3}=\begin{pmatrix}
+1\\ 
+-2\\ 
+4\\ 
+0
+\end{pmatrix},b=\begin{pmatrix}
+1\\ 
+0\\ 
+3\\ 
+1
+\end{pmatrix},试判断b能否由 a_{1},a_{2},a_{3}线性表示</script></li>
 </ul>
-<p><img src="/images/A-Z_ML/25.png" alt><br><img src="/images/A-Z_ML/26.png" alt></p>
-<script src="https://gist.github.com/SauronLee/deb2cca719850a2cf43b585503bc3be1.js"></script>
-
-<p>多项式回归就是利用：下面👇代码拟合出b_0和次方项然后全部进行线性回归</p>
-<pre><code>poly_reg = PolynomialFeatures(degree = 4)
-X_poly = poly_reg.fit_transform(X)
-</code></pre><p><img src="/images/A-Z_ML/27.png" alt="issue"><br><img src="/images/A-Z_ML/29.png" alt="issue"><br><img src="/images/A-Z_ML/28.png" alt="issue"></p>
+<script type="math/tex; mode=display">A=(a_{1},a_{2},a_{3})=\begin{pmatrix}
+1 & 1 & 1\\ 
+1 & 2 & -2\\ 
+2 & 1 & 4\\ 
+2 & 3 & 0
+\end{pmatrix}=\begin{pmatrix}
+1 & 1 & 1\\ 
+0 & 1 & -3\\ 
+0 & 0 & -1\\ 
+0 & 0 & 0
+\end{pmatrix}\Rightarrow R(A)=3</script><script type="math/tex; mode=display">B=(a_{1},a_{2},a_{3},b)=\begin{pmatrix}
+1 & 1 & 1&1\\ 
+1 & 2 & -2&0\\ 
+2 & 1 & 4&3\\ 
+2 & 3 & 0&1
+\end{pmatrix}=\begin{pmatrix}
+1 & 1 & 1&1\\ 
+0 & 1 & -3&-1\\ 
+0 & 0 & -1&0\\ 
+0 & 0 & 0&0
+\end{pmatrix}\Rightarrow R(B)=3</script><script type="math/tex; mode=display">\therefore R(A)=R(B)\\
+\therefore b能由 a_{1},a_{2},a_{3}线性表示即：b=k_{1}a_{1}+k_{2}a_{2}+k_{3}a_{3}</script><h1 id="判断是否线性相关"><a href="#判断是否线性相关" class="headerlink" title="判断是否线性相关"></a>判断是否线性相关</h1><ul>
+<li>看看秩小不小于矩阵维度</li>
+</ul>
+<h1 id="根据向量空间的一组基底，求某一向量在此基底上的坐标"><a href="#根据向量空间的一组基底，求某一向量在此基底上的坐标" class="headerlink" title="根据向量空间的一组基底，求某一向量在此基底上的坐标"></a>根据向量空间的一组基底，求某一向量在此基底上的坐标</h1><ul>
+<li>说白了就是求交线 公式：$ \beta =k<em>{1}\alpha </em>{1}+k<em>{2}\alpha </em>{2}+k<em>{3}\alpha </em>{3} $<br>列：<br>$ 设三维向量空间的一组基底\alpha <em>{1}=(1,1,0),\alpha </em>{2}=(1,0,1),\alpha _{3}=(0,1,1) \ 求向量\beta =(2,0,0)在此基底下的坐标 $</li>
+</ul>
+<script type="math/tex; mode=display">\left\{\begin{matrix}
+2=k_{1}+k_{2}+0\\ 
+0=k_{1}+0+k_{3}\\ 
+0=0+k_{2}+k_{3}
+\end{matrix}\right.\Rightarrow \left\{\begin{matrix}
+k_{1}=1\\ 
+k_{2}=1\\ 
+k_{3}=-1
+\end{matrix}\right.\therefore 坐标为(k_{1}+k_{2}+k_{3})=(1,1,-1)</script><h1 id="求几个行向量的极大无关组"><a href="#求几个行向量的极大无关组" class="headerlink" title="求几个行向量的极大无关组"></a>求几个行向量的极大无关组</h1><ul>
+<li>也就是求这些向量组合起来后，线性无关的有哪几组，求秩可得</li>
+</ul>
+<h1 id="判断方程组解得情况"><a href="#判断方程组解得情况" class="headerlink" title="判断方程组解得情况"></a>判断方程组解得情况</h1><ul>
+<li>求矩阵的秩，是齐次且线性无关则有一个零解，是齐次线性相关多个解和零解，</li>
+<li>非齐次时，也是求秩，比较R(A)和R(A|b)的秩,如果不相等则无解，如果相等再看看跟矩阵有没有降维如果没降维就有一个非零解，如果R(A)和R(A|b)的秩相等但是降维了则有多个非零解<script type="math/tex; mode=display">\left\{\begin{matrix}
+x_{1}+x_{2}+x_{4}=1\\ 
+x_{2}+x_{3}+x_{4}=2\\ 
+x_{1}+x_{3}+x_{4}=3\\ 
+x_{1}+x_{2}+x_{3}+2x_{4}=1
+\end{matrix}\right.\\ \\
+A=\begin{pmatrix}
+1 & 1 & 0 & 1\\ 
+0 & 1 & 0 & 1\\ 
+1 & 0 & 1 & 1\\ 
+1 & 1 & 1 & 2
+\end{pmatrix}\rightarrow \begin{pmatrix}
+1 & 1 & 0 & 1\\ 
+0 & 1 & 0 & 1\\ 
+0 & 0 & 1 & 1\\ 
+0 & 0 & 0 & 0
+\end{pmatrix}\\ \\
+(A|b)=\begin{pmatrix}
+1 & 1 & 0 & 1 & | & 1\\ 
+0 & 1 & 0 & 1 & | & 2\\ 
+1 & 0 & 1 & 1 & | & 3\\ 
+1 & 1 & 1 & 2 & | & 4
+\end{pmatrix}\rightarrow \begin{pmatrix}
+1 & 1 & 0 & 1 & | & 1\\ 
+0 & 1 & 0 & 1 & | & 2\\ 
+0 & 0 & 1 & 1 & | & 4\\ 
+0 & 0 & 0 & 0 & | & -1
+\end{pmatrix} \\ 
+R(A)=3\neq R(A|b)=4 \therefore 该方程组无解</script></li>
+</ul>
+<h1 id="解非齐次方程组"><a href="#解非齐次方程组" class="headerlink" title="解非齐次方程组"></a>解非齐次方程组</h1><p>列：</p>
+<script type="math/tex; mode=display">\left\{\begin{matrix}
+x_{1}+x_{2}+x_{4}=1\\ 
+x_{2}+x_{4}=2\\ 
+x_{1}+x_{3}+x_{4}=3\\ 
+x_{1}+x_{2}+x_{3}+2x_{4}=5
+\end{matrix}\right.</script><ul>
+<li><p>求对角线的数就是方程的解，为简化计算我们先找出线性相关剔除，求R(A|b) </p>
+<script type="math/tex; mode=display">(A|b)=\begin{pmatrix}
+1 & 1 & 0 & 1 & | & 1\\ 
+0 & 1 & 0 & 1 & | & 2\\ 
+1 & 0 & 1 & 1 & | & 3\\ 
+1 & 1 & 1 & 2 & | & 5
+\end{pmatrix}\rightarrow \begin{pmatrix}
+1 & 1 & 0 & 1 & | & 1\\ 
+0 & 1 & 0 & 1 & | & 2\\ 
+0 & 0 & 1 & 1 & | & 4\\ 
+0 & 0 & 0 & 0 & | & 0
+\end{pmatrix}</script></li>
+<li><p>找出一个先行相关，剔除，然后计算其余向量的解（对角线）</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">\begin{pmatrix}
+1 & 0 & 0 & 0 & | & -1\\ 
+0 & 1 & 0 & 1 & | & 2\\ 
+0 & 0 & 1 & 1 & | & 4\\ 
+0 & 0 & 0 & 0 & | & 0
+\end{pmatrix}</script><ul>
+<li><p>如果有线性相关项则把线性相关项设置成未知数k(切记一定先化方阵)，也就是变成标准型</p>
+<script type="math/tex; mode=display">\left\{\begin{matrix}
+x_{1}=-1\\ 
+x_{2}+x_{4}=2\\ 
+x_{3}+x_{4}=4\\ 
+x_{4}=x_{4}
+\end{matrix}\right.\Rightarrow \left\{\begin{matrix}
+x_{1}=-1\\ 
+x_{2}=2-k\\ 
+x_{3}=4-k\\ 
+x_{4}=k
+\end{matrix}\right. \Rightarrow \left\{\begin{matrix}
+x_{1}=-1+0k\\ 
+x_{2}=2-1k\\ 
+x_{3}=4-1k\\ 
+x_{4}=0+1k
+\end{matrix}\right.</script></li>
+<li><p>结果(最后这个k因为是线性相关所以可以取任意值)-通解</p>
+<script type="math/tex; mode=display">解为 \begin{pmatrix}
+-1\\ 
+2\\ 
+4\\ 
+0
+\end{pmatrix}+k\begin{pmatrix}
+0\\ 
+-1\\ 
+-1\\ 
+1
+\end{pmatrix}</script></li>
+</ul>
+<h1 id="解齐次方程组"><a href="#解齐次方程组" class="headerlink" title="解齐次方程组"></a>解齐次方程组</h1><p>常数项不写，标准型时等于0即可</p>
+<h1 id="通解，特解和基础解析"><a href="#通解，特解和基础解析" class="headerlink" title="通解，特解和基础解析"></a>通解，特解和基础解析</h1><ul>
+<li><p>通解 </p>
+<script type="math/tex; mode=display">\begin{pmatrix}
+-1\\ 
+2\\ 
+4\\ 
+0
+\end{pmatrix}+k\begin{pmatrix}
+0\\ 
+-1\\ 
+-1\\ 
+1
+\end{pmatrix}</script></li>
+<li><p>特解 k随便取个数带入求出一个解即可，通常把k=0</p>
+</li>
+<li><p>基础解析</p>
+<script type="math/tex; mode=display">\eta \begin{pmatrix}
+0\\ 
+-1\\ 
+-1\\ 
+1
+\end{pmatrix}</script></li>
+<li><p>求解线性无关的解向量个数；齐次-未知数个数减秩；非齐次 未知数个数减秩+1</p>
+</li>
+</ul>
+<h1 id="施密特正交化"><a href="#施密特正交化" class="headerlink" title="施密特正交化"></a>施密特正交化</h1><ul>
+<li>施密特正交化是把一组基底转化成单位正交向量的做法，内积是为了去掉两个向量不正交的部分（比如特征向量是一组基底，但是他们并不一定正交，正交要求比线性无关高）</li>
+<li>规范正交化就是正交化+归一化，就是变成规范基向量<br>公式：<script type="math/tex; mode=display">b_{1}=a_{1}\\
+b_{2}=a_{2}-\frac{[b_{1},a_{2}]}{[b_{1},b_{1}]}b_{1}\\
+b_{3}=a_{3}-\frac{[b_{1},a_{3}]}{[b_{1},b_{1}]}b_{1}-\frac{[b_{2},a_{3}]}{[b_{2},b_{2}]}b_{2}\\
+...\\
+e_{1}=\frac{b_{1}}{\left \| b_{1} \right \|},e_{2}=\frac{b_{2}}{\left \| b_{2} \right \|},e_{3}=\frac{b_{3}}{\left \| b_{3} \right \|},e_{n}=\frac{b_{n}}{\left \| b_{n} \right \|}</script></li>
+</ul>
+<script type="math/tex; mode=display">列:试把向量 _{1}=\begin{pmatrix}
+1\\ 
+2\\ 
+-1
+\end{pmatrix},
+a_{2}=\begin{pmatrix}
+-1\\ 
+3\\ 
+1
+\end{pmatrix},a_{3}=\begin{pmatrix}
+4\\ 
+-1\\ 
+0
+\end{pmatrix}, 规范正交化</script><p>解：</p>
 <ul>
-<li>如果要使线段变得平滑增加x的密度即可比如：<pre><code>X_grid=np.arange(min(X),max(X),0.1)
-X_grid=X_grid.reshape(len(X_grid),1)
-plt.plot(X_grid, lin_reg_2.predict(poly_reg.fit_transform(X_grid)), color = &#39;blue&#39;)
-</code></pre>如果一个新人他说他35岁工作了6年半工资16万是否诚实<pre><code>lin_reg.predict(6.5）
-lin_reg_2.predict(poly_reg.fit_transform(6.5))
-</code></pre></li>
+<li><p>先正交</p>
+<script type="math/tex; mode=display">b_{1}=a_{1}=\begin{pmatrix}
+1\\ 
+2\\ 
+-1
+\end{pmatrix}\\
+b_{2}=a_{2}-\frac{[b_{1},a_{2}]}{[b_{1},b_{1}]}b_{1}=\begin{pmatrix}
+-1\\ 
+3\\ 
+1
+\end{pmatrix}-\frac{4}{6}\begin{pmatrix}
+1\\ 
+2\\ 
+-1
+\end{pmatrix}=\frac{5}{3}\begin{pmatrix}
+-1\\ 
+1\\ 
+1
+\end{pmatrix}\\
+b_{3}=a_{3}-\frac{[b_{1},a_{3}]}{[b_{1},b_{1}]}b_{1}-\frac{[b_{2},a_{3}]}{[b_{2},b_{2}]}b_{2}=\begin{pmatrix}
+4\\ 
+-1\\ 
+0
+\end{pmatrix}-\frac{1}{3}\begin{pmatrix}
+1\\ 
+2\\ 
+-1
+\end{pmatrix}+\frac{5}{3}\begin{pmatrix}
+-1\\ 
+1\\ 
+1
+\end{pmatrix}=2\begin{pmatrix}
+1\\ 
+0\\ 
+1
+\end{pmatrix}</script></li>
+<li><p>再进行归一化</p>
+<script type="math/tex; mode=display">\left \| b_{1} \right \|=\sqrt{1^{2}+2^{2}+(-1)^{2}}=\sqrt{6}\\
+\left \| b_{2} \right \|=\sqrt{(-\frac{5}{3})^{2}+(\frac{5}{3})^{2}+(\frac{5}{3})^{2}}=\frac{5\sqrt{3}}{3}\\
+\left \| b_{3} \right \|=\sqrt{2^{2}+0^{2}+2^{2}}=2\sqrt{2}\\
+e_{1}=\frac{b_{1}}{\left \| b_{1} \right \|}=\frac{\sqrt{6}}{6}\begin{pmatrix}
+1\\ 
+2\\ 
+-1
+\end{pmatrix},e_{2}=\frac{b_{2}}{\left \| b_{2} \right \|}=\frac{\sqrt{3}}{3}\begin{pmatrix}
+-1\\ 
+1\\ 
+1
+\end{pmatrix},e_{3}=\frac{b_{3}}{\left \| b_{3} \right \|}=\frac{\sqrt{2}}{2}\begin{pmatrix}
+1\\ 
+0\\ 
+1
+\end{pmatrix}</script></li>
+</ul>
+<h1 id="求矩阵的特征值"><a href="#求矩阵的特征值" class="headerlink" title="求矩阵的特征值"></a>求矩阵的特征值</h1><ul>
+<li>根据公式；$\left | A-\lambda E \right |=0$</li>
+</ul>
+<script type="math/tex; mode=display">求矩阵A=\begin{pmatrix}
+-1 & 1 & 0\\ 
+-4 & 3 & 0\\ 
+1 & 0 & 2
+\end{pmatrix}的特征值</script><p>解：</p>
+<script type="math/tex; mode=display">\begin{vmatrix}
+\begin{pmatrix}
+-1 & 1 & 0\\ 
+-4 & 3 & 0\\ 
+1 & 0 & 2
+\end{pmatrix}-\lambda \begin{pmatrix}
+1 & 0 & 0\\ 
+0 & 1 & 0\\ 
+0 & 0 & 1
+\end{pmatrix}
+\end{vmatrix}=0 \\
+\begin{vmatrix}
+-1-\lambda  & 1 & 0\\ 
+-4 & 3-\lambda  & 0\\ 
+1 & 0 & 2-\lambda 
+\end{vmatrix}=0 \\
+\begin{vmatrix}
+1 & 0 & 2-\lambda \\ 
+0 & 1 & 2+\lambda -\lambda ^{2}\\ 
+0 & 0 & (\lambda -1)^{2}\cdot (2-\lambda )
+\end{vmatrix}=0 
+1\cdot 1\cdot (\lambda -1)^{2}\cdot (2-\lambda )=0 \\
+(\lambda -1)^{2}\cdot (2-\lambda )=0\\
+当\lambda =2或\lambda =1时，满足要求\\
+\therefore \lambda _{1}=2，\lambda _{2}=\lambda _{3}=1</script><h1 id="求矩阵特征向量"><a href="#求矩阵特征向量" class="headerlink" title="求矩阵特征向量"></a>求矩阵特征向量</h1><ul>
+<li>特征向量就是立方体的轴心，而求特征向量要先求特征值，看看有几个特征值就有几个特征向量<br>列：<script type="math/tex; mode=display">求矩阵 A=\begin{pmatrix}
+-1 & 1 & 0\\ 
+-4 & 3 & 0\\ 
+1 & 0 & 2
+\end{pmatrix}的特征向量</script></li>
+</ul>
+<p>解：因为上文已经根据公式 $|A-\lambda E|=0$求出特征值为2和1所以特征向量就有两个</p>
+<ul>
+<li>当$\lambda = \lambda _{1}=2$时：<script type="math/tex; mode=display">A\cdot \lambda E=\begin{pmatrix}
+-1 & 1 & 0\\ 
+-4 & 3 &0 \\ 
+1&  0& 2
+\end{pmatrix}-2\cdot \begin{pmatrix}
+1 & 0 &0 \\ 
+0 & 1 & 0\\ 
+0 & 0 & 1
+\end{pmatrix}\\
+=\begin{pmatrix}
+-1 & 1 & 0\\ 
+-4 & 3 &0 \\ 
+1&  0& 2
+\end{pmatrix}\cdot \begin{pmatrix}
+2& 0 &0 \\ 
+0 & 2 & 0\\ 
+0 & 0 & 2
+\end{pmatrix}\\
+=\begin{pmatrix}
+-3 & 1 &0 \\ 
+-4 & 1 & 0\\ 
+1 & 0 & 0
+\end{pmatrix}\\
+(A\cdot \lambda E)x=0\Rightarrow \begin{pmatrix}
+-3 & 1 & 0\\ 
+-4 & 1 & 0\\ 
+1 & 0 & 0
+\end{pmatrix}x=0\Rightarrow \left\{\begin{matrix}
+-3x_{1}+x_{2}+0x_{3}=0\\ 
+-4x_{1}+x_{2}+0x_{3}=0\\ 
+x_{1}+0x_{2}+0x_{3}=0
+\end{matrix}\right.\\
+通解为k\begin{pmatrix}
+0\\ 
+0\\ 
+1
+\end{pmatrix}\\
+\therefore \lambda =\lambda _{1}=2时，特征向量为k\begin{pmatrix}
+0\\ 
+0\\ 
+1
+\end{pmatrix}</script></li>
+<li>当$\lambda = \lambda <em>{2} = \lambda </em>{3}=1$时：</li>
+</ul>
+<script type="math/tex; mode=display">
+A\cdot \lambda E=\begin{pmatrix}
+-1 & 1 & 0\\ 
+-4 & 3 &0 \\ 
+ 1&  0& 2
+\end{pmatrix}\cdot  \begin{pmatrix}
+1 & 0 &0 \\ 
+0 & 1 & 0\\ 
+0 & 0 & 1
+\end{pmatrix}\\
+=\begin{pmatrix}
+-2 & 1 & 0\\ 
+-4 & 2 & 0\\ 
+1 & 0 & 1
+\end{pmatrix}\\
+(A\cdot \lambdaE)x=0\Rightarrow \begin{pmatrix}
+-2 & 1 & 0\\ 
+-4 & 2 & 0\\ 
+1 & 0 & 1
+\end{pmatrix}x=0\Rightarrow \left\{\begin{matrix}
+-2x_{1}+x_{2}+0x_{3}=0\\ 
+-4x_{1}+2x_{2}+0x_{3}=0\\ 
+x_{1}+0x_{2}+x_{3}=0
+\end{matrix}\right.\\
+通解为k\begin{pmatrix}
+-1\\ 
+-2\\ 
+1
+\end{pmatrix}\\
+\therefore \lambda =\lambda _{2}=\lambda _{3}=1时，特征向量为k\begin{pmatrix}
+-1\\ 
+-2\\ 
+1
+\end{pmatrix}</script><h1 id="方阵是否与对角阵相似"><a href="#方阵是否与对角阵相似" class="headerlink" title="方阵是否与对角阵相似"></a>方阵是否与对角阵相似</h1><ul>
+<li>判断特征向量个数是否与方阵阶数一致，一致则满足</li>
+<li>也就是说对角阵的对角线上都有值</li>
+</ul>
+<h1 id="求方阵的对角阵和可逆变换矩阵"><a href="#求方阵的对角阵和可逆变换矩阵" class="headerlink" title="求方阵的对角阵和可逆变换矩阵"></a>求方阵的对角阵和可逆变换矩阵</h1><ul>
+<li>解释：对角阵就是特征值矩阵，可逆变换矩阵就是归一化的特征向量矩阵</li>
+</ul>
+<p>列：</p>
+<ul>
+<li><p>已知方阵<br><script type="math/tex">\begin{pmatrix}
+0 & -1 & 1\\ 
+-1 & 0 & 1\\ 
+1 & 1 & 0
+\end{pmatrix}</script> 与对角矩阵相似（也就是说特征向量个数等于矩阵阶数，也就是说对角阵的对角线上都有值），求响应的对角阵和可逆变换矩阵</p>
+</li>
+<li><p>对角阵（特征值矩阵）</p>
+<script type="math/tex; mode=display">A 的特征值为 \lambda _{1}=-2;\lambda _{2}=\lambda _{3}=1\\
+当 \lambda _{1}=-2 时，特征向量为k\begin{pmatrix}
+-1\\ 
+-1\\ 
+1
+\end{pmatrix}\\
+当\lambda _{2}=\lambda _{3}=1时，特征向量为k\begin{pmatrix}
+1\\ 
+0\\ 
+1
+\end{pmatrix} 与 k\begin{pmatrix}
+-1\\ 
+1\\ 
+0
+\end{pmatrix}\\
+对角阵 \Lambda = \begin{pmatrix}
+\lambda _{1} & 0 & 0\\ 
+0 & \lambda _{2} & 0\\ 
+0 & 0 & \lambda _{3}
+\end{pmatrix}=\begin{pmatrix}
+-2 & 0 & 0\\ 
+0 & 1 & 0\\ 
+0 & 0 & 1
+\end{pmatrix}</script></li>
+<li><p>可逆变换矩阵（特征向量矩阵）</p>
+</li>
+<li><p>1，特征向量归一化</p>
+<script type="math/tex; mode=display">e_{1}=\frac{1}{\sqrt{3}}\begin{pmatrix}
+-1\\ 
+-1\\ 
+1
+\end{pmatrix}e_{2}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+1\\ 
+0\\ 
+1
+\end{pmatrix}e_{3}=\frac{1}{\sqrt{6}}\begin{pmatrix}
+-1\\ 
+2\\ 
+1
+\end{pmatrix}</script></li>
+<li><p>2，写成矩阵形式 $P=(e<em>{1},e</em>{2},e_{3})$</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">\begin{pmatrix}
+\frac{-1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{6}}\\ 
+\frac{-1}{\sqrt{3}} & 0 & \frac{2}{\sqrt{6}}\\ 
+\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}
+\end{pmatrix}</script><h1 id="已知-P-1-AP-Lambda-求关于A的一些复杂运算次幂运算"><a href="#已知-P-1-AP-Lambda-求关于A的一些复杂运算次幂运算" class="headerlink" title="已知 $P^{-1}AP=\Lambda$,求关于A的一些复杂运算次幂运算"></a>已知 $P^{-1}AP=\Lambda$,求关于A的一些复杂运算次幂运算</h1><ul>
+<li>原理，利用特征值变化使得基矩阵变成特征向量矩阵，那么这个特征向量矩阵的在某个角度就是只有对角线的形式，然后方便计算</li>
+<li>利用公式：<script type="math/tex; mode=display">\varphi (A)=P\cdot \begin{pmatrix}
+\varphi (\lambda _{1}) &  &  & \\ 
+& \varphi (\lambda _{2}) &  & \\ 
+&  & ... & \\ 
+&  &  & \varphi (\lambda _{n})
+\end{pmatrix}\cdot P^{\top }</script>列：<br>已知：<script type="math/tex; mode=display">A=\begin{pmatrix}
+0 & -1 & 1\\ 
+-1 & 0 & 1\\ 
+1 & 1 & 0
+\end{pmatrix},求A^{10}</script></li>
+</ul>
+<p>解：<br>A与对角矩阵相似即满足$P^{-1}AP=\Lambda$</p>
+<script type="math/tex; mode=display">P=\begin{pmatrix}
+\frac{-1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{6}}\\ 
+\frac{-1}{\sqrt{3}} & 0 & \frac{2}{\sqrt{6}}\\ 
+\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}
+\end{pmatrix}</script><ul>
+<li>A的特征值为$\lambda<em>{1}=-2;\lambda </em>{2}=\lambda _{3}=1$</li>
+</ul>
+<script type="math/tex; mode=display">\therefore A^{10}=P\cdot\begin{pmatrix}
+\lambda _{1}^{10} &  &  \\ 
+ & \lambda _{2}^{10} &  \\ 
+ &  & \lambda _{3}^{10} 
+\end{pmatrix}\cdot P^{\top } \\
+=\begin{pmatrix}
+\frac{-1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{6}}\\ 
+\frac{-1}{\sqrt{3}} & 0 & \frac{2}{\sqrt{6}}\\ 
+\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}
+\end{pmatrix}^{\top } \cdot \begin{pmatrix}
+(-2)^{10} &  &  \\ 
+ & 1^{10} &  \\ 
+ &  & 1^{10} 
+\end{pmatrix}\cdot \begin{pmatrix}
+\frac{-1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{6}}\\ 
+\frac{-1}{\sqrt{3}} & 0 & \frac{2}{\sqrt{6}}\\ 
+\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}
+\end{pmatrix}</script><h1 id="求二次型系数对应系数矩阵"><a href="#求二次型系数对应系数矩阵" class="headerlink" title="求二次型系数对应系数矩阵"></a>求二次型系数对应系数矩阵</h1><ul>
+<li>切记除了对角线其他部位都要除以2<br>列1：<script type="math/tex; mode=display">求二次型f=-2x_{1}x_{2}+2x_{1}x_{3}+2x_{2}x_{3}对应系数矩阵</script></li>
+</ul>
+<ol>
+<li><p>根据公式:</p>
+<script type="math/tex; mode=display">f=a_{11}x_{1}x_{1}+a_{22}x_{2}x_{2}+...+a_{n}x_{n}x_{n}\\
++2a_{12}x_{1}x_{2}+2a_{13}x_{1}x_{3}+...+2a_{1n}x_{1}x_{n}\\
++2a_{23}x_{2}x_{3}+...+2a_{2n}x_{2}x_{n}\\
++... ... \\
++2a_{n-1,n}x_{n-1}x_{n}</script><p>求得</p>
+<script type="math/tex; mode=display">f=a_{11}x_{1}^{2}+a_{22}x_{2}^{2}+a_{33}x_{3}^{2}
++2a_{12}x_{1}x_{2}+2a_{13}x_{1}x_{3}
++2a_{23}x_{2}x_{3} \\
+解得\left\{\begin{matrix}
+a_{11}=0\\ 
+a_{22}=0\\ 
+a_{33}=0\\
+a_{12}=-1\\ 
+a_{13}=1\\ 
+a_{23}=1
+\end{matrix}\right.</script></li>
+<li><p>将各个a填入矩阵</p>
+<script type="math/tex; mode=display">\begin{pmatrix}
+0 & -1 & 1\\ 
+& 0 & 1\\ 
+&  & 0
+\end{pmatrix}</script></li>
+<li><p>以对角线为对称轴补全矩阵</p>
+</li>
+</ol>
+<p>$ \begin{pmatrix}<br>0 &amp; -1 &amp; 1\<br> -1&amp; 0 &amp; 1\<br>1 &amp; 1 &amp; 0<br>\end{pmatrix} $</p>
+<p>列2：</p>
+<script type="math/tex; mode=display">求二次型f=x^{2}-3z^{2}-4xy+yz对应系数矩阵</script><p>得出：</p>
+<script type="math/tex; mode=display">f=a_{11}x^{2}+a_{22}y^{2}+a_{33}z^{2}+a_{12}xy+a_{13}xy+a_{23}yz \\ 得\left\{\begin{matrix}
+a_{11}=1\\ 
+a_{22}=0\\ 
+a_{33}=-3\\ 
+a_{12}=-2\\ 
+a_{13}=0\\ 
+a_{23}= 0.5
+\end{matrix}\right.</script><p>将各个a填入矩阵和补全</p>
+<script type="math/tex; mode=display">\bigl(\begin{smallmatrix}
+1 & -2 & 0\\ 
+-2 & 0 & 0.5\\ 
+0 & 0.5 & -3
+\end{smallmatrix}\bigr)</script><h1 id="化二次型成标准型"><a href="#化二次型成标准型" class="headerlink" title="化二次型成标准型"></a>化二次型成标准型</h1><p>就是利用一个2次形的化简来求特征向量与特征值</p>
+<ul>
+<li>求二次型为标准型并求所用的变换矩阵P</li>
+<li>1，跟上一题一样先把二次型写成系数矩阵的形式</li>
+<li>2，求出特征值，然后把特征值带入标准型：$ f=\lambda <em>{1}y</em>{1}^{2}+\lambda <em>{2}y</em>{2}^{2}+\lambda <em>{3}y</em>{3}^{2} $</li>
+<li>求变换矩阵就是求特征向量矩阵P</li>
+</ul>
+<h1 id="化二次型成规范形"><a href="#化二次型成规范形" class="headerlink" title="化二次型成规范形"></a>化二次型成规范形</h1><p>跟求标准型的方式一样，先求出特征向量然后利用公式$f=\frac{\lambda <em>{1}}{\left | \lambda</em>{1}  \right |}z<em>{1}^{2}+\frac{\lambda </em>{2}}{\left | \lambda<em>{2}  \right |}z</em>{2}^{2}+…+\frac{\lambda <em>{n}}{\left | \lambda</em>{n}  \right |}z_{n}^{2}$</p>
+<ul>
+<li>求所用到的变换矩阵C，根据下面公式<script type="math/tex; mode=display">C=P\begin{pmatrix}
+\sqrt{\frac{1}{\left | \lambda _{1} \right |}} &  &  & \\ 
+& \sqrt{\frac{1}{\left | \lambda _{2} \right |}}  &  & \\ 
+&  & ... & \\ 
+&  &  & \sqrt{\frac{1}{\left | \lambda _{4} \right |}} 
+\end{pmatrix}</script></li>
 </ul>
 
       
@@ -141,12 +656,12 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/" data-id="ckowhcx8m004g80yb29fh2m2x" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/09/quadratic-form-of-houPhD/" data-id="ckowhp023006mluybgmj8qvjn" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/">linear algebra</a></li></ul>
 
 
     </footer>
@@ -157,13 +672,13 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
 
 
   
-    <article id="post-Simple-Linear-Regression-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Matrix-of-houPhD" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/">Simple Linear Regression of R  by A-Z</a>
+      <a class="article-title" href="/2019/08/08/Matrix-of-houPhD/">Matrix of HouPhD</a>
     </h1>
   
 
@@ -172,7 +687,7 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-11T04:45:29.000Z" itemprop="datePublished">2019-09-11</time></a>
+  <a href="/2019/08/08/Matrix-of-houPhD/" class="article-date"><time datetime="2019-08-08T14:16:17.000Z" itemprop="datePublished">2019-08-08</time></a>
 </div>
 
     
@@ -183,43 +698,222 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
-<script src="https://gist.github.com/SauronLee/ea489f7e3335cbc820bf593f7de6cd62.js"></script>
-
-<p><img src="/images/A-Z_ML/06.png" alt></p>
-<ul>
-<li>lm {stats}    R Documentation<br>Fitting Linear Models<br>Description<br>lm is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).</li>
+        <h1 id="矩阵相乘"><a href="#矩阵相乘" class="headerlink" title="矩阵相乘"></a>矩阵相乘</h1><ul>
+<li>前行乘后列<br>试求：矩阵A乘矩阵B<script type="math/tex; mode=display">A \times B=\begin{pmatrix}
+1 & 3\\ 
+2 & 4\\ 
+5 & 6
+\end{pmatrix} \times \begin{pmatrix}
+7 & 8 & 9\\ 
+10 & 11 & 12
+\end{pmatrix}\\
+=\begin{pmatrix}
+1\times 7+3\times 10 & 1\times 8+3\times 11 & 1\times 9+3\times 12\\ 
+2\times 7+4\times 10 & 2\times 8+4\times 11 & 2\times 9+4\times 12\\ 
+5\times 7+6\times 10 & 5\times 8+6\times 11 & 5\times 9+6\times 12
+\end{pmatrix}
+=\bigl(\begin{smallmatrix}
+37 & 41 & 45\\ 
+54 & 60 & 66\\ 
+95 & 106 & 117
+\end{smallmatrix}\bigr)</script></li>
 </ul>
-<p>Usage<br>lm(formula, data, subset, weights, na.action,<br>   method = “qr”, model = TRUE, x = FALSE, y = FALSE, qr = TRUE,<br>   singular.ok = TRUE, contrasts = NULL, offset, …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
-<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.</p>
-<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
-<p>weights<br>an optional vector of weights to be used in the fitting process. Should be NULL or a numeric vector. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used. See also ‘Details’,</p>
-<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
-<p>method<br>the method to be used; for fitting, currently only method = “qr” is supported; method = “model.frame” returns the model frame (the same as with model = TRUE, see below).</p>
-<p>model, x, y, qr<br>logicals. If TRUE the corresponding components of the fit (the model frame, the model matrix, the response, the QR decomposition) are returned.</p>
-<p>singular.ok<br>logical. If FALSE (the default in S but not in R) a singular fit is an error.</p>
-<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
-<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector or matrix of extents matching those of the response. One or more offset terms can be included in the formula instead or as well, and if more than one are specified their sum is used. See model.offset.</p>
-<p>…<br>additional arguments to be passed to the low level regression fitting functions (see below).</p>
-<ul>
-<li>summary(regressor)</li>
+<h1 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h1><ul>
+<li>$A\cdot 0=0$(0为全0矩阵)</li>
+<li>$0\cdot A=0$</li>
 </ul>
-<p>Call:<br>lm(formula = Salary ~ YearsExperience, data = training_set)</p>
-<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-7325.1 -3814.4   427.7  3559.7  8884.6 </p>
-<p>Coefficients:<br>                Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)        25592       2646   9.672 1.49e-08 <em>*</em></p>
-<h2 id="YearsExperience-9365-421-22-245-1-52e-14"><a href="#YearsExperience-9365-421-22-245-1-52e-14" class="headerlink" title="YearsExperience     9365        421  22.245 1.52e-14 *"></a>YearsExperience     9365        421  22.245 1.52e-14 <em>*</em></h2><ul>
-<li><em>代表变量对模型的显著性（重要性）P值越小显著性越（强当p值小于0.05时显著性就很大了）R-squared:  0.9649（越接近1说明拟合效果越好）<br>Signif. codes:  0 ‘**</em>’ 0.001 ‘<em>*’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1</li>
+<script type="math/tex; mode=display">\begin{pmatrix}
+0 & 0 & 0\\ 
+0 & 0 & 0\\ 
+0 & 0 & 0
+\end{pmatrix}=0</script><ul>
+<li>$A\cdot E=A$（E为对角线为1的矩阵也就是向量基）</li>
+<li>$E\cdot A=A$</li>
+<li>$E^{2}=E\cdot E=E$</li>
 </ul>
-<p>Residual standard error: 5391 on 18 degrees of freedom<br>Multiple R-squared:  0.9649,    Adjusted R-squared:  0.963<br>F-statistic: 494.8 on 1 and 18 DF,  p-value: 1.524e-14</p>
-<ul>
-<li>command+enter<br>y_pred = predict(regressor, newdata = test_set)<blockquote>
-<p>y_pred</p>
-<pre><code>  2         4         5         8        11        16        20        21        24 
-</code></pre><p>37766.77  44322.33  46195.35  55560.43  62115.99  71481.07  81782.66  89274.72 102385.84 </p>
-<pre><code> 26 
-</code></pre><p>109877.90 </p>
-</blockquote>
+<script type="math/tex; mode=display">\begin{pmatrix}
+1 & 0\\ 
+0 & 1
+\end{pmatrix}=E</script><ul>
+<li><p>矩阵相乘是有顺序的，矩阵为多维向量的变化，变化顺序不可以改变改变后结果不同（AB≠BA）<br>$A^{2}\cdot 2AB=(A^{2}\cdot 2A)\cdot B$ ✔️<br>$A^{2}\cdot 2AB=B \cdot (A^{2}\cdot 2A)$ ✖️</p>
 </li>
+<li><p>矩阵中使没有除法的所以AX=AY不能推出X=Y，（矩阵是一种变换）<br>$A^{2}B=AB\Rightarrow AB=2B$ ✖️</p>
+</li>
+<li><p>$(AB)^{k}$与$A^{k}B^{k}$不一定相等</p>
+</li>
+<li><p>$A^{2}+(k+j)AB+kjB^{2}$与$(A+kB)(A+jB)$不一定相等<br>$A^{2}+2AB+B^{2}=(A+B)^{2}$ ✖️<br>但如果与E相乘就是对的，如下：</p>
+<script type="math/tex; mode=display">A^{2}+(k+j)A+kjE\\
+=A^{2}+(k+j)A+kjE^{2}\\
+=(A+kE)(A+jE)</script><p>$A^{2}+2AE+E^{2}=(A+E)^{2}$ ✔️<br>$A^{2}+2A+E=A^{2}+2AE+E^{2}=(A+E)^{2}$ ✔️</p>
+</li>
+</ul>
+<h1 id="矩阵的行列式计算"><a href="#矩阵的行列式计算" class="headerlink" title="矩阵的行列式计算"></a>矩阵的行列式计算</h1><ul>
+<li>矩阵的取行列式就是求这个矩阵的行列式结果</li>
+<li>公式 $\left | \lambda A \right |=\lambda ^{n}\left | A \right |$(在变行列式的时候取倍数后别忘了次幂，这个步骤也就是说当矩阵变成行列式的时候他的倍数要乘以维度，也就是说矩阵的倍数就代表他的变化率在维度的倍数当变成行列式后就成了面积或体积的在多少维度的倍数)<br>已知<script type="math/tex">A=\begin{pmatrix}
+2 & 4 & 6\\ 
+4 & 6 & 8\\ 
+8 & 10 & 14
+\end{pmatrix} 求\left | A \right |</script></li>
+</ul>
+<script type="math/tex; mode=display">A=2\begin{pmatrix}
+1 & 2 & 3\\ 
+2 & 3 & 4\\ 
+4 & 5 & 7
+\end{pmatrix}</script><script type="math/tex; mode=display">\left | A \right |=2^{3}\begin{vmatrix}
+1 & 2 & 3\\ 
+2 & 3 & 4\\ 
+4 & 5 & 7
+\end{vmatrix}\\=8\times (-1)=-8</script><h1 id="矩阵的转置"><a href="#矩阵的转置" class="headerlink" title="矩阵的转置"></a>矩阵的转置</h1><ul>
+<li>矩阵的转置相乘可以改变先后顺序，所以先用行乘列可以简化计算量</li>
+<li>$(AB)^{\top }=B^{\top }A^{\top }$</li>
+<li>$\left | A^{\top } \right |=\left | A \right |$</li>
+</ul>
+<h1 id="求矩阵是否可逆"><a href="#求矩阵是否可逆" class="headerlink" title="求矩阵是否可逆"></a>求矩阵是否可逆</h1><ul>
+<li>判断矩阵是否满足这两个条件(低维矩阵是不可以升维的)</li>
+</ul>
+<ol>
+<li>是否为方阵（行和列相等）</li>
+<li>$\left | A \right | \neq 0 $ 或者存在一个方阵B，满足AB=E或BA=E</li>
+</ol>
+<p>列：</p>
+<ul>
+<li><p>设 <script type="math/tex">A=\begin{pmatrix}
+1 & 2 & 3\\ 
+0 & 4 & 5\\ 
+0 & 0 & 6
+\end{pmatrix}，试判断A是否可逆\left | A \right |=\begin{vmatrix}
+1 & 2 & 3\\ 
+0 & 4 & 5\\ 
+0 & 0 & 6
+\end{vmatrix}=24\neq 0</script><br>$\therefore A$可逆</p>
+</li>
+<li><p>设方阵A满足$A^{2}-A-2E=0$,证明A可逆</p>
+<script type="math/tex; mode=display">A^{2}-A-2E =0\\
+A^{2}-A=2E\\
+A^{2}-AE=2E\\
+A(A-E)=2E
+A[\frac{1}{2}(A-E)]=E</script><p>令$B=\frac{1}{2}(A-E)<br>$<br>则$A\cdot B=E$<br>$\therefore A$可逆</p>
+</li>
+</ul>
+<h1 id="求矩阵的逆"><a href="#求矩阵的逆" class="headerlink" title="求矩阵的逆"></a>求矩阵的逆</h1><ul>
+<li><p>$\left ( A|E \right )\rightarrow \left ( E|A^{-1} \right )$<br>列：<br>已知 <script type="math/tex">A=\begin{pmatrix}
+1 & 2 & 3\\ 
+2 & 3 & 4\\ 
+4 & 5 & 7
+\end{pmatrix},求A^{-1}</script></p>
+<script type="math/tex; mode=display">\begin{pmatrix}
+1 & 2 & 3 & | & 1 & 0 & 0\\ 
+2 & 3 & 4 & | & 0 & 1 & 0\\ 
+4 & 5 & 7 & | & 0 & 0 & 1
+\end{pmatrix}\rightarrow \begin{pmatrix}
+1 & 0 & 0 & | & -1 & -1 & 1\\ 
+0 & 1 & 0 & | & -2 & 5 & -2\\ 
+0 & 0 & 1 & | & 2 & -3 & 1
+\end{pmatrix}</script><p>所以 $A^{-1}=\begin{pmatrix}<br>-1 &amp; -1 &amp; 1\<br>-2 &amp; 5 &amp; -2\<br>2 &amp; -3 &amp; 1<br>\end{pmatrix}$</p>
+</li>
+<li><p>利用公式：$A\cdot A^{-1}=E$或$A^{-1} \cdot A=E$计算(矩阵乘矩阵的逆等于向量基而不是消掉注意，而向量基乘以任何矩阵都等于矩阵本身所以此处才可以消掉)<br>已知$A=\begin{pmatrix}<br>1 &amp; 2 &amp; 3\<br>2 &amp; 3 &amp; 4\<br>4 &amp; 5 &amp; 7<br>\end{pmatrix}$,$B=\begin{pmatrix}<br>1 &amp; 2\<br>2 &amp; 1<br>\end{pmatrix}$,$C=\begin{pmatrix}<br>1 &amp; 4\<br>2 &amp; 5\<br>3 &amp; 6<br>\end{pmatrix}$,求矩阵X使满足AXB=C<br>解：</p>
+<script type="math/tex; mode=display">AXB=C\\
+A^{-1}XAB=A^{-1}C\\
+EXB=A^{-1}C\\
+XB=A^{-1}C\\
+B^{-1}XB=B^{-1}A^{-1}C\\
+EX=B^{-1}A^{-1}C\\
+X=B^{-1}A^{-1}C= \begin{pmatrix}
+-1 & -1 & 1\\
+-2 & 5 & -2\\
+2 & -3 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & 4\\
+2 & 5\\
+3 & 6
+\end{pmatrix}\begin{pmatrix}
+-\frac{1}{3} & \frac{2}{3}\\ 
+\frac{2}{3} & -\frac{1}{3}
+\end{pmatrix}=\begin{pmatrix}
+-2 & 1\\ 
+\frac{8}{3} & -\frac{1}{3}\\
+-\frac{1}{3} & -\frac{1}{3}
+\end{pmatrix}</script></li>
+</ul>
+<h1 id="伴随矩阵"><a href="#伴随矩阵" class="headerlink" title="伴随矩阵"></a>伴随矩阵</h1><ul>
+<li>根据行列式的展开法则，任一行元素与其对应代数余子式乘积之和等于行列式，与其他行对应元素的代数余子式乘积和为0，所以构造一个矩阵A<em>，其每一列元素的为Ade每一行元素的代数余子式，那么AA</em>就是一个对角矩阵，对角元都是|A|</li>
+<li>伴随矩阵就是两个线性空间直接变换诱导的对偶空间上的变换</li>
+<li>公式：$A\cdot A<em> = \left | A \right |E 或 A</em>\cdot A=\left | A \right |E$<br>列：已知<script type="math/tex">A=\begin{pmatrix}
+1 & 2 & 3\\ 
+2 & 3 & 4\\ 
+4 & 5 & 7
+\end{pmatrix},且  A*X=A^{-1}+X ,求矩阵X</script><br>解：<script type="math/tex; mode=display">A*X=A^{-1}+X\\
+AA*X=A(A^{-1}+X)\\
+\left | A \right |EX=A(A^{-1}+X)\\
+\left | A \right |EX=AA^{-1}+AX\\
+\left | A \right |EX=E+AX\\
+\left | A \right |EX-AX=E\\
+(\left | A \right |E-A)X=E\\
+(\left | A \right |E-A)^{-1}\cdot (\left | A \right |E-A)X= (\left | A \right |E-A)\cdot E\\
+EX=(\left | A \right |E-A)\cdot E\\
+X=(\left | A \right |E-A)^{-1}</script></li>
+</ul>
+<script type="math/tex; mode=display">\left | A \right |=\begin{vmatrix}
+1 & 2 & 3\\ 
+2 & 3 & 4\\ 
+4 & 5 & 7
+\end{vmatrix} = -1\\</script><script type="math/tex; mode=display">\therefore X=(-E-A)^{-1}=\begin{bmatrix}
+-\begin{pmatrix}
+1 & 0 & 0\\ 
+0 & 1 & 0\\ 
+0 & 0 & 1
+\end{pmatrix} & -\begin{pmatrix}
+1 & 2 & 3\\ 
+2 & 3 & 4\\ 
+4 & 5 & 7
+\end{pmatrix}
+\end{bmatrix}^{-1}\\=\begin{pmatrix}
+-2 & -2 & -3\\ 
+-2 & -4 & -4\\ 
+-4 & -5 & -8
+\end{pmatrix}^{-1}\\=\begin{pmatrix}
+-2 & \frac{1}{6} & \frac{2}{3}\\ 
+0 & -\frac{2}{3} & \frac{1}{3}\\ 
+1 & \frac{1}{3} & -\frac{2}{3}
+\end{pmatrix}</script><h1 id="秩"><a href="#秩" class="headerlink" title="秩"></a>秩</h1><ul>
+<li>矩阵的秩就等于矩阵的维度，当有线性相关的向量时，这个向量在这个矩阵的解中完全起不到任何作用，这个向量就不能是这个矩阵的秩，而一个维度的矩阵只能有一个线性相关的向量，（方法：对矩阵进行行变换，使下行左端的0比上行的多直到下行全为零或者左下角的零一行比一行多就行，就相当于求行列式的体积的时候，要化简左下角为零这样对角线就是立方体的长宽高，试想如果一个立方体的长宽高都有则成立，如果少一个那就必须降维也就是说有线性相关，高维时也是一样）<br>列：<script type="math/tex; mode=display">已知A=\begin{pmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 4 & 6 & 8\\ 
+4 & 5 & 6 & 7\\ 
+1 & 2 & 6 & 9
+\end{pmatrix}, 求R(A)</script>解:<script type="math/tex; mode=display">A=\begin{pmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 4 & 6 & 8\\ 
+4 & 5 & 6 & 7\\ 
+1 & 2 & 6 & 9
+\end{pmatrix}=\begin{pmatrix}
+1 & 2 & 3 & 4\\ 
+0 & -3 & -6 & -9\\ 
+0 & 0 & 3 & 5\\ 
+0 & 0 & 0 & 0
+\end{pmatrix}=R(A)=3</script></li>
+</ul>
+<h1 id="已知矩阵的秩求矩阵里的未知数"><a href="#已知矩阵的秩求矩阵里的未知数" class="headerlink" title="已知矩阵的秩求矩阵里的未知数"></a>已知矩阵的秩求矩阵里的未知数</h1><ul>
+<li>已知矩阵的真实维度，求真实维度里的一个向量同理<br>列：<script type="math/tex; mode=display">已知 B=\begin{pmatrix}
+1 & 2 & 3 & 4\\ 
+2 & \mu  & 6 & 8\\ 
+3 & 6 & 9 & \lambda 
+\end{pmatrix}，且R(B)=1,求 \mu，\lambda 的值</script>解：<script type="math/tex; mode=display">B=\begin{pmatrix}
+1 & 2 & 3 & 4\\ 
+2 & \mu  & 6 & 8\\ 
+3 & 6 & 9 & \lambda 
+\end{pmatrix}\xrightarrow[r_{2}-2r_{1}]{r_{3}-3r_{1}}\begin{pmatrix}
+1 & 2 & 3 & 4\\ 
+0 & \mu  & 0 & 0\\ 
+0 & 0 & 0 & \lambda 
+\end{pmatrix}\\
+R(B)=1\rightarrow \left\{\begin{matrix}
+\mu - 4 = 0\\ 
+\lambda -12 =0
+\end{matrix}\right.\rightarrow \left\{\begin{matrix}
+\mu = 4\\ 
+\lambda = 12
+\end{matrix}\right.</script></li>
 </ul>
 
       
@@ -231,12 +925,274 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/11/Simple-Linear-Regression-of-R-by-A-Z/" data-id="ckowhcx92005080yb4fygappp" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/08/08/Matrix-of-houPhD/" data-id="ckowhp00a003oluyb9ma0v7kq" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/">linear algebra</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Determinant-nature-and-linear-algebra-of-houPhD" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/Determinant-nature-and-linear-algebra-of-houPhD/">Determinant nature and linear algebra of HouPhD</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/08/08/Determinant-nature-and-linear-algebra-of-houPhD/" class="article-date"><time datetime="2019-08-08T11:42:14.000Z" itemprop="datePublished">2019-08-08</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="行列式的计算"><a href="#行列式的计算" class="headerlink" title="行列式的计算"></a>行列式的计算</h1><hr>
+<ul>
+<li>二阶行列式就是求四边形的面积，jx和iy决定了四边形的长和高，当一条边不在x轴上的时候还要减去iy和jx的乘积<script type="math/tex; mode=display">\begin{vmatrix}
+1 &2 \\ 
+2& 3
+\end{vmatrix} = 1\times 3-2\times 2 =  -1</script></li>
+<li>多阶行列式 归零化 某行（列）加上或减去另一行列的几倍，行列式不变</li>
+<li><p>多阶行列式就是求立方体的体积，其对角线决定了立方体的长宽高，其他元素等于他的边与xyz的偏斜度，我们需要把向量都贴在z轴和x轴上，也就是把左下变成0，这样就方便计算（对角线乘积即可，即是长宽高乘积）</p>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2 & 3\\ 
+2 & 3 & 4\\ 
+4 & 5 & 6
+\end{vmatrix} = \begin{vmatrix}
+1 & 2 & 3\\ 
+0 & -1 & -2\\ 
+0 & 0 & 1
+\end{vmatrix}= 1\times -1\times 1=-1</script></li>
+<li><p>某行（列）乘k，等于k乘此行列式</p>
+<script type="math/tex; mode=display">\begin{bmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 3 & 4 & 5\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{bmatrix} = 1</script></li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+2 & 4 & 6 & 8\\ 
+2 & 3 & 4 & 5\\ 
+12 & 15 & 21 & 24\\ 
+8 & 9 & 10 & 12
+\end{vmatrix} = 2\times 3\times \begin{vmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 3 & 4 & 5\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{vmatrix}=2\times 3\times -1=-6</script><ul>
+<li>互换两行（列），行列式变号</li>
+</ul>
+<script type="math/tex; mode=display">\begin{bmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 3 & 4 & 5\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{bmatrix} = 1</script><script type="math/tex; mode=display">\begin{vmatrix}
+2 & 3 & 4 & 5\\ 
+1 & 2 & 3 & 4\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{vmatrix} = -1\times \begin{vmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 3 & 4 & 5\\ 
+4 & 5 & 7 & 8\\ 
+8 & 9 & 10 & 12
+\end{vmatrix}= -1\times -1 = 1</script><script type="math/tex; mode=display">\begin{vmatrix}
+0 & 0 & 0 & 3\\ 
+0 & 0 & 3 & 2\\ 
+1 & 2 & 3 & 4\\ 
+0 & 5 & 2 & 4
+\end{vmatrix}\overset{r1\leftrightarrow r4}{\rightarrow}-1\times \begin{vmatrix}
+0 & 5 & 2 & 4\\ 
+0 & 0 & 3 & 2\\ 
+1 & 2 & 3 & 4\\ 
+0 & 0 & 0 & 3
+\end{vmatrix}\overset{r2\leftrightarrow r3}{\rightarrow}\\-1\times -1\times  \begin{vmatrix}
+0 & 5 & 2 & 4\\ 
+1 & 2 & 3 & 4\\ 
+0 & 0 & 3 & 2\\ 
+0 & 0 & 0 & 3
+\end{vmatrix}\overset{r1\leftrightarrow r2}{\rightarrow} -1\times -1\times -1\times \begin{bmatrix}
+1 & 2 & 3 & 4\\ 
+0 & 5 & 2 & 4\\ 
+0 & 0 & 3 & 2\\ 
+0 & 0 & 0 & 3
+\end{bmatrix}\\=-1\times -1\times -1\times 1\times 5\times 3\times 3=-45</script><hr>
+<h1 id="特殊行列式计算公式"><a href="#特殊行列式计算公式" class="headerlink" title="特殊行列式计算公式"></a>特殊行列式计算公式</h1><hr>
+<ul>
+<li>对角线为x其余都是a则可用：</li>
+</ul>
+<script type="math/tex; mode=display">(x-a)^{n-1}[x+(n-1)a]</script><script type="math/tex; mode=display">\begin{vmatrix}
+2 & 3 & 3 & 3\\ 
+3 & 2 & 3 & 3\\ 
+3 & 3 & 2 & 3\\ 
+3 & 3 & 3 & 2
+\end{vmatrix} = (2-3)^{4-1}[2+(4-1)\times 3] = -11</script><ul>
+<li>第一行为1，其他行的次幂依次加1</li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 1 & 1 & 1\\ 
+3 & 4 & 5 & 6\\ 
+3^{2} & 4^{2} & 5^{2} & 6^{2}\\ 
+3^{3} & 4^{3} & 5^{3} & 6^{3}
+\end{vmatrix}= (6-5)(6-4)(6-3)(5-4)(5-3)(4-3)=12</script><ul>
+<li>两行（列）相同或成比例时，行列式为0</li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2 & 3 & 4\\ 
+2 & 4 & 6 & 8\\ 
+3 & 4 & 5 & 6\\ 
+7 & 8 & 9 & 10
+\end{vmatrix} = 0</script><ul>
+<li>某行（列）为两项相加减的时候，行列式可以拆成两个行列式相加减</li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2+a & 3 & 4\\
+2 & 4+b & 6 & 8\\
+3 & 4+c & 5 & 6\\
+7 & 8+d & 9 & 10
+\end{vmatrix}= \begin{vmatrix}
+1 & 2 & 3 & 4\\
+2 & 4 & 6 & 8\\
+3 & 4 & 5 & 6\\
+7 & 8 & 9 & 10
+\end{vmatrix} + \begin{vmatrix}
+1 & a & 3 & 4\\
+2 & b & 6 & 8\\
+3 & c & 5 & 6\\
+7 & d & 9 & 10
+\end{vmatrix}</script><h1 id="求余子式，代数余子式"><a href="#求余子式，代数余子式" class="headerlink" title="求余子式，代数余子式"></a>求余子式，代数余子式</h1><ul>
+<li>一个n阶行列式，如果其中第行所有元素（ij）元aij外都为零，那么这个行列式等于aij与他的代数余子式的乘积（也就是说其他向量在这一维度为0那么这个行列式的体积就等于这个数与他的代数余子式的乘积，也就是面积乘以高）<br>列：求下列中a23的余子式和代数余子式（<a href="http://setosa.io/ev/eigenvectors-and-eigenvalues/）" target="_blank" rel="noopener">http://setosa.io/ev/eigenvectors-and-eigenvalues/）</a></li>
+</ul>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2 & 3\\ 
+5 & 6 & 7\\ 
+9 & 10 & 11
+\end{vmatrix}</script><script type="math/tex; mode=display">M_{23}=\begin{vmatrix}
+1 & 2\\ 
+9 & 10
+\end{vmatrix} = -8</script><ul>
+<li>代数余子式就是判断余子式的正负号以便于带入运算作用<script type="math/tex; mode=display">A_{23}=(-1)^{2+3}\times M_{23}=-1\times -8=8</script></li>
+</ul>
+<h1 id="利用行列式展开公式求行列式"><a href="#利用行列式展开公式求行列式" class="headerlink" title="利用行列式展开公式求行列式"></a>利用行列式展开公式求行列式</h1><ul>
+<li>当发现这个行列式其中有一个维度只有一个高度的时候，那么可用代数余子式展开出一个平行四边形的面积乘上这个高，如果那个维度不是只有一个高就表明这个立方体不在轴线上，那么就要加上或减去其他代数余子式所构成的立方体的体积</li>
+<li>当某行或列只有一个数其余为零的时候可用以下公式：（行列式的展开公式）<script type="math/tex; mode=display">D=a_{i1}A_{i1}+a_{i2}+A_{i2}+...+a_{in}+A_{in}\\
+D=a_{j1}A_{j1}+a_{j2}+A_{j2}+...+a_{jn}+A_{jn}</script></li>
+</ul>
+<p>列：</p>
+<script type="math/tex; mode=display">\begin{vmatrix}
+1 & 2 & 3\\
+4 & 0 & 5\\
+6 & 0 & 7
+\end{vmatrix}=2\times (-1)^{1+2} M_{12} +0 \times  ...+0\times...=2\times (-1)^{1+2} M_{12}</script><ul>
+<li>求多个A或M相加减(倍数直接替换相应行号，M要变号)</li>
+</ul>
+<p>已知：</p>
+<script type="math/tex; mode=display">D=\begin{vmatrix}
+1 & 2 & 3 & 4\\
+5 & 6 & 7 & 8\\ 
+9 & 10 & 11 & 12\\
+13 & 14 & 15 & 16
+\end{vmatrix}</script><p>求：</p>
+<ul>
+<li><script type="math/tex; mode=display">3A_{11}+4A_{12}+5A_{13}+6A_{14}</script></li>
+<li><script type="math/tex; mode=display">3A_{11}+4A_{21}+5A_{31}+6A_{41}</script></li>
+<li><script type="math/tex; mode=display">3M_{11}+4M_{12}+5M_{13}+6M_{14}</script></li>
+</ul>
+<script type="math/tex; mode=display">3A_{11}+4A_{12}+5A_{13}+6A_{14}=  D=\begin{vmatrix}
+3 & 4 & 5 & 6\\
+5 & 6 & 7 & 8\\
+9 & 10 & 11 & 12\\
+13 & 14 & 15 & 16
+\end{vmatrix}</script><script type="math/tex; mode=display">3A_{21}+4A_{21}+5A_{31}+6A_{41}=  D=\begin{vmatrix}
+3 & 2 & 3 & 4\\
+4 & 6 & 7 & 8\\ 
+5 & 10 & 11 & 12\\
+6 & 14 & 15 & 16
+\end{vmatrix}</script><ul>
+<li>直接看行列和单数变号复数不变<script type="math/tex; mode=display">3M_{11}+4M_{12}+5M_{13}+6M_{14}=3A_{11}-4A_{21}+5A_{31}-6A_{41}</script><script type="math/tex; mode=display">=D=\begin{vmatrix}
+3 & 2 & 3 & 4\\
+-4 & 6 & 7 & 8\\ 
+5 & 10 & 11 & 12\\
+-6 & 14 & 15 & 16
+\end{vmatrix}</script></li>
+</ul>
+<h1 id="根据行列式判断方程解得情况"><a href="#根据行列式判断方程解得情况" class="headerlink" title="根据行列式判断方程解得情况"></a>根据行列式判断方程解得情况</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方程组</th>
+<th style="text-align:center">D≠0</th>
+<th style="text-align:center">D=0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>齐次</td>
+<td style="text-align:center">只有一组零解</td>
+<td style="text-align:center">有零解与非零解</td>
+<td></td>
+</tr>
+<tr>
+<td>非齐次</td>
+<td style="text-align:center">只有一组非零解</td>
+<td style="text-align:center">有多个解或无解</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>列：判断下列方程组是否有唯一解</p>
+<script type="math/tex; mode=display">\left\{\begin{matrix}
+x_{1} & +2x_{2} & +3x_{3} & =0\\ 
+4x_{1} & +5x_{2} & +6x_{3} & =0\\ 
+7x_{1} & +8x_{2} & +9x_{3} & =0
+\end{matrix}\right.</script><script type="math/tex; mode=display">D=\begin{vmatrix}
+1 & 2 & 3\\ 
+4 & 5 & 6\\ 
+7 & 8 & 9
+\end{vmatrix}=0</script><ul>
+<li>所以该方程组有零解与非零解，没有唯一解</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/08/08/Determinant-nature-and-linear-algebra-of-houPhD/" data-id="ckowhozz00018luybaj6h5fq9" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/">linear algebra</a></li></ul>
 
 
     </footer>
@@ -250,7 +1206,7 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/16/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/15/">15</a></li><li><a class="page-number" href="/page/16/">16</a></li><li class="active"><span class="page-number">17</span></li><li><a class="page-number" href="/page/18/">18</a></li><li><a class="page-number" href="/page/19/">19</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/18/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/16/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/15/">15</a></li><li><a class="page-number" href="/page/16/">16</a></li><li class="active"><span class="page-number">17</span></li><li><a class="page-number" href="/page/18/">18</a></li><li><a class="page-number" href="/page/19/">19</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/31/">31</a></li><li><a class="page-next" rel="next" href="/page/18/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

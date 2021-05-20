@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-xgs01" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SVM-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/04/xgs01/">基本术语</a>
+      <a class="article-title" href="/2019/09/13/SVM-of-Python-by-A-Z/">SVM of Python by A-Z</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2017/05/04/xgs01/" class="article-date"><time datetime="2017-05-04T07:49:43.000Z" itemprop="datePublished">2017-05-04</time></a>
+  <a href="/2019/09/13/SVM-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-13T03:25:02.000Z" itemprop="datePublished">2019-09-13</time></a>
 </div>
 
     
@@ -112,55 +112,69 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><hr>
-<ul>
-<li>机器学习：致力于研究如何通过计算手段，利用经验来改善系统自身的性能，在计算机中，“经验”通常以“数据”的形式存在，因此，机器学习所研究的主要内容，是关于在计算机上从数据产生“模型”（model）的算法，即“机器学习”算法（learning algorithm）.</li>
-</ul>
+        <p><img src="/images/A-Z_ML/45.png" alt></p>
+<script src="https://gist.github.com/SauronLee/162cbafc90b6797040b501cfb90f4cb7.js"></script>
+
 <hr>
-<h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><hr>
-<ul>
-<li>数据集（data set）： 记录一组数据的集合比如所有西瓜的声音，根蒂，颜色</li>
-<li>示例（instance）或者 样本（sample）：每个西瓜都是一个实例或样本</li>
-<li>属性（attribute）或者特征（feature）：每个西瓜的声音，根蒂，颜色就是西瓜的属性或特征</li>
-<li>分类（classification）：预测的数据为离散型数据</li>
-<li>回归（regression）：预测的数据为连续型数据</li>
-<li>测试（testing）：学得模型后，使用其进行预测的过程</li>
-<li>预测样本（testing sample）：被预测的样本</li>
-<li>聚类（clustering），在非监督学习中区分每组数据，即将训练集中西瓜分成若干组，每组称为一个“簇”（cluster），这些自动形成的簇可能对应潜在的概念划分，例如“浅色瓜”“深色瓜”等。</li>
-<li>监督学习（supervised learning）：训练数据有标记信息，使用回归和分类算法</li>
-<li>无监督学习（unsupervised learning）：训练数据无标记信息，使用聚类算法</li>
-<li>泛化（generalization）：学得的模型适用于新样本的能力</li>
-</ul>
+<pre><code>
+&gt; y_pred = predict(classifier, newdata = test_set[-3])
+&gt; y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   0   1   1   1   0   1   0   1   1 
+389 392 395 400 
+  0   0   0   0 
+Levels: 0 1
+&gt; # Making the Confusion Matrix
+&gt; cm = table(test_set[, 3], y_pred)
+&gt; cm
+   y_pred
+     0  1
+  0 57  7
+  1 13 23
+</code></pre><hr>
+<p><img src="/images/A-Z_ML/47.png" alt></p>
 <hr>
-<h3 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h3><hr>
-<ul>
-<li>归纳（induction）：从特殊到一般的泛化（generalization）过程</li>
-<li>演绎（deduction）：从一般到特殊的特化（specialization）过程</li>
-<li>归纳学习（induction learning）：归纳学习有广义和狭义之分，广义的归纳学习大体相当于从样本中学习，而狭义的归纳学习则要从训练数据中学得概念（concept），因此有叫做概念学习</li>
-</ul>
+<p>svm {e1071}    R Documentation<br>Support Vector Machines<br>Description<br>svm is used to train a support vector machine. It can be used to carry out general regression and classification (of nu and epsilon-type), as well as density-estimation. A formula interface is provided.</p>
+<p>Usage</p>
+<h2 id="S3-method-for-class-‘formula’"><a href="#S3-method-for-class-‘formula’" class="headerlink" title="S3 method for class ‘formula’"></a>S3 method for class ‘formula’</h2><p>svm(formula, data = NULL, …, subset, na.action =<br>na.omit, scale = TRUE)</p>
+<h2 id="Default-S3-method"><a href="#Default-S3-method" class="headerlink" title="Default S3 method:"></a>Default S3 method:</h2><p>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =<br>“radial”, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x),<br>coef0 = 0, cost = 1, nu = 0.5,<br>class.weights = NULL, cachesize = 40, tolerance = 0.001, epsilon = 0.1,<br>shrinking = TRUE, cross = 0, probability = FALSE, fitted = TRUE,<br>…, subset, na.action = na.omit)<br>Arguments<br>formula<br>a symbolic description of the model to be fit.</p>
+<p>data<br>an optional data frame containing the variables in the model. By default the variables are taken from the environment which ‘svm’ is called from.</p>
+<p>x<br>a data matrix, a vector, or a sparse matrix (object of class Matrix provided by the Matrix package, or of class matrix.csr provided by the SparseM package, or of class simple_triplet_matrix provided by the slam package).</p>
+<p>y<br>a response vector with one label for each row/component of x. Can be either a factor (for classification tasks) or a numeric vector (for regression).</p>
+<p>scale<br>A logical vector indicating the variables to be scaled. If scale is of length 1, the value is recycled as many times as needed. Per default, data are scaled internally (both x and y variables) to zero mean and unit variance. The center and scale values are returned and used for later predictions.</p>
+<p>type<br>svm can be used as a classification machine, as a regression machine, or for novelty detection. Depending of whether y is a factor or not, the default setting for type is C-classification or eps-regression, respectively, but may be overwritten by setting an explicit value.<br>Valid options are:</p>
+<p>C-classification</p>
+<p>nu-classification</p>
+<p>one-classification (for novelty detection)</p>
+<p>eps-regression</p>
+<p>nu-regression</p>
+<p>kernel<br>the kernel used in training and predicting. You might consider changing some of the following parameters, depending on the kernel type.<br>linear:<br>u’*v</p>
+<p>polynomial:<br>(gamma<em>u’</em>v + coef0)^degree</p>
+<p>radial basis:<br>exp(-gamma*|u-v|^2)</p>
+<p>sigmoid:<br>tanh(gamma<em>u’</em>v + coef0)</p>
+<p>degree<br>parameter needed for kernel of type polynomial (default: 3)</p>
+<p>gamma<br>parameter needed for all kernels except linear (default: 1/(data dimension))</p>
+<p>coef0<br>parameter needed for kernels of type polynomial and sigmoid (default: 0)</p>
+<p>cost<br>cost of constraints violation (default: 1)—it is the ‘C’-constant of the regularization term in the Lagrange formulation.</p>
+<p>nu<br>parameter needed for nu-classification, nu-regression, and one-classification</p>
+<p>class.weights<br>a named vector of weights for the different classes, used for asymmetric class sizes. Not all factor levels have to be supplied (default weight: 1). All components have to be named. Specifying “inverse” will choose the weights inversely proportional to the class distribution.</p>
+<p>cachesize<br>cache memory in MB (default 40)</p>
+<p>tolerance<br>tolerance of termination criterion (default: 0.001)</p>
+<p>epsilon<br>epsilon in the insensitive-loss function (default: 0.1)</p>
+<p>shrinking<br>option whether to use the shrinking-heuristics (default: TRUE)</p>
+<p>cross<br>if a integer value k&gt;0 is specified, a k-fold cross validation on the training data is performed to assess the quality of the model: the accuracy rate for classification and the Mean Squared Error for regression</p>
+<p>fitted<br>logical indicating whether the fitted values should be computed and included in the model or not (default: TRUE)</p>
+<p>probability<br>logical indicating whether the model should allow for probability predictions.</p>
+<p>…<br>additional parameters for the low level fitting function svm.default</p>
+<p>subset<br>An index vector specifying the cases to be used in the training sample. (NOTE: If given, this argument must be named.)</p>
+<p>na.action<br>A function to specify the action to be taken if NAs are found. The default action is na.omit, which leads to rejection of cases with missing values on any required variable. An alternative is na.fail, which causes an error if NA cases are found. (NOTE: If given, this argument must be named.)</p>
 <hr>
-<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><hr>
-<ul>
-<li>归纳偏好（inductive bias）当有与训练集一致的假设，但与他们对应的模型在面临新样本的时候会产生不同的输出，那么我们应该采取哪个模型？这时学习算法本身的偏好就会起到关键的作用，任何一个有效的机器学习算法必有其归纳偏好，否则它将被假设空间中看似训练集上等效的假设所迷惑而无法产生确定的结果.</li>
-<li>奥卡姆剃刀（Occam’s razor)：若有多个假设与观察一致，则选择最简单的那个，但是如何判断哪个更简单则不是个简单的问题</li>
-<li>NFL定理（No Free Lunch Theorem）：要谈论算法的相对优劣，必须要针对具体的学习问题，学习算法自身的归纳偏好与问题是否相配，往往会起到觉得决定性作用</li>
-</ul>
-<hr>
-<h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h3><hr>
-<ul>
-<li>二十世纪五十年代到七十年代人们认为只要赋予机器的逻辑推理能力机器就赋予只能后来人们逐渐意识到把总结的知识交给机器是十分困难的<br>1950年：图灵提到机器学习可能.代表：A.Samuel跳棋程序</li>
-<li>五十年代中后期：基于神经网络的联接主义出现.代表F.Rosenblatt的感知机（Perceptron）、B.Widrow的Adaline等</li>
-<li>六七十年代：基于符号主义的学习技术蓬勃发展.代表P.Winston的结构学习系统、R.S.Michalski等人的基于逻辑的归纳学习系统，以决策论为基础的学习技术以及强化学习技术也得到蓬勃发展.如：N.J.Nilsom的机器学习等<br>1980年夏：美国卡耐基梅隆大学第一届机器学习研讨会（IWML）</li>
-<li>二十世纪八十年代：从样例中学习的一大主流是符号主义学习比如决策树（decision tree）至今也是最常用的机器学习技术之一</li>
-<li>二十世纪九十年代：神经网络的连接主义成为主流</li>
-<li>二十世纪九十年代中期：统计学习成为主流代表：支持向量机以及一般的核方法</li>
-<li>二十一世纪：多层深度神经网络成为主流</li>
-</ul>
-<hr>
-<h3 id="应用现状"><a href="#应用现状" class="headerlink" title="应用现状"></a>应用现状</h3><hr>
-<ul>
-<li>人工智能，模式识别，数据挖掘，语音识别，图像识别，信息检索，生物信息，网络通信，软件工程，芯片设计，计算机视觉.总之就像爱迪生发明电</li>
-</ul>
 
       
     </div>
@@ -171,12 +185,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2017/05/04/xgs01/" data-id="ckowhjm2d007be8ybes8eucj2" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/09/13/SVM-of-Python-by-A-Z/" data-id="ckowhp01e005cluybhva7dgcr" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
 
 
     </footer>
@@ -187,13 +201,13 @@
 
 
   
-    <article id="post-Exponential-function-and-logarithm-of-PengTitus" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Logistic-Regression-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/">Exponential function  and logarithm of PengTitus</a>
+      <a class="article-title" href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/">Logistic Regression of R by A-Z</a>
     </h1>
   
 
@@ -202,7 +216,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/" class="article-date"><time datetime="2016-05-10T09:42:03.000Z" itemprop="datePublished">2016-05-10</time></a>
+  <a href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-12T18:18:54.000Z" itemprop="datePublished">2019-09-13</time></a>
 </div>
 
     
@@ -213,20 +227,162 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="指数exponent与对数概论"><a href="#指数exponent与对数概论" class="headerlink" title="指数exponent与对数概论"></a>指数exponent与对数概论</h2><ul>
-<li>对数就是一个函数</li>
-<li>指数的的作用是把自然数成倍增长，而对数的作用就是取消指数对自然数的增长，主要为了简化天文学计算</li>
+        <p><img src="/images/A-Z_ML/35.png" alt="issue"><br><img src="/images/A-Z_ML/36.png" alt="issue"><br><img src="/images/A-Z_ML/37.png" alt="issue"><br><img src="/images/A-Z_ML/38.png" alt="issue"></p>
+<ul>
+<li>列<br><img src="/images/A-Z_ML/42.png" alt="issue"></li>
 </ul>
-<p>比如：没人可以把一本书折叠9次：因为2的9次方是512，相当于一部字典的厚度<br>把一张纸折叠42次后的高度比地球到月球的距离还要高</p>
-<h2 id="指数律-a-m-a-n-a-m-n"><a href="#指数律-a-m-a-n-a-m-n" class="headerlink" title="指数律$(a^{m})(a^{n})=a^{m+n}$"></a>指数律$(a^{m})(a^{n})=a^{m+n}$</h2><p><img src="/images/Exponential&amp;logarithmPengTitus/01.png" alt><br>为什么$a^{0}=1$<br><img src="/images/Exponential&amp;logarithmPengTitus/02.png" alt><br>为什么$a^{-n}=\frac{1}{a^{n}}$<br><img src="/images/Exponential&amp;logarithmPengTitus/03.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/05.png" alt><br>m,n全部为负数时依然成立<br><img src="/images/Exponential&amp;logarithmPengTitus/04.png" alt></p>
-<h3 id="指数律-a-m-n-a-nm-与-ab-n-a-n-cdot-b-n"><a href="#指数律-a-m-n-a-nm-与-ab-n-a-n-cdot-b-n" class="headerlink" title="指数律$(a^{m})^{n}=a^{nm}与(ab)^{n}=a^{n}\cdot b^{n}$"></a>指数律$(a^{m})^{n}=a^{nm}与(ab)^{n}=a^{n}\cdot b^{n}$</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/06.png" alt></p>
-<h3 id="指数律-有理数指数-分数指数"><a href="#指数律-有理数指数-分数指数" class="headerlink" title="指数律_有理数指数(分数指数)"></a>指数律_有理数指数(分数指数)</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/07.png" alt></p>
-<h3 id="指数不等式"><a href="#指数不等式" class="headerlink" title="指数不等式"></a>指数不等式</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/08.png" alt><br>根据算几不等式可看出<br><img src="/images/Exponential&amp;logarithmPengTitus/09.png" alt></p>
-<h3 id="对数Logarithm概论"><a href="#对数Logarithm概论" class="headerlink" title="对数Logarithm概论"></a>对数Logarithm概论</h3><p>对数Logarithm=Logos神的话，arithmos计算-John Napier<br>对数就是把次幂抓下来的工具<br><img src="/images/Exponential&amp;logarithmPengTitus/10.png" alt><br>求指数就是原函数的反函数<br><img src="/images/Exponential&amp;logarithmPengTitus/11.png" alt></p>
-<h3 id="对数的定义和指数反函数的性质"><a href="#对数的定义和指数反函数的性质" class="headerlink" title="对数的定义和指数反函数的性质"></a>对数的定义和指数反函数的性质</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/12.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/13.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/14.png" alt></p>
-<h3 id="对数律logarithmic-identities"><a href="#对数律logarithmic-identities" class="headerlink" title="对数律logarithmic identities"></a>对数律logarithmic identities</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/15.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/16.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/17.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/18.png" alt></p>
-<h3 id="对数的换底法则和推论"><a href="#对数的换底法则和推论" class="headerlink" title="对数的换底法则和推论"></a>对数的换底法则和推论</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/19.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/20.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/21.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/22.png" alt></p>
-<h3 id="e"><a href="#e" class="headerlink" title="e"></a>e</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/23.png" alt></p>
+<pre><code>
+# Logistic Regression
+
+# Importing the dataset
+dataset = read.csv(&#39;Social_Network_Ads.csv&#39;)
+dataset = dataset[3:5]
+
+# Splitting the dataset into the Training set and Test set
+# install.packages(&#39;caTools&#39;)
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+training_set[, 1:2] = scale(training_set[, 1:2])
+test_set[, 1:2] = scale(test_set[, 1:2])  
+
+# Fitting Logistic Regression to the Training set
+classifier = glm(formula = Purchased ~ .,
+                 family= binomial,
+                 data= training_set)
+
+# Predicting the Test set results
+prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
+y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
+
+# Making the Confusion Matrix
+cm = table(test_set[,3], y_pred)
+
+# Visualising the Training set results
+# install.packages(ElemStatLearn)
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.0075)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.0075)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
+prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
+y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
+plot(set[, -3],
+     main = &#39;Classifier (Training set)&#39;,
+     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
+
+# Visualising the Test set results
+# install.packages(ElemStatLearn)
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
+prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
+y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
+plot(set[, -3],
+     main = &#39;Classifier (Test set)&#39;,
+     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
+</code></pre><hr>
+<pre><code>
+
+ prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
+ prob_pred
+           2            4            5            9           12           18           19 
+0.0162395375 0.0117148379 0.0037846461 0.0024527456 0.0073339436 0.2061576580 0.2669935073 
+          20           22           29           32           34           35           38 
+0.3851475689 0.5448578778 0.0103005636 0.2994922143 0.0084168787 0.0494471952 0.0171641479 
+          45           46           48           52           66           69           74 
+0.0485051303 0.0008343060 0.0102561619 0.0007055347 0.0058448457 0.0044534947 0.3933468488 
+          75           82           84           85           86           87           89 
+0.0071065671 0.1068589185 0.2580084947 0.0303248927 0.3303649169 0.0051132916 0.0263861849 
+         103          104          107          108          109          117          124 
+0.1310148056 0.7649772313 0.0034367786 0.0473827096 0.0327965105 0.1626049288 0.0675494054 
+         126          127          131          134          139          148          154 
+0.2189658514 0.4142562486 0.0324337750 0.0043457839 0.0163538708 0.1030590600 0.0751093248 
+         156          159          162          163          170          175          176 
+0.0048556976 0.0027487256 0.0306647902 0.0463555716 0.0122981409 0.1169016711 0.0011936610 
+         193          199          200          208          213          224          226 
+0.0103005636 0.0252589417 0.0177353905 0.9870859806 0.9453359968 0.9969454446 0.1064430571 
+         228          229          230          234          236          237          239 
+0.9979393884 0.3705093415 0.5807527959 0.9117762840 0.7817273411 0.2310672929 0.8037996043 
+         241          255          264          265          266          273          274 
+0.9682706714 0.6686007827 0.1451169281 0.9060311409 0.8293112410 0.9568520348 0.6781064291 
+         281          286          292          299          302          305          307 
+0.9926955397 0.4170486388 0.9220096987 0.7363498859 0.8247736816 0.2558136823 0.9932007105 
+         310          316          324          326          332          339          341 
+0.1178058928 0.3442845494 0.3958138650 0.3059412440 0.9725035550 0.1431602303 0.9842795480 
+         343          347          353          363          364          367          368 
+0.2073273008 0.9371909698 0.6843940060 0.5559479117 0.5698028861 0.9440512240 0.8427877409 
+         369          372          373          380          383          389          392 
+0.2549836305 0.9928717092 0.3243409327 0.8519685008 0.9697473704 0.3793408625 0.2718336775 
+         395          400 
+0.2040229226 0.5236436275 
+
+
+y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
+y_pred
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
+  0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+ 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
+  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
+  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
+292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
+  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   1   1   1   1   0   1   0   1   1 
+389 392 395 400 
+  0   0   0   1 
+
+cm = table(test_set[,3], y_pred)
+#对角线为正确率
+&gt; cm
+   y_pred
+     0  1
+  0 57  7
+  1 10 26
+</code></pre><p><img src="/images/A-Z_ML/43.png" alt="issue"><br><img src="/images/A-Z_ML/44.png" alt="issue"></p>
+<hr>
+<p>glm {stats}    R Documentation<br>Fitting Generalized Linear Models<br>Description<br>glm is used to fit generalized linear models, specified by giving a symbolic description of the linear predictor and a description of the error distribution.</p>
+<p>Usage<br>glm(formula, family = gaussian, data, weights, subset,<br>    na.action, start = NULL, etastart, mustart, offset,<br>    control = list(…), model = TRUE, method = “glm.fit”,<br>    x = FALSE, y = TRUE, singular.ok = TRUE, contrasts = NULL, …)</p>
+<p>glm.fit(x, y, weights = rep(1, nobs),<br>        start = NULL, etastart = NULL, mustart = NULL,<br>        offset = rep(0, nobs), family = gaussian(),<br>        control = list(), intercept = TRUE, singular.ok = TRUE)</p>
+<h1 id="S3-method-for-class-‘glm’"><a href="#S3-method-for-class-‘glm’" class="headerlink" title="S3 method for class ‘glm’"></a>S3 method for class ‘glm’</h1><p>weights(object, type = c(“prior”, “working”), …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
+<p>family<br>a description of the error distribution and link function to be used in the model. For glm this can be a character string naming a family function, a family function or the result of a call to a family function. For glm.fit only the third option is supported. (See family for details of family functions.)</p>
+<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which glm is called.</p>
+<p>weights<br>an optional vector of ‘prior weights’ to be used in the fitting process. Should be NULL or a numeric vector.</p>
+<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
+<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
+<p>start<br>starting values for the parameters in the linear predictor.</p>
+<p>etastart<br>starting values for the linear predictor.</p>
+<p>mustart<br>starting values for the vector of means.</p>
+<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector of length equal to the number of cases. One or more offset terms can be included in the formula instead or as well, and if more than one is specified their sum is used. See model.offset.</p>
+<p>control<br>a list of parameters for controlling the fitting process. For glm.fit this is passed to glm.control.</p>
+<p>model<br>a logical value indicating whether model frame should be included as a component of the returned value.</p>
+<p>method<br>the method to be used in fitting the model. The default method “glm.fit” uses iteratively reweighted least squares (IWLS): the alternative “model.frame” returns the model frame and does no fitting.</p>
+<p>User-supplied fitting functions can be supplied either as a function or a character string naming a function, with a function which takes the same arguments as glm.fit. If specified as a character string it is looked up from within the stats namespace.</p>
+<p>x, y<br>For glm: logical values indicating whether the response vector and model matrix used in the fitting process should be returned as components of the returned value.</p>
+<p>For glm.fit: x is a design matrix of dimension n * p, and y is a vector of observations of length n.</p>
+<p>singular.ok<br>logical; if FALSE a singular fit is an error.</p>
+<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
+<p>intercept<br>logical. Should an intercept be included in the null model?</p>
+<p>object<br>an object inheriting from class “glm”.</p>
+<p>type<br>character, partial matching allowed. Type of weights to extract from the fitted model object. Can be abbreviated.</p>
+<p>…<br>For glm: arguments to be used to form the default control argument if it is not supplied directly.</p>
+<p>For weights: further arguments passed to or from other methods.</p>
+<hr>
 
       
     </div>
@@ -237,12 +393,81 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/" data-id="ckowhjlza0030e8ybubedyyo5" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/09/13/Logistic-Regression-of-R-by-A-Z/" data-id="ckowhp007003iluybwozil59j" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Calculus/">Calculus</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Logistic-Regression-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/">Logistic Regression of Python by A-Z</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-12T15:40:39.000Z" itemprop="datePublished">2019-09-13</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/35.png" alt><br><img src="/images/A-Z_ML/36.png" alt><br><img src="/images/A-Z_ML/37.png" alt><br><img src="/images/A-Z_ML/38.png" alt></p>
+<ul>
+<li>列<br><img src="/images/A-Z_ML/39.png" alt></li>
+</ul>
+<script src="https://gist.github.com/SauronLee/fdff6948bb436e04e91e1ba70ed7e3bb.js"></script>
+
+<ul>
+<li>运行confusion_matrix来测试精准度，正确率（65+24）%</li>
+</ul>
+<pre><code># Making the Confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+cm
+Out[3]: 
+array([[65,  3],
+       [ 8, 24]])
+</code></pre><p><img src="/images/A-Z_ML/40.png" alt><br><img src="/images/A-Z_ML/41.png" alt></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/09/13/Logistic-Regression-of-Python-by-A-Z/" data-id="ckowhp0010039luybfg1pg2ir" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
 
 
     </footer>
@@ -256,7 +481,7 @@
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/9/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li class="active"><span class="page-number">10</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/9/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li class="active"><span class="page-number">10</span></li><li><a class="page-number" href="/page/11/">11</a></li><li><a class="page-number" href="/page/12/">12</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/31/">31</a></li><li><a class="page-next" rel="next" href="/page/11/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

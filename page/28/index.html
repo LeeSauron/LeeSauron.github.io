@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-CART-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-git-push-error-22" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/13/CART-of-Python-by-A-Z/">Decision Tree Classifier of Python by A-Z</a>
+      <a class="article-title" href="/2018/03/09/git-push-error-22/">github operation timed out</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/07/13/CART-of-Python-by-A-Z/" class="article-date"><time datetime="2019-07-13T07:34:19.000Z" itemprop="datePublished">2019-07-13</time></a>
+  <a href="/2018/03/09/git-push-error-22/" class="article-date"><time datetime="2018-03-09T06:24:58.000Z" itemprop="datePublished">2018-03-09</time></a>
 </div>
 
     
@@ -112,13 +112,40 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/85.png" alt></p>
-<script src="https://gist.github.com/SauronLee/ef680bf345a816817042c7acf0503a39.js"></script>
+        <h1 id="创建GitHub仓库"><a href="#创建GitHub仓库" class="headerlink" title="创建GitHub仓库"></a>创建GitHub仓库</h1><p>检查用户目录下有没有.ssh文件，如果没有执行以下操作</p>
+<pre><code>git config user.name “SauronLee” 
+git config user.email “xxx@xxx.com” 
 
+# 查看是否存在
+
+git config user.name 
+git config user.email
+</code></pre><h2 id="生成ssh"><a href="#生成ssh" class="headerlink" title="生成ssh"></a>生成ssh</h2><pre><code>ssh-keygen -t rsa -C “你刚才设置过得邮箱”
+</code></pre><p>无需设置密码和名字</p>
+<p>找到ssh目录下pub文件复制到github上</p>
+<pre><code>ssh -T git@git.oschina.net
+</code></pre><h2 id="测试是否能链接上"><a href="#测试是否能链接上" class="headerlink" title="测试是否能链接上"></a>测试是否能链接上</h2><p>如果出现</p>
 <ul>
-<li>由于过度拟合所以预测的非常差</li>
+<li>ssh: connect to host github.com port 22: Operation timed out<br>fatal: Could not read from remote repository.</li>
 </ul>
-<p><img src="/images/A-Z_ML/84.png" alt><br><img src="/images/A-Z_ML/86.png" alt></p>
+<p>Please make sure you have the correct access rights<br>and the repository exists.</p>
+<p>在ssh文件下创建config文本，内容如下：</p>
+<pre><code>Host github.com
+User xxx@xxx.com
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+</code></pre><p>再次测试链接：</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>会出现以下内容</p>
+<pre><code>The authenticity of host &#39;[ssh.github.com]:443 ([192.30.253.123]:443)&#39; can&#39;t be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;[ssh.github.com]:443,[192.30.253.123]:443&#39; (RSA) to the list of known hosts.
+Hi SauronLee! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre><hr>
+<p>再次链接通过，上传成功</p>
 
       
     </div>
@@ -129,7 +156,119 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/07/13/CART-of-Python-by-A-Z/" data-id="ckowhcx6m000s80yb00odqn6r" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2018/03/09/git-push-error-22/" data-id="ckowhp01t0064luybcbo6j7wb" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Front-End-Certificate-by-Udacity" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/13/Front-End-Certificate-by-Udacity/">Front End Certificate by Udacity</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2018/02/13/Front-End-Certificate-by-Udacity/" class="article-date"><time datetime="2018-02-13T07:35:03.000Z" itemprop="datePublished">2018-02-13</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/news/">news</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.imgur.com/DFzlaLx.png" alt></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2018/02/13/Front-End-Certificate-by-Udacity/" data-id="ckowhozze001xluyby1otfmra" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Boston-Housing-Project" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/17/Boston-Housing-Project/">Boston Housing Project</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2017/12/17/Boston-Housing-Project/" class="article-date"><time datetime="2017-12-17T03:12:33.000Z" itemprop="datePublished">2017-12-17</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/project/">project</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/SauronLee/Udacity_ML_P5/tree/master/p5_boston2.0">Boston Housing Project Adress</a></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2017/12/17/Boston-Housing-Project/" data-id="ckowhozym000rluyby8gc7hic" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -145,69 +284,10 @@
 
 
   
-    <article id="post-Bayes-Theorem-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/13/Bayes-Theorem-by-A-Z/">Bayes Theorem by A-Z</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2019/07/13/Bayes-Theorem-by-A-Z/" class="article-date"><time datetime="2019-07-13T05:41:36.000Z" itemprop="datePublished">2019-07-13</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/64.png" alt></p>
-<ul>
-<li>P(A)是先验概率P(A|B)是后验概率</li>
-<li>B在朴素贝叶斯的分类器当中叫做特征，所以P(B)和P(A|B)不完全叫概率而叫做似然<br><img src="/images/A-Z_ML/65.png" alt></li>
-<li>Plane Attack<br><img src="/images/A-Z_ML/66.png" alt><br><img src="/images/A-Z_ML/67.png" alt><br><img src="/images/A-Z_ML/68.png" alt><br><img src="/images/A-Z_ML/69.png" alt><br><img src="/images/A-Z_ML/70.png" alt><br><img src="/images/A-Z_ML/71.png" alt><br><img src="/images/A-Z_ML/72.png" alt><br><img src="/images/A-Z_ML/73.png" alt><br><img src="/images/A-Z_ML/74.png" alt><br><img src="/images/A-Z_ML/75.png" alt></li>
-<li>缺少似然会降低计算量用于估计<br><img src="/images/A-Z_ML/76.png" alt></li>
-</ul>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/07/13/Bayes-Theorem-by-A-Z/" data-id="ckowhcx65000980yb3jac2lyk" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/27/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/26/">26</a></li><li><a class="page-number" href="/page/27/">27</a></li><li class="active"><span class="page-number">28</span></li><li><a class="page-number" href="/page/29/">29</a></li><li><a class="page-number" href="/page/30/">30</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/29/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/27/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/26/">26</a></li><li><a class="page-number" href="/page/27/">27</a></li><li class="active"><span class="page-number">28</span></li><li><a class="page-number" href="/page/29/">29</a></li><li><a class="page-number" href="/page/30/">30</a></li><li><a class="page-number" href="/page/31/">31</a></li><li><a class="page-next" rel="next" href="/page/29/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

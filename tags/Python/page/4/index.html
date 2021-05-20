@@ -102,37 +102,60 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/">Polynomial Regression of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-Python/">Data Preprocessing by Python</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T06:53:36.000Z" itemprop="datePublished">September 12th</time></a>
+  <a href="/2019/08/10/Data-Preprocessing-by-Python/" class="archive-article-date"><time datetime="2019-08-10T11:08:27.000Z" itemprop="datePublished">August 10th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt></p>
-<ul>
-<li>多应用在流行病学：疾病在时间和空间上的传播速度</li>
-</ul>
-<p><img src="/images/A-Z_ML/25.png" alt><br><img src="/images/A-Z_ML/26.png" alt></p>
-<script src="https://gist.github.com/SauronLee/deb2cca719850a2cf43b585503bc3be1.js"></script>
+        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d3f9b166dbfa5160de5411a0718c90b1.js"></script>
 
-<p>多项式回归就是利用：下面👇代码拟合出b_0和次方项然后全部进行线性回归</p>
-<pre><code>poly_reg = PolynomialFeatures(degree = 4)
-X_poly = poly_reg.fit_transform(X)
-</code></pre><p><img src="/images/A-Z_ML/27.png" alt="issue"><br><img src="/images/A-Z_ML/29.png" alt="issue"><br><img src="/images/A-Z_ML/28.png" alt="issue"></p>
+<p>command + i = helpeer</p>
 <ul>
-<li>如果要使线段变得平滑增加x的密度即可比如：<pre><code>X_grid=np.arange(min(X),max(X),0.1)
-X_grid=X_grid.reshape(len(X_grid),1)
-plt.plot(X_grid, lin_reg_2.predict(poly_reg.fit_transform(X_grid)), color = &#39;blue&#39;)
-</code></pre>如果一个新人他说他35岁工作了6年半工资16万是否诚实<pre><code>lin_reg.predict(6.5）
-lin_reg_2.predict(poly_reg.fit_transform(6.5))
-</code></pre></li>
+<li>Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)</li>
 </ul>
-
+<p>missing_values : integer or “NaN”, optional (default=”NaN”)<br>The placeholder for the missing values. All occurrences of missing_values will be imputed. For missing values encoded as np.nan, use the string value “NaN”.<br>strategy : string, optional (default=”mean”)<br>The imputation strategy.</p>
+<p>If “mean”, then replace missing values using the mean along the axis.<br>If “median”, then replace missing values using the median along the axis.<br>If “most_frequent”, then replace missing using the most frequent value along the axis.<br>axis : integer, optional (default=0)<br>The axis along which to impute.</p>
+<p>If axis=0, then impute along columns.<br>If axis=1, then impute along rows.<br>verbose : integer, optional (default=0)<br>Controls the verbosity of the imputer.<br>copy : boolean, optional (default=True)<br>If True, a copy of X will be created. If False, imputation will be done in-place whenever possible. Note that, in the following cases, a new copy will always be made, even if copy=False:</p>
+<p>If X is not an array of floating values;<br>If X is sparse and missing_values=0;<br>If axis=0 and X is encoded as a CSR matrix;<br>If axis=1 and X is encoded as a CSC matrix.</p>
+<ul>
+<li>fit(X, y=None)</li>
+</ul>
+<p>X : {array-like, sparse matrix}, shape (n_samples, n_features)<br>Input data, where n_samples is the number of samples and n_features is the number of features.</p>
+<ul>
+<li>Definition : OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=np.float64, handle_unknown=’error’)</li>
+</ul>
+<p>Type : Present in sklearn.preprocessing._encoders module</p>
+<p>categories : ‘auto’ or a list of lists/arrays of values, default=’auto’.<br>Categories (unique values) per feature:</p>
+<p>‘auto’ : Determine categories automatically from the training data.<br>list : categories[i] holds the categories expected in the ith column. The passed categories should not mix strings and numeric values within a single feature, and should be sorted in case of numeric values.<br>The used categories can be found in the categories_ attribute.</p>
+<p>sparse : boolean, default=True<br>Will return sparse matrix if set True else will return an array.<br>dtype : number type, default=np.float<br>Desired dtype of output.<br>handle_unknown : ‘error’ or ‘ignore’, default=’error’.<br>Whether to raise an error or ignore if an unknown categorical feature is present during transform (default is to raise). When this parameter is set to ‘ignore’ and an unknown category is encountered during transform, the resulting one-hot encoded columns for this feature will be all zeros. In the inverse transform, an unknown category will be denoted as None.<br>n_values : ‘auto’, int or array of ints, default=’auto’<br>Number of values per feature.</p>
+<p>‘auto’ : determine value range from training data.</p>
+<p>int : number of categorical values per feature.<br>Each feature value should be in range(n_values)</p>
+<p>array : n_values[i] is the number of categorical values in<br>X[:, i]. Each feature value should be in range(n_values[i])</p>
+<p>Deprecated since version 0.20: The n_values keyword was deprecated in version 0.20 and will be removed in 0.22. Use categories instead.</p>
+<p>categorical_features : ‘all’ or array of indices or mask, default=’all’<br>Specify what features are treated as categorical.</p>
+<p>‘all’: All features are treated as categorical.<br>array of indices: Array of categorical feature indices.<br>mask: Array of length n_features and with dtype=bool.<br>Non-categorical features are always stacked to the right of the matrix.</p>
+<p>Deprecated since version 0.20: The categorical_features keyword was deprecated in version 0.20 and will be removed in 0.22. You can use the ColumnTransformer instead.</p>
+<h2 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h2><ul>
+<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
+<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
+<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
+</li>
+<li><p>是否需要对虚拟变量进行特征缩放。答：不一定，要根据模型结果。</p>
+</li>
+<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
+</ul>
+<pre><code># Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc_XStandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
+</code></pre>
       
     </div>
   </header>
@@ -147,21 +170,50 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/">Simple Linear Regression of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/14/Artificial-Neural-Networks-of-Python-by-A-Z/">Artificial Neural Networks of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:04.000Z" itemprop="datePublished">September 11th</time></a>
+  <a href="/2019/07/14/Artificial-Neural-Networks-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-07-14T06:32:59.000Z" itemprop="datePublished">July 14th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
-<script src="https://gist.github.com/SauronLee/bf7e3f954b445edc107ef4271b13642b.js"></script>
+        <script src="https://gist.github.com/SauronLee/071e1a959a04484f9d80d8362ec4a2cd.js"></script>
+      
+    </div>
+  </header>
+</article>
 
-<p><img src="/images/A-Z_ML/04.png" alt><br><img src="/images/A-Z_ML/05.png" alt></p>
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/13/CART-of-Python-by-A-Z/">Decision Tree Classifier of Python by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/07/13/CART-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:19.000Z" itemprop="datePublished">July 13th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/85.png" alt></p>
+<script src="https://gist.github.com/SauronLee/ef680bf345a816817042c7acf0503a39.js"></script>
+
+<ul>
+<li>由于过度拟合所以预测的非常差</li>
+</ul>
+<p><img src="/images/A-Z_ML/84.png" alt><br><img src="/images/A-Z_ML/86.png" alt></p>
 
       
     </div>
@@ -176,7 +228,7 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/3/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li><a class="page-number" href="/tags/Python/page/2/">2</a></li><li><a class="page-number" href="/tags/Python/page/3/">3</a></li><li class="active"><span class="page-number">4</span></li><li><a class="page-number" href="/tags/Python/page/5/">5</a></li><li><a class="page-number" href="/tags/Python/page/6/">6</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/11/">11</a></li><li><a class="page-next" rel="next" href="/tags/Python/page/5/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/3/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li><a class="page-number" href="/tags/Python/page/2/">2</a></li><li><a class="page-number" href="/tags/Python/page/3/">3</a></li><li class="active"><span class="page-number">4</span></li><li><a class="page-number" href="/tags/Python/page/5/">5</a></li><li><a class="page-number" href="/tags/Python/page/6/">6</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/8/">8</a></li><li><a class="page-next" rel="next" href="/tags/Python/page/5/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

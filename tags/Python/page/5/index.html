@@ -102,29 +102,40 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/12/NLP-Sentence-analysis/">NLP Sentence analysis</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">August 14th</time></a>
+  <a href="/2019/07/12/NLP-Sentence-analysis/" class="archive-article-date"><time datetime="2019-07-12T07:13:33.000Z" itemprop="datePublished">July 12th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
-<!-- ![issue](/images/A-Z_ML/244.png) -->
+        <h1 id="句法分析任务"><a href="#句法分析任务" class="headerlink" title="句法分析任务"></a>句法分析任务</h1><p><img src="/images/NLP/sentence_analysis_01.png" alt></p>
+<h1 id="全局句法分析"><a href="#全局句法分析" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_02.png" alt></p>
+<h1 id="全局句法分析-1"><a href="#全局句法分析-1" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_03.png" alt></p>
+<h1 id="依存结构"><a href="#依存结构" class="headerlink" title="依存结构"></a>依存结构</h1><p><img src="/images/NLP/sentence_analysis_04.png" alt></p>
 <ul>
-<li>数据是商场的用户的消费详情</li>
+<li>依存结构概念：</li>
 </ul>
-<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
-
-<hr>
-<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
-<!-- ![issue](/images/A-Z_ML/245.png) -->
-<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
-<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
+<ul>
+<li>依照句法通过分析语言单位成分之前的依存关系解释其句法结构，主张句子中核心动词是支配其他成分的中心成分，而他本身却不受其他任何成分的支配，所有受支配成分都以某种关系从属于支配者</li>
+</ul>
+<ul>
+<li>五个条件</li>
+</ul>
+<ul>
+<li>一个句子中只有一个成分是独立的</li>
+<li>句子的其他成分都从属于某一成分</li>
+<li>如果成分A从属于成分B.而成分C在句子中位于A和B之间，那么，成分C或者从属于A，或者从属于B，或者从属于A和B之间的某一成分</li>
+<li>中心成分左右两边的其他成分互相不发生关系<br><img src="/images/NLP/sentence_analysis_05.png" alt><h1 id="使用spacy进行语法分析"><a href="#使用spacy进行语法分析" class="headerlink" title="使用spacy进行语法分析"></a>使用spacy进行语法分析</h1></li>
+</ul>
+<ul>
+<li>下载英文数据以及对应的模型 <code>python -m spacy download en</code></li>
+</ul>
+<script src="https://gist.github.com/SauronLee/c656cd3081b1931087aa6713cd267828.js"></script>
       
     </div>
   </header>
@@ -139,60 +150,128 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-Python/">Data Preprocessing by Python</a>
+      <a class="archive-article-title" href="/2019/07/11/NLP-Word-analysis/">NLP Word analysis</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/10/Data-Preprocessing-by-Python/" class="archive-article-date"><time datetime="2019-08-10T11:08:27.000Z" itemprop="datePublished">August 10th</time></a>
+  <a href="/2019/07/11/NLP-Word-analysis/" class="archive-article-date"><time datetime="2019-07-11T11:14:30.000Z" itemprop="datePublished">July 11th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d3f9b166dbfa5160de5411a0718c90b1.js"></script>
+        <h1 id="词法分析任务："><a href="#词法分析任务：" class="headerlink" title="词法分析任务："></a>词法分析任务：</h1><ul>
+<li>将句子转换成词序列并标记句子中的词的词性</li>
+<li>英文：用词的形态来表示语法变化的关系</li>
+</ul>
+<ul>
+<li>英文的词法分析（曲折语）<br><img src="/images/NLP/word_analysis_02.png" alt></li>
+<li>英文词识别，词形还原</li>
+<li><p>未登陆词的处理</p>
+</li>
+<li><p>英文词性标注<br><img src="/images/NLP/word_analysis_01.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>孤立语（汉语）</p>
+</li>
+<li><p>主要特点：1，缺乏词形变化；2，词序严格；3，虚词十分重要；4复合词多，派生词少 —语言学纲要</p>
+</li>
+</ul>
+<h1 id="英语词法分析任务："><a href="#英语词法分析任务：" class="headerlink" title="英语词法分析任务："></a>英语词法分析任务：</h1><ul>
+<li>单词识别（Tokenization）</li>
+<li>词形还原（Lemmatization)</li>
+<li><p>词性标注 POS(Part-of-Speech)Tagging</p>
+</li>
+<li><p>英语特点：词之间一般有边界标记，词的形态变化丰富<br><img src="/images/NLP/word_analysis_03.png" alt><br><img src="/images/NLP/word_analysis_04.png" alt><br><img src="/images/NLP/word_analysis_05.png" alt><br><img src="/images/NLP/word_analysis_06.png" alt><br><img src="/images/NLP/word_analysis_07.png" alt></p>
+</li>
+</ul>
+<h1 id="中文词法分析任务："><a href="#中文词法分析任务：" class="headerlink" title="中文词法分析任务："></a>中文词法分析任务：</h1><ul>
+<li>原始句子：警察正在详细调查事故原因</li>
+<li>分词结果：警察/正在/详细/调查/事故/原因 （自动分词阶段）</li>
+<li>词性标注结果：警察/NN 正在/AD 详细/AD 调查/VV 事故/NN 原因/NN</li>
+</ul>
+<p><img src="/images/NLP/word_analysis_08.png" alt><br><img src="/images/NLP/word_analysis_09.png" alt><br><img src="/images/NLP/word_analysis_10.png" alt><br><img src="/images/NLP/word_analysis_11.png" alt><br><img src="/images/NLP/word_analysis_12.png" alt></p>
+<ul>
+<li>分词方法：1，事先人工建立好分词规律比如量词前应该有数词（大量人工）2.自动分词算法（正向最大匹配+逆向最大匹配=双向最大匹配）3利用同现频率作为分词依据</li>
+</ul>
+<h1 id="英文使用NLTK"><a href="#英文使用NLTK" class="headerlink" title="英文使用NLTK"></a>英文使用NLTK</h1><script src="https://gist.github.com/SauronLee/315ce54c6032c09693284b9a04419b84.js"></script>
 
-<p>command + i = helpeer</p>
-<ul>
-<li>Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)</li>
+<h2 id="下载nltk"><a href="#下载nltk" class="headerlink" title="下载nltk"></a>下载nltk</h2><pre><code>conda activate tfpy36
+ipython
+import nltk
+nltk.download()
+</code></pre><h1 id="中文使用jieba"><a href="#中文使用jieba" class="headerlink" title="中文使用jieba"></a>中文使用jieba</h1><ul>
+<li><a href="https://gitbub.com/fxsiy/jieba" target="_blank" rel="noopener">https://gitbub.com/fxsiy/jieba</a></li>
 </ul>
-<p>missing_values : integer or “NaN”, optional (default=”NaN”)<br>The placeholder for the missing values. All occurrences of missing_values will be imputed. For missing values encoded as np.nan, use the string value “NaN”.<br>strategy : string, optional (default=”mean”)<br>The imputation strategy.</p>
-<p>If “mean”, then replace missing values using the mean along the axis.<br>If “median”, then replace missing values using the median along the axis.<br>If “most_frequent”, then replace missing using the most frequent value along the axis.<br>axis : integer, optional (default=0)<br>The axis along which to impute.</p>
-<p>If axis=0, then impute along columns.<br>If axis=1, then impute along rows.<br>verbose : integer, optional (default=0)<br>Controls the verbosity of the imputer.<br>copy : boolean, optional (default=True)<br>If True, a copy of X will be created. If False, imputation will be done in-place whenever possible. Note that, in the following cases, a new copy will always be made, even if copy=False:</p>
-<p>If X is not an array of floating values;<br>If X is sparse and missing_values=0;<br>If axis=0 and X is encoded as a CSR matrix;<br>If axis=1 and X is encoded as a CSC matrix.</p>
-<ul>
-<li>fit(X, y=None)</li>
+<p><img src="/images/NLP/word_analysis_13.png" alt="issue"></p>
+<p><a href="https://gist.github.com/SauronLee/8ad99cd9c995dd5ef5d83b7dfc0c1d17" target="_blank" rel="noopener">https://gist.github.com/SauronLee/8ad99cd9c995dd5ef5d83b7dfc0c1d17</a></p>
+<h1 id="TFIDF"><a href="#TFIDF" class="headerlink" title="TFIDF"></a>TFIDF</h1><p><img src="/images/NLP/word_analysis_14.png" alt="issue"></p>
+<h1 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h1><p><img src="/images/NLP/word_analysis_15.png" alt="issue"></p>
+<h1 id="TextRank"><a href="#TextRank" class="headerlink" title="TextRank"></a>TextRank</h1><ul>
+<li>将文本进行分词，去除停用词或词性刷选等操作之后，设定窗口为K，进行滑动，在窗口中共同出现的词之间即可建立起为无向边。<br><img src="/images/NLP/word_analysis_16.png" alt="issue"></li>
+<li>TextRank提取关键词步骤</li>
+<li>把给定的文本T按照完整的句子进行分割；</li>
+<li>对于每个句子，进行分词和词性的标注处理，过滤掉停用词，只保留指定词性的单词，如名词，动词，形容词等，这些词形形成候选词</li>
+<li>构建候选词关键词的词图G =（V，E)，其中V为节点集，由（2）生成候选词组，然后采用共现关系（cooccurrence）构造两点之间的边，两个节点之间存在的边仅当它们对应的词汇在长度为KDE窗口中共现；</li>
+<li>根据PageRank原理中的衡量重要性公式，初始化各个节点的权重，然后迭代计算各个节点的权重，直到收敛；</li>
+<li>对节点的权重进行倒序排列，从而得到最重要的个单词，作为关键词；</li>
+<li>由（5）得到的最重要的T个单词，在原始文中进行标记，若形成相邻词组，则组合成多词关键词</li>
 </ul>
-<p>X : {array-like, sparse matrix}, shape (n_samples, n_features)<br>Input data, where n_samples is the number of samples and n_features is the number of features.</p>
-<ul>
-<li>Definition : OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=np.float64, handle_unknown=’error’)</li>
+<h1 id="使用Pkuseg进行中文分词-专业类别细分"><a href="#使用Pkuseg进行中文分词-专业类别细分" class="headerlink" title="使用Pkuseg进行中文分词(专业类别细分)"></a>使用Pkuseg进行中文分词(专业类别细分)</h1><p><img src="/images/NLP/word_analysis_17.png" alt="issue"></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/11/NLP-Corpus/">NLP_Corpus</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/07/11/NLP-Corpus/" class="archive-article-date"><time datetime="2019-07-11T10:42:21.000Z" itemprop="datePublished">July 11th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/NLP/corpus_01.png" alt></p>
+<h1 id="北京大学计算语言所语料库标记"><a href="#北京大学计算语言所语料库标记" class="headerlink" title="北京大学计算语言所语料库标记"></a>北京大学计算语言所语料库标记</h1><ul>
+<li><a href="http://opendata.pku.edu.cn/dataverse/icl" target="_blank" rel="noopener">http://opendata.pku.edu.cn/dataverse/icl</a></li>
 </ul>
-<p>Type : Present in sklearn.preprocessing._encoders module</p>
-<p>categories : ‘auto’ or a list of lists/arrays of values, default=’auto’.<br>Categories (unique values) per feature:</p>
-<p>‘auto’ : Determine categories automatically from the training data.<br>list : categories[i] holds the categories expected in the ith column. The passed categories should not mix strings and numeric values within a single feature, and should be sorted in case of numeric values.<br>The used categories can be found in the categories_ attribute.</p>
-<p>sparse : boolean, default=True<br>Will return sparse matrix if set True else will return an array.<br>dtype : number type, default=np.float<br>Desired dtype of output.<br>handle_unknown : ‘error’ or ‘ignore’, default=’error’.<br>Whether to raise an error or ignore if an unknown categorical feature is present during transform (default is to raise). When this parameter is set to ‘ignore’ and an unknown category is encountered during transform, the resulting one-hot encoded columns for this feature will be all zeros. In the inverse transform, an unknown category will be denoted as None.<br>n_values : ‘auto’, int or array of ints, default=’auto’<br>Number of values per feature.</p>
-<p>‘auto’ : determine value range from training data.</p>
-<p>int : number of categorical values per feature.<br>Each feature value should be in range(n_values)</p>
-<p>array : n_values[i] is the number of categorical values in<br>X[:, i]. Each feature value should be in range(n_values[i])</p>
-<p>Deprecated since version 0.20: The n_values keyword was deprecated in version 0.20 and will be removed in 0.22. Use categories instead.</p>
-<p>categorical_features : ‘all’ or array of indices or mask, default=’all’<br>Specify what features are treated as categorical.</p>
-<p>‘all’: All features are treated as categorical.<br>array of indices: Array of categorical feature indices.<br>mask: Array of length n_features and with dtype=bool.<br>Non-categorical features are always stacked to the right of the matrix.</p>
-<p>Deprecated since version 0.20: The categorical_features keyword was deprecated in version 0.20 and will be removed in 0.22. You can use the ColumnTransformer instead.</p>
-<h2 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h2><ul>
-<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
-<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
-<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
+<p><img src="/images/NLP/corpus_02.png" alt></p>
+<h1 id="London-Lund英语口语语料库："><a href="#London-Lund英语口语语料库：" class="headerlink" title="London-Lund英语口语语料库："></a>London-Lund英语口语语料库：</h1><ul>
+<li><a href="http://www.helsinki.fi/varieng/CoRD/corpora/LLC/" target="_blank" rel="noopener">http://www.helsinki.fi/varieng/CoRD/corpora/LLC/</a></li>
+</ul>
+<p><img src="/images/NLP/corpus_03.png" alt></p>
+<h1 id="Tencent中文语料库-19年刚刚开源的"><a href="#Tencent中文语料库-19年刚刚开源的" class="headerlink" title="Tencent中文语料库-19年刚刚开源的"></a>Tencent中文语料库-19年刚刚开源的</h1><ul>
+<li><a href="https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz" target="_blank" rel="noopener">https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz</a><br><img src="/images/NLP/corpus_04.png" alt></li>
+</ul>
+<h1 id="语料库的类型"><a href="#语料库的类型" class="headerlink" title="语料库的类型"></a>语料库的类型</h1><ul>
+<li>异质性（heterogeneous）：简单无选材</li>
+<li>同质性（homogeneous）：如TIPSTER只收集军事方面语料</li>
+<li>系统性（systematic）：定好收据预料的规则，平衡性和系统性</li>
+<li>专用性（specialized）：如北美人文科学语料库</li>
+<li>单语语料库</li>
+<li>双语多多语对齐语料库：平行语料库：篇章对齐；句子对齐、结构对齐<br><img src="/images/NLP/corpus_05.png" alt></li>
+<li>生语语料库：未经加工</li>
+<li>熟语语料库：带有切分，标注（词性标注，句法结构信息标注（树库）语义信息标注</li>
+<li>共时语料库：一个时间段，横截面</li>
+<li>历时语料库：与共时相对，纵剖面<br><img src="/images/NLP/corpus_06.png" alt><!-- ![issue](/images/NLP/corpus_07.png) -->
 </li>
-<li><p>是否需要对虚拟变量进行特征缩放。答：不一定，要根据模型结果。</p>
-</li>
-<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
 </ul>
-<pre><code># Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc_XStandardScaler()
-X_train = sc_X.fit_transform(X_train)
-X_test = sc_X.transform(X_test)
-</code></pre>
+
       
     </div>
   </header>
@@ -206,7 +285,7 @@ X_test = sc_X.transform(X_test)
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/4/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/3/">3</a></li><li><a class="page-number" href="/tags/Python/page/4/">4</a></li><li class="active"><span class="page-number">5</span></li><li><a class="page-number" href="/tags/Python/page/6/">6</a></li><li><a class="page-number" href="/tags/Python/page/7/">7</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/11/">11</a></li><li><a class="page-next" rel="next" href="/tags/Python/page/6/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Python/page/4/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Python/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Python/page/3/">3</a></li><li><a class="page-number" href="/tags/Python/page/4/">4</a></li><li class="active"><span class="page-number">5</span></li><li><a class="page-number" href="/tags/Python/page/6/">6</a></li><li><a class="page-number" href="/tags/Python/page/7/">7</a></li><li><a class="page-number" href="/tags/Python/page/8/">8</a></li><li><a class="page-next" rel="next" href="/tags/Python/page/6/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

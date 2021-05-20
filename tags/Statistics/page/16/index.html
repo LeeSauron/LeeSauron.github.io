@@ -102,69 +102,76 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/19/statistics-by-Libaijian01/">Statistics by Libaijian</a>
+      <a class="archive-article-title" href="/2019/06/12/Multiple-Linear-Regression-of-R-by-A-Z/">Multiple Linear Regression of R  by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/19/statistics-by-Libaijian01/" class="archive-article-date"><time datetime="2019-08-19T10:11:27.000Z" itemprop="datePublished">August 19th</time></a>
+  <a href="/2019/06/12/Multiple-Linear-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-06-11T16:23:01.000Z" itemprop="datePublished">June 12th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="抽样种类"><a href="#抽样种类" class="headerlink" title="抽样种类"></a>抽样种类</h1><hr>
-<h2 id="随机抽样"><a href="#随机抽样" class="headerlink" title="随机抽样"></a>随机抽样</h2><h3 id="简单随机抽样-Simple-Random-sampling"><a href="#简单随机抽样-Simple-Random-sampling" class="headerlink" title="简单随机抽样 Simple Random sampling"></a>简单随机抽样 Simple Random sampling</h3><p>Simple Random sampling<br>必须取得母体全体，才能够进行（困难）</p>
-<h3 id="系统抽样-systematic-sampling"><a href="#系统抽样-systematic-sampling" class="headerlink" title="系统抽样 systematic sampling"></a>系统抽样 systematic sampling</h3><p>systematic sampling<br>将母体平均分成k个样本，然后进行样本抽取</p>
-<h3 id="分层抽样-Stratified-sampling"><a href="#分层抽样-Stratified-sampling" class="headerlink" title="分层抽样 Stratified sampling"></a>分层抽样 Stratified sampling</h3><p>Stratified sampling<br>分层每层无交集（适用高中低差别大的样本）</p>
-<h3 id="部落抽样-cluster-sampling"><a href="#部落抽样-cluster-sampling" class="headerlink" title="部落抽样 cluster sampling"></a>部落抽样 cluster sampling</h3><p>cluster sampling</p>
-<h2 id="随机用一个部落为整体（不适用高中低差别大的样本）"><a href="#随机用一个部落为整体（不适用高中低差别大的样本）" class="headerlink" title="随机用一个部落为整体（不适用高中低差别大的样本）"></a>随机用一个部落为整体（不适用高中低差别大的样本）</h2><h2 id="非随机抽样"><a href="#非随机抽样" class="headerlink" title="非随机抽样"></a>非随机抽样</h2><h3 id="偶遇抽样-convenience-sampling"><a href="#偶遇抽样-convenience-sampling" class="headerlink" title="偶遇抽样 convenience sampling"></a>偶遇抽样 convenience sampling</h3><p>convenience sampling<br>最常用（比如地铁口发传单）最方便，市场的初步调查</p>
-<h3 id="配额抽样query-sampling"><a href="#配额抽样query-sampling" class="headerlink" title="配额抽样query  sampling"></a>配额抽样query  sampling</h3><p>query  sampling<br>跟分层抽样区别为这个是人员分配的层</p>
-<h3 id="主观抽样-judgmental-sampling"><a href="#主观抽样-judgmental-sampling" class="headerlink" title="主观抽样 judgmental sampling"></a>主观抽样 judgmental sampling</h3><p>judgmental sampling<br>已经对母体非常熟悉，抽取具有代表性的样本</p>
-<h3 id="滚雪球抽样snowball-sampling"><a href="#滚雪球抽样snowball-sampling" class="headerlink" title="滚雪球抽样snowball sampling"></a>滚雪球抽样snowball sampling</h3><p>snowball sampling<br>用抽样人员的直线分支下去抽样</p>
-<hr>
-<h2 id="效度validity"><a href="#效度validity" class="headerlink" title="效度validity"></a>效度validity</h2><p>内部效度：可信度，可靠度<br>外部效度：结果的泛化程度</p>
-<p>以偏概全<br>一叶知秋</p>
-<h1 id="尺度定义"><a href="#尺度定义" class="headerlink" title="尺度定义"></a>尺度定义</h1><h2 id="名义尺度-nominal"><a href="#名义尺度-nominal" class="headerlink" title="名义尺度 nominal"></a>名义尺度 nominal</h2><p>性别，职业，学号（没有顺序，不具有大小的意义）</p>
-<h2 id="顺序0rdinal"><a href="#顺序0rdinal" class="headerlink" title="顺序0rdinal"></a>顺序0rdinal</h2><p>名次，排序（有大小，有先后）</p>
-<h2 id="区间尺度Interval"><a href="#区间尺度Interval" class="headerlink" title="区间尺度Interval"></a>区间尺度Interval</h2><p>等距的，没有固定的原点（温度，满意度调查评价：1分2分）</p>
-<h3 id="李克特量表-likert"><a href="#李克特量表-likert" class="headerlink" title="李克特量表 likert"></a>李克特量表 likert</h3><p>问卷调查中最常用的去坚尺度<br>李克特量表：（非常满意 满意 普通 不满意）</p>
-<h2 id="比率尺度Ratio"><a href="#比率尺度Ratio" class="headerlink" title="比率尺度Ratio"></a>比率尺度Ratio</h2><p>可以衡量差异的数值，有原点，可以进行运算，（分数）</p>
-<h1 id="柴比雪夫不等式-Chebyshev-inequality"><a href="#柴比雪夫不等式-Chebyshev-inequality" class="headerlink" title="柴比雪夫不等式 Chebyshev inequality"></a>柴比雪夫不等式 Chebyshev inequality</h1><hr>
-<h2 id="经验法则-empirical-law"><a href="#经验法则-empirical-law" class="headerlink" title="经验法则 empirical law"></a>经验法则 empirical law</h2><ul>
-<li>百分比就是几率</li>
-<li>必须是正态分布<br>mu为样本的平均值，sigema为标准差<script type="math/tex; mode=display">
-[\mu -\sigma ，\mu +\sigma ，]\approx 68%
-[\mu -2\sigma ，\mu +2\sigma ，]\approx 95%
-[\mu -3\sigma ，\mu +3\sigma ，]\approx 99.7%</script></li>
-</ul>
-<h2 id="柴比雪夫不等式-Chebyshev-inequality-1"><a href="#柴比雪夫不等式-Chebyshev-inequality-1" class="headerlink" title="柴比雪夫不等式 Chebyshev inequality"></a>柴比雪夫不等式 Chebyshev inequality</h2><ul>
-<li>不用必须是正态分布</li>
-</ul>
-<script type="math/tex; mode=display">
-P(|X-\mu | \leq k \sigma )\geq 1-\frac{1}{k^{2}};k>1</script><p>列题：<br><img src="/images/statisticsstatisticsLibaijian/02.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/03.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/04.png" alt="issue"></p>
-<h2 id="馬可夫不等式-markov"><a href="#馬可夫不等式-markov" class="headerlink" title="馬可夫不等式 markov"></a>馬可夫不等式 markov</h2><ul>
-<li><p>$P(X\geq k)\leq \frac{E(X)}{k}$<br><img src="/images/statisticsstatisticsLibaijian/05.png" alt="issue"></p>
-</li>
-<li><p>柴比雪夫不等式單邊版特例<br>证明<br><img src="/images/statisticsstatisticsLibaijian/06.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/07.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/08png" alt="issue"></p>
-</li>
-</ul>
-<h1 id="排列组合"><a href="#排列组合" class="headerlink" title="排列组合"></a>排列组合</h1><h2 id="乘法原理"><a href="#乘法原理" class="headerlink" title="乘法原理"></a>乘法原理</h2><p>总数的阶乘，总数中取所有数的概率（也就是说总数中每个数都可以随意搭配）<br>排列中如果只取m个数的话，那么其实总数中就多出来总数减m个的概率，这个时候要除以多出来的概率<br><img src="/images/statisticsstatisticsLibaijian/09.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/10.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/11.png" alt="issue"></p>
-<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>组合=排列（挑选出的数不分左右，前后，12和21是一样的）</p>
+        <script src="https://gist.github.com/SauronLee/61aa30f3ae2d0730ea591d8851d24623.js"></script>
+
+
 <ul>
-<li><p>因为分子是不需要排列的所以除以排列数m阶乘<br><img src="/images/statisticsstatisticsLibaijian/12.png" alt="issue"></p>
-</li>
-<li><p>重复组合的问题<br><img src="/images/statisticsstatisticsLibaijian/13.png" alt="issue"></p>
-</li>
-<li>变换成公式标准形态<br><img src="/images/statisticsstatisticsLibaijian/14.png" alt="issue"><br>组合+乘法原理=排列</li>
+<li>R有自己的元素factor数据类型不必转化为01，123=100010001，在Coefficients:中R会自动检测贡献度最小的维度然后舍掉。</li>
+<li>Estimate：预估的参数是多少，k_0，k_1,k_3，k_4。</li>
+<li>Std. Error：标准误差</li>
+<li>t value：T值</li>
+<li>Pr(&gt;|t|)：P值，越大越弱（R&amp;D贡献最高）</li>
+<li>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br>summary(regressor)</li>
 </ul>
-<h2 id="二项式定理和多项式定理"><a href="#二项式定理和多项式定理" class="headerlink" title="二项式定理和多项式定理"></a>二项式定理和多项式定理</h2><p><img src="/images/statisticsstatisticsLibaijian/15.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/16.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/17.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/18.png" alt="issue"></p>
-<h2 id="几率"><a href="#几率" class="headerlink" title="几率"></a>几率</h2><p><img src="/images/statisticsstatisticsLibaijian/19.png" alt="issue"></p>
-<h2 id="排容原理"><a href="#排容原理" class="headerlink" title="排容原理"></a>排容原理</h2><p><img src="/images/statisticsstatisticsLibaijian/20.png" alt="issue"></p>
-<h2 id="独立事件"><a href="#独立事件" class="headerlink" title="独立事件"></a>独立事件</h2><p><img src="/images/statisticsstatisticsLibaijian/21.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/22.png" alt="issue"></p>
-<h2 id="互斥事件"><a href="#互斥事件" class="headerlink" title="互斥事件"></a>互斥事件</h2><p><img src="/images/statisticsstatisticsLibaijian/23.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/24.png" alt="issue"></p>
-<h2 id="贝叶斯"><a href="#贝叶斯" class="headerlink" title="贝叶斯"></a>贝叶斯</h2><p><img src="/images/statisticsstatisticsLibaijian/25.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/26.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/27.png" alt="issue"></p>
-<h1 id="随机变数"><a href="#随机变数" class="headerlink" title="随机变数"></a>随机变数</h1><p><img src="/images/statisticsstatisticsLibaijian/28.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/29.png" alt="issue"></p>
+<p>Call:<br>lm(formula = Profit ~ ., data = training_set)</p>
+<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33128  -4865      5   6098  18065 </p>
+<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      4.965e+04  7.637e+03   6.501 1.94e-07 <strong><em><br>R.D.Spend        7.986e-01  5.604e-02  14.251 6.70e-16 </em></strong><br>Administration  -2.942e-02  5.828e-02  -0.505    0.617<br>Marketing.Spend  3.268e-02  2.127e-02   1.537    0.134<br>State2           1.213e+02  3.751e+03   0.032    0.974    </p>
+<h2 id="State3-2-376e-02-4-127e-03-0-058-0-954"><a href="#State3-2-376e-02-4-127e-03-0-058-0-954" class="headerlink" title="State3           2.376e+02  4.127e+03   0.058    0.954    "></a>State3           2.376e+02  4.127e+03   0.058    0.954    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Residual standard error: 9908 on 34 degrees of freedom<br>Multiple R-squared:  0.9499,    Adjusted R-squared:  0.9425<br>F-statistic:   129 on 5 and 34 DF,  p-value: &lt; 2.2e-16</p>
+<p> y_pred = predict(regressor, newdata = test_set)</p>
+<ul>
+<li><p>y_pred</p>
+<pre><code> 4         5         8        11        16        20        21        24        31 
+</code></pre><p>173981.09 172655.64 160250.02 135513.90 146059.36 114151.03 117081.62 110671.31  98975.29 </p>
+<pre><code>32 
+</code></pre><p>96867.03 </p>
+<p>regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State,</p>
+<ul>
+<li>data = dataset)<br>summary(regressor)</li>
+</ul>
+</li>
+</ul>
+<p>Call:<br>lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend +<br>    State, data = dataset)</p>
+<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33504  -4736     90   6672  17338 </p>
+<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      5.008e+04  6.953e+03   7.204 5.76e-09 <strong><em><br>R.D.Spend        8.060e-01  4.641e-02  17.369  &lt; 2e-16 </em></strong><br>Administration  -2.700e-02  5.223e-02  -0.517    0.608<br>Marketing.Spend  2.698e-02  1.714e-02   1.574    0.123<br>State2           4.189e+01  3.256e+03   0.013    0.990    </p>
+<h2 id="State3-2-407e-02-3-339e-03-0-072-0-943"><a href="#State3-2-407e-02-3-339e-03-0-072-0-943" class="headerlink" title="State3           2.407e+02  3.339e+03   0.072    0.943    "></a>State3           2.407e+02  3.339e+03   0.072    0.943    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Residual standard error: 9439 on 44 degrees of freedom<br>Multiple R-squared:  0.9508,    Adjusted R-squared:  0.9452<br>F-statistic: 169.9 on 5 and 44 DF,  p-value: &lt; 2.2e-16</p>
+<p> regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,</p>
+<ul>
+<li>data = dataset)<br>summary(regressor)</li>
+</ul>
+<p>Call:<br>lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,<br>    data = dataset)</p>
+<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-33534  -4795     63   6606  17275 </p>
+<p>Coefficients:<br>                  Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)      5.012e+04  6.572e+03   7.626 1.06e-09 <strong><em><br>R.D.Spend        8.057e-01  4.515e-02  17.846  &lt; 2e-16 </em></strong><br>Administration  -2.682e-02  5.103e-02  -0.526    0.602    </p>
+<h2 id="Marketing-Spend-2-723e-02-1-645e-02-1-655-0-105"><a href="#Marketing-Spend-2-723e-02-1-645e-02-1-655-0-105" class="headerlink" title="Marketing.Spend  2.723e-02  1.645e-02   1.655    0.105    "></a>Marketing.Spend  2.723e-02  1.645e-02   1.655    0.105    </h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Residual standard error: 9232 on 46 degrees of freedom<br>Multiple R-squared:  0.9507,    Adjusted R-squared:  0.9475<br>F-statistic:   296 on 3 and 46 DF,  p-value: &lt; 2.2e-16</p>
+<p> regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend,</p>
+<ul>
+<li>data = dataset)<br>regressor = lm(formula = Profit ~ R.D.Spend,</li>
+<li>data = dataset)<br>summary(regressor)</li>
+</ul>
+<p>Call:<br>lm(formula = Profit ~ R.D.Spend, data = dataset)</p>
+<p>Residuals:<br>   Min     1Q Median     3Q    Max<br>-34351  -4626   -375   6249  17188 </p>
+<p>Coefficients:<br>             Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept) 4.903e+04  2.538e+03   19.32   &lt;2e-16 <em>*</em></p>
+<h2 id="R-D-Spend-8-543e-01-2-931e-02-29-15-lt-2e-16"><a href="#R-D-Spend-8-543e-01-2-931e-02-29-15-lt-2e-16" class="headerlink" title="R.D.Spend   8.543e-01  2.931e-02   29.15   &lt;2e-16 *"></a>R.D.Spend   8.543e-01  2.931e-02   29.15   &lt;2e-16 <em>*</em></h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Residual standard error: 9416 on 48 degrees of freedom<br>Multiple R-squared:  0.9465,    Adjusted R-squared:  0.9454<br>F-statistic: 849.8 on 1 and 48 DF,  p-value: &lt; 2.2e-16</p>
+<p> y_pred = predict(regressor, newdata = test_set)<br> y_pred<br>       4        5        8       11       16       20       21       24       31       32<br>172369.0 170434.0 160345.5 136096.4 146869.4 122860.5 114175.9 106725.4 101994.2 101261.2 </p>
+<ul>
+<li>每个数的P值会根据垃圾维度的减少而变小</li>
+<li>Multiple R-squared:  0.9465,    Adjusted R-squared:  0.9454 为预测的点和原来的点的差的平方的和。越接近于1他的拟合度就越好</li>
+</ul>
+<p><img src="/images/A-Z_ML/21.png" alt></p>
 
       
     </div>
@@ -180,29 +187,69 @@ P(|X-\mu | \leq k \sigma )\geq 1-\frac{1}{k^{2}};k>1</script><p>列题：<br><im
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/05/02/NLP-Gram/">Bi-Gram/Tri-Gram/N-Gram</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">August 14th</time></a>
+  <a href="/2019/05/02/NLP-Gram/" class="archive-article-date"><time datetime="2019-05-02T06:28:33.000Z" itemprop="datePublished">May 2nd</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
-<!-- ![issue](/images/A-Z_ML/244.png) -->
-<ul>
-<li>数据是商场的用户的消费详情</li>
+        <h1 id="语言模型（Bi-Gram-Tri-Gram-N-Gram）"><a href="#语言模型（Bi-Gram-Tri-Gram-N-Gram）" class="headerlink" title="语言模型（Bi-Gram/Tri-Gram/N-Gram）"></a>语言模型（Bi-Gram/Tri-Gram/N-Gram）</h1><ul>
+<li>语言模型就是用于评估文本符合语言使用习惯程度的模型。<br>在计算机中很难找到人类语言的使用习惯，因为人类的语言使用习惯根据朝代试点的变迁有着很大的差异，所以现在更流行用语言出现的的概率来判断句子是否通顺。<br>比如：我去操场（  ）；计算机会识别我去操场跑步或是其他运动方面的单词出现的概率会更大，再比如翻译的时候，计算机会统计这么翻译的话他会在实际现实应用中出现概率。</li>
+<li>总结来说就是无论在机器翻译；拼音纠错；语音识别；音字转换方面都是判断这样转换的概率是否最大化</li>
 </ul>
-<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
+<h1 id="N-Gram"><a href="#N-Gram" class="headerlink" title="N-Gram"></a>N-Gram</h1><ul>
+<li>他的输入是一句话（单词的顺序序列），输出是这句话的概率（这些单词结合的概率-joint probability）</li>
+<li>N-Gram的意思就是由N个单词组合的模型，单词分先后顺序，不要求点此之间互不相同，其中N常用取2或者3词组合</li>
+<li>数学表达式：假设每一个单词都要依赖于从第一个单词在他之前的一个单词的影响：p(S)=p(w1w2…wn)=p(w1)p(w2|w1)…p(wn|wn-1…w2w1)；<br><img src="/images/NLP/bi_gram_01 .png" alt="issue"><br>利用MLE思想（利用已知的样本信息来反推模型参数，换句话说什么样的模型才会出现现在这种样本）；</li>
+<li>问题：参数空间太大O(n)个所以我们通过马尔科夫假设；数据稀疏严重</li>
+</ul>
+<h1 id="Bi-Gram"><a href="#Bi-Gram" class="headerlink" title="Bi-Gram"></a>Bi-Gram</h1><ul>
+<li>之前说的马尔科夫假设如果只与前面一个词有关我们就叫bi-gram：p(S)=p(wn|wn-1)<br><img src="/images/NLP/bi_gram_02.png" alt></li>
+<li>问题：语境切换问题存在，我们用神经网络模型引入时间维度来解决此问题</li>
+<li>那么句子I want english food 的概率为：<br><img src="/images/NLP/bi_gram_03.png" alt>   </li>
+<li>为防止数据溢出我们会用加法代替乘法计算<br><img src="/images/NLP/bi_gram_04.png" alt><br><img src="/images/NLP/bi_gram_05.png" alt>  </li>
+</ul>
+<h1 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h1><ul>
+<li>在实际应用中看具体表现；计算preplexity<br><img src="/images/NLP/bi_gram_06.png" alt>  </li>
+</ul>
 
-<hr>
-<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
-<!-- ![issue](/images/A-Z_ML/245.png) -->
-<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
-<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/02/21/Linear-regression/">Linear regression</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/02/21/Linear-regression/" class="archive-article-date"><time datetime="2019-02-21T06:18:34.000Z" itemprop="datePublished">February 21st</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="回归平均值（regression-to-the-mean）"><a href="#回归平均值（regression-to-the-mean）" class="headerlink" title="回归平均值（regression to the mean）"></a>回归平均值（regression to the mean）</h1><ul>
+<li>y= ax+b求a和b线性回归为一次方的变化<br>x：影响y的因素，维度<br>x1，y1；x2，y2；x3，y3；x4，y4；任意两组可求出a和b，找出误差最小的a和b为最优解<h1 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h1></li>
+<li>y=w1<em>x1+w2+x2+w3</em>x3+w4+x4…wn<em>xn+w0</em>x0(x0=1)：= w为横向量 * x为列向量（依次相乘并相加因为x为行向量我们把他转置）= y=WT•X = ∂T•x.</li>
+<li>误差=Y-y=epsilon(大Y是真实值，小y是预测值)</li>
+<li>w越大影响度越大为权重，w是行向量，因为x为多维，y为列向量<h1 id="中间极限"><a href="#中间极限" class="headerlink" title="中间极限"></a>中间极限</h1>例子：如果父亲比较高儿子大多不会比父亲高，如果父亲比较矮儿子大多会比父亲高，大自然会把数值恒定在一个区间范围内所谓高斯/正态分布。<h1 id="最大似然（likelihood）"><a href="#最大似然（likelihood）" class="headerlink" title="最大似然（likelihood）"></a>最大似然（likelihood）</h1>它用来求一个样本集的相关概率密度函数的参数，似然=概率probability;期望值和方差定了形状就定了;要反过来当不知道正态分布是什么形状的时候我们用我们的dataset去试看他适合哪个的正态分布来找到概率最大的情况，用这组数据去正态分布里面去看，看哪个正态分布所对应的概率密度最大，他就是哪个正态分布<br><img src="/images/math_post/linear_regression01.png" alt><h1 id="概率密度函数"><a href="#概率密度函数" class="headerlink" title="概率密度函数"></a>概率密度函数</h1>每一个函数都可以写成一个概率密度函数<br>均匀分布：最简单的概率密度函数，这条线上的两点出现的概率是一样的；<br><img src="/images/math_post/linear_regression02.png" alt><br>不均匀分别：正态分布的概率‘密度’函数F(x)是概率密度不是概率，f(x）越大就代表mu和sigma两个值定了（这个正态分布的形状和位置就定下来了）的情况下x出现的概率越大。可以先理解为概率却不等于概率。<br><img src="/images/math_post/linear_regression03.png" alt><br><a href="https://baike.baidu.com/item/%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0/5021996" target="_blank" rel="noopener">https://baike.baidu.com/item/%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0/5021996</a><br>把概率中的误差带入概率密度公式：1，真实值减去预测值等于误差值，2，x为随机变量我们用epsilon替换掉x-mu<br><img src="/images/math_post/linear_regression03.png" alt><br><img src="/images/math_post/linear_regression04.png" alt></li>
+</ul>
+
       
     </div>
   </header>
@@ -216,7 +263,7 @@ P(|X-\mu | \leq k \sigma )\geq 1-\frac{1}{k^{2}};k>1</script><p>列题：<br><im
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/15/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/14/">14</a></li><li><a class="page-number" href="/tags/Statistics/page/15/">15</a></li><li class="active"><span class="page-number">16</span></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li><a class="page-number" href="/tags/Statistics/page/18/">18</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/26/">26</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/17/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/15/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/14/">14</a></li><li><a class="page-number" href="/tags/Statistics/page/15/">15</a></li><li class="active"><span class="page-number">16</span></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/17/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

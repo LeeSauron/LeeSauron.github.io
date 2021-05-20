@@ -102,29 +102,37 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/05/02/NLP-Gram/">Bi-Gram/Tri-Gram/N-Gram</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">August 14th</time></a>
+  <a href="/2019/05/02/NLP-Gram/" class="archive-article-date"><time datetime="2019-05-02T06:28:33.000Z" itemprop="datePublished">May 2nd</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
-<!-- ![issue](/images/A-Z_ML/244.png) -->
-<ul>
-<li>数据是商场的用户的消费详情</li>
+        <h1 id="语言模型（Bi-Gram-Tri-Gram-N-Gram）"><a href="#语言模型（Bi-Gram-Tri-Gram-N-Gram）" class="headerlink" title="语言模型（Bi-Gram/Tri-Gram/N-Gram）"></a>语言模型（Bi-Gram/Tri-Gram/N-Gram）</h1><ul>
+<li>语言模型就是用于评估文本符合语言使用习惯程度的模型。<br>在计算机中很难找到人类语言的使用习惯，因为人类的语言使用习惯根据朝代试点的变迁有着很大的差异，所以现在更流行用语言出现的的概率来判断句子是否通顺。<br>比如：我去操场（  ）；计算机会识别我去操场跑步或是其他运动方面的单词出现的概率会更大，再比如翻译的时候，计算机会统计这么翻译的话他会在实际现实应用中出现概率。</li>
+<li>总结来说就是无论在机器翻译；拼音纠错；语音识别；音字转换方面都是判断这样转换的概率是否最大化</li>
 </ul>
-<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
+<h1 id="N-Gram"><a href="#N-Gram" class="headerlink" title="N-Gram"></a>N-Gram</h1><ul>
+<li>他的输入是一句话（单词的顺序序列），输出是这句话的概率（这些单词结合的概率-joint probability）</li>
+<li>N-Gram的意思就是由N个单词组合的模型，单词分先后顺序，不要求点此之间互不相同，其中N常用取2或者3词组合</li>
+<li>数学表达式：假设每一个单词都要依赖于从第一个单词在他之前的一个单词的影响：p(S)=p(w1w2…wn)=p(w1)p(w2|w1)…p(wn|wn-1…w2w1)；<br><img src="/images/NLP/bi_gram_01 .png" alt="issue"><br>利用MLE思想（利用已知的样本信息来反推模型参数，换句话说什么样的模型才会出现现在这种样本）；</li>
+<li>问题：参数空间太大O(n)个所以我们通过马尔科夫假设；数据稀疏严重</li>
+</ul>
+<h1 id="Bi-Gram"><a href="#Bi-Gram" class="headerlink" title="Bi-Gram"></a>Bi-Gram</h1><ul>
+<li>之前说的马尔科夫假设如果只与前面一个词有关我们就叫bi-gram：p(S)=p(wn|wn-1)<br><img src="/images/NLP/bi_gram_02.png" alt></li>
+<li>问题：语境切换问题存在，我们用神经网络模型引入时间维度来解决此问题</li>
+<li>那么句子I want english food 的概率为：<br><img src="/images/NLP/bi_gram_03.png" alt>   </li>
+<li>为防止数据溢出我们会用加法代替乘法计算<br><img src="/images/NLP/bi_gram_04.png" alt><br><img src="/images/NLP/bi_gram_05.png" alt>  </li>
+</ul>
+<h1 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h1><ul>
+<li>在实际应用中看具体表现；计算preplexity<br><img src="/images/NLP/bi_gram_06.png" alt>  </li>
+</ul>
 
-<hr>
-<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
-<!-- ![issue](/images/A-Z_ML/245.png) -->
-<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
-<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
       
     </div>
   </header>
@@ -139,140 +147,60 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
+      <a class="archive-article-title" href="/2019/02/21/Linear-regression/">Linear regression</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">August 14th</time></a>
+  <a href="/2019/02/21/Linear-regression/" class="archive-article-date"><time datetime="2019-02-21T06:18:34.000Z" itemprop="datePublished">February 21st</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/242.png" alt></p>
-<ul>
-<li>数据是商场的用户的消费详情</li>
+        <h1 id="回归平均值（regression-to-the-mean）"><a href="#回归平均值（regression-to-the-mean）" class="headerlink" title="回归平均值（regression to the mean）"></a>回归平均值（regression to the mean）</h1><ul>
+<li>y= ax+b求a和b线性回归为一次方的变化<br>x：影响y的因素，维度<br>x1，y1；x2，y2；x3，y3；x4，y4；任意两组可求出a和b，找出误差最小的a和b为最优解<h1 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h1></li>
+<li>y=w1<em>x1+w2+x2+w3</em>x3+w4+x4…wn<em>xn+w0</em>x0(x0=1)：= w为横向量 * x为列向量（依次相乘并相加因为x为行向量我们把他转置）= y=WT•X = ∂T•x.</li>
+<li>误差=Y-y=epsilon(大Y是真实值，小y是预测值)</li>
+<li>w越大影响度越大为权重，w是行向量，因为x为多维，y为列向量<h1 id="中间极限"><a href="#中间极限" class="headerlink" title="中间极限"></a>中间极限</h1>例子：如果父亲比较高儿子大多不会比父亲高，如果父亲比较矮儿子大多会比父亲高，大自然会把数值恒定在一个区间范围内所谓高斯/正态分布。<h1 id="最大似然（likelihood）"><a href="#最大似然（likelihood）" class="headerlink" title="最大似然（likelihood）"></a>最大似然（likelihood）</h1>它用来求一个样本集的相关概率密度函数的参数，似然=概率probability;期望值和方差定了形状就定了;要反过来当不知道正态分布是什么形状的时候我们用我们的dataset去试看他适合哪个的正态分布来找到概率最大的情况，用这组数据去正态分布里面去看，看哪个正态分布所对应的概率密度最大，他就是哪个正态分布<br><img src="/images/math_post/linear_regression01.png" alt><h1 id="概率密度函数"><a href="#概率密度函数" class="headerlink" title="概率密度函数"></a>概率密度函数</h1>每一个函数都可以写成一个概率密度函数<br>均匀分布：最简单的概率密度函数，这条线上的两点出现的概率是一样的；<br><img src="/images/math_post/linear_regression02.png" alt><br>不均匀分别：正态分布的概率‘密度’函数F(x)是概率密度不是概率，f(x）越大就代表mu和sigma两个值定了（这个正态分布的形状和位置就定下来了）的情况下x出现的概率越大。可以先理解为概率却不等于概率。<br><img src="/images/math_post/linear_regression03.png" alt><br><a href="https://baike.baidu.com/item/%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0/5021996" target="_blank" rel="noopener">https://baike.baidu.com/item/%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0/5021996</a><br>把概率中的误差带入概率密度公式：1，真实值减去预测值等于误差值，2，x为随机变量我们用epsilon替换掉x-mu<br><img src="/images/math_post/linear_regression03.png" alt><br><img src="/images/math_post/linear_regression04.png" alt></li>
 </ul>
-<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
 
-<hr>
-<pre><code>
-&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
-&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
-distribution of transactions with duplicates:
-# 重复一次出现在5行当中
-1 
-5 
-&gt; summary(dataset)
-transactions as itemMatrix in sparse format with
- 7501 rows (elements/itemsets/transactions) and
- # 稀疏矩阵，1占0.03288973 其他都是0
- 119 columns (items) and a density of 0.03288973 
+      
+    </div>
+  </header>
+</article>
 
-most frequent items:
-mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
-         1788          1348          1306          1282          1229         22405 
 
-element (itemset/transaction) length distribution:
-sizes
-# 有1754笔交易只有1个产品
-   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
-1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
+  
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/17/Boston-Housing-Project/">Boston Housing Project</a>
+    </h1>
+  
 
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   2.000   3.000   3.914   5.000  20.000 
 
-includes extended item information - examples:
-             labels
-1           almonds
-2 antioxydant juice
-3         asparagus
-&gt; itemFrequencyPlot(dataset, topN = 10)
-&gt; # Training Apriori on the dataset
-&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
-Apriori
+    <div class="article-datetime">
+  <a href="/2017/12/17/Boston-Housing-Project/" class="archive-article-date"><time datetime="2017-12-17T03:12:33.000Z" itemprop="datePublished">December 17th</time></a>
+</div>
 
-Parameter specification:
- confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
-        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
-
-Algorithmic control:
- filter tree heap memopt load sort verbose
-    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
-
-Absolute minimum support count: 30 
-
-set item appearances ...[0 item(s)] done [0.00s].
-set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
-sorting and recoding items ... [114 item(s)] done [0.00s].
-creating transaction tree ... done [0.00s].
-checking subsets of size 1 2 3 4 done [0.16s].
-writing ... [811 rule(s)] done [0.00s].
-creating S4 object  ... done [0.00s].
-&gt; # Visualising the results
-&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
-     lhs                                            rhs             support     confidence
-[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
-[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
-[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
-[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
-[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
-[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
-[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
-[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
-[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
-[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
-     lift     count
-[1]  4.843951 34   
-[2]  4.700812 44   
-[3]  4.506672 38   
-[4]  4.178455 31   
-[5]  4.122410 60   
-[6]  4.004360 48   
-[7]  3.975683 50   
-[8]  3.840659 40   
-[9]  3.790833 43   
-[10] 3.731841 33   
-&gt; 
-&gt;
-</code></pre><ul>
-<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
-</ul>
-<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
-<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
-<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
-<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
-<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
-<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
-<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
-<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
-<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
-<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
-<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
-<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
-<p>Extends<br>Class itemMatrix, directly.</p>
-<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
-<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
-<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
-<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
-<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
-<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
-<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
-<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
-<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
-<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
-<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
-<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
-<p>show<br>signature(object = “transactions”)</p>
-<p>summary<br>signature(object = “transactions”)</p>
-<ul>
-<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
-</ul>
-<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
-<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
-<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
-<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/SauronLee/Udacity_ML_P5/tree/master/p5_boston2.0">Boston Housing Project Adress</a></p>
 
       
     </div>
@@ -287,7 +215,7 @@ creating S4 object  ... done [0.00s].
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/15/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/14/">14</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/15/">15</a></li><li class="active"><span class="page-number">16</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/17/">17</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/18/">18</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/27/">27</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/17/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/15/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/14/">14</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/15/">15</a></li><li class="active"><span class="page-number">16</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/17/">17</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/18/">18</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/17/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

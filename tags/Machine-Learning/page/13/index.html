@@ -102,101 +102,24 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/12/Polynomial-Regression-of-R-by-A-Z/">Polynomial Regression of R by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/13/CART-of-Python-by-A-Z/">Decision Tree Classifier of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/12/Polynomial-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T06:53:46.000Z" itemprop="datePublished">September 12th</time></a>
+  <a href="/2019/07/13/CART-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:19.000Z" itemprop="datePublished">July 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt><br><img src="/images/A-Z_ML/25.png" alt></p>
-<pre><code># Polynomial Regression
+        <p><img src="/images/A-Z_ML/85.png" alt></p>
+<script src="https://gist.github.com/SauronLee/ef680bf345a816817042c7acf0503a39.js"></script>
 
-# Importing the dataset
-dataset = read.csv(&#39;Position_Salaries.csv&#39;)
-dataset = dataset[, 2:3]
-
-# Splitting the dataset into the Training set and Test set
-# install.packages(&#39;caTools&#39;)
-# library(caTools)
-# set.seed(123)
-# split = sample.split(dataset$Purchased, SplitRatio = 0.8)
-# training_set = subset(dataset, split == TRUE)
-# test_set = subset(dataset, split == FALSE)
-
-# Feature Scaling
-# training_set[, 2:3] = scale(training_set[, 2:3])
-# test_set[, 2:3] = scale(test_set[, 2:3])
-
-# Fitting Linear Regression to the dataset
-lin_reg=lm(formula = Salary~.,
-           data=dataset)
-
-# Fitting Polynomial Regression to the dataset
-dataset$level2 = dataset$Level^2
-dataset$level3 = dataset$Level^3
-dataset$level4 = dataset$Level^4
-poly_reg = lm(formula = Salary~.,
-              data=dataset)
-
-#Visualising the Linear Regression results
-install.packages(&#39;ggplot2&#39;)
-library(ggplot2)
-ggplot() +
-  geom_point(aes(x=dataset$Level,y=dataset$Salary),
-             colour = &#39;red&#39;) +
-  geom_line (aes (x=dataset$Level, y = predict (lin_reg, newdata=dataset)),
-             colour = &#39;blue&#39;) +
-  xlab(&#39;Level&#39;) +
-  ylab(&#39;Salary&#39;)
-
-#Visualising the Polynomial Regression results
-ggplot() +
-  geom_point(aes(x=dataset$Level,y=dataset$Salary),
-             colour = &#39;red&#39;) +
-  geom_line (aes (x=dataset$Level, y = predict (poly_reg, newdata=dataset)),
-             colour = &#39;blue&#39;) +
-  xlab(&#39;Level&#39;) +
-  ylab(&#39;Salary&#39;)
-
-#Predicting a new result with Linear Regression
-y_pred=predict(lin_reg, data.frame(Level=6.5))
-
-#Predicting a new result with Polynomial Regression
-#因为我们的维度比较高那么R需要让我们告诉他每个维度的值
-y_pred=predict(poly_reg, data.frame(Level=6.5,
-                                    level2=6.5^2,
-                                    level3=6.5^3,
-                                    level4=6.5^4))
-</code></pre><hr>
-<p>summary(lin_reg)</p>
-<p>Call:<br>lm(formula = Salary ~ ., data = dataset)</p>
-<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-170818 -129720  -40379   65856  386545 </p>
-<p>Coefficients:<br>            Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)  -195333     124790  -1.565  0.15615   </p>
-<h2 id="Level-80879-20112-4-021-0-00383"><a href="#Level-80879-20112-4-021-0-00383" class="headerlink" title="Level          80879      20112   4.021  0.00383 **"></a>Level          80879      20112   4.021  0.00383 **</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 182700 on 8 degrees of freedom<br>Multiple R-squared:  0.669,    Adjusted R-squared:  0.6277<br>F-statistic: 16.17 on 1 and 8 DF,  p-value: 0.003833</p>
-<hr>
 <ul>
-<li>增加次方项</li>
+<li>由于过度拟合所以预测的非常差</li>
 </ul>
-<pre><code># Fitting Polynomial Regression to the dataset
-dataset$level2 = dataset$Level^2
-dataset$level3 = dataset$Level^3
-dataset$level4 = dataset$Level^4
-poly_reg = lm(formula = Salary~.,
-              data=dataset)
-</code></pre><hr>
-<p> summary(poly_reg)</p>
-<p>Call:<br>lm(formula = Salary ~ ., data = dataset)</p>
-<p>Residuals:<br>     1      2      3      4      5      6      7      8      9     10<br> -8357  18240   1358 -14633 -11725   6725  15997  10006 -28695  11084 </p>
-<p>Coefficients:<br>             Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)  184166.7    67768.0   2.718  0.04189 <em><br>Level       -211002.3    76382.2  -2.762  0.03972 </em><br>level2        94765.4    26454.2   3.582  0.01584 <em><br>level3       -15463.3     3535.0  -4.374  0.00719 *</em></p>
-<h2 id="level4-890-2-159-8-5-570-0-00257"><a href="#level4-890-2-159-8-5-570-0-00257" class="headerlink" title="level4          890.2      159.8   5.570  0.00257 **"></a>level4          890.2      159.8   5.570  0.00257 **</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
-<p>Residual standard error: 20510 on 5 degrees of freedom<br>Multiple R-squared:  0.9974,    Adjusted R-squared:  0.9953<br>F-statistic: 478.1 on 4 and 5 DF,  p-value: 1.213e-06</p>
-<hr>
+<p><img src="/images/A-Z_ML/84.png" alt><br><img src="/images/A-Z_ML/86.png" alt></p>
 
       
     </div>
@@ -212,37 +135,73 @@ poly_reg = lm(formula = Salary~.,
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/">Polynomial Regression of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/13/Bayes-Theorem-by-A-Z/">Bayes Theorem by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T06:53:36.000Z" itemprop="datePublished">September 12th</time></a>
+  <a href="/2019/07/13/Bayes-Theorem-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T05:41:36.000Z" itemprop="datePublished">July 13th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt></p>
+        <p><img src="/images/A-Z_ML/64.png" alt></p>
 <ul>
-<li>多应用在流行病学：疾病在时间和空间上的传播速度</li>
-</ul>
-<p><img src="/images/A-Z_ML/25.png" alt><br><img src="/images/A-Z_ML/26.png" alt></p>
-<script src="https://gist.github.com/SauronLee/deb2cca719850a2cf43b585503bc3be1.js"></script>
-
-<p>多项式回归就是利用：下面👇代码拟合出b_0和次方项然后全部进行线性回归</p>
-<pre><code>poly_reg = PolynomialFeatures(degree = 4)
-X_poly = poly_reg.fit_transform(X)
-</code></pre><p><img src="/images/A-Z_ML/27.png" alt="issue"><br><img src="/images/A-Z_ML/29.png" alt="issue"><br><img src="/images/A-Z_ML/28.png" alt="issue"></p>
-<ul>
-<li>如果要使线段变得平滑增加x的密度即可比如：<pre><code>X_grid=np.arange(min(X),max(X),0.1)
-X_grid=X_grid.reshape(len(X_grid),1)
-plt.plot(X_grid, lin_reg_2.predict(poly_reg.fit_transform(X_grid)), color = &#39;blue&#39;)
-</code></pre>如果一个新人他说他35岁工作了6年半工资16万是否诚实<pre><code>lin_reg.predict(6.5）
-lin_reg_2.predict(poly_reg.fit_transform(6.5))
-</code></pre></li>
+<li>P(A)是先验概率P(A|B)是后验概率</li>
+<li>B在朴素贝叶斯的分类器当中叫做特征，所以P(B)和P(A|B)不完全叫概率而叫做似然<br><img src="/images/A-Z_ML/65.png" alt></li>
+<li>Plane Attack<br><img src="/images/A-Z_ML/66.png" alt><br><img src="/images/A-Z_ML/67.png" alt><br><img src="/images/A-Z_ML/68.png" alt><br><img src="/images/A-Z_ML/69.png" alt><br><img src="/images/A-Z_ML/70.png" alt><br><img src="/images/A-Z_ML/71.png" alt><br><img src="/images/A-Z_ML/72.png" alt><br><img src="/images/A-Z_ML/73.png" alt><br><img src="/images/A-Z_ML/74.png" alt><br><img src="/images/A-Z_ML/75.png" alt></li>
+<li>缺少似然会降低计算量用于估计<br><img src="/images/A-Z_ML/76.png" alt></li>
 </ul>
 
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/12/NLP-Sentence-analysis/">NLP Sentence analysis</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/07/12/NLP-Sentence-analysis/" class="archive-article-date"><time datetime="2019-07-12T07:13:33.000Z" itemprop="datePublished">July 12th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="句法分析任务"><a href="#句法分析任务" class="headerlink" title="句法分析任务"></a>句法分析任务</h1><p><img src="/images/NLP/sentence_analysis_01.png" alt></p>
+<h1 id="全局句法分析"><a href="#全局句法分析" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_02.png" alt></p>
+<h1 id="全局句法分析-1"><a href="#全局句法分析-1" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_03.png" alt></p>
+<h1 id="依存结构"><a href="#依存结构" class="headerlink" title="依存结构"></a>依存结构</h1><p><img src="/images/NLP/sentence_analysis_04.png" alt></p>
+<ul>
+<li>依存结构概念：</li>
+</ul>
+<ul>
+<li>依照句法通过分析语言单位成分之前的依存关系解释其句法结构，主张句子中核心动词是支配其他成分的中心成分，而他本身却不受其他任何成分的支配，所有受支配成分都以某种关系从属于支配者</li>
+</ul>
+<ul>
+<li>五个条件</li>
+</ul>
+<ul>
+<li>一个句子中只有一个成分是独立的</li>
+<li>句子的其他成分都从属于某一成分</li>
+<li>如果成分A从属于成分B.而成分C在句子中位于A和B之间，那么，成分C或者从属于A，或者从属于B，或者从属于A和B之间的某一成分</li>
+<li>中心成分左右两边的其他成分互相不发生关系<br><img src="/images/NLP/sentence_analysis_05.png" alt><h1 id="使用spacy进行语法分析"><a href="#使用spacy进行语法分析" class="headerlink" title="使用spacy进行语法分析"></a>使用spacy进行语法分析</h1></li>
+</ul>
+<ul>
+<li>下载英文数据以及对应的模型 <code>python -m spacy download en</code></li>
+</ul>
+<script src="https://gist.github.com/SauronLee/c656cd3081b1931087aa6713cd267828.js"></script>
       
     </div>
   </header>
@@ -256,7 +215,7 @@ lin_reg_2.predict(poly_reg.fit_transform(6.5))
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/12/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/11/">11</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/12/">12</a></li><li class="active"><span class="page-number">13</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/14/">14</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/15/">15</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/27/">27</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/14/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/12/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/11/">11</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/12/">12</a></li><li class="active"><span class="page-number">13</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/14/">14</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/15/">15</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/18/">18</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/14/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

@@ -102,54 +102,6 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/12/NLP-Sentence-analysis/">NLP Sentence analysis</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/2019/07/12/NLP-Sentence-analysis/" class="archive-article-date"><time datetime="2019-07-12T07:13:33.000Z" itemprop="datePublished">July 12th</time></a>
-</div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="句法分析任务"><a href="#句法分析任务" class="headerlink" title="句法分析任务"></a>句法分析任务</h1><p><img src="/images/NLP/sentence_analysis_01.png" alt></p>
-<h1 id="全局句法分析"><a href="#全局句法分析" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_02.png" alt></p>
-<h1 id="全局句法分析-1"><a href="#全局句法分析-1" class="headerlink" title="全局句法分析"></a>全局句法分析</h1><p><img src="/images/NLP/sentence_analysis_03.png" alt></p>
-<h1 id="依存结构"><a href="#依存结构" class="headerlink" title="依存结构"></a>依存结构</h1><p><img src="/images/NLP/sentence_analysis_04.png" alt></p>
-<ul>
-<li>依存结构概念：</li>
-</ul>
-<ul>
-<li>依照句法通过分析语言单位成分之前的依存关系解释其句法结构，主张句子中核心动词是支配其他成分的中心成分，而他本身却不受其他任何成分的支配，所有受支配成分都以某种关系从属于支配者</li>
-</ul>
-<ul>
-<li>五个条件</li>
-</ul>
-<ul>
-<li>一个句子中只有一个成分是独立的</li>
-<li>句子的其他成分都从属于某一成分</li>
-<li>如果成分A从属于成分B.而成分C在句子中位于A和B之间，那么，成分C或者从属于A，或者从属于B，或者从属于A和B之间的某一成分</li>
-<li>中心成分左右两边的其他成分互相不发生关系<br><img src="/images/NLP/sentence_analysis_05.png" alt><h1 id="使用spacy进行语法分析"><a href="#使用spacy进行语法分析" class="headerlink" title="使用spacy进行语法分析"></a>使用spacy进行语法分析</h1></li>
-</ul>
-<ul>
-<li>下载英文数据以及对应的模型 <code>python -m spacy download en</code></li>
-</ul>
-<script src="https://gist.github.com/SauronLee/c656cd3081b1931087aa6713cd267828.js"></script>
-      
-    </div>
-  </header>
-</article>
-
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
       <a class="archive-article-title" href="/2019/07/11/NLP-Word-analysis/">NLP Word analysis</a>
     </h1>
   
@@ -228,13 +180,109 @@ nltk.download()
 
 
   
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/11/NLP-Corpus/">NLP_Corpus</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/07/11/NLP-Corpus/" class="archive-article-date"><time datetime="2019-07-11T10:42:21.000Z" itemprop="datePublished">July 11th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/NLP/corpus_01.png" alt></p>
+<h1 id="北京大学计算语言所语料库标记"><a href="#北京大学计算语言所语料库标记" class="headerlink" title="北京大学计算语言所语料库标记"></a>北京大学计算语言所语料库标记</h1><ul>
+<li><a href="http://opendata.pku.edu.cn/dataverse/icl" target="_blank" rel="noopener">http://opendata.pku.edu.cn/dataverse/icl</a></li>
+</ul>
+<p><img src="/images/NLP/corpus_02.png" alt></p>
+<h1 id="London-Lund英语口语语料库："><a href="#London-Lund英语口语语料库：" class="headerlink" title="London-Lund英语口语语料库："></a>London-Lund英语口语语料库：</h1><ul>
+<li><a href="http://www.helsinki.fi/varieng/CoRD/corpora/LLC/" target="_blank" rel="noopener">http://www.helsinki.fi/varieng/CoRD/corpora/LLC/</a></li>
+</ul>
+<p><img src="/images/NLP/corpus_03.png" alt></p>
+<h1 id="Tencent中文语料库-19年刚刚开源的"><a href="#Tencent中文语料库-19年刚刚开源的" class="headerlink" title="Tencent中文语料库-19年刚刚开源的"></a>Tencent中文语料库-19年刚刚开源的</h1><ul>
+<li><a href="https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz" target="_blank" rel="noopener">https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz</a><br><img src="/images/NLP/corpus_04.png" alt></li>
+</ul>
+<h1 id="语料库的类型"><a href="#语料库的类型" class="headerlink" title="语料库的类型"></a>语料库的类型</h1><ul>
+<li>异质性（heterogeneous）：简单无选材</li>
+<li>同质性（homogeneous）：如TIPSTER只收集军事方面语料</li>
+<li>系统性（systematic）：定好收据预料的规则，平衡性和系统性</li>
+<li>专用性（specialized）：如北美人文科学语料库</li>
+<li>单语语料库</li>
+<li>双语多多语对齐语料库：平行语料库：篇章对齐；句子对齐、结构对齐<br><img src="/images/NLP/corpus_05.png" alt></li>
+<li>生语语料库：未经加工</li>
+<li>熟语语料库：带有切分，标注（词性标注，句法结构信息标注（树库）语义信息标注</li>
+<li>共时语料库：一个时间段，横截面</li>
+<li>历时语料库：与共时相对，纵剖面<br><img src="/images/NLP/corpus_06.png" alt><!-- ![issue](/images/NLP/corpus_07.png) -->
+</li>
+</ul>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/05/02/NLP-Gram/">Bi-Gram/Tri-Gram/N-Gram</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/05/02/NLP-Gram/" class="archive-article-date"><time datetime="2019-05-02T06:28:33.000Z" itemprop="datePublished">May 2nd</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="语言模型（Bi-Gram-Tri-Gram-N-Gram）"><a href="#语言模型（Bi-Gram-Tri-Gram-N-Gram）" class="headerlink" title="语言模型（Bi-Gram/Tri-Gram/N-Gram）"></a>语言模型（Bi-Gram/Tri-Gram/N-Gram）</h1><ul>
+<li>语言模型就是用于评估文本符合语言使用习惯程度的模型。<br>在计算机中很难找到人类语言的使用习惯，因为人类的语言使用习惯根据朝代试点的变迁有着很大的差异，所以现在更流行用语言出现的的概率来判断句子是否通顺。<br>比如：我去操场（  ）；计算机会识别我去操场跑步或是其他运动方面的单词出现的概率会更大，再比如翻译的时候，计算机会统计这么翻译的话他会在实际现实应用中出现概率。</li>
+<li>总结来说就是无论在机器翻译；拼音纠错；语音识别；音字转换方面都是判断这样转换的概率是否最大化</li>
+</ul>
+<h1 id="N-Gram"><a href="#N-Gram" class="headerlink" title="N-Gram"></a>N-Gram</h1><ul>
+<li>他的输入是一句话（单词的顺序序列），输出是这句话的概率（这些单词结合的概率-joint probability）</li>
+<li>N-Gram的意思就是由N个单词组合的模型，单词分先后顺序，不要求点此之间互不相同，其中N常用取2或者3词组合</li>
+<li>数学表达式：假设每一个单词都要依赖于从第一个单词在他之前的一个单词的影响：p(S)=p(w1w2…wn)=p(w1)p(w2|w1)…p(wn|wn-1…w2w1)；<br><img src="/images/NLP/bi_gram_01 .png" alt="issue"><br>利用MLE思想（利用已知的样本信息来反推模型参数，换句话说什么样的模型才会出现现在这种样本）；</li>
+<li>问题：参数空间太大O(n)个所以我们通过马尔科夫假设；数据稀疏严重</li>
+</ul>
+<h1 id="Bi-Gram"><a href="#Bi-Gram" class="headerlink" title="Bi-Gram"></a>Bi-Gram</h1><ul>
+<li>之前说的马尔科夫假设如果只与前面一个词有关我们就叫bi-gram：p(S)=p(wn|wn-1)<br><img src="/images/NLP/bi_gram_02.png" alt></li>
+<li>问题：语境切换问题存在，我们用神经网络模型引入时间维度来解决此问题</li>
+<li>那么句子I want english food 的概率为：<br><img src="/images/NLP/bi_gram_03.png" alt>   </li>
+<li>为防止数据溢出我们会用加法代替乘法计算<br><img src="/images/NLP/bi_gram_04.png" alt><br><img src="/images/NLP/bi_gram_05.png" alt>  </li>
+</ul>
+<h1 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h1><ul>
+<li>在实际应用中看具体表现；计算preplexity<br><img src="/images/NLP/bi_gram_06.png" alt>  </li>
+</ul>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
   
     </div></section>
   
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/NLP/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/NLP/">1</a></li><li class="active"><span class="page-number">2</span></li><li><a class="page-number" href="/tags/NLP/page/3/">3</a></li><li><a class="page-next" rel="next" href="/tags/NLP/page/3/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/NLP/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/NLP/">1</a></li><li class="active"><span class="page-number">2</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

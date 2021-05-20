@@ -102,174 +102,60 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/">Logistic Regression of R by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-Python/">Data Preprocessing by Python</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/Logistic-Regression-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T18:18:54.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/08/10/Data-Preprocessing-by-Python/" class="archive-article-date"><time datetime="2019-08-10T11:08:27.000Z" itemprop="datePublished">August 10th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/35.png" alt="issue"><br><img src="/images/A-Z_ML/36.png" alt="issue"><br><img src="/images/A-Z_ML/37.png" alt="issue"><br><img src="/images/A-Z_ML/38.png" alt="issue"></p>
+        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d3f9b166dbfa5160de5411a0718c90b1.js"></script>
+
+<p>command + i = helpeer</p>
 <ul>
-<li>列<br><img src="/images/A-Z_ML/42.png" alt="issue"></li>
+<li>Definition : Imputer(missing_values=”NaN”, strategy=”mean”, axis=0, verbose=0, copy=True)</li>
 </ul>
-<pre><code>
-# Logistic Regression
-
-# Importing the dataset
-dataset = read.csv(&#39;Social_Network_Ads.csv&#39;)
-dataset = dataset[3:5]
-
-# Splitting the dataset into the Training set and Test set
-# install.packages(&#39;caTools&#39;)
-library(caTools)
-set.seed(123)
-split = sample.split(dataset$Purchased, SplitRatio = 0.75)
-training_set = subset(dataset, split == TRUE)
-test_set = subset(dataset, split == FALSE)
-
-# Feature Scaling
-training_set[, 1:2] = scale(training_set[, 1:2])
-test_set[, 1:2] = scale(test_set[, 1:2])  
-
-# Fitting Logistic Regression to the Training set
-classifier = glm(formula = Purchased ~ .,
-                 family= binomial,
-                 data= training_set)
-
-# Predicting the Test set results
-prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
-y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
-
-# Making the Confusion Matrix
-cm = table(test_set[,3], y_pred)
-
-# Visualising the Training set results
-# install.packages(ElemStatLearn)
-library(ElemStatLearn)
-set = training_set
-X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.0075)
-X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.0075)
-grid_set = expand.grid(X1, X2)
-colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
-prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
-y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
-plot(set[, -3],
-     main = &#39;Classifier (Training set)&#39;,
-     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
-     xlim = range(X1), ylim = range(X2))
-contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
-points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
-points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
-
-# Visualising the Test set results
-# install.packages(ElemStatLearn)
-library(ElemStatLearn)
-set = test_set
-X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
-X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
-grid_set = expand.grid(X1, X2)
-colnames(grid_set) = c(&#39;Age&#39;, &#39;EstimatedSalary&#39;)
-prob_set = predict(classifier, type = &#39;response&#39;, newdata = grid_set)
-y_grid = ifelse(prob_set &gt; 0.5, 1, 0)
-plot(set[, -3],
-     main = &#39;Classifier (Test set)&#39;,
-     xlab = &#39;Age&#39;, ylab = &#39;Estimated Salary&#39;,
-     xlim = range(X1), ylim = range(X2))
-contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
-points(grid_set, pch = &#39;.&#39;, col = ifelse(y_grid == 1, &#39;springgreen3&#39;, &#39;tomato&#39;))
-points(set, pch = 21, bg = ifelse(set[, 3] == 1, &#39;green4&#39;, &#39;red3&#39;))
-</code></pre><hr>
-<pre><code>
-
- prob_pred=predict(classifier, type = &#39;response&#39;, newdata=test_set[-3])
- prob_pred
-           2            4            5            9           12           18           19 
-0.0162395375 0.0117148379 0.0037846461 0.0024527456 0.0073339436 0.2061576580 0.2669935073 
-          20           22           29           32           34           35           38 
-0.3851475689 0.5448578778 0.0103005636 0.2994922143 0.0084168787 0.0494471952 0.0171641479 
-          45           46           48           52           66           69           74 
-0.0485051303 0.0008343060 0.0102561619 0.0007055347 0.0058448457 0.0044534947 0.3933468488 
-          75           82           84           85           86           87           89 
-0.0071065671 0.1068589185 0.2580084947 0.0303248927 0.3303649169 0.0051132916 0.0263861849 
-         103          104          107          108          109          117          124 
-0.1310148056 0.7649772313 0.0034367786 0.0473827096 0.0327965105 0.1626049288 0.0675494054 
-         126          127          131          134          139          148          154 
-0.2189658514 0.4142562486 0.0324337750 0.0043457839 0.0163538708 0.1030590600 0.0751093248 
-         156          159          162          163          170          175          176 
-0.0048556976 0.0027487256 0.0306647902 0.0463555716 0.0122981409 0.1169016711 0.0011936610 
-         193          199          200          208          213          224          226 
-0.0103005636 0.0252589417 0.0177353905 0.9870859806 0.9453359968 0.9969454446 0.1064430571 
-         228          229          230          234          236          237          239 
-0.9979393884 0.3705093415 0.5807527959 0.9117762840 0.7817273411 0.2310672929 0.8037996043 
-         241          255          264          265          266          273          274 
-0.9682706714 0.6686007827 0.1451169281 0.9060311409 0.8293112410 0.9568520348 0.6781064291 
-         281          286          292          299          302          305          307 
-0.9926955397 0.4170486388 0.9220096987 0.7363498859 0.8247736816 0.2558136823 0.9932007105 
-         310          316          324          326          332          339          341 
-0.1178058928 0.3442845494 0.3958138650 0.3059412440 0.9725035550 0.1431602303 0.9842795480 
-         343          347          353          363          364          367          368 
-0.2073273008 0.9371909698 0.6843940060 0.5559479117 0.5698028861 0.9440512240 0.8427877409 
-         369          372          373          380          383          389          392 
-0.2549836305 0.9928717092 0.3243409327 0.8519685008 0.9697473704 0.3793408625 0.2718336775 
-         395          400 
-0.2040229226 0.5236436275 
-
-
-y_pred=ifelse(prob_pred&gt;0.5, 1, 0)
-y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   1   1   1   1   0   1   0   1   1 
-389 392 395 400 
-  0   0   0   1 
-
-cm = table(test_set[,3], y_pred)
-#对角线为正确率
-&gt; cm
-   y_pred
-     0  1
-  0 57  7
-  1 10 26
-</code></pre><p><img src="/images/A-Z_ML/43.png" alt="issue"><br><img src="/images/A-Z_ML/44.png" alt="issue"></p>
-<hr>
-<p>glm {stats}    R Documentation<br>Fitting Generalized Linear Models<br>Description<br>glm is used to fit generalized linear models, specified by giving a symbolic description of the linear predictor and a description of the error distribution.</p>
-<p>Usage<br>glm(formula, family = gaussian, data, weights, subset,<br>    na.action, start = NULL, etastart, mustart, offset,<br>    control = list(…), model = TRUE, method = “glm.fit”,<br>    x = FALSE, y = TRUE, singular.ok = TRUE, contrasts = NULL, …)</p>
-<p>glm.fit(x, y, weights = rep(1, nobs),<br>        start = NULL, etastart = NULL, mustart = NULL,<br>        offset = rep(0, nobs), family = gaussian(),<br>        control = list(), intercept = TRUE, singular.ok = TRUE)</p>
-<h1 id="S3-method-for-class-‘glm’"><a href="#S3-method-for-class-‘glm’" class="headerlink" title="S3 method for class ‘glm’"></a>S3 method for class ‘glm’</h1><p>weights(object, type = c(“prior”, “working”), …)<br>Arguments<br>formula<br>an object of class “formula” (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.</p>
-<p>family<br>a description of the error distribution and link function to be used in the model. For glm this can be a character string naming a family function, a family function or the result of a call to a family function. For glm.fit only the third option is supported. (See family for details of family functions.)</p>
-<p>data<br>an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which glm is called.</p>
-<p>weights<br>an optional vector of ‘prior weights’ to be used in the fitting process. Should be NULL or a numeric vector.</p>
-<p>subset<br>an optional vector specifying a subset of observations to be used in the fitting process.</p>
-<p>na.action<br>a function which indicates what should happen when the data contain NAs. The default is set by the na.action setting of options, and is na.fail if that is unset. The ‘factory-fresh’ default is na.omit. Another possible value is NULL, no action. Value na.exclude can be useful.</p>
-<p>start<br>starting values for the parameters in the linear predictor.</p>
-<p>etastart<br>starting values for the linear predictor.</p>
-<p>mustart<br>starting values for the vector of means.</p>
-<p>offset<br>this can be used to specify an a priori known component to be included in the linear predictor during fitting. This should be NULL or a numeric vector of length equal to the number of cases. One or more offset terms can be included in the formula instead or as well, and if more than one is specified their sum is used. See model.offset.</p>
-<p>control<br>a list of parameters for controlling the fitting process. For glm.fit this is passed to glm.control.</p>
-<p>model<br>a logical value indicating whether model frame should be included as a component of the returned value.</p>
-<p>method<br>the method to be used in fitting the model. The default method “glm.fit” uses iteratively reweighted least squares (IWLS): the alternative “model.frame” returns the model frame and does no fitting.</p>
-<p>User-supplied fitting functions can be supplied either as a function or a character string naming a function, with a function which takes the same arguments as glm.fit. If specified as a character string it is looked up from within the stats namespace.</p>
-<p>x, y<br>For glm: logical values indicating whether the response vector and model matrix used in the fitting process should be returned as components of the returned value.</p>
-<p>For glm.fit: x is a design matrix of dimension n * p, and y is a vector of observations of length n.</p>
-<p>singular.ok<br>logical; if FALSE a singular fit is an error.</p>
-<p>contrasts<br>an optional list. See the contrasts.arg of model.matrix.default.</p>
-<p>intercept<br>logical. Should an intercept be included in the null model?</p>
-<p>object<br>an object inheriting from class “glm”.</p>
-<p>type<br>character, partial matching allowed. Type of weights to extract from the fitted model object. Can be abbreviated.</p>
-<p>…<br>For glm: arguments to be used to form the default control argument if it is not supplied directly.</p>
-<p>For weights: further arguments passed to or from other methods.</p>
-<hr>
-
+<p>missing_values : integer or “NaN”, optional (default=”NaN”)<br>The placeholder for the missing values. All occurrences of missing_values will be imputed. For missing values encoded as np.nan, use the string value “NaN”.<br>strategy : string, optional (default=”mean”)<br>The imputation strategy.</p>
+<p>If “mean”, then replace missing values using the mean along the axis.<br>If “median”, then replace missing values using the median along the axis.<br>If “most_frequent”, then replace missing using the most frequent value along the axis.<br>axis : integer, optional (default=0)<br>The axis along which to impute.</p>
+<p>If axis=0, then impute along columns.<br>If axis=1, then impute along rows.<br>verbose : integer, optional (default=0)<br>Controls the verbosity of the imputer.<br>copy : boolean, optional (default=True)<br>If True, a copy of X will be created. If False, imputation will be done in-place whenever possible. Note that, in the following cases, a new copy will always be made, even if copy=False:</p>
+<p>If X is not an array of floating values;<br>If X is sparse and missing_values=0;<br>If axis=0 and X is encoded as a CSR matrix;<br>If axis=1 and X is encoded as a CSC matrix.</p>
+<ul>
+<li>fit(X, y=None)</li>
+</ul>
+<p>X : {array-like, sparse matrix}, shape (n_samples, n_features)<br>Input data, where n_samples is the number of samples and n_features is the number of features.</p>
+<ul>
+<li>Definition : OneHotEncoder(n_values=None, categorical_features=None, categories=None, sparse=True, dtype=np.float64, handle_unknown=’error’)</li>
+</ul>
+<p>Type : Present in sklearn.preprocessing._encoders module</p>
+<p>categories : ‘auto’ or a list of lists/arrays of values, default=’auto’.<br>Categories (unique values) per feature:</p>
+<p>‘auto’ : Determine categories automatically from the training data.<br>list : categories[i] holds the categories expected in the ith column. The passed categories should not mix strings and numeric values within a single feature, and should be sorted in case of numeric values.<br>The used categories can be found in the categories_ attribute.</p>
+<p>sparse : boolean, default=True<br>Will return sparse matrix if set True else will return an array.<br>dtype : number type, default=np.float<br>Desired dtype of output.<br>handle_unknown : ‘error’ or ‘ignore’, default=’error’.<br>Whether to raise an error or ignore if an unknown categorical feature is present during transform (default is to raise). When this parameter is set to ‘ignore’ and an unknown category is encountered during transform, the resulting one-hot encoded columns for this feature will be all zeros. In the inverse transform, an unknown category will be denoted as None.<br>n_values : ‘auto’, int or array of ints, default=’auto’<br>Number of values per feature.</p>
+<p>‘auto’ : determine value range from training data.</p>
+<p>int : number of categorical values per feature.<br>Each feature value should be in range(n_values)</p>
+<p>array : n_values[i] is the number of categorical values in<br>X[:, i]. Each feature value should be in range(n_values[i])</p>
+<p>Deprecated since version 0.20: The n_values keyword was deprecated in version 0.20 and will be removed in 0.22. Use categories instead.</p>
+<p>categorical_features : ‘all’ or array of indices or mask, default=’all’<br>Specify what features are treated as categorical.</p>
+<p>‘all’: All features are treated as categorical.<br>array of indices: Array of categorical feature indices.<br>mask: Array of length n_features and with dtype=bool.<br>Non-categorical features are always stacked to the right of the matrix.</p>
+<p>Deprecated since version 0.20: The categorical_features keyword was deprecated in version 0.20 and will be removed in 0.22. You can use the ColumnTransformer instead.</p>
+<h2 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h2><ul>
+<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
+<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
+<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
+</li>
+<li><p>是否需要对虚拟变量进行特征缩放。答：不一定，要根据模型结果。</p>
+</li>
+<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
+</ul>
+<pre><code># Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc_XStandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
+</code></pre>
       
     </div>
   </header>
@@ -284,35 +170,114 @@ cm = table(test_set[,3], y_pred)
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/">Logistic Regression of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-R/">Data Preprocessing by R</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/Logistic-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-12T15:40:39.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/08/10/Data-Preprocessing-by-R/" class="archive-article-date"><time datetime="2019-08-10T11:08:09.000Z" itemprop="datePublished">August 10th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/35.png" alt><br><img src="/images/A-Z_ML/36.png" alt><br><img src="/images/A-Z_ML/37.png" alt><br><img src="/images/A-Z_ML/38.png" alt></p>
-<ul>
-<li>列<br><img src="/images/A-Z_ML/39.png" alt></li>
-</ul>
-<script src="https://gist.github.com/SauronLee/fdff6948bb436e04e91e1ba70ed7e3bb.js"></script>
+        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d07b84f9caefd89dbc3f76a943bd8166.js"></script>
 
 <ul>
-<li>运行confusion_matrix来测试精准度，正确率（65+24）%</li>
+<li>因子数据类型（有序因子&amp;无序因子），可以代替Python中的OneHotEncoder</li>
 </ul>
-<pre><code># Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)
-cm
-Out[3]: 
-array([[65,  3],
-       [ 8, 24]])
-</code></pre><p><img src="/images/A-Z_ML/40.png" alt><br><img src="/images/A-Z_ML/41.png" alt></p>
+<p>Usage<br>factor(x = character(), levels, labels = levels,<br>       exclude = NA, ordered = is.ordered(x), nmax = NA)</p>
+<p>ordered(x, …)</p>
+<p>is.factor(x)<br>is.ordered(x)</p>
+<p>as.factor(x)<br>as.ordered(x)</p>
+<p>addNA(x, ifany = FALSE)<br>Arguments<br>x<br>a vector of data, usually taking a small number of distinct values.</p>
+<p>levels<br>an optional vector of the unique values (as character strings) that x might have taken. The default is the unique set of values taken by as.character(x), sorted into increasing order of x. Note that this set can be specified as smaller than sort(unique(x)).</p>
+<p>labels<br>either an optional character vector of labels for the levels (in the same order as levels after removing those in exclude), or a character string of length 1. Duplicated values in labels can be used to map different values of x to the same factor level.</p>
+<p>exclude<br>a vector of values to be excluded when forming the set of levels. This may be factor with the same level set as x or should be a character.</p>
+<p>ordered<br>logical flag to determine if the levels should be regarded as ordered (in the order given).</p>
+<p>nmax<br>an upper bound on the number of levels; see ‘Details’.</p>
+<p>…<br>(in ordered(.)): any of the above, apart from ordered itself.</p>
+<p>ifany<br>only add an NA level if it is used, i.e. if any(is.na(x)).</p>
+<h2 id="Splitting-the-Dataset-into-the-Training-set-and-Test-set"><a href="#Splitting-the-Dataset-into-the-Training-set-and-Test-set" class="headerlink" title="Splitting the Dataset into the Training set and Test set"></a>Splitting the Dataset into the Training set and Test set</h2><pre><code># Data Preprocessing Template
 
+# Importing the dataset
+dataset = read.csv(&#39;Data.csv&#39;)
+# dataset = dataset[, 2:3]
+
+# Splitting the dataset into the Training set and Test set
+# R语言安装packages
+# install.packages(&#39;caTools&#39;)
+# library(caTools) = 在packages里面打钩，推荐用library(caTools) 
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.8)
+# split == TRUE为random出来的数据
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+# training_set[, 2:3] = scale(training_set[, 2:3])
+# test_set[, 2:3] = scale(test_set[, 2:3])
+</code></pre><ul>
+<li>set.seed<br>Random Number Generation</li>
+</ul>
+<p>Usage<br>.Random.seed &lt;- c(rng.kind, n1, n2, \dots)</p>
+<p>RNGkind(kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>RNGversion(vstr)<br>set.seed(seed, kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>Arguments<br>kind<br>character or NULL. If kind is a character string, set R’s RNG to the kind desired. Use “default” to return to the R default. See ‘Details’ for the interpretation of NULL.</p>
+<p>normal.kind<br>character string or NULL. If it is a character string, set the method of Normal generation. Use “default” to return to the R default. NULL makes no change.</p>
+<p>sample.kind<br>character string or NULL. If it is a character string, set the method of discrete uniform generation (used in sample, for instance). Use “default” to return to the R default. NULL makes no change.</p>
+<p>seed<br>a single value, interpreted as an integer, or NULL (see ‘Details’).</p>
+<p>vstr<br>a character string containing a version number, e.g., “1.6.2”. The default RNG configuration of the current R version is used if vstr is greater than the current version.</p>
+<p>rng.kind<br>integer code in 0:k for the above kind.</p>
+<p>n1, n2, …<br>integers. See the details for how many are required (which depends on rng.kind).</p>
+<ul>
+<li>sample.split<br>Split Data into Test and Train Set</li>
+</ul>
+<p>Usage<br> sample.split( Y, SplitRatio = 2/3, group = NULL )<br>Arguments<br>Y<br>Vector of data labels. If there are only a few labels (as is expected) than relative ratio of data in both subsets will be the same.</p>
+<p>SplitRatio<br>Splitting ratio:</p>
+<p>if (0&lt;=SplitRatio&lt;1) then SplitRatio fraction of points from Y will be set toTRUE</p>
+<p>if (SplitRatio==1) then one random point from Y will be set to TRUE</p>
+<p>if (SplitRatio&gt;1) then SplitRatio number of points from Y will be set to TRUE</p>
+<p>group<br>Optional vector/list used when multiple copies of each sample are present. In such a case group contains unique sample labels, marking all copies of the same sample with the same label, and the function tries to place all copies in either train or test subset. If provided than has to have the same length as Y.</p>
+<h1 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h1><ul>
+<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
+<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
+<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
+</li>
+<li><p>是否需要对虚拟变量进行特征缩放？答：不一定，要根据模型结果。</p>
+</li>
+<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
+<li>在R里factor属于单独的类型不属于数字它属于分类的一个数据类型</li>
+</ul>
+<pre><code># Feature Scaling
+training_set[,2:3] = scale(training_set[,2:3])
+test_set[,2:3] = scale(test_set[,2:3])
+</code></pre>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/14/Artificial-Neural-Networks-of-Python-by-A-Z/">Artificial Neural Networks of Python by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/07/14/Artificial-Neural-Networks-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-07-14T06:32:59.000Z" itemprop="datePublished">July 14th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="https://gist.github.com/SauronLee/071e1a959a04484f9d80d8362ec4a2cd.js"></script>
       
     </div>
   </header>
@@ -326,7 +291,7 @@ array([[65,  3],
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/11/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/10/">10</a></li><li><a class="page-number" href="/tags/Statistics/page/11/">11</a></li><li class="active"><span class="page-number">12</span></li><li><a class="page-number" href="/tags/Statistics/page/13/">13</a></li><li><a class="page-number" href="/tags/Statistics/page/14/">14</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/26/">26</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/13/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/11/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/10/">10</a></li><li><a class="page-number" href="/tags/Statistics/page/11/">11</a></li><li class="active"><span class="page-number">12</span></li><li><a class="page-number" href="/tags/Statistics/page/13/">13</a></li><li><a class="page-number" href="/tags/Statistics/page/14/">14</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/13/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

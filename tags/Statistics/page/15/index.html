@@ -102,21 +102,42 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/">Simple Linear Regression of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/07/11/NLP-Corpus/">NLP_Corpus</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/11/Simple-Linear-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-11T04:45:04.000Z" itemprop="datePublished">September 11th</time></a>
+  <a href="/2019/07/11/NLP-Corpus/" class="archive-article-date"><time datetime="2019-07-11T10:42:21.000Z" itemprop="datePublished">July 11th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/02.png" alt><br><img src="/images/A-Z_ML/03.png" alt></p>
-<script src="https://gist.github.com/SauronLee/bf7e3f954b445edc107ef4271b13642b.js"></script>
-
-<p><img src="/images/A-Z_ML/04.png" alt><br><img src="/images/A-Z_ML/05.png" alt></p>
+        <p><img src="/images/NLP/corpus_01.png" alt></p>
+<h1 id="北京大学计算语言所语料库标记"><a href="#北京大学计算语言所语料库标记" class="headerlink" title="北京大学计算语言所语料库标记"></a>北京大学计算语言所语料库标记</h1><ul>
+<li><a href="http://opendata.pku.edu.cn/dataverse/icl" target="_blank" rel="noopener">http://opendata.pku.edu.cn/dataverse/icl</a></li>
+</ul>
+<p><img src="/images/NLP/corpus_02.png" alt></p>
+<h1 id="London-Lund英语口语语料库："><a href="#London-Lund英语口语语料库：" class="headerlink" title="London-Lund英语口语语料库："></a>London-Lund英语口语语料库：</h1><ul>
+<li><a href="http://www.helsinki.fi/varieng/CoRD/corpora/LLC/" target="_blank" rel="noopener">http://www.helsinki.fi/varieng/CoRD/corpora/LLC/</a></li>
+</ul>
+<p><img src="/images/NLP/corpus_03.png" alt></p>
+<h1 id="Tencent中文语料库-19年刚刚开源的"><a href="#Tencent中文语料库-19年刚刚开源的" class="headerlink" title="Tencent中文语料库-19年刚刚开源的"></a>Tencent中文语料库-19年刚刚开源的</h1><ul>
+<li><a href="https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz" target="_blank" rel="noopener">https://ai.tencent.com/ailab/nlp/data/Tencent_AILab_ChineseEmbedding.tar.gz</a><br><img src="/images/NLP/corpus_04.png" alt></li>
+</ul>
+<h1 id="语料库的类型"><a href="#语料库的类型" class="headerlink" title="语料库的类型"></a>语料库的类型</h1><ul>
+<li>异质性（heterogeneous）：简单无选材</li>
+<li>同质性（homogeneous）：如TIPSTER只收集军事方面语料</li>
+<li>系统性（systematic）：定好收据预料的规则，平衡性和系统性</li>
+<li>专用性（specialized）：如北美人文科学语料库</li>
+<li>单语语料库</li>
+<li>双语多多语对齐语料库：平行语料库：篇章对齐；句子对齐、结构对齐<br><img src="/images/NLP/corpus_05.png" alt></li>
+<li>生语语料库：未经加工</li>
+<li>熟语语料库：带有切分，标注（词性标注，句法结构信息标注（树库）语义信息标注</li>
+<li>共时语料库：一个时间段，横截面</li>
+<li>历时语料库：与共时相对，纵剖面<br><img src="/images/NLP/corpus_06.png" alt><!-- ![issue](/images/NLP/corpus_07.png) -->
+</li>
+</ul>
 
       
     </div>
@@ -132,239 +153,179 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/21/Statistics-by-Yebingcheng-of-Taiwan-University/">Statistics by Yebingcheng of Taiwan University</a>
+      <a class="archive-article-title" href="/2019/07/08/jetbot-01/">Jetbot</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/21/Statistics-by-Yebingcheng-of-Taiwan-University/" class="archive-article-date"><time datetime="2019-08-21T09:08:34.000Z" itemprop="datePublished">August 21st</time></a>
+  <a href="/2019/07/08/jetbot-01/" class="archive-article-date"><time datetime="2019-07-08T13:53:55.000Z" itemprop="datePublished">July 8th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="几率的独立性（Independent）"><a href="#几率的独立性（Independent）" class="headerlink" title="几率的独立性（Independent）"></a>几率的独立性（Independent）</h1><p>若两个事件满足：<script type="math/tex">P(A\cap B)=P(A)\cdot P(B)</script> 则A，B两件事称为独立事件<br>两个事件没有交集，同时发生两件事的几率就是完全两个几率相乘没有扣除交集部分<br>我比较喜欢另一个版本的独立事件的定义：<script type="math/tex">P(A|B)=P(A)</script> 也就是说在B发生时A发生的概率等于A发生的概率（也就是说B发生对A没有影响）<br>两个公式是一样的：</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P(A|B)&=P(A)\\
-\frac{P(A\cap B)}{P(B)}&=P(A)\\
-P(A\cap B)&=P(A)\cdot P(B)
-\end{align*}</script><p>如果是多事件也是一样的：如果有m个事件那么先Cm取2每个算一遍Cm取3每个算一遍，最后Cm取m每个算一遍，全部独立我们才能说是互相独立的</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P(A_{i1}\cap A_{i2}\cap A_{i3}...\cap A_{im})&=P(A_{i1})\cdot P(A_{i2})\cdot P(A_{i3})\cdot ...\cdot P(A_{im}) 
-\end{align*}</script><h1 id="排列（Permutation）"><a href="#排列（Permutation）" class="headerlink" title="排列（Permutation）"></a>排列（Permutation）</h1><p>判断事件是否是排列问题首先要看事件：<br>是否可区分=y，<br>有无放回=n，（无放回用阶乘）<br>顺序有无差异=y<br>比如：若有n个异物，从中依序取出k物有多少种结果</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P=\frac{n!}{n!-k!}
-\end{align*}</script><h1 id="重复选取（Chooes-with-Replacements）"><a href="#重复选取（Chooes-with-Replacements）" class="headerlink" title="重复选取（Chooes with Replacements）"></a>重复选取（Chooes with Replacements）</h1><p>判断：<br>是否可区分=y，<br>有无放回=y，<br>顺序有无差异=y<br>比如：若有n个异物，从中依序取出k物（但每取出一个异物便放回去）有多少种结果</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P=k^{n}
-\end{align*}</script><h1 id="组合（Combination）"><a href="#组合（Combination）" class="headerlink" title="组合（Combination）"></a>组合（Combination）</h1><p>判断：<br>是否可区分=y，<br>有无放回=n，（无放回用阶乘）<br>顺序有无差异=n，（无顺序用组合，因为一共会有k！个顺序所以除以多余k！）<br>比如：若有n异物，从中取出k物共有多少种结果？</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P=\frac{n!}{(n-k)!k!}
-\end{align*}</script><p>$<br>C<em>{n}^{k}:又称为二项式系数，根据二项式定理\<br>(x+y)^{n}=\sum</em>{n}^{k=0}C_{n}^{k}x^{k}y^{n-k}<br>$</p>
-<h1 id="多项组合（Multionomial）"><a href="#多项组合（Multionomial）" class="headerlink" title="多项组合（Multionomial）"></a>多项组合（Multionomial）</h1><p>其实就是几种组合的并集，也可以写成多项式的形式,直接记原始形式就行</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P&=C_{n1}^{n}\cdot C_{n2}^{n-n1}\cdot  C_{n3}^{n-n1-n2}...C_{n_{m}}^{n_{m}}\\
-&=\frac{n!}{n_{1}!n_{2}!n_{3}!...n_{m}!}
-\end{align*}</script><script type="math/tex; mode=display">
-\begin{align*}  
-(x_{1}+x_{2}+x_{3}+...+x_{m})^{n}
-=\sum_{n_{1}=0}^{n}\sum_{n_{2}=0}^{n}...\sum_{n_{m}=0}^{n}\frac{n!}{n_{1}!n_{2}!n_{3}!...n_{m}!}x_{n_{1}}^{1}x_{n_{2}}^{2}...x_{n_{m}}^{m}
-\end{align*}</script><h1 id="随机变数-（Random-variable）"><a href="#随机变数-（Random-variable）" class="headerlink" title="随机变数 （Random variable）"></a>随机变数 （Random variable）</h1><ul>
-<li>就是把实验结果数字化的表示方式，目的是使数学的推导更加简单明了，随机变数都是大写的字母</li>
-<li>随机变数是一个函数，喂给F()一个随机变数，得出一个相应的概率</li>
+        <h1 id="首先准备必备材料"><a href="#首先准备必备材料" class="headerlink" title="首先准备必备材料"></a>首先准备必备材料</h1><hr>
+<p><img src="/images/jetbot/01_01.png" alt></p>
+<hr>
+<h2 id="3D打印部分"><a href="#3D打印部分" class="headerlink" title="3D打印部分"></a>3D打印部分</h2><hr>
+<h3 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h3><p>关于打印机的选购NNVIDIA给了俩个测试过的打印机一个320美元，另一个2500美元。<br><img src="/images/jetbot/01_02.png" alt><br><img src="/images/jetbot/01_03.png" alt></p>
+<h4 id="打印材料"><a href="#打印材料" class="headerlink" title="打印材料"></a>打印材料</h4><p>NNVIDIA给出测试过的材料如下<br><img src="/images/jetbot/01_04.png" alt></p>
+<h4 id="打印材料-1"><a href="#打印材料-1" class="headerlink" title="打印材料"></a>打印材料</h4><p><img src="/images/jetbot/01_05.png" alt><br><img src="/images/jetbot/01_06.png" alt></p>
+<hr>
+<h2 id="相机部分"><a href="#相机部分" class="headerlink" title="相机部分"></a>相机部分</h2><hr>
+<p>这里我们选择树莓派18.99美元的相机，都一样用便宜就行：</p>
+<p><img src="/images/jetbot/01_07.png" alt></p>
+<hr>
+<h2 id="Wi-Fi部分"><a href="#Wi-Fi部分" class="headerlink" title="Wi-Fi部分"></a>Wi-Fi部分</h2><hr>
+<p>这里我们选择M2卡作为Wi-Fi部分元件</p>
+<p><img src="/images/jetbot/01_08.png" alt></p>
+<hr>
+<h2 id="车轮部分"><a href="#车轮部分" class="headerlink" title="车轮部分"></a>车轮部分</h2><hr>
+<p>车轮部分我们采用65mm的购买链接如下<br><a href="https://www.adafruit.com/product/3763" target="_blank" rel="noopener">https://www.adafruit.com/product/3763</a></p>
+<hr>
+<h2 id="螺丝部分"><a href="#螺丝部分" class="headerlink" title="螺丝部分"></a>螺丝部分</h2><hr>
+<p><img src="/images/jetbot/01_09.png" alt></p>
+<hr>
+<p>最后是NVIDIA建议的工具，这个按自己的需求来就行</p>
+<p><img src="/images/jetbot/01_10.png" alt></p>
+<hr>
+<p>本文的所有内容都可以在NVIDIA的开源库里找到链接如下</p>
+<p><a href="https://github.com/NVIDIA-AI-IOT/jetbot/wiki/bill-of-materials">https://github.com/NVIDIA-AI-IOT/jetbot/wiki/bill-of-materials</a></p>
+<hr>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><hr>
+<h2 id="安装ROS-Melodic-Enter-Nano-shell"><a href="#安装ROS-Melodic-Enter-Nano-shell" class="headerlink" title="安装ROS Melodic (Enter Nano shell)"></a>安装ROS Melodic (Enter Nano shell)</h2><ul>
+<li>使所有的Ubuntu的软件包：</li>
+<li>添加ROS库到APT</li>
+<li>安装ROS</li>
+<li>添加ROS路径环境</li>
+<li>关闭并重新启动终端</li>
 </ul>
-<h1 id="分布函数-CDF"><a href="#分布函数-CDF" class="headerlink" title="分布函数 CDF"></a>分布函数 CDF</h1><p>对于任意一个随机变数X，我们定义其CDF为函数：</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)= \overset{dif}{\rightarrow}P(X\leq x)
-\end{align*}</script><p>例1：</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(0.5)= P(X\leq0.5)=\frac{1}{2}
-\end{align*}</script><p>例2：</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P(3<X\leq 5)&=P(-\infty <X\leq 5)-P(-\infty <X\leq 3)\\
-&=P(X\leq 5)-P(X\leq 3)\\
-&=F_{X}(5)-F_{X}(3)
-\end{align*}</script><ul>
-<li>$x\leq 5^{-}=x&lt;5(CDF为离散变数时)，CDF在连续值时x&lt;5^{-}=x&lt;5$</li>
+<pre><code>
+ enable all Ubuntu packages:
+sudo apt-add-repository universe
+sudo apt-add-repository multiverse
+sudo apt-add-repository restricted
+
+# add ROS repository to apt sources
+sudo sh -c &#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
+
+# install ROS Base
+sudo apt-get update
+sudo apt-get install ros-melodic-ros-base
+
+# add ROS paths to environment
+sudo sh -c &#39;echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc&#39;
+</code></pre><h2 id="安装Adafruit库"><a href="#安装Adafruit库" class="headerlink" title="安装Adafruit库"></a>安装Adafruit库</h2><ul>
+<li>Adafruit的这些Python库支持TB6612 / PCA9685电机驱动器和SSD1306调试OLED：</li>
 </ul>
-<h1 id="密度函数-PMF"><a href="#密度函数-PMF" class="headerlink" title="密度函数 PMF"></a>密度函数 PMF</h1><p>又称质量函数，必须是离散函数</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)= \overset{dif}{\rightarrow}P(X = x)
-\end{align*}</script><p>PMF是非常直观的，直接就是x发生的几率<br>Ex：X为骰子点数</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(3)= P(X=3)=\frac{1}{6}
-\end{align*}</script><script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)=\sum_{n=-\infty }^{\left \lfloor x \right \rfloor}P_{X}(n)
-\end{align*}</script><h2 id="Bernoulli-伯努利几率分布"><a href="#Bernoulli-伯努利几率分布" class="headerlink" title="Bernoulli 伯努利几率分布"></a>Bernoulli 伯努利几率分布</h2><p>PMF：只做一次实验，或成功或失败，X表示成功的概率</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-X\sim Bernoulli (0.6)\\
-P_{X}(x)=\left\{\begin{matrix}
-0.6 & ,x=1\\ 
-0.4 & ,x=0\\ 
-0 & ,otherwise
-\end{matrix}\right.
-\end{align*}</script><h2 id="Binomial-二项式几率分布"><a href="#Binomial-二项式几率分布" class="headerlink" title="Binomial 二项式几率分布"></a>Binomial 二项式几率分布</h2><p>PMF：若实验成功率为0.6作10次实验，问8次成功的概率是多少？X表示成功次数<br>二项式定理就是说：每一种实验的组合都要乘上8次的成功几率，然后再乘上2次失败的几率</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P_{X}(x)&=X\sim BIN(10,0.6)\\
-P_{X}(8)&=P(x=8)\\
-&=C_{8}^{10}\cdot 0.6^{8}\cdot (1-0.6)^{10-8}
-\end{align*}</script><p>CDF：</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
-&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}C_{m}^{10}\cdot 0.6^{m}\cdot (1-0.6)^{n-m}
-\end{align*}</script><h2 id="uniform-均匀几率分布"><a href="#uniform-均匀几率分布" class="headerlink" title="uniform 均匀几率分布"></a>uniform 均匀几率分布</h2><p>PMF:如果X等于3，4，5，…，7的几率均等</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P_{X}(x)&=X\sim UNIF(3,7)\\
-p_{X}=\left\{\begin{matrix}
-\frac{1}{7-3+1}=\frac{1}{5},&x=3,4,...,7\\ 
-0,&otherwise
-\end{matrix}\right.
-\end{align*}</script><p>CDF</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
-&=\left\{\begin{matrix}
-0 &,x<3 \\ 
-\frac{\left \lfloor x \right \rfloor-3+1}{6} &,3\leq x\leq 8 \\ 
- 1& ,x\leq 8
-\end{matrix}\right.
-\end{align*}</script><h2 id="Geometric-几何几率分布"><a href="#Geometric-几何几率分布" class="headerlink" title="Geometric 几何几率分布"></a>Geometric 几何几率分布</h2><ul>
-<li>有失意性<br>六脉神剑：打出来的概率是0.1，那么在他第十次打出来的概率是多少？<br>用9次失败的概率乘以一次成功的概率<br>PMF:几何级数，每一个跟前一个差1-p倍<script type="math/tex; mode=display">
-P_{X}(x):X\sim Geometric(p)\\
-P_{X}(x)=\left\{\begin{matrix}
-(1-p)^{x-1} &,x=1,2,3,... \\ 
-0 & ,otherwise
-\end{matrix}\right.</script>CDF：<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
-&=\left\{\begin{matrix}
-x\geq 1:\sum_{n=1}^{\left \lfloor x \right \rfloor}(1-p)^{n-1}p=p\cdot\frac{1-(1-p)^{\left \lfloor x \right \rfloor}}{1-(1-p)} \\ 
-x<1:0
-\end{matrix}\right.\\
-&=\left\{\begin{matrix}
-1-(1-p)^{\left \lfloor x \right \rfloor} & ,x\geq 1 \\ 
-0& ,otherxise
-\end{matrix}\right.
-\end{align*}</script></li>
+<pre><code>
+# pip should be installed
+$ sudo apt-get install python-pip
+
+＃安装Adafruit的库
+$ pip安装Adafruit-MotorHAT
+$ pip安装Adafruit-SSD1306
+</code></pre><ul>
+<li>授予您的用户访问i2c总线的权限：</li>
 </ul>
-<h2 id="Pascal-几率分布"><a href="#Pascal-几率分布" class="headerlink" title="Pascal 几率分布"></a>Pascal 几率分布</h2><p>六脉神剑：打出来的几率是0.1，成功5次便耗尽功力，问他第9次刚好耗尽功力的概率（5次成功4次失败）</p>
-<script type="math/tex; mode=display">
-C_{4}^{8}\cdot C_{1}^{1}\cdot 0.9^{4}\cdot 0.1^{5}</script><p>PMF:</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P_{X}(x)&=X\sim Pascal(k,p)
-&=\left\{\begin{matrix}
-C_{k-1}^{x-1}\cdot (1-p)^{x-k}\cdot P^{k} & ,x=k,k+1,...\\ 
- 0&,otherwise 
-\end{matrix}\right.
-\end{align*}</script><p>CDF: Pascal又称作Negative Binomial</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)&=P(X\leq x)\\
-&=P(第k次成功在第x次以前)\\
-&=P(在x次实验中\geq k次成功)\\
-&=P(Y\geq k),Y\sim BIN(x,p)
-\end{align*}</script><h2 id="Poisson-几率分布"><a href="#Poisson-几率分布" class="headerlink" title="Poisson 几率分布"></a>Poisson 几率分布</h2><p>已知某事发生速率每单位时间$\lambda$次，若在T时间(扩张缩减)里，会发生X次的几率是多少<br>PMF：</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)&=X\sim POI(\lambda T)\\
-&=P(X=x)\\
-&=e^{-\lambda T}\cdot \frac{(\lambda T)^{x}}{x!}
-\end{align*}</script><p>有些书籍会用mu代替lambda T</p>
-<script type="math/tex; mode=display">
-\mu = \lambda T</script><p>CDF：</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)&=\sum_{n-\infty }^{\left \lfloor x \right \rfloor}P_{X}(x)\\
-&=\left\{\begin{matrix}
-\sum_{n=-\infty }^{\left \lfloor x \right \rfloor} e^{-\mu }\cdot \frac{\mu ^{n}}{n!},& x=0,1,2...\\ 
- 0,& otherwise
-\end{matrix}\right.
-\end{align*}</script><p>Poisson的PMF推导</p>
-<ul>
-<li>将T切成长度$\delta T$的极小段</li>
-<li>$\delta \Rightarrow 共有n=\frac{T}{\delta_{T}\rightarrow \infty }个小段$</li>
-<li>若发生速率为$\lambda 次/分，每小时发生的几率P=\lambda \delta _{T}=\frac{\lambda T}{n}$</li>
-<li>故T时间内发生的次数$X\sim BIN(n,p)=BIN(n,\frac{\lambda T}{n})$<script type="math/tex; mode=display">
-\begin{align*}  
-\lim_{\delta _{T}\rightarrow 0}P_{X}(x)&=\lim_{n\rightarrow \infty }\frac{n!}{(n-x)!x!}(\frac{\lambda T}{n})^{x}(1-\frac{\lambda T}{n})^{n-x}\\
-&=\lim_{n\rightarrow \infty }\frac{n(n-1)...(n-n+1)}{x!}\frac{(\lambda T)^{x}}{n^{x}}(1-\frac{\lambda T}{n})^{n-x}\\
-&=\lim_{n\rightarrow \infty }\frac{1}{x!}\frac{n}{n}...\frac{n-x+1}{n}(\lambda T)^{x}(1-\frac{\lambda T}{n})^{n}(1-\frac{\lambda T}{n})^{-x}\\
-&=\frac{(\lambda T)^{x}}{x!}\lim_{n\rightarrow \infty }(1-\frac{\lambda T}{n})^{n}\\
-&=\frac{(\lambda T)^{x}}{x!}e^{-\lambda T}
-\end{align*}</script></li>
+<pre><code>
+$sudo usermod -aG i2c $USER
+sudo usermod -aG i2c nvidia
+</code></pre><ul>
+<li>重新引导系统以使更改生效。</li>
 </ul>
-<h1 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h1><p>连续的变数的几率分布有不均等</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-PDF:f_{X}(x)&=\lim_{\Delta x\rightarrow 0}\frac{P(x\leq X\leq x+\Delta x)}{\Delta x}\\
-&=\lim_{\Delta x\rightarrow 0}\frac{F_{X}(x+\Delta x)-F_{X}(x)}{\Delta x}\\
-&=F'_{X}(x)
-\end{align*}</script><p>由此可得PDF就是CDF的积分；反之CDF就是PDF的积分：</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-CDFF_{X}(x)\xrightarrow[\int_{-\infty }^{x}]{\frac{d}{dx}}PDFf_{X}(x)
-\end{align*}</script><p>用几率表示PDF</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-P(a<X\leq b)&=F_{X}(b)-F_{X}(a)\\
-&=\int_{-\infty }^{b}F_{X}(x)dx-\int_{-\infty }^{a}F_{X}(x)dx\\
-&=\int_{a }^{b}F_{X}(x)dx
-\end{align*}</script><p>另一个跟几率的关系</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-PDF:f_{X}(x)&=\lim_{\Delta x\rightarrow 0}\frac{P(x\leq X\leq x+\Delta x)}{\Delta x}\\
-P(x\leq X\leq x+\Delta x)&\approx f_{X}(x)\cdot \Delta x
-\end{align*}</script><p>关于PDF，PMF，CDF：<br><a href="https://blog.csdn.net/wzgbm/article/details/51680540" target="_blank" rel="noopener">https://blog.csdn.net/wzgbm/article/details/51680540</a></p>
-<h2 id="Uniform-几率分布（连续变量）"><a href="#Uniform-几率分布（连续变量）" class="headerlink" title="Uniform 几率分布（连续变量）"></a>Uniform 几率分布（连续变量）</h2><p>PDF:</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-f_{X}(x)=\left\{\begin{matrix}
-\frac{1}{b-a} &,a\leq x\leq b \\ 
-0 &, otherwise
-\end{matrix}\right.
-\end{align*}</script><p>CDF:</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)&=\int_{-\infty }^{x}f_{X}(u)du\\
-&=\left\{\begin{matrix}
- 0&,x\leq a \\ 
- \frac{x-a}{b-a}&,a<x\leq b \\ 
- 1& ,x>b
-\end{matrix}\right.
-\end{align*}</script><p>Ex:已知1路公车每十分钟一班，小美随意出发到公车站，小美需等车时间为X的几率是多少</p>
-<h2 id="Exponential-几率分布"><a href="#Exponential-几率分布" class="headerlink" title="Exponential 几率分布"></a>Exponential 几率分布</h2><p>有失忆性memoryless，常被用来model有失忆性质的事情<br>PDF:</p>
-<script type="math/tex; mode=display">
-f_{X}(x)=\left\{\begin{matrix}
-\lambda e^{-\lambda x} &,x\geq 0 \\ 
- 0&,otherwise 
-\end{matrix}\right.</script><p>CDF:<br>$If:x\geq 0$</p>
-<script type="math/tex; mode=display">
-\begin{align*}  
-F_{X}(x)&=\int_{-\infty }^{x}f_{X}(u)du\\
-&=\int_{0 }^{x}\lambda e^{-\lambda u}du\\
-&=-\int_{0 }^{x}e^{-\lambda u}d(-\lambda u)\\
-&=-[e^{-\lambda u}]_{0}^{x}\\
-&=1-e^{-\lambda u}
-\end{align*}</script><p>$If:x&lt;0 $</p>
-<p>$F_{X}(x)=0$</p>
-<h1 id="Erlang-几率分布"><a href="#Erlang-几率分布" class="headerlink" title="Erlang 几率分布"></a>Erlang 几率分布</h1>
+<h2 id="创建catkin工作区"><a href="#创建catkin工作区" class="headerlink" title="创建catkin工作区"></a>创建catkin工作区</h2><pre><code># create the catkin workspace
+mkdir -p ~/work/catkin_ws/src
+cd ~/work/catkin_ws
+catkin_make
+
+# add catkin_ws path to bashrc
+sudo sh -c &#39;echo &quot;source ~/work/catkin_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc&#39;
+Note: out of personal preference, my catkin_ws is created as a subdirectory under ~/workspace
+
+#Close and open a new terminal window. Verify that your catkin_ws is visible to ROS:
+
+$ echo $ROS_PACKAGE_PATH 
+/home/nvidia/workspace/catkin_ws/src:/opt/ros/melodic/share
+</code></pre><h2 id="Build-jetson-inference"><a href="#Build-jetson-inference" class="headerlink" title="Build jetson-inference"></a>Build jetson-inference</h2><p>克隆并构建jetson-inference：</p>
+<pre><code># clone the repo
+$ cd ~/workspace/catkin_ws/src
+$ git clone https://github.com/dusty-nv/jetbot_ros
+
+# build the package
+$ cd ../    # cd ~/workspace/catkin_ws
+$ catkin_make
+
+# confirm that jetbot_ros package can be found
+$ rospack find jetbot_ros
+/home/nvidia/workspace/catkin_ws/src/jetbot_ros
+</code></pre><h2 id="运行ros-deep-learning"><a href="#运行ros-deep-learning" class="headerlink" title="运行ros_deep_learning"></a>运行ros_deep_learning</h2><pre><code>
+# install dependencies
+sudo apt-get install ros-melodic-vision-msgs ros-melodic-image-transport ros-melodic-image-publisher
+
+# clone the repo
+cd ~/work/catkin_ws/src
+git clone https://github.com/dusty-nv/ros_deep_learning
+
+# make ros_deep_learning
+cd ../    # cd ~/work/catkin_ws
+catkin_make
+
+# confirm that the package can be found
+$ rospack find ros_deep_learning
+/home/nvidia/works/catkin_ws/src/ros_deep_learning
+</code></pre><h1 id="测试Testing-JetBot"><a href="#测试Testing-JetBot" class="headerlink" title="测试Testing JetBot"></a>测试Testing JetBot</h1><p>接下来，让我们检查机器人的不同组件是否在ROS下工作。<br>首先打开一个新终端，然后开始 roscore</p>
+<pre><code>$ roscore
+</code></pre><h2 id="运行电机"><a href="#运行电机" class="headerlink" title="运行电机"></a>运行电机</h2><pre><code>$ rosrun jetbot_ros jetbot_motors.py
+</code></pre><p>该jetbot_motors节点将侦听以下主题：</p>
+<p>/jetbot_motors/cmd_dir 相对航向（度[-180.0, 180.0]，速度[-1.0, 1.0]）<br>/jetbot_motors/cmd_raw 原始L / R电机命令（速度[-1.0, 1.0]，速度[-1.0, 1.0]）<br>/jetbot_motors/cmd_str 简单的字符串命令（左/右/前进/后退/停止）</p>
+<h2 id="测试电机命令"><a href="#测试电机命令" class="headerlink" title="测试电机命令"></a>测试电机命令</h2><p>打开一个新终端，并运行一些测试命令：</p>
+<pre><code>$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ forward ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ backward ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ left ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ right ” 
+$ rostopic pub / jetbot_motors / cmd_str std_msgs / String --once “ stop ”
+</code></pre><h2 id="使用Debug-OLED"><a href="#使用Debug-OLED" class="headerlink" title="使用Debug OLED"></a>使用Debug OLED</h2><p>如果您的JetBot上有SSD1306调试OLED，则可以运行该jetbot_oled节点以显示系统信息和用户定义的文本：</p>
+<pre><code>
+$ rosrun jetbot_ros jetbot_oled.py
+</code></pre><p>默认情况下，jetbot_oled将使用最新的内存使用情况，磁盘空间和IP地址每秒刷新一次显示。</p>
+<p>该节点还将侦听该/jetbot_oled/user_text主题以接收将显示的用户的字符串消息：</p>
+<pre><code>rostopic pub / jetbot_oled / user_text std_msgs / String --on “ HELLO！”
+</code></pre><h2 id="使用相机"><a href="#使用相机" class="headerlink" title="使用相机"></a>使用相机</h2><p>启动jetbot_camera节点：</p>
+<pre><code>
+$ rosrun jetbot_ros jetbot_camera
+</code></pre><p>将jetbot_camera/raw作为sensor_msgs::Image具有BGR8编码的消息发布到主题。</p>
+<h2 id="Gazebo-模拟器"><a href="#Gazebo-模拟器" class="headerlink" title="Gazebo 模拟器"></a>Gazebo 模拟器</h2><p><a href="http://gazebosim.org/tutorials?tut=install_ubuntu&amp;cat=install" target="_blank" rel="noopener">http://gazebosim.org/tutorials?tut=install_ubuntu&amp;cat=install</a></p>
+<p><img src="/images/jetbot/01_11.png" alt></p>
+
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/06/12/Multiple-Linear-Regression-of-Python-by-A-Z/">Multiple Linear Regression of Python by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/06/12/Multiple-Linear-Regression-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-06-11T16:23:11.000Z" itemprop="datePublished">June 12th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="https://gist.github.com/SauronLee/9e65b12a0df11a2e6de7690f14fe3136.js"></script>
+
       
     </div>
   </header>
@@ -378,7 +339,7 @@ F_{X}(x)&=\int_{-\infty }^{x}f_{X}(u)du\\
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/14/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/13/">13</a></li><li><a class="page-number" href="/tags/Statistics/page/14/">14</a></li><li class="active"><span class="page-number">15</span></li><li><a class="page-number" href="/tags/Statistics/page/16/">16</a></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/26/">26</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/16/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/14/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/13/">13</a></li><li><a class="page-number" href="/tags/Statistics/page/14/">14</a></li><li class="active"><span class="page-number">15</span></li><li><a class="page-number" href="/tags/Statistics/page/16/">16</a></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/16/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

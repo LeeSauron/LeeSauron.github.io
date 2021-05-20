@@ -93,7 +93,7 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+          <a href="/archives/2017" class="archive-year">2017</a>
         </div>
         <div class="archives">
     
@@ -102,88 +102,36 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/10/Data-Preprocessing-by-R/">Data Preprocessing by R</a>
+      <a class="archive-article-title" href="/2017/05/14/xgs02/">模型评估与选择</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/08/10/Data-Preprocessing-by-R/" class="archive-article-date"><time datetime="2019-08-10T11:08:09.000Z" itemprop="datePublished">August 10th</time></a>
+  <a href="/2017/05/14/xgs02/" class="archive-article-date"><time datetime="2017-05-14T07:59:05.000Z" itemprop="datePublished">May 14th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h2><script src="https://gist.github.com/SauronLee/d07b84f9caefd89dbc3f76a943bd8166.js"></script>
-
-<ul>
-<li>因子数据类型（有序因子&amp;无序因子），可以代替Python中的OneHotEncoder</li>
+        <h3 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h3><ul>
+<li>错误率 (error rate):分类错误的样本数占样本总数的比例，即如果在 m 个样本中有 α 个样本分类错误，则错误率 E= α/m;<br>精度(accuracy):1-α/m，即”精度=1-错误率”</li>
+<li>误差 (error):学习器的实际预测输出与样本的真实输出之间的差异</li>
+<li>训练误差 (training error)或经验误差 (empirical error):学习器在训练集上的误差</li>
+<li>泛化误差 (generalization error):，在新样本上的误差<br>过拟合 (overfitting):，当学习器把训练样本学得”太 好”了的时候，很可能巳经把训练样本自身的一些特点当作了所有潜在样本都 会具有的一般性质，这样就会导致泛化性能下(有多种因素可能导致过拟合，其中最常见的情况是由于学习能力过于强大， 以至于把训练样本所包含的不太一般的特性都学到了，而欠拟合则通常是由 于学习能力低下而造成的欠拟合比较容易克服，例如在决策树学习中扩展分 支、在神经网络学习中增加训练轮数等，而过拟合则很麻烦.在后面的学习中 我们将看到，过拟合是机器学习面临的关键障碍，各类学习算法都必然带有一 些针对过拟合的措施)</li>
+<li>欠拟合 (underfitting):这是指对训练样本的一般性质尚未学好</li>
+<li>模型选择(model selection):理想的解决方案当然是对候选模型的泛化误差进行评估7 然后 选择泛化误差最小的那个模型</li>
 </ul>
-<p>Usage<br>factor(x = character(), levels, labels = levels,<br>       exclude = NA, ordered = is.ordered(x), nmax = NA)</p>
-<p>ordered(x, …)</p>
-<p>is.factor(x)<br>is.ordered(x)</p>
-<p>as.factor(x)<br>as.ordered(x)</p>
-<p>addNA(x, ifany = FALSE)<br>Arguments<br>x<br>a vector of data, usually taking a small number of distinct values.</p>
-<p>levels<br>an optional vector of the unique values (as character strings) that x might have taken. The default is the unique set of values taken by as.character(x), sorted into increasing order of x. Note that this set can be specified as smaller than sort(unique(x)).</p>
-<p>labels<br>either an optional character vector of labels for the levels (in the same order as levels after removing those in exclude), or a character string of length 1. Duplicated values in labels can be used to map different values of x to the same factor level.</p>
-<p>exclude<br>a vector of values to be excluded when forming the set of levels. This may be factor with the same level set as x or should be a character.</p>
-<p>ordered<br>logical flag to determine if the levels should be regarded as ordered (in the order given).</p>
-<p>nmax<br>an upper bound on the number of levels; see ‘Details’.</p>
-<p>…<br>(in ordered(.)): any of the above, apart from ordered itself.</p>
-<p>ifany<br>only add an NA level if it is used, i.e. if any(is.na(x)).</p>
-<h2 id="Splitting-the-Dataset-into-the-Training-set-and-Test-set"><a href="#Splitting-the-Dataset-into-the-Training-set-and-Test-set" class="headerlink" title="Splitting the Dataset into the Training set and Test set"></a>Splitting the Dataset into the Training set and Test set</h2><pre><code># Data Preprocessing Template
-
-# Importing the dataset
-dataset = read.csv(&#39;Data.csv&#39;)
-# dataset = dataset[, 2:3]
-
-# Splitting the dataset into the Training set and Test set
-# R语言安装packages
-# install.packages(&#39;caTools&#39;)
-# library(caTools) = 在packages里面打钩，推荐用library(caTools) 
-library(caTools)
-set.seed(123)
-split = sample.split(dataset$Purchased, SplitRatio = 0.8)
-# split == TRUE为random出来的数据
-training_set = subset(dataset, split == TRUE)
-test_set = subset(dataset, split == FALSE)
-
-# Feature Scaling
-# training_set[, 2:3] = scale(training_set[, 2:3])
-# test_set[, 2:3] = scale(test_set[, 2:3])
-</code></pre><ul>
-<li>set.seed<br>Random Number Generation</li>
-</ul>
-<p>Usage<br>.Random.seed &lt;- c(rng.kind, n1, n2, \dots)</p>
-<p>RNGkind(kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>RNGversion(vstr)<br>set.seed(seed, kind = NULL, normal.kind = NULL, sample.kind = NULL)<br>Arguments<br>kind<br>character or NULL. If kind is a character string, set R’s RNG to the kind desired. Use “default” to return to the R default. See ‘Details’ for the interpretation of NULL.</p>
-<p>normal.kind<br>character string or NULL. If it is a character string, set the method of Normal generation. Use “default” to return to the R default. NULL makes no change.</p>
-<p>sample.kind<br>character string or NULL. If it is a character string, set the method of discrete uniform generation (used in sample, for instance). Use “default” to return to the R default. NULL makes no change.</p>
-<p>seed<br>a single value, interpreted as an integer, or NULL (see ‘Details’).</p>
-<p>vstr<br>a character string containing a version number, e.g., “1.6.2”. The default RNG configuration of the current R version is used if vstr is greater than the current version.</p>
-<p>rng.kind<br>integer code in 0:k for the above kind.</p>
-<p>n1, n2, …<br>integers. See the details for how many are required (which depends on rng.kind).</p>
-<ul>
-<li>sample.split<br>Split Data into Test and Train Set</li>
-</ul>
-<p>Usage<br> sample.split( Y, SplitRatio = 2/3, group = NULL )<br>Arguments<br>Y<br>Vector of data labels. If there are only a few labels (as is expected) than relative ratio of data in both subsets will be the same.</p>
-<p>SplitRatio<br>Splitting ratio:</p>
-<p>if (0&lt;=SplitRatio&lt;1) then SplitRatio fraction of points from Y will be set toTRUE</p>
-<p>if (SplitRatio==1) then one random point from Y will be set to TRUE</p>
-<p>if (SplitRatio&gt;1) then SplitRatio number of points from Y will be set to TRUE</p>
-<p>group<br>Optional vector/list used when multiple copies of each sample are present. In such a case group contains unique sample labels, marking all copies of the same sample with the same label, and the function tries to place all copies in either train or test subset. If provided than has to have the same length as Y.</p>
-<h1 id="特征缩放-Feature-Scaling"><a href="#特征缩放-Feature-Scaling" class="headerlink" title="特征缩放 Feature Scaling"></a>特征缩放 Feature Scaling</h1><ul>
-<li>因为两个特征向量之间的差异可以用欧氏距离来表示（勾股定理），如果任意一个特征向量过于巨大那么距离大差异就会更偏向特征值巨大的量，甚至完全取决于这个量，于是就需要缩放到一个数量级上</li>
-<li>特征缩放 Feature Scaling后某些模型收敛会快很多，比如决策树算法（枝干过长）</li>
-<li><p>特征缩放方法：<br><img src="/images/A-Z_ML/01.png" alt></p>
+<h3 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h3><ul>
+<li>留出法 (hold-out):直接将数据集D划分为两个互斥的集合?其中一个 集合作为训练集5,另一个作为测试集T， 即 D=BUT，SNT= 空集.在 S 上训 练出模型后，用T来评估其测试误差，作为对泛化误差的估计.(以二分类任务为例，假定D包含1000个样本，将其划分为8包含 700个样本,T包含300个样本，用S进行训练后,如果模型在T上有90个样本分类错误，那么其错误率为(90/300)x100% = 30%，相应的，精度为 1-30%=70%. )</li>
+<li><p>交叉验证法 (cross validation)先将数据集D划分k个大小相似的 互斥子集，即D=D1 U D2 U… U Dk, Di n Dj = ø (i≠j). 每个子集Di都尽可能保持数据分布的一致性，即从D中通过分层采样得到. 然后，每次用k-1个子集的并集作为训练集?余F的那个子集作为测试集;这样就可获得k组训练/测试集，从而可进行k次训练和测试? 最终返回的是这k个测试结果的均值 显然交叉验证法评估结果的稳定性和保真性在很大程度上取决于k的取值，为强调这一点，通常把交叉验证法称为”k折交叉验证” (k-fold cross validation).k最常用的取值是10，此时称为10折交叉验证</p>
 </li>
-<li><p>是否需要对虚拟变量进行特征缩放？答：不一定，要根据模型结果。</p>
+<li><p>自助法:它直接以自助采样 法(bootstrap sampling)为基础 [Efron and Tibshirani, 1993]. 给定包含 m 个样 本的数据集 D ， 我们对它进行采样产生数据集 D’: 每次随机从 D 中挑选一个 样本7 将其拷贝放入 DF’ 然后再将该样本放回初始数据集 D 中，使得该样本在 下次采样时仍有可能被采到;这个过程重复执行 m 次后?我们就得到了包含 m 个样本的数据集 DF，这就是自助采样的结果.显然， D 中有一部分样本会在 D’ 中多次出现，而另一部分样本不出现.可以做一个简单的估计，样本在 m 次采 样中始终不被采到的概率是(1-1/m)^m， 取极限得到即通过自助来样，初始数据集 D 中约有 36.8% 的样本未出现在采样数据集 D’ 中.于是我们可将 D’ 用作训练、集， D\D’ 用作测试集;这样?实际评估的模型与 期望评估的模型都使用 m 个训练、样本，而我们仍有数据总量约 1/3 的、没在训 练集中出现的样本用于测试.这样的测试结果，亦称”包外估计” (out-of-bag<br>estimate).</p>
 </li>
-<li>是否需要对因变量y进行特征缩放？答：不一定，如果y为分类则不需要，如果y为连续则需要（线性回归）。</li>
-<li>在R里factor属于单独的类型不属于数字它属于分类的一个数据类型</li>
 </ul>
-<pre><code># Feature Scaling
-training_set[,2:3] = scale(training_set[,2:3])
-test_set[,2:3] = scale(test_set[,2:3])
-</code></pre>
+<h3 id="调参与最终模型"><a href="#调参与最终模型" class="headerlink" title="调参与最终模型"></a>调参与最终模型</h3><ul>
+<li>调参(parameter tuning):大多数学习算法都有些参数(parameter)需要设定，参数配置不同，学得模 型的性能往往有显著差别.因此，在进行模型评估与选择时，除了要对适用学习 算法进行选择，还需对算法参数进行设定，这就是通常所说的”参数调节”</li>
+</ul>
+
       
     </div>
   </header>
@@ -198,45 +146,66 @@ test_set[,2:3] = scale(test_set[,2:3])
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/CART-of-R-by-A-Z/">Decision Tree Classifier of R  by A-Z</a>
+      <a class="archive-article-title" href="/2017/05/04/xgs01/">基本术语</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/07/13/CART-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-07-13T07:34:29.000Z" itemprop="datePublished">July 13th</time></a>
+  <a href="/2017/05/04/xgs01/" class="archive-article-date"><time datetime="2017-05-04T07:49:43.000Z" itemprop="datePublished">May 4th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/88.png" alt></p>
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><hr>
 <ul>
-<li>因为决策树用的是切线切割没有用到欧式距离所以不需要进行特征缩放</li>
+<li>机器学习：致力于研究如何通过计算手段，利用经验来改善系统自身的性能，在计算机中，“经验”通常以“数据”的形式存在，因此，机器学习所研究的主要内容，是关于在计算机上从数据产生“模型”（model）的算法，即“机器学习”算法（learning algorithm）.</li>
 </ul>
-<script src="https://gist.github.com/SauronLee/5550de72b8e9ab228abb30178fe5dbb6.js"></script>
-
 <hr>
-<pre><code>
-&gt; View(dataset)
-&gt; y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   1   1   0   0   1   0   1   0   0   0   0   0   0   0   1   0   0   1 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   1   0   0   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   0   0   1   1   1   1   1   1 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   0   0   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1 
-389 392 395 400 
-  1   1   0   1 
-Levels: 0 1
-
-&gt; cm
-   y_pred
-     0  1
-  0 53 11
-  1  6 30
-</code></pre><p><img src="/images/A-Z_ML/89.png" alt><br><img src="/images/A-Z_ML/90.png" alt><br><img src="/images/A-Z_ML/91.png" alt></p>
+<h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><hr>
+<ul>
+<li>数据集（data set）： 记录一组数据的集合比如所有西瓜的声音，根蒂，颜色</li>
+<li>示例（instance）或者 样本（sample）：每个西瓜都是一个实例或样本</li>
+<li>属性（attribute）或者特征（feature）：每个西瓜的声音，根蒂，颜色就是西瓜的属性或特征</li>
+<li>分类（classification）：预测的数据为离散型数据</li>
+<li>回归（regression）：预测的数据为连续型数据</li>
+<li>测试（testing）：学得模型后，使用其进行预测的过程</li>
+<li>预测样本（testing sample）：被预测的样本</li>
+<li>聚类（clustering），在非监督学习中区分每组数据，即将训练集中西瓜分成若干组，每组称为一个“簇”（cluster），这些自动形成的簇可能对应潜在的概念划分，例如“浅色瓜”“深色瓜”等。</li>
+<li>监督学习（supervised learning）：训练数据有标记信息，使用回归和分类算法</li>
+<li>无监督学习（unsupervised learning）：训练数据无标记信息，使用聚类算法</li>
+<li>泛化（generalization）：学得的模型适用于新样本的能力</li>
+</ul>
+<hr>
+<h3 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h3><hr>
+<ul>
+<li>归纳（induction）：从特殊到一般的泛化（generalization）过程</li>
+<li>演绎（deduction）：从一般到特殊的特化（specialization）过程</li>
+<li>归纳学习（induction learning）：归纳学习有广义和狭义之分，广义的归纳学习大体相当于从样本中学习，而狭义的归纳学习则要从训练数据中学得概念（concept），因此有叫做概念学习</li>
+</ul>
+<hr>
+<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><hr>
+<ul>
+<li>归纳偏好（inductive bias）当有与训练集一致的假设，但与他们对应的模型在面临新样本的时候会产生不同的输出，那么我们应该采取哪个模型？这时学习算法本身的偏好就会起到关键的作用，任何一个有效的机器学习算法必有其归纳偏好，否则它将被假设空间中看似训练集上等效的假设所迷惑而无法产生确定的结果.</li>
+<li>奥卡姆剃刀（Occam’s razor)：若有多个假设与观察一致，则选择最简单的那个，但是如何判断哪个更简单则不是个简单的问题</li>
+<li>NFL定理（No Free Lunch Theorem）：要谈论算法的相对优劣，必须要针对具体的学习问题，学习算法自身的归纳偏好与问题是否相配，往往会起到觉得决定性作用</li>
+</ul>
+<hr>
+<h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h3><hr>
+<ul>
+<li>二十世纪五十年代到七十年代人们认为只要赋予机器的逻辑推理能力机器就赋予只能后来人们逐渐意识到把总结的知识交给机器是十分困难的<br>1950年：图灵提到机器学习可能.代表：A.Samuel跳棋程序</li>
+<li>五十年代中后期：基于神经网络的联接主义出现.代表F.Rosenblatt的感知机（Perceptron）、B.Widrow的Adaline等</li>
+<li>六七十年代：基于符号主义的学习技术蓬勃发展.代表P.Winston的结构学习系统、R.S.Michalski等人的基于逻辑的归纳学习系统，以决策论为基础的学习技术以及强化学习技术也得到蓬勃发展.如：N.J.Nilsom的机器学习等<br>1980年夏：美国卡耐基梅隆大学第一届机器学习研讨会（IWML）</li>
+<li>二十世纪八十年代：从样例中学习的一大主流是符号主义学习比如决策树（decision tree）至今也是最常用的机器学习技术之一</li>
+<li>二十世纪九十年代：神经网络的连接主义成为主流</li>
+<li>二十世纪九十年代中期：统计学习成为主流代表：支持向量机以及一般的核方法</li>
+<li>二十一世纪：多层深度神经网络成为主流</li>
+</ul>
+<hr>
+<h3 id="应用现状"><a href="#应用现状" class="headerlink" title="应用现状"></a>应用现状</h3><hr>
+<ul>
+<li>人工智能，模式识别，数据挖掘，语音识别，图像识别，信息检索，生物信息，网络通信，软件工程，芯片设计，计算机视觉.总之就像爱迪生发明电</li>
+</ul>
 
       
     </div>
@@ -251,7 +220,7 @@ Levels: 0 1
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/17/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/16/">16</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/17/">17</a></li><li class="active"><span class="page-number">18</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/19/">19</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/20/">20</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/27/">27</a></li><li><a class="page-next" rel="next" href="/tags/Machine-Learning/page/19/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Machine-Learning/page/17/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Machine-Learning/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Machine-Learning/page/16/">16</a></li><li><a class="page-number" href="/tags/Machine-Learning/page/17/">17</a></li><li class="active"><span class="page-number">18</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

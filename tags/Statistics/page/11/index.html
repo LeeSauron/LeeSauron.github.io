@@ -102,19 +102,70 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/SVM-of-R-by-A-Z/">SVM of R by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/19/statistics-by-Libaijian01/">Statistics by Libaijian</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/SVM-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T03:40:28.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/08/19/statistics-by-Libaijian01/" class="archive-article-date"><time datetime="2019-08-19T10:11:27.000Z" itemprop="datePublished">August 19th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/45.png" alt><br><img src="/images/A-Z_ML/46.png" alt></p>
-<script src="https://gist.github.com/SauronLee/1de42bb638ce5fe37ed8d91c1eab179d.js"></script>
+        <h1 id="抽样种类"><a href="#抽样种类" class="headerlink" title="抽样种类"></a>抽样种类</h1><hr>
+<h2 id="随机抽样"><a href="#随机抽样" class="headerlink" title="随机抽样"></a>随机抽样</h2><h3 id="简单随机抽样-Simple-Random-sampling"><a href="#简单随机抽样-Simple-Random-sampling" class="headerlink" title="简单随机抽样 Simple Random sampling"></a>简单随机抽样 Simple Random sampling</h3><p>Simple Random sampling<br>必须取得母体全体，才能够进行（困难）</p>
+<h3 id="系统抽样-systematic-sampling"><a href="#系统抽样-systematic-sampling" class="headerlink" title="系统抽样 systematic sampling"></a>系统抽样 systematic sampling</h3><p>systematic sampling<br>将母体平均分成k个样本，然后进行样本抽取</p>
+<h3 id="分层抽样-Stratified-sampling"><a href="#分层抽样-Stratified-sampling" class="headerlink" title="分层抽样 Stratified sampling"></a>分层抽样 Stratified sampling</h3><p>Stratified sampling<br>分层每层无交集（适用高中低差别大的样本）</p>
+<h3 id="部落抽样-cluster-sampling"><a href="#部落抽样-cluster-sampling" class="headerlink" title="部落抽样 cluster sampling"></a>部落抽样 cluster sampling</h3><p>cluster sampling</p>
+<h2 id="随机用一个部落为整体（不适用高中低差别大的样本）"><a href="#随机用一个部落为整体（不适用高中低差别大的样本）" class="headerlink" title="随机用一个部落为整体（不适用高中低差别大的样本）"></a>随机用一个部落为整体（不适用高中低差别大的样本）</h2><h2 id="非随机抽样"><a href="#非随机抽样" class="headerlink" title="非随机抽样"></a>非随机抽样</h2><h3 id="偶遇抽样-convenience-sampling"><a href="#偶遇抽样-convenience-sampling" class="headerlink" title="偶遇抽样 convenience sampling"></a>偶遇抽样 convenience sampling</h3><p>convenience sampling<br>最常用（比如地铁口发传单）最方便，市场的初步调查</p>
+<h3 id="配额抽样query-sampling"><a href="#配额抽样query-sampling" class="headerlink" title="配额抽样query  sampling"></a>配额抽样query  sampling</h3><p>query  sampling<br>跟分层抽样区别为这个是人员分配的层</p>
+<h3 id="主观抽样-judgmental-sampling"><a href="#主观抽样-judgmental-sampling" class="headerlink" title="主观抽样 judgmental sampling"></a>主观抽样 judgmental sampling</h3><p>judgmental sampling<br>已经对母体非常熟悉，抽取具有代表性的样本</p>
+<h3 id="滚雪球抽样snowball-sampling"><a href="#滚雪球抽样snowball-sampling" class="headerlink" title="滚雪球抽样snowball sampling"></a>滚雪球抽样snowball sampling</h3><p>snowball sampling<br>用抽样人员的直线分支下去抽样</p>
+<hr>
+<h2 id="效度validity"><a href="#效度validity" class="headerlink" title="效度validity"></a>效度validity</h2><p>内部效度：可信度，可靠度<br>外部效度：结果的泛化程度</p>
+<p>以偏概全<br>一叶知秋</p>
+<h1 id="尺度定义"><a href="#尺度定义" class="headerlink" title="尺度定义"></a>尺度定义</h1><h2 id="名义尺度-nominal"><a href="#名义尺度-nominal" class="headerlink" title="名义尺度 nominal"></a>名义尺度 nominal</h2><p>性别，职业，学号（没有顺序，不具有大小的意义）</p>
+<h2 id="顺序0rdinal"><a href="#顺序0rdinal" class="headerlink" title="顺序0rdinal"></a>顺序0rdinal</h2><p>名次，排序（有大小，有先后）</p>
+<h2 id="区间尺度Interval"><a href="#区间尺度Interval" class="headerlink" title="区间尺度Interval"></a>区间尺度Interval</h2><p>等距的，没有固定的原点（温度，满意度调查评价：1分2分）</p>
+<h3 id="李克特量表-likert"><a href="#李克特量表-likert" class="headerlink" title="李克特量表 likert"></a>李克特量表 likert</h3><p>问卷调查中最常用的去坚尺度<br>李克特量表：（非常满意 满意 普通 不满意）</p>
+<h2 id="比率尺度Ratio"><a href="#比率尺度Ratio" class="headerlink" title="比率尺度Ratio"></a>比率尺度Ratio</h2><p>可以衡量差异的数值，有原点，可以进行运算，（分数）</p>
+<h1 id="柴比雪夫不等式-Chebyshev-inequality"><a href="#柴比雪夫不等式-Chebyshev-inequality" class="headerlink" title="柴比雪夫不等式 Chebyshev inequality"></a>柴比雪夫不等式 Chebyshev inequality</h1><hr>
+<h2 id="经验法则-empirical-law"><a href="#经验法则-empirical-law" class="headerlink" title="经验法则 empirical law"></a>经验法则 empirical law</h2><ul>
+<li>百分比就是几率</li>
+<li>必须是正态分布<br>mu为样本的平均值，sigema为标准差<script type="math/tex; mode=display">
+[\mu -\sigma ，\mu +\sigma ，]\approx 68%
+[\mu -2\sigma ，\mu +2\sigma ，]\approx 95%
+[\mu -3\sigma ，\mu +3\sigma ，]\approx 99.7%</script></li>
+</ul>
+<h2 id="柴比雪夫不等式-Chebyshev-inequality-1"><a href="#柴比雪夫不等式-Chebyshev-inequality-1" class="headerlink" title="柴比雪夫不等式 Chebyshev inequality"></a>柴比雪夫不等式 Chebyshev inequality</h2><ul>
+<li>不用必须是正态分布</li>
+</ul>
+<script type="math/tex; mode=display">
+P(|X-\mu | \leq k \sigma )\geq 1-\frac{1}{k^{2}};k>1</script><p>列题：<br><img src="/images/statisticsstatisticsLibaijian/02.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/03.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/04.png" alt="issue"></p>
+<h2 id="馬可夫不等式-markov"><a href="#馬可夫不等式-markov" class="headerlink" title="馬可夫不等式 markov"></a>馬可夫不等式 markov</h2><ul>
+<li><p>$P(X\geq k)\leq \frac{E(X)}{k}$<br><img src="/images/statisticsstatisticsLibaijian/05.png" alt="issue"></p>
+</li>
+<li><p>柴比雪夫不等式單邊版特例<br>证明<br><img src="/images/statisticsstatisticsLibaijian/06.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/07.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/08png" alt="issue"></p>
+</li>
+</ul>
+<h1 id="排列组合"><a href="#排列组合" class="headerlink" title="排列组合"></a>排列组合</h1><h2 id="乘法原理"><a href="#乘法原理" class="headerlink" title="乘法原理"></a>乘法原理</h2><p>总数的阶乘，总数中取所有数的概率（也就是说总数中每个数都可以随意搭配）<br>排列中如果只取m个数的话，那么其实总数中就多出来总数减m个的概率，这个时候要除以多出来的概率<br><img src="/images/statisticsstatisticsLibaijian/09.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/10.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/11.png" alt="issue"></p>
+<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>组合=排列（挑选出的数不分左右，前后，12和21是一样的）</p>
+<ul>
+<li><p>因为分子是不需要排列的所以除以排列数m阶乘<br><img src="/images/statisticsstatisticsLibaijian/12.png" alt="issue"></p>
+</li>
+<li><p>重复组合的问题<br><img src="/images/statisticsstatisticsLibaijian/13.png" alt="issue"></p>
+</li>
+<li>变换成公式标准形态<br><img src="/images/statisticsstatisticsLibaijian/14.png" alt="issue"><br>组合+乘法原理=排列</li>
+</ul>
+<h2 id="二项式定理和多项式定理"><a href="#二项式定理和多项式定理" class="headerlink" title="二项式定理和多项式定理"></a>二项式定理和多项式定理</h2><p><img src="/images/statisticsstatisticsLibaijian/15.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/16.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/17.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/18.png" alt="issue"></p>
+<h2 id="几率"><a href="#几率" class="headerlink" title="几率"></a>几率</h2><p><img src="/images/statisticsstatisticsLibaijian/19.png" alt="issue"></p>
+<h2 id="排容原理"><a href="#排容原理" class="headerlink" title="排容原理"></a>排容原理</h2><p><img src="/images/statisticsstatisticsLibaijian/20.png" alt="issue"></p>
+<h2 id="独立事件"><a href="#独立事件" class="headerlink" title="独立事件"></a>独立事件</h2><p><img src="/images/statisticsstatisticsLibaijian/21.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/22.png" alt="issue"></p>
+<h2 id="互斥事件"><a href="#互斥事件" class="headerlink" title="互斥事件"></a>互斥事件</h2><p><img src="/images/statisticsstatisticsLibaijian/23.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/24.png" alt="issue"></p>
+<h2 id="贝叶斯"><a href="#贝叶斯" class="headerlink" title="贝叶斯"></a>贝叶斯</h2><p><img src="/images/statisticsstatisticsLibaijian/25.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/26.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/27.png" alt="issue"></p>
+<h1 id="随机变数"><a href="#随机变数" class="headerlink" title="随机变数"></a>随机变数</h1><p><img src="/images/statisticsstatisticsLibaijian/28.png" alt="issue"><br><img src="/images/statisticsstatisticsLibaijian/29.png" alt="issue"></p>
+
       
     </div>
   </header>
@@ -129,80 +180,177 @@
     
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/SVM-of-Python-by-A-Z/">SVM of Python by A-Z</a>
+      <a class="archive-article-title" href="/2019/08/14/Apriori-of-Python-by-A-Z/">Apriori of Python by A-Z</a>
     </h1>
   
 
 
     <div class="article-datetime">
-  <a href="/2019/09/13/SVM-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-09-13T03:25:02.000Z" itemprop="datePublished">September 13th</time></a>
+  <a href="/2019/08/14/Apriori-of-Python-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:10.000Z" itemprop="datePublished">August 14th</time></a>
 </div>
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/45.png" alt></p>
-<script src="https://gist.github.com/SauronLee/162cbafc90b6797040b501cfb90f4cb7.js"></script>
+        <a class="fancybox" href="/images/A-Z_ML/244.png" title="[/images/A-Z_ML/244.png] [img_caption]"><img src="/images/A-Z_ML/244.png" alt="[/images/A-Z_ML/244.png] [img_caption]">
+<!-- ![issue](/images/A-Z_ML/244.png) -->
+<ul>
+<li>数据是商场的用户的消费详情</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/c3482834d2cb1dbab83abeef32da9d9d.js"></script>
+
+<hr>
+<p>transactions = []<br>for i in range(0, 7501):<br>    transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])</p>
+<!-- ![issue](/images/A-Z_ML/245.png) -->
+<h1 id="Visualising-the-results"><a href="#Visualising-the-results" class="headerlink" title="Visualising the results"></a>Visualising the results</h1><p>results = list(rules)<br>myResults = [list(x) for x in results]<br><!-- ![issue](/images/A-Z_ML/246.png) --></p>
+<h2 id><a href="#" class="headerlink" title></a><a class="fancybox" href="/images/A-Z_ML/246.png" title="[/images/A-Z_ML/246.png] [img_caption]"><img src="/images/A-Z_ML/246.png" alt="[/images/A-Z_ML/246.png] [img_caption]"></a></h2></a>
+      
+    </div>
+  </header>
+</article>
+
+
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <header class="archive-article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/14/Apriori-of-R-by-A-Z/">Apriori of R by A-Z</a>
+    </h1>
+  
+
+
+    <div class="article-datetime">
+  <a href="/2019/08/14/Apriori-of-R-by-A-Z/" class="archive-article-date"><time datetime="2019-08-14T01:35:01.000Z" itemprop="datePublished">August 14th</time></a>
+</div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/242.png" alt></p>
+<ul>
+<li>数据是商场的用户的消费详情</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/e74ba75daa5b3e20486f961417c13566.js"></script>
 
 <hr>
 <pre><code>
-&gt; y_pred = predict(classifier, newdata = test_set[-3])
-&gt; y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   1   1   1   0   1   1   1   0   1   1   1   1   1   0 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   1   1   0   1   0   0   0   0   1   0   1   0   1   1   0   1   1   1   0   1   0   1   1 
-389 392 395 400 
-  0   0   0   0 
-Levels: 0 1
-&gt; # Making the Confusion Matrix
-&gt; cm = table(test_set[, 3], y_pred)
-&gt; cm
-   y_pred
-     0  1
-  0 57  7
-  1 13 23
-</code></pre><hr>
-<p><img src="/images/A-Z_ML/47.png" alt></p>
-<hr>
-<p>svm {e1071}    R Documentation<br>Support Vector Machines<br>Description<br>svm is used to train a support vector machine. It can be used to carry out general regression and classification (of nu and epsilon-type), as well as density-estimation. A formula interface is provided.</p>
-<p>Usage</p>
-<h2 id="S3-method-for-class-‘formula’"><a href="#S3-method-for-class-‘formula’" class="headerlink" title="S3 method for class ‘formula’"></a>S3 method for class ‘formula’</h2><p>svm(formula, data = NULL, …, subset, na.action =<br>na.omit, scale = TRUE)</p>
-<h2 id="Default-S3-method"><a href="#Default-S3-method" class="headerlink" title="Default S3 method:"></a>Default S3 method:</h2><p>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =<br>“radial”, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x),<br>coef0 = 0, cost = 1, nu = 0.5,<br>class.weights = NULL, cachesize = 40, tolerance = 0.001, epsilon = 0.1,<br>shrinking = TRUE, cross = 0, probability = FALSE, fitted = TRUE,<br>…, subset, na.action = na.omit)<br>Arguments<br>formula<br>a symbolic description of the model to be fit.</p>
-<p>data<br>an optional data frame containing the variables in the model. By default the variables are taken from the environment which ‘svm’ is called from.</p>
-<p>x<br>a data matrix, a vector, or a sparse matrix (object of class Matrix provided by the Matrix package, or of class matrix.csr provided by the SparseM package, or of class simple_triplet_matrix provided by the slam package).</p>
-<p>y<br>a response vector with one label for each row/component of x. Can be either a factor (for classification tasks) or a numeric vector (for regression).</p>
-<p>scale<br>A logical vector indicating the variables to be scaled. If scale is of length 1, the value is recycled as many times as needed. Per default, data are scaled internally (both x and y variables) to zero mean and unit variance. The center and scale values are returned and used for later predictions.</p>
-<p>type<br>svm can be used as a classification machine, as a regression machine, or for novelty detection. Depending of whether y is a factor or not, the default setting for type is C-classification or eps-regression, respectively, but may be overwritten by setting an explicit value.<br>Valid options are:</p>
-<p>C-classification</p>
-<p>nu-classification</p>
-<p>one-classification (for novelty detection)</p>
-<p>eps-regression</p>
-<p>nu-regression</p>
-<p>kernel<br>the kernel used in training and predicting. You might consider changing some of the following parameters, depending on the kernel type.<br>linear:<br>u’*v</p>
-<p>polynomial:<br>(gamma<em>u’</em>v + coef0)^degree</p>
-<p>radial basis:<br>exp(-gamma*|u-v|^2)</p>
-<p>sigmoid:<br>tanh(gamma<em>u’</em>v + coef0)</p>
-<p>degree<br>parameter needed for kernel of type polynomial (default: 3)</p>
-<p>gamma<br>parameter needed for all kernels except linear (default: 1/(data dimension))</p>
-<p>coef0<br>parameter needed for kernels of type polynomial and sigmoid (default: 0)</p>
-<p>cost<br>cost of constraints violation (default: 1)—it is the ‘C’-constant of the regularization term in the Lagrange formulation.</p>
-<p>nu<br>parameter needed for nu-classification, nu-regression, and one-classification</p>
-<p>class.weights<br>a named vector of weights for the different classes, used for asymmetric class sizes. Not all factor levels have to be supplied (default weight: 1). All components have to be named. Specifying “inverse” will choose the weights inversely proportional to the class distribution.</p>
-<p>cachesize<br>cache memory in MB (default 40)</p>
-<p>tolerance<br>tolerance of termination criterion (default: 0.001)</p>
-<p>epsilon<br>epsilon in the insensitive-loss function (default: 0.1)</p>
-<p>shrinking<br>option whether to use the shrinking-heuristics (default: TRUE)</p>
-<p>cross<br>if a integer value k&gt;0 is specified, a k-fold cross validation on the training data is performed to assess the quality of the model: the accuracy rate for classification and the Mean Squared Error for regression</p>
-<p>fitted<br>logical indicating whether the fitted values should be computed and included in the model or not (default: TRUE)</p>
-<p>probability<br>logical indicating whether the model should allow for probability predictions.</p>
-<p>…<br>additional parameters for the low level fitting function svm.default</p>
-<p>subset<br>An index vector specifying the cases to be used in the training sample. (NOTE: If given, this argument must be named.)</p>
-<p>na.action<br>A function to specify the action to be taken if NAs are found. The default action is na.omit, which leads to rejection of cases with missing values on any required variable. An alternative is na.fail, which causes an error if NA cases are found. (NOTE: If given, this argument must be named.)</p>
-<hr>
+&gt; dataset = read.csv(&#39;Market_Basket_Optimisation.csv&#39;, header = FALSE)
+&gt; dataset = read.transactions(&#39;Market_Basket_Optimisation.csv&#39;, sep = &#39;,&#39;, rm.duplicates = TRUE)
+distribution of transactions with duplicates:
+# 重复一次出现在5行当中
+1 
+5 
+&gt; summary(dataset)
+transactions as itemMatrix in sparse format with
+ 7501 rows (elements/itemsets/transactions) and
+ # 稀疏矩阵，1占0.03288973 其他都是0
+ 119 columns (items) and a density of 0.03288973 
+
+most frequent items:
+mineral water          eggs     spaghetti  french fries     chocolate       (Other) 
+         1788          1348          1306          1282          1229         22405 
+
+element (itemset/transaction) length distribution:
+sizes
+# 有1754笔交易只有1个产品
+   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   18   19   20 
+1754 1358 1044  816  667  493  391  324  259  139  102   67   40   22   17    4    1    2    1 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   3.914   5.000  20.000 
+
+includes extended item information - examples:
+             labels
+1           almonds
+2 antioxydant juice
+3         asparagus
+&gt; itemFrequencyPlot(dataset, topN = 10)
+&gt; # Training Apriori on the dataset
+&gt; rules = apriori(data = dataset, parameter = list(support = 0.004, confidence = 0.2))
+Apriori
+
+Parameter specification:
+ confidence minval smax arem  aval originalSupport maxtime support minlen maxlen target   ext
+        0.2    0.1    1 none FALSE            TRUE       5   0.004      1     10  rules FALSE
+
+Algorithmic control:
+ filter tree heap memopt load sort verbose
+    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+
+Absolute minimum support count: 30 
+
+set item appearances ...[0 item(s)] done [0.00s].
+set transactions ...[119 item(s), 7501 transaction(s)] done [0.01s].
+sorting and recoding items ... [114 item(s)] done [0.00s].
+creating transaction tree ... done [0.00s].
+checking subsets of size 1 2 3 4 done [0.16s].
+writing ... [811 rule(s)] done [0.00s].
+creating S4 object  ... done [0.00s].
+&gt; # Visualising the results
+&gt; inspect(sort(rules, by = &#39;lift&#39;)[1:10])
+     lhs                                            rhs             support     confidence
+[1]  {light cream}                               =&gt; {chicken}       0.004532729 0.2905983 
+[2]  {pasta}                                     =&gt; {escalope}      0.005865885 0.3728814 
+[3]  {pasta}                                     =&gt; {shrimp}        0.005065991 0.3220339 
+[4]  {eggs,ground beef}                          =&gt; {herb &amp; pepper} 0.004132782 0.2066667 
+[5]  {whole wheat pasta}                         =&gt; {olive oil}     0.007998933 0.2714932 
+[6]  {herb &amp; pepper,spaghetti}                   =&gt; {ground beef}   0.006399147 0.3934426 
+[7]  {herb &amp; pepper,mineral water}               =&gt; {ground beef}   0.006665778 0.3906250 
+[8]  {tomato sauce}                              =&gt; {ground beef}   0.005332622 0.3773585 
+[9]  {mushroom cream sauce}                      =&gt; {escalope}      0.005732569 0.3006993 
+[10] {frozen vegetables,mineral water,spaghetti} =&gt; {ground beef}   0.004399413 0.3666667 
+     lift     count
+[1]  4.843951 34   
+[2]  4.700812 44   
+[3]  4.506672 38   
+[4]  4.178455 31   
+[5]  4.122410 60   
+[6]  4.004360 48   
+[7]  3.975683 50   
+[8]  3.840659 40   
+[9]  3.790833 43   
+[10] 3.731841 33   
+&gt; 
+&gt;
+</code></pre><ul>
+<li>每个产品出现的频率<br>itemFrequencyPlot(dataset, topN = 10)<br><img src="/images/A-Z_ML/242.png" alt></li>
+</ul>
+<p>transactions-class {arules}    R Documentation<br>Class transactions — Binary Incidence Matrix for Transactions<br>Description<br>The transactions class represents transaction data used for mining itemsets or rules. It is a direct extension of class itemMatrix to store a binary incidence matrix, item labels, and optionally transaction IDs and user IDs.</p>
+<p>Details<br>Transactions can be created by coercion from lists containing transactions, but also from matrix and data.frames. However, you will need to prepare your data first (see coercion methods in the Methods Section and the Example Section below for details on the needed format).</p>
+<p>Continuous variables: Association rule mining can only use items and does not work with continuous variables. Continuous variables need to be discretized first. An item resulting from discretization might be age&gt;18 and the column contains only TRUE or FALSE. Alternatively it can be a factor with levels age&lt;=18, 50=&gt;age&gt;18 and age&gt;50. These will be automatically converted into 3 items, one for each level. Have a look at the function discretize for automatic discretization.</p>
+<p>Logical variables: A logical variable describing a person could be tall indicating if the person is tall using the values TRUE and FALSE. The fact that the person is tall would be encoded in the transaction containing the item tall while not tall persons would not have this item. Therefore, for logical variables, the TRUE value is converted into an item with the name of the variable and for the FALSE values no item is created.</p>
+<p>Factors: The function also can convert columns with nominal values (i.e., factors) into a series of binary items (one for each level constructed as <code>variable name</code>=<code>level</code>). Note that nominal variables need to be encoded as factors (and not characters or numbers). This can be done with</p>
+<p>data[,”a_nominal_var”] &lt;- factor(data[,”a_nominal_var”]).</p>
+<p>Complete examples for how to prepare data can be found in the man pages for Income and Adult.</p>
+<p>Transactions are represented as sparse binary matrices of class itemMatrix. If you work with several transaction sets at the same time, then the encoding (order of the items in the binary matrix) in the different sets is important. See itemCoding to learn how to encode and recode transaction sets.</p>
+<p>Objects from the Class<br>Objects are created by coercion from objects of other classes (see Examples section) or by calls of the form new(“transactions”, …).</p>
+<p>Slots<br>itemsetInfo:<br>a data.frame with one row per transaction (each transaction is considered an itemset). The data.frame can hold columns with additional information, e.g., transaction IDs or user IDs for each transaction. Note: this slot is inherited from class itemMatrix, but should be accessed in transactions with the method transactionInfo().</p>
+<p>data:<br>object of class ngCMatrix to store the binary incidence matrix (see itemMatrix class)</p>
+<p>itemInfo:<br>a data.frame to store item labels (see itemMatrix class)</p>
+<p>Extends<br>Class itemMatrix, directly.</p>
+<p>Methods<br>coerce<br>signature(from = “matrix”, to = “transactions”); produces a transactions data set from a binary incidence matrix. The column names are used as item labels and the row names are stores as transaction IDs.</p>
+<p>coerce<br>signature(from = “transactions”, to = “matrix”); coerces the transactions data set into a binary incidence matrix.</p>
+<p>coerce<br>signature(from = “list”, to = “transactions”); produces a transactions data set from a list. The names of the items in the list are used as item labels.</p>
+<p>coerce<br>signature(from = “transactions”, to = “list”); coerces the transactions data set into a list of transactions. Each transaction is a vector of character strings (names of the contained items).</p>
+<p>coerce<br>signature(from = “data.frame”, to = “transactions”); recodes the data frame containing only categorical variables (factors) or logicals all into a binary transaction data set. For binary variables only TRUE values are converted into items and the item label is the variable name. For factors, a dummy item for each level is automatically generated. Item labels are generated by concatenating variable names and levels with “=”. The original variable names and levels are stored in the itemInfo data frame as the components variables and levels. Note that NAs are ignored (i.e., do not generate an item).</p>
+<p>coerce<br>signature(from = “transactions”, to = “data.frame”); represents the set of transactions in a printable form as a data.frame. Note that this does not reverse coercion from data.frame to transactions.</p>
+<p>coerce<br>signature(from = “ngCMatrix”, to = “transactions”); Note that the data is stored transposed in the ngCMatrix. Items are stored as rows and transactions are columns!</p>
+<p>dimnames, rownames, colnames<br>signature(x = “transactions”); returns row (transactionID) and column (item) names.</p>
+<p>items<br>signature(x = “transactions”); returns the items in the transactions as an itemMatrix.</p>
+<p>labels<br>signature(x = “transactions”); returns the labels for the itemsets in each transaction (see itemMatrix).</p>
+<p>transactionInfo&lt;-<br>signature(x = “transactions”); replaces the transaction information with a new data.frame.</p>
+<p>transactionInfo<br>signature(x = “transactions”); returns the transaction information as a data.frame.</p>
+<p>show<br>signature(object = “transactions”)</p>
+<p>summary<br>signature(object = “transactions”)</p>
+<ul>
+<li>apriori {arules}    R Documentation<br>Mining Associations with Apriori<br>Description<br>Mine frequent itemsets, association rules or association hyperedges using the Apriori algorithm. The Apriori algorithm employs level-wise search for frequent itemsets. The implementation of Apriori used includes some improvements (e.g., a prefix tree and item sorting).</li>
+</ul>
+<p>Usage<br>apriori(data, parameter = NULL, appearance = NULL, control = NULL)<br>Arguments<br>data<br>object of class transactions or any data structure which can be coerced into transactions (e.g., a binary matrix or data.frame).</p>
+<p>parameter<br>object of class APparameter or named list. The default behavior is to mine rules with minimum support of 0.1, minimum confidence of 0.8, maximum of 10 items (maxlen), and a maximal time for subset checking of 5 seconds (maxtime).</p>
+<p>appearance<br>object of class APappearance or named list. With this argument item appearance can be restricted (implements rule templates). By default all items can appear unrestricted.</p>
+<p>control<br>object of class APcontrol or named list. Controls the algorithmic performance of the mining algorithm (item sorting, report progress (verbose), etc.)</p>
 
       
     </div>
@@ -217,7 +365,7 @@ Levels: 0 1
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/10/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/9/">9</a></li><li><a class="page-number" href="/tags/Statistics/page/10/">10</a></li><li class="active"><span class="page-number">11</span></li><li><a class="page-number" href="/tags/Statistics/page/12/">12</a></li><li><a class="page-number" href="/tags/Statistics/page/13/">13</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/26/">26</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/12/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/tags/Statistics/page/10/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/tags/Statistics/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/9/">9</a></li><li><a class="page-number" href="/tags/Statistics/page/10/">10</a></li><li class="active"><span class="page-number">11</span></li><li><a class="page-number" href="/tags/Statistics/page/12/">12</a></li><li><a class="page-number" href="/tags/Statistics/page/13/">13</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/tags/Statistics/page/17/">17</a></li><li><a class="page-next" rel="next" href="/tags/Statistics/page/12/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

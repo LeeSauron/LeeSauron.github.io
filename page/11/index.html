@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-Random-Forest-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Evaluating-Regression-Models-Performance-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Random-Forest-of-Python-by-A-Z/">Random Forest of Python by A-Z</a>
+      <a class="article-title" href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/">Evaluating Regression Models Performance by A-Z</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/13/Random-Forest-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-13T08:39:44.000Z" itemprop="datePublished">2019-09-13</time></a>
+  <a href="/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/" class="article-date"><time datetime="2019-09-12T14:48:21.000Z" itemprop="datePublished">2019-09-12</time></a>
 </div>
 
     
@@ -112,137 +112,14 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/94.png" alt="issue"></p>
-<pre><code>
-# Random Forest Classification
-
-# Importing the libraries
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-
-# Importing the dataset
-dataset = pd.read_csv(&#39;Social_Network_Ads.csv&#39;)
-X = dataset.iloc[:, [2, 3]].values
-y = dataset.iloc[:, 4].values
-
-# Splitting the dataset into the Training set and Test set
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
-
-# Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
-
-# Fitting Random Forest to the Training set
-from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(n_estimators = 10, criterion = &#39;entropy&#39;, random_state = 0 )
-classifier.fit(X_train, y_train)
-
-# Predicting the Test set results
-y_pred = classifier.predict(X_test)
-
-# Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)
-
-# Visualising the Training set results
-from matplotlib.colors import ListedColormap
-X_set, y_set = X_train, y_train
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
-             alpha = 0.75, cmap = ListedColormap((&#39;red&#39;, &#39;green&#39;)))
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
-                c = ListedColormap((&#39;orange&#39;, &#39;blue&#39;))(i), label = j, s=15)
-plt.title(&#39;Random Forest (Training set)&#39;)
-plt.xlabel(&#39;Age&#39;)
-plt.ylabel(&#39;Estimated Salary&#39;)
-plt.legend()
-plt.show()
-
-# Visualising the Test set results
-from matplotlib.colors import ListedColormap
-X_set, y_set = X_test, y_test
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
-             alpha = 0.75, cmap = ListedColormap((&#39;red&#39;, &#39;green&#39;)))
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
-                c = ListedColormap((&#39;orange&#39;, &#39;blue&#39;))(i), label = j, s=15)
-plt.title(&#39;Random Forest (Test set)&#39;)
-plt.xlabel(&#39;Age&#39;)
-plt.ylabel(&#39;Estimated Salary&#39;)
-plt.legend()
-plt.show()
-</code></pre><p><img src="/images/A-Z_ML/95.png" alt="issue"><br><img src="/images/A-Z_ML/96.png" alt="issue"></p>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/Random-Forest-of-Python-by-A-Z/" data-id="ckowhcx8p004l80ybud1qxhoy" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-CART-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/CART-by-A-Z/">CART by A-Z</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2019/09/13/CART-by-A-Z/" class="article-date"><time datetime="2019-09-13T07:33:08.000Z" itemprop="datePublished">2019-09-13</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/A-Z_ML/81.png" alt><br><img src="/images/A-Z_ML/82.png" alt><br><img src="/images/A-Z_ML/83.png" alt></p>
-<ul>
-<li>最小化一个优化后的基尼不纯度（就是分割后的一边只有只有一种颜色的纯度）</li>
-<li>当添加了一条分割线后我们能够把这两边的纯度相加最小化，其实每一条分割线的寻找都是优化的问题，这里可以用基尼不纯度来判别纯度也可以用信息熵</li>
-<li>Decision Tree Classifier虽然已经淘汰但是他有拓展</li>
+        <ul>
+<li>R平方 - 原理(决定系数)<br><img src="/images/A-Z_ML/30.png" alt><br><img src="/images/A-Z_ML/31.png" alt></li>
+<li>广义R平方 - 原理（Adjected R^2）</li>
+<li>因为最差时:b<em>3*x</em>=0<br><img src="/images/A-Z_ML/32.png" alt></li>
+<li>P有惩罚的作用，P(自变量)越多分母就会越大，分数就会升高<br><img src="/images/A-Z_ML/33.png" alt></li>
+<li>回归模型性能评价及选择</li>
+<li>加自变量会增加R^2，所以AdjR^2会更好<br><img src="/images/A-Z_ML/34.png" alt></li>
 </ul>
-<p><img src="/images/A-Z_ML/87.png" alt></p>
 
       
     </div>
@@ -253,7 +130,7 @@ plt.show()
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/CART-by-A-Z/" data-id="ckowhcx6j000p80ybq3ym82mr" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2019/09/12/Evaluating-Regression-Models-Performance-by-A-Z/" data-id="ckowhozz9001mluybnkfhnvww" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -269,10 +146,217 @@ plt.show()
 
 
   
+    <article id="post-Polynomial-Regression-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/12/Polynomial-Regression-of-R-by-A-Z/">Polynomial Regression of R by A-Z</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/09/12/Polynomial-Regression-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-12T06:53:46.000Z" itemprop="datePublished">2019-09-12</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt><br><img src="/images/A-Z_ML/25.png" alt></p>
+<pre><code># Polynomial Regression
+
+# Importing the dataset
+dataset = read.csv(&#39;Position_Salaries.csv&#39;)
+dataset = dataset[, 2:3]
+
+# Splitting the dataset into the Training set and Test set
+# install.packages(&#39;caTools&#39;)
+# library(caTools)
+# set.seed(123)
+# split = sample.split(dataset$Purchased, SplitRatio = 0.8)
+# training_set = subset(dataset, split == TRUE)
+# test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+# training_set[, 2:3] = scale(training_set[, 2:3])
+# test_set[, 2:3] = scale(test_set[, 2:3])
+
+# Fitting Linear Regression to the dataset
+lin_reg=lm(formula = Salary~.,
+           data=dataset)
+
+# Fitting Polynomial Regression to the dataset
+dataset$level2 = dataset$Level^2
+dataset$level3 = dataset$Level^3
+dataset$level4 = dataset$Level^4
+poly_reg = lm(formula = Salary~.,
+              data=dataset)
+
+#Visualising the Linear Regression results
+install.packages(&#39;ggplot2&#39;)
+library(ggplot2)
+ggplot() +
+  geom_point(aes(x=dataset$Level,y=dataset$Salary),
+             colour = &#39;red&#39;) +
+  geom_line (aes (x=dataset$Level, y = predict (lin_reg, newdata=dataset)),
+             colour = &#39;blue&#39;) +
+  xlab(&#39;Level&#39;) +
+  ylab(&#39;Salary&#39;)
+
+#Visualising the Polynomial Regression results
+ggplot() +
+  geom_point(aes(x=dataset$Level,y=dataset$Salary),
+             colour = &#39;red&#39;) +
+  geom_line (aes (x=dataset$Level, y = predict (poly_reg, newdata=dataset)),
+             colour = &#39;blue&#39;) +
+  xlab(&#39;Level&#39;) +
+  ylab(&#39;Salary&#39;)
+
+#Predicting a new result with Linear Regression
+y_pred=predict(lin_reg, data.frame(Level=6.5))
+
+#Predicting a new result with Polynomial Regression
+#因为我们的维度比较高那么R需要让我们告诉他每个维度的值
+y_pred=predict(poly_reg, data.frame(Level=6.5,
+                                    level2=6.5^2,
+                                    level3=6.5^3,
+                                    level4=6.5^4))
+</code></pre><hr>
+<p>summary(lin_reg)</p>
+<p>Call:<br>lm(formula = Salary ~ ., data = dataset)</p>
+<p>Residuals:<br>    Min      1Q  Median      3Q     Max<br>-170818 -129720  -40379   65856  386545 </p>
+<p>Coefficients:<br>            Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)  -195333     124790  -1.565  0.15615   </p>
+<h2 id="Level-80879-20112-4-021-0-00383"><a href="#Level-80879-20112-4-021-0-00383" class="headerlink" title="Level          80879      20112   4.021  0.00383 **"></a>Level          80879      20112   4.021  0.00383 **</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Residual standard error: 182700 on 8 degrees of freedom<br>Multiple R-squared:  0.669,    Adjusted R-squared:  0.6277<br>F-statistic: 16.17 on 1 and 8 DF,  p-value: 0.003833</p>
+<hr>
+<ul>
+<li>增加次方项</li>
+</ul>
+<pre><code># Fitting Polynomial Regression to the dataset
+dataset$level2 = dataset$Level^2
+dataset$level3 = dataset$Level^3
+dataset$level4 = dataset$Level^4
+poly_reg = lm(formula = Salary~.,
+              data=dataset)
+</code></pre><hr>
+<p> summary(poly_reg)</p>
+<p>Call:<br>lm(formula = Salary ~ ., data = dataset)</p>
+<p>Residuals:<br>     1      2      3      4      5      6      7      8      9     10<br> -8357  18240   1358 -14633 -11725   6725  15997  10006 -28695  11084 </p>
+<p>Coefficients:<br>             Estimate Std. Error t value Pr(&gt;|t|)<br>(Intercept)  184166.7    67768.0   2.718  0.04189 <em><br>Level       -211002.3    76382.2  -2.762  0.03972 </em><br>level2        94765.4    26454.2   3.582  0.01584 <em><br>level3       -15463.3     3535.0  -4.374  0.00719 *</em></p>
+<h2 id="level4-890-2-159-8-5-570-0-00257"><a href="#level4-890-2-159-8-5-570-0-00257" class="headerlink" title="level4          890.2      159.8   5.570  0.00257 **"></a>level4          890.2      159.8   5.570  0.00257 **</h2><p>Signif. codes:  0 ‘<strong>*’ 0.001 ‘</strong>’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Residual standard error: 20510 on 5 degrees of freedom<br>Multiple R-squared:  0.9974,    Adjusted R-squared:  0.9953<br>F-statistic: 478.1 on 4 and 5 DF,  p-value: 1.213e-06</p>
+<hr>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/09/12/Polynomial-Regression-of-R-by-A-Z/" data-id="ckowhp016004wluyblbqucx9z" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Polynomial-Regression-of-Python-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/">Polynomial Regression of Python by A-Z</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/" class="article-date"><time datetime="2019-09-12T06:53:36.000Z" itemprop="datePublished">2019-09-12</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/22.png" alt><br><img src="/images/A-Z_ML/23.png" alt><br><img src="/images/A-Z_ML/24.png" alt></p>
+<ul>
+<li>多应用在流行病学：疾病在时间和空间上的传播速度</li>
+</ul>
+<p><img src="/images/A-Z_ML/25.png" alt><br><img src="/images/A-Z_ML/26.png" alt></p>
+<script src="https://gist.github.com/SauronLee/deb2cca719850a2cf43b585503bc3be1.js"></script>
+
+<p>多项式回归就是利用：下面👇代码拟合出b_0和次方项然后全部进行线性回归</p>
+<pre><code>poly_reg = PolynomialFeatures(degree = 4)
+X_poly = poly_reg.fit_transform(X)
+</code></pre><p><img src="/images/A-Z_ML/27.png" alt="issue"><br><img src="/images/A-Z_ML/29.png" alt="issue"><br><img src="/images/A-Z_ML/28.png" alt="issue"></p>
+<ul>
+<li>如果要使线段变得平滑增加x的密度即可比如：<pre><code>X_grid=np.arange(min(X),max(X),0.1)
+X_grid=X_grid.reshape(len(X_grid),1)
+plt.plot(X_grid, lin_reg_2.predict(poly_reg.fit_transform(X_grid)), color = &#39;blue&#39;)
+</code></pre>如果一个新人他说他35岁工作了6年半工资16万是否诚实<pre><code>lin_reg.predict(6.5）
+lin_reg_2.predict(poly_reg.fit_transform(6.5))
+</code></pre></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/09/12/Polynomial-Regression-of-Python-by-A-Z/" data-id="ckowhp00v004kluybs8e903kk" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/10/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/9/">9</a></li><li><a class="page-number" href="/page/10/">10</a></li><li class="active"><span class="page-number">11</span></li><li><a class="page-number" href="/page/12/">12</a></li><li><a class="page-number" href="/page/13/">13</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/12/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/10/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/9/">9</a></li><li><a class="page-number" href="/page/10/">10</a></li><li class="active"><span class="page-number">11</span></li><li><a class="page-number" href="/page/12/">12</a></li><li><a class="page-number" href="/page/13/">13</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/31/">31</a></li><li><a class="page-next" rel="next" href="/page/12/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
