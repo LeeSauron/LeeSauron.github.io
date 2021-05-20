@@ -86,13 +86,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-Evaluating-Classification-Models-Performance-of-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-xgs01" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Evaluating-Classification-Models-Performance-of-by-A-Z/">Evaluating Classification Models Performance by A-Z</a>
+      <a class="article-title" href="/2017/05/04/xgs01/">基本术语</a>
     </h1>
   
 
@@ -101,7 +101,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/13/Evaluating-Classification-Models-Performance-of-by-A-Z/" class="article-date"><time datetime="2019-09-13T09:23:51.000Z" itemprop="datePublished">2019-09-13</time></a>
+  <a href="/2017/05/04/xgs01/" class="article-date"><time datetime="2017-05-04T07:49:43.000Z" itemprop="datePublished">2017-05-04</time></a>
 </div>
 
     
@@ -112,55 +112,54 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="通常时"><a href="#通常时" class="headerlink" title="通常时"></a>通常时</h1><ul>
-<li>伪阳性和伪阴性 False Positives &amp; False Negatives(也叫做一型错误和二型错误)</li>
-<li>也就是错误的负数和错误的正数</li>
-</ul>
-<p><img src="/images/A-Z_ML/101.png" alt></p>
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><hr>
 <ul>
-<li><p>-#2为伪阳性错误，#3为伪阴性错误，在生活中伪阳性错误更为严重，（如果一个艾滋病人我们利用血清等预判他有艾滋病时虽然严重但是他顶多会慌张一段时间然后再次检测从而排除，然而当出现伪阳性时那么一个病毒携带者评定没有艾滋病会导致艾滋病的传播）<br><img src="/images/A-Z_ML/102.png" alt></p>
-</li>
-<li><p>Confusion Matrix</p>
-</li>
+<li>机器学习：致力于研究如何通过计算手段，利用经验来改善系统自身的性能，在计算机中，“经验”通常以“数据”的形式存在，因此，机器学习所研究的主要内容，是关于在计算机上从数据产生“模型”（model）的算法，即“机器学习”算法（learning algorithm）.</li>
 </ul>
-<p><img src="/images/A-Z_ML/103.png" alt></p>
-<h1 id="特殊时"><a href="#特殊时" class="headerlink" title="特殊时"></a>特殊时</h1><ul>
-<li>Confusion Matrix 混淆矩阵虽然可以很好的反映出模型的成功率但是由于过于简单所以不能告诉我们很多细节。</li>
-<li><p>准确率悖论 Accuracy Paradox<br><img src="/images/A-Z_ML/104.png" alt><br><img src="/images/A-Z_ML/105.png" alt></p>
-</li>
-<li><p>累计准确曲线 CAP Curve</p>
-</li>
-<li><p>我们把最好的模型叫做Crystal Ball，因为它可以预知未来，我们知道人群中会有10%的客户会购买我们的产品，而这个模型预测成功了这个10000个回去购买的用户，也就是说我们只给这10%的用户做广告，而这10%的用户正好都购买了我们的产品<br><img src="/images/A-Z_ML/108.png" alt><br><img src="/images/A-Z_ML/106.png" alt><br><img src="/images/A-Z_ML/107.png" alt></p>
-</li>
-<li><p>累计准确曲线分析 CAP Curve Analysis</p>
-</li>
-<li>越接近一越好，越接近零越差<br><img src="/images/A-Z_ML/109.png" alt></li>
-<li>模型评估（注意：too good 为不正常这种时候好的有点超乎寻常，比如：1，自变量与因变量之间有某种因果关系的时候会出现，在例子中打电话次数与购买次数成因果关系的时候那么这种自变量必须从样本里剔除。2，过度拟合，3，建模的非常好超乎寻常的好）<br><img src="/images/A-Z_ML/110.png" alt></li>
-</ul>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ol>
-<li>每个模型的长处和不足是什么？<br><img src="/images/A-Z_ML/111.png" alt></li>
-<li>对于每个不同的案例，我如何在这些模型中作出选择？</li>
-</ol>
+<hr>
+<h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><hr>
 <ul>
-<li>首先，需要判断您面对的是一个线性还是非线性的问题。</li>
-<li>假如是线性的问题，应该选择逻辑回归（logistic regression）或者支持向量机SVM。</li>
-<li><p>假如是非线性的问题，应该选择朴素贝叶斯（naive bayes），决策树（decision tree）或者是随机森林（random forest）。在接下来的课程中我们会讲到神经网络（neural network），也是一个十分强大的方法。</p>
-</li>
-<li><p>从实际操作的角度来说，可以大致遵循以下的规则：</p>
-</li>
-<li><p>假如想要给最终预测概率进行排序，应该选择逻辑回归（logistic regression）或是朴素贝叶斯（Naive Bayes）。举个例子：想要预测不同客户购买某项产品的概率，并将这些概率从大到小进行排序，以便锁定目标客户群。在这样的情形下，如果您的问题是线性的，应该运用逻辑回归（logistic regression）；假如您的问题是非线性的，应该选择朴素贝叶斯（naive bayes）模型。</p>
-</li>
-<li>假如想要预测每一个客户属于哪一个划分（segment），应该选择SVM。市场和客户群体的划分可以是已完成的市场调研或者集群分析（clustering）的结果。</li>
-<li>假如想要非常直观地展示／阐述模型，那么决策树（Decision Tree）是最佳选择。</li>
-<li>假如想要最好的模型的分类表现，并且不太在意模型的展示／阐述，那么随机森林（random forest）是不错的选择。</li>
+<li>数据集（data set）： 记录一组数据的集合比如所有西瓜的声音，根蒂，颜色</li>
+<li>示例（instance）或者 样本（sample）：每个西瓜都是一个实例或样本</li>
+<li>属性（attribute）或者特征（feature）：每个西瓜的声音，根蒂，颜色就是西瓜的属性或特征</li>
+<li>分类（classification）：预测的数据为离散型数据</li>
+<li>回归（regression）：预测的数据为连续型数据</li>
+<li>测试（testing）：学得模型后，使用其进行预测的过程</li>
+<li>预测样本（testing sample）：被预测的样本</li>
+<li>聚类（clustering），在非监督学习中区分每组数据，即将训练集中西瓜分成若干组，每组称为一个“簇”（cluster），这些自动形成的簇可能对应潜在的概念划分，例如“浅色瓜”“深色瓜”等。</li>
+<li>监督学习（supervised learning）：训练数据有标记信息，使用回归和分类算法</li>
+<li>无监督学习（unsupervised learning）：训练数据无标记信息，使用聚类算法</li>
+<li>泛化（generalization）：学得的模型适用于新样本的能力</li>
 </ul>
-<ol>
-<li>我如何提高每个模型的表现？</li>
-</ol>
-<p>在第10部分的第2章，我们会详细讲述如何调整模型参数，以提高模型的表现。总体来说，每个模型都有两种类型的的参数：</p>
+<hr>
+<h3 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h3><hr>
 <ul>
-<li>可以被“学习”的参数，比如：线性回归中各个自变量的参数。</li>
-<li>难以被学习的“超参数” （hyperparameter）。<br>一个好的“超参数“的例子是随机森林（random forest）算法中训练决策树的个数N。目前为止，我们应用它的默认值（比如500）。在第10部分的第2章当中我们会详细介绍如何调整、优化这些“超参数”。</li>
+<li>归纳（induction）：从特殊到一般的泛化（generalization）过程</li>
+<li>演绎（deduction）：从一般到特殊的特化（specialization）过程</li>
+<li>归纳学习（induction learning）：归纳学习有广义和狭义之分，广义的归纳学习大体相当于从样本中学习，而狭义的归纳学习则要从训练数据中学得概念（concept），因此有叫做概念学习</li>
+</ul>
+<hr>
+<h3 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h3><hr>
+<ul>
+<li>归纳偏好（inductive bias）当有与训练集一致的假设，但与他们对应的模型在面临新样本的时候会产生不同的输出，那么我们应该采取哪个模型？这时学习算法本身的偏好就会起到关键的作用，任何一个有效的机器学习算法必有其归纳偏好，否则它将被假设空间中看似训练集上等效的假设所迷惑而无法产生确定的结果.</li>
+<li>奥卡姆剃刀（Occam’s razor)：若有多个假设与观察一致，则选择最简单的那个，但是如何判断哪个更简单则不是个简单的问题</li>
+<li>NFL定理（No Free Lunch Theorem）：要谈论算法的相对优劣，必须要针对具体的学习问题，学习算法自身的归纳偏好与问题是否相配，往往会起到觉得决定性作用</li>
+</ul>
+<hr>
+<h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h3><hr>
+<ul>
+<li>二十世纪五十年代到七十年代人们认为只要赋予机器的逻辑推理能力机器就赋予只能后来人们逐渐意识到把总结的知识交给机器是十分困难的<br>1950年：图灵提到机器学习可能.代表：A.Samuel跳棋程序</li>
+<li>五十年代中后期：基于神经网络的联接主义出现.代表F.Rosenblatt的感知机（Perceptron）、B.Widrow的Adaline等</li>
+<li>六七十年代：基于符号主义的学习技术蓬勃发展.代表P.Winston的结构学习系统、R.S.Michalski等人的基于逻辑的归纳学习系统，以决策论为基础的学习技术以及强化学习技术也得到蓬勃发展.如：N.J.Nilsom的机器学习等<br>1980年夏：美国卡耐基梅隆大学第一届机器学习研讨会（IWML）</li>
+<li>二十世纪八十年代：从样例中学习的一大主流是符号主义学习比如决策树（decision tree）至今也是最常用的机器学习技术之一</li>
+<li>二十世纪九十年代：神经网络的连接主义成为主流</li>
+<li>二十世纪九十年代中期：统计学习成为主流代表：支持向量机以及一般的核方法</li>
+<li>二十一世纪：多层深度神经网络成为主流</li>
+</ul>
+<hr>
+<h3 id="应用现状"><a href="#应用现状" class="headerlink" title="应用现状"></a>应用现状</h3><hr>
+<ul>
+<li>人工智能，模式识别，数据挖掘，语音识别，图像识别，信息检索，生物信息，网络通信，软件工程，芯片设计，计算机视觉.总之就像爱迪生发明电</li>
 </ul>
 
       
@@ -172,12 +171,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/Evaluating-Classification-Models-Performance-of-by-A-Z/" data-id="ckowhcx6z001g80yb94uxqdnu" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2017/05/04/xgs01/" data-id="ckowhjm2d007be8ybes8eucj2" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
 
 
     </footer>
@@ -188,13 +187,13 @@
 
 
   
-    <article id="post-Random-Forest-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Exponential-function-and-logarithm-of-PengTitus" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Random-Forest-of-R-by-A-Z/">Random Forest of R by A-Z</a>
+      <a class="article-title" href="/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/">Exponential function  and logarithm of PengTitus</a>
     </h1>
   
 
@@ -203,7 +202,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2019/09/13/Random-Forest-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-13T09:03:14.000Z" itemprop="datePublished">2019-09-13</time></a>
+  <a href="/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/" class="article-date"><time datetime="2016-05-10T09:42:03.000Z" itemprop="datePublished">2016-05-10</time></a>
 </div>
 
     
@@ -214,34 +213,20 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/A-Z_ML/100.png" alt></p>
-<script src="https://gist.github.com/SauronLee/d3c2238ba1ea263551f096d64a5e594e.js"></script>
-
-<hr>
-<pre><code>
-&gt; # Predicting the Test set results
-&gt; y_pred = predict(classifier, newdata = test_set[-3])
-&gt; y_pred
-  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84 
-  0   0   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   0   0   1   0   0   1 
- 85  86  87  89 103 104 107 108 109 117 124 126 127 131 134 139 148 154 156 159 162 163 170 175 
-  0   1   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
-176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 281 286 
-  0   0   0   0   1   1   1   0   1   0   0   1   1   0   0   1   0   0   1   1   1   1   1   1 
-292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 
-  1   0   0   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   0   0   1   0   1   0 
-389 392 395 400 
-  1   1   0   1 
-Levels: 0 1
-
-&gt; # Making the Confusion Matrix
-&gt; cm = table(test_set[, 3], y_pred)
-&gt; cm
-   y_pred
-     0  1
-  0 59  5
-  1  9 27
-</code></pre><p><img src="/images/A-Z_ML/95.png" alt></p>
+        <h2 id="指数exponent与对数概论"><a href="#指数exponent与对数概论" class="headerlink" title="指数exponent与对数概论"></a>指数exponent与对数概论</h2><ul>
+<li>对数就是一个函数</li>
+<li>指数的的作用是把自然数成倍增长，而对数的作用就是取消指数对自然数的增长，主要为了简化天文学计算</li>
+</ul>
+<p>比如：没人可以把一本书折叠9次：因为2的9次方是512，相当于一部字典的厚度<br>把一张纸折叠42次后的高度比地球到月球的距离还要高</p>
+<h2 id="指数律-a-m-a-n-a-m-n"><a href="#指数律-a-m-a-n-a-m-n" class="headerlink" title="指数律$(a^{m})(a^{n})=a^{m+n}$"></a>指数律$(a^{m})(a^{n})=a^{m+n}$</h2><p><img src="/images/Exponential&amp;logarithmPengTitus/01.png" alt><br>为什么$a^{0}=1$<br><img src="/images/Exponential&amp;logarithmPengTitus/02.png" alt><br>为什么$a^{-n}=\frac{1}{a^{n}}$<br><img src="/images/Exponential&amp;logarithmPengTitus/03.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/05.png" alt><br>m,n全部为负数时依然成立<br><img src="/images/Exponential&amp;logarithmPengTitus/04.png" alt></p>
+<h3 id="指数律-a-m-n-a-nm-与-ab-n-a-n-cdot-b-n"><a href="#指数律-a-m-n-a-nm-与-ab-n-a-n-cdot-b-n" class="headerlink" title="指数律$(a^{m})^{n}=a^{nm}与(ab)^{n}=a^{n}\cdot b^{n}$"></a>指数律$(a^{m})^{n}=a^{nm}与(ab)^{n}=a^{n}\cdot b^{n}$</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/06.png" alt></p>
+<h3 id="指数律-有理数指数-分数指数"><a href="#指数律-有理数指数-分数指数" class="headerlink" title="指数律_有理数指数(分数指数)"></a>指数律_有理数指数(分数指数)</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/07.png" alt></p>
+<h3 id="指数不等式"><a href="#指数不等式" class="headerlink" title="指数不等式"></a>指数不等式</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/08.png" alt><br>根据算几不等式可看出<br><img src="/images/Exponential&amp;logarithmPengTitus/09.png" alt></p>
+<h3 id="对数Logarithm概论"><a href="#对数Logarithm概论" class="headerlink" title="对数Logarithm概论"></a>对数Logarithm概论</h3><p>对数Logarithm=Logos神的话，arithmos计算-John Napier<br>对数就是把次幂抓下来的工具<br><img src="/images/Exponential&amp;logarithmPengTitus/10.png" alt><br>求指数就是原函数的反函数<br><img src="/images/Exponential&amp;logarithmPengTitus/11.png" alt></p>
+<h3 id="对数的定义和指数反函数的性质"><a href="#对数的定义和指数反函数的性质" class="headerlink" title="对数的定义和指数反函数的性质"></a>对数的定义和指数反函数的性质</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/12.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/13.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/14.png" alt></p>
+<h3 id="对数律logarithmic-identities"><a href="#对数律logarithmic-identities" class="headerlink" title="对数律logarithmic identities"></a>对数律logarithmic identities</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/15.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/16.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/17.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/18.png" alt></p>
+<h3 id="对数的换底法则和推论"><a href="#对数的换底法则和推论" class="headerlink" title="对数的换底法则和推论"></a>对数的换底法则和推论</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/19.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/20.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/21.png" alt><br><img src="/images/Exponential&amp;logarithmPengTitus/22.png" alt></p>
+<h3 id="e"><a href="#e" class="headerlink" title="e"></a>e</h3><p><img src="/images/Exponential&amp;logarithmPengTitus/23.png" alt></p>
 
       
     </div>
@@ -252,12 +237,12 @@ Levels: 0 1
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2019/09/13/Random-Forest-of-R-by-A-Z/" data-id="ckowhcx8q004n80ybni7h8dux" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2016/05/10/Exponential-function-and-logarithm-of-PengTitus/" data-id="ckowhjlza0030e8ybubedyyo5" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Calculus/">Calculus</a></li></ul>
 
 
     </footer>
@@ -271,7 +256,7 @@ Levels: 0 1
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/9/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li class="active"><span class="page-number">10</span></li><li><a class="page-number" href="/page/11/">11</a></li><li><a class="page-number" href="/page/12/">12</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/11/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/9/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li class="active"><span class="page-number">10</span></li><li class="disabled"><span class="page-next">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 

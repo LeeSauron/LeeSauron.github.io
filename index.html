@@ -236,7 +236,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2021/05/20/2021-2022-IntnatConf-and-JPConf/" data-id="ckowhcx5o000080ybsvfohl2d" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2021/05/20/2021-2022-IntnatConf-and-JPConf/" data-id="ckowhjlwj0001e8ybqk43ht2h" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -300,7 +300,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://github.com/SauronLee/2021/03/24/siroita/" data-id="ckowhcx9l006a80ybpyy4yf59" class="article-share-link">
+      <a data-url="https://github.com/SauronLee/2021/03/24/siroita/" data-id="ckowhjm2a0074e8yby8msxyy9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -316,10 +316,540 @@
 
 
   
+    <article id="post-arXiv-1905-09866-cs-notes" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/10/arXiv-1905-09866-cs-notes/">[Fair is Better than Sensational] Notes</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2020/12/10/arXiv-1905-09866-cs-notes/" class="article-date"><time datetime="2020-12-10T05:50:15.000Z" itemprop="datePublished">2020-12-10</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/reading-notes/">reading_notes</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Fair-is-Better-than-Sensational"><a href="#Fair-is-Better-than-Sensational" class="headerlink" title="Fair is Better than Sensational:"></a>Fair is Better than Sensational:</h2><p>Man is to Doctor as Woman is to Doctor</p>
+<p><a href="http://arxiv.org/abs/1905.09866" target="_blank" rel="noopener">http://arxiv.org/abs/1905.09866</a></p>
+<hr>
+<p>静冈县过了十二月的第一个星期渐渐感到寒意。</p>
+<p>19年的一篇Malvina Nissim的关于类比词的评价。</p>
+<p>这篇文章中作者提到类比词的“words embedding”的评估方法存在很大的漏洞，在一些类比词的计算方法中都存在了人们介入的偏见，（A:B::C:D）B不能等于D的限制 Mikolov et al. (2013)中存在偏差：</p>
+<blockquote>
+<p>simr(a:b,c:d) = simr(b:a,d:c) </p>
+<p>simr(a:b,c:d) = simr(c:d,a:b) </p>
+<p>simr(a:b,c:d) ̸= simr(a:b,d:c) </p>
+<p> simr(a:b,c:d) ̸= simr(a:d,c:b) </p>
+<p>​                                                              -(<a href="http://arxiv.org/abs/1309.4035)P554" target="_blank" rel="noopener">http://arxiv.org/abs/1309.4035)P554</a></p>
+</blockquote>
+<ul>
+<li><p>caucasian lawful black : criminal : 2.0 : lawful criminal defamation libel vigilante</p>
+<p>​                                                             -    Manzini et al. (2019b) and Manzini et al. (2019c)</p>
+</li>
+</ul>
+<p>在表格三中提取的一段数据，“白人守法而黑人犯罪”带有人们的偏见，然而是因为限制了index==1的输入，这是不公平的，因为“白人守法而黑人犯罪”和“黑人守法而白人犯罪”完全是相等的。</p>
+<p>此外：</p>
+<ul>
+<li>man is to doctor as woman is to doctor* (where D == B)</li>
+</ul>
+<p>男人与女人都可以身为医生，而不是限制index==1后女人和护士画等号。</p>
+<p>另外（当限制 D == C时）：</p>
+<ul>
+<li>short is to shorter as new is to new*, thus D == C</li>
+</ul>
+<p>在计算类比词的算法中也存在偏见，比如给出三个词求第四个词，第三个词给予了限制并带有人类的偏见（比如：3COSADD  Mikolov et al. (2013) 3COSMUL Levy and Goldberg (2014)）</p>
+<p>文中提到Bolukbasi et al. (2016)计算类比词给予两个词（A：B）预测C，D并给与了cos（pi/3）的限制此方法消除了第三个词的限制但是也因为限制输入词而损失大量信息。</p>
+<p>文中给了这样的一段狠话：</p>
+<ul>
+<li><p>even though this constraint is mentioned in the original paper (Mikolov et al. 2013)</p>
+<p>and in follow-up work (Linzen 2016; Bolukbasi et al. 2016; Rogers, Drozd, and Li 2017;</p>
+<p>Goldberg 2017; Schluter 2018), we believe this is not common knowledge in the field(analogy examples are still widely used), and even more so outside the field.</p>
+</li>
+</ul>
+<p>个人想法：</p>
+<p>对于词向量类比词的算法之前也有研究过还有东大16年发表过的<strong>3CosAvg</strong> (vector offset averaged over multiple pairs)和<strong>LRCos</strong> (supervised learning of the target class + cosine similarity to the <em>b</em> word)详细可以看下面的连接：</p>
+<ul>
+<li>（<a href="https://aclweb.org/aclwiki/Analogy_(State_of_the_art)）" target="_blank" rel="noopener">https://aclweb.org/aclwiki/Analogy_(State_of_the_art)）</a></li>
+</ul>
+<p>其实词嵌入模型计算的无非就是使相同语法位置结构的单词最小化点积或者说是最小化cos相似度，然而偏见算法并不能很好的表示一个词向量的好坏，他只能说明词向量有一种特性（这个特性是人们的偏见所附加的），更好更优质的词向量应当是作为一个Pre-train更好的去服务下游（decode）应用并产生更好的结果，研究方向应该如何解决多义词问题（比如刘知远老师在17年提出的的Sememe义原）</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2020/12/10/arXiv-1905-09866-cs-notes/" data-id="ckowhjm22006le8ybtk8cr7ha" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/paper/">paper</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Lihang-ML-notes" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/04/Lihang-ML-notes/">統計学習方法ノート</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2020/11/04/Lihang-ML-notes/" class="article-date"><time datetime="2020-11-04T08:17:38.000Z" itemprop="datePublished">2020-11-04</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/notes/">notes</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+
+	<div class="row">
+    <embed src="/pdf/Statistics_notes.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2020/11/04/Lihang-ML-notes/" data-id="ckowhjm05003ye8ybve8koatm" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-basic-math-for-ML" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/31/basic-math-for-ML/">basic math for ML</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2020/10/31/basic-math-for-ML/" class="article-date"><time datetime="2020-10-30T17:27:20.000Z" itemprop="datePublished">2020-10-31</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/notes/">notes</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+
+	<div class="row">
+    <embed src="/pdf/basic_math_for_ML_notes.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2020/10/31/basic-math-for-ML/" data-id="ckowhjm1y006fe8ybnv6hkz61" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Sunannan-10-000-words" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/16/Sunannan-10-000-words/">Sunannan 10,000 words</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2020/10/16/Sunannan-10-000-words/" class="article-date"><time datetime="2020-10-16T12:20:01.000Z" itemprop="datePublished">2020-10-16</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/notes/">notes</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+
+	<div class="row">
+    <embed src="/pdf/Sunannan_1wwords.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2020/10/16/Sunannan-10-000-words/" data-id="ckowhjm1s0065e8ybafle91sw" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/english/">english</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-EM-Arithmetic-by-Zou" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/05/EM-Arithmetic-by-Zou/">EM Arithmetic by Zou</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/10/05/EM-Arithmetic-by-Zou/" class="article-date"><time datetime="2019-10-05T04:11:08.000Z" itemprop="datePublished">2019-10-05</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>特徴：データー量が少ないとき、データーを欠くの時、例えば：Gauss混合モデル(GMM)</p>
+<hr>
+<p>アルゴリズム例：Gauss混合モデル(GMM)<br>既知：人々の身長を知っだ、性別を予測する<br>h1,h2,h3,…,h<br>男の人:Gauss(u1,sigma1) n1/n = P1<br>女の人:Gauss(u２,sigma２) n２/n = P２<br>hi = P1_i <em> Gauss(u1_i,sigma1) + P２_i </em> Gauss(u２_i,sigma２)</p>
+<hr>
+<p>GMM-EM</p>
+<script src="https://gist.github.com/SauronLee/e6b2a22e5ded4e9fa8aaa8c30bf2f7ee.js"></script>
+
+<p><img src="/images/A-Z_ML/272.png" alt="EM"></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/10/05/EM-Arithmetic-by-Zou/" data-id="ckowhjlyy002ke8ybd53m39ev" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Deep-Learning-Certificate-by-Coursera" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/30/Deep-Learning-Certificate-by-Coursera/">Deep Learning Certificate by Coursera</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/09/30/Deep-Learning-Certificate-by-Coursera/" class="article-date"><time datetime="2019-09-30T07:35:03.000Z" itemprop="datePublished">2019-09-30</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/news/">news</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.imgur.com/NXkwpX7.png" alt></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/09/30/Deep-Learning-Certificate-by-Coursera/" data-id="ckowhjlyt002he8ybppm5eotn" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-NLP-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/NLP-of-R-by-A-Z/">NLP of R by A-Z</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/09/15/NLP-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-14T17:09:21.000Z" itemprop="datePublished">2019-09-15</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/A-Z_ML/272.png" alt="テキスト"></p>
+<hr>
+<ul>
+<li>テキストを利用して、テキストが積極的か消極的かを予測します。</li>
+<li>左の部分は段落にコンマできりました、右の方うがスペースを使って段落を引き。普通の時私たちがよくコンマを使います段落でも色々な状態であっだので、もしコンマを段落を区別すれば紛らわしくしまっだ、だから左の部分はここで我々は左のテキストを使います、</li>
+</ul>
+<script src="https://gist.github.com/SauronLee/e5cb61a2fb628954e353a7ca6193c3e5.js"></script>
+
+<hr>
+<ul>
+<li>databset-tape of word model</li>
+</ul>
+<p><img src="/images/A-Z_ML/272.png" alt></p>
+<hr>
+<p>1, 大文字が子文字に転換する(map=マッピング)<br>corpus = tm_map(corpus, content_transformer(tolower))</p>
+<ul>
+<li>corpusを検査（corpusが超複雑だ）</li>
+</ul>
+<pre><code>as.character(corpus[[1]])
+[1] &quot;wow... loved this place.&quot;
+</code></pre><p>2, ナンバーを抜いて<br>corpus = tm_map(corpus, removeNumbers)<br>3, 句読点を削除して<br>corpus = tm_map(corpus, removePunctuation)<br>4, きょじを削除して<br>corpus = tm_map(corpus, removeWords, stopwords())<br>5, 全部の単語を語根に転換して<br>corpus = tm_map(corpus, stemDocument)<br>6, 最後は余計なスペースを削除して(まばらになっだ)<br>corpus = tm_map(corpus, stripWhitespace)<br>7,疎らなマトリクスを作ります<br>dtm = DocumentTermMatrix(corpus)<br>dtm<br>&lt;<documenttermmatrix (documents: 1000, terms: 1577)>&gt;<br>＃ここでゼロではないの数割るゼロの数<br>＃Sparsity＝空疎性、大きすぎだから、百パーセントになっだ<br>Non-/sparse entries: 5435/1571565<br>Sparsity           : 100%<br>Maximal term length: 32<br>Weighting          : term frequency (tf)<br>＃ここでオレたち一番最大空疎を耐えられるな比率を書いて（もしその）<br>dtm = removeSparseTerms(dtm, 0.999)</documenttermmatrix></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/09/15/NLP-of-R-by-A-Z/" data-id="ckowhjm130058e8ybkgrkho4u" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-cleaning/">Data cleaning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/">NLP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Thompson-of-R-by-A-Z" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/14/Thompson-of-R-by-A-Z/">Thompson of R by A-Z</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2019/09/14/Thompson-of-R-by-A-Z/" class="article-date"><time datetime="2019-09-14T09:35:37.000Z" itemprop="datePublished">2019-09-14</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="https://gist.github.com/SauronLee/71d18847f9d0a9dc5bbe3564c63f45bf.js"></script>
+
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://github.com/SauronLee/2019/09/14/Thompson-of-R-by-A-Z/" data-id="ckowhjm1z006he8yblqb6qe67" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Statistics/">Statistics</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
   <div id="page-nav">
-    <nav><ul class="pagination"><li class="disabled"><span class="page-prev"><i class="fa fa-chevron-left"></i> Prev</a></li><li class="active"><span class="page-number">1</span></li><li><a class="page-number" href="/page/2/">2</a></li><li><a class="page-number" href="/page/3/">3</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/46/">46</a></li><li><a class="page-next" rel="next" href="/page/2/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+    <nav><ul class="pagination"><li class="disabled"><span class="page-prev"><i class="fa fa-chevron-left"></i> Prev</a></li><li class="active"><span class="page-number">1</span></li><li><a class="page-number" href="/page/2/">2</a></li><li><a class="page-number" href="/page/3/">3</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/10/">10</a></li><li><a class="page-next" rel="next" href="/page/2/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
   </div>
 
 
